@@ -28,11 +28,31 @@ DROP TABLE IF EXISTS dbo.MONITOR_REQUEST;
 DROP TABLE IF EXISTS dbo.MONITOR_FIXED_POINT;
 DROP TABLE IF EXISTS dbo.MONITOR_METHODOLOGY;
 DROP TABLE IF EXISTS dbo.MONITOR_TOLERANCE;
+DROP TABLE IF EXISTS dbo.MONITOR_TOLERANCE_DEFAULT;
 GO
 
-/* ───────── 1) TOLERÂNCIA entre monitoramentos (dias) ─────────────────────
-   Escopo: fazenda + cultura + variedade. Resolução (mais específico vence):
-     variedade+fazenda › variedade › default+fazenda › default(todas).
+/* ───────── 0) DEFAULT GLOBAL da tolerância — por CULTURA (sem fazenda/variedade)
+   O sistema já vem pré-configurado (ex.: Soja 7, Algodão 7, Milho 7...). Se a
+   fazenda não cadastrou nada específico, a resolução cai aqui. NÃO depende de
+   fazenda nem variedade — 1 linha por cultura. */
+CREATE TABLE dbo.MONITOR_TOLERANCE_DEFAULT (
+    id          BIGINT IDENTITY(1,1) CONSTRAINT PK_MONITOR_TOLERANCE_DEFAULT PRIMARY KEY,
+    culture_id  BIGINT NOT NULL CONSTRAINT FK_MTOLD_culture REFERENCES dbo.FARM_CULTURE(id),
+    days        INT    NOT NULL,
+    source      VARCHAR(12) NOT NULL CONSTRAINT DF_MTOLD_src DEFAULT 'app',
+    active      BIT NOT NULL CONSTRAINT DF_MTOLD_active DEFAULT 1,
+    created_at  DATETIME2(3) NOT NULL CONSTRAINT DF_MTOLD_created DEFAULT SYSUTCDATETIME(),
+    updated_at  DATETIME2(3) NULL,
+    deleted_at  DATETIME2(3) NULL
+);
+GO
+CREATE UNIQUE INDEX UQ_MONITOR_TOLERANCE_DEFAULT ON dbo.MONITOR_TOLERANCE_DEFAULT(culture_id) WHERE deleted_at IS NULL;
+GO
+
+/* ───────── 1) TOLERÂNCIA — EXCEÇÕES (sobrepõem o default global) ──────────
+   Só o que foge do default: variedade específica, ou a cultura em geral numa
+   fazenda. Resolução (mais específico vence, senão cai no DEFAULT global):
+     variedade+fazenda › variedade › cultura+fazenda › [DEFAULT global].
    farm_id NULL = todas as fazendas ; variety_id NULL = "todas as variedades". */
 CREATE TABLE dbo.MONITOR_TOLERANCE (
     id          BIGINT IDENTITY(1,1) CONSTRAINT PK_MONITOR_TOLERANCE PRIMARY KEY,
@@ -130,13 +150,31 @@ IF NOT EXISTS (SELECT 1 FROM sys.foreign_keys WHERE name='FK_FMON_request')
     ALTER TABLE dbo.FARM_MONITORING ADD CONSTRAINT FK_FMON_request FOREIGN KEY (request_id) REFERENCES dbo.MONITOR_REQUEST(id);
 GO
 
-/* ───────── 6) SEED da tolerância a partir do Farmbox (307 linhas) ────────
-   Mapeia ids Farmbox→nossos via pontes (farmbox_culture_id / farmbox_variety_id).
-   O Farmbox tem 1 fazenda (Celeiro Sementes) → seed entra como farm_id NULL
-   (todas). Dedup por (cultura, variedade) pegando o mais recente. Idempotente. */
+/* ───────── 6) SEEDS a partir do Farmbox (record JSON; farm 2112 = Celeiro Sementes) ──
+   As colunas tipadas do landing vêm NULL; o dado está no record. Mapeia ids
+   Farmbox→nossos via pontes (farmbox_culture_id / farmbox_variety_id). Idempotente. */
+
+-- 6a) DEFAULT GLOBAL por cultura = dias mais frequentes (moda) daquela cultura no Farmbox.
+--     É a pré-configuração do sistema (Soja 7, Algodão 7, Milho 7, Braquiária 8, ...).
 ;WITH raw AS (
-    -- as colunas tipadas do landing vêm NULL; o dado está no record JSON.
-    -- farm_id 2112 = "Celeiro Sementes - BA" (nossa operação); as demais fazendas do Farmbox são ignoradas.
+    SELECT c.id AS culture_id, TRY_CAST(JSON_VALUE(t.record,'$.days') AS INT) AS days
+      FROM CONNECTOR_GCS_FARM.dbo.FARMBOX_MONITORING_TOLERANCE t
+      JOIN dbo.FARM_CULTURE c ON c.farmbox_culture_id = TRY_CAST(JSON_VALUE(t.record,'$.culture_id') AS INT) AND c.deleted_at IS NULL
+     WHERE t.deleted_at IS NULL AND TRY_CAST(JSON_VALUE(t.record,'$.farm_id') AS INT) = 2112
+), moda AS (
+    SELECT culture_id, days, ROW_NUMBER() OVER (PARTITION BY culture_id ORDER BY COUNT(*) DESC, days ASC) rn
+      FROM raw WHERE days IS NOT NULL GROUP BY culture_id, days
+)
+INSERT INTO dbo.MONITOR_TOLERANCE_DEFAULT (culture_id, days, source)
+SELECT m.culture_id, m.days, 'farmbox'
+  FROM moda m
+ WHERE m.rn = 1
+   AND NOT EXISTS (SELECT 1 FROM dbo.MONITOR_TOLERANCE_DEFAULT d WHERE d.culture_id = m.culture_id AND d.deleted_at IS NULL);
+GO
+
+-- 6b) EXCEÇÕES: variedades cujo valor no Farmbox DIFERE do default global da cultura.
+--     (variedades iguais ao default NÃO entram — passam a herdar o default automaticamente.)
+;WITH raw AS (
     SELECT TRY_CAST(JSON_VALUE(t.record,'$.culture_id') AS INT) AS fb_culture,
            TRY_CAST(JSON_VALUE(t.record,'$.variety_id') AS INT) AS fb_variety,
            TRY_CAST(JSON_VALUE(t.record,'$.days')       AS INT) AS days,
@@ -148,19 +186,19 @@ GO
     SELECT c.id AS culture_id, v.id AS variety_id, r.days,
            ROW_NUMBER() OVER (PARTITION BY c.id, v.id ORDER BY r.api_updated_at DESC, r.id DESC) rn
       FROM raw r
-      JOIN dbo.FARM_CULTURE c  ON c.farmbox_culture_id  = r.fb_culture  AND c.deleted_at IS NULL
-      LEFT JOIN dbo.FARM_VARIETY v ON v.farmbox_variety_id = r.fb_variety AND v.deleted_at IS NULL
+      JOIN dbo.FARM_CULTURE  c ON c.farmbox_culture_id  = r.fb_culture  AND c.deleted_at IS NULL
+      JOIN dbo.FARM_VARIETY  v ON v.farmbox_variety_id  = r.fb_variety  AND v.deleted_at IS NULL  -- só por-variedade
      WHERE r.days IS NOT NULL AND r.fb_farm = 2112
-       AND (r.fb_variety IS NULL OR v.id IS NOT NULL)   -- variety informada que não resolveu → pula
 )
 INSERT INTO dbo.MONITOR_TOLERANCE (farm_id, culture_id, variety_id, days, source)
 SELECT NULL, s.culture_id, s.variety_id, s.days, 'farmbox'
   FROM src s
+  LEFT JOIN dbo.MONITOR_TOLERANCE_DEFAULT d ON d.culture_id = s.culture_id AND d.deleted_at IS NULL
  WHERE s.rn = 1
+   AND (d.days IS NULL OR s.days <> d.days)   -- só o que difere do default global
    AND NOT EXISTS (
         SELECT 1 FROM dbo.MONITOR_TOLERANCE m
-         WHERE m.farm_id IS NULL AND m.culture_id = s.culture_id AND m.deleted_at IS NULL
-           AND ((m.variety_id IS NULL AND s.variety_id IS NULL) OR m.variety_id = s.variety_id));
+         WHERE m.farm_id IS NULL AND m.culture_id = s.culture_id AND m.variety_id = s.variety_id AND m.deleted_at IS NULL);
 GO
 
 /* ───────── 7) VIEW — status por talhão (alimenta mapa + lista) ───────────
@@ -181,17 +219,20 @@ SELECT
     p.variety_id,
     vr.name             AS variety_name,
     lm.last_monitoring_date,
-    tol.days            AS tolerance_days,
+    COALESCE(tol.days, td.days) AS tolerance_days,                         -- exceção específica › default global
+    CASE WHEN tol.days IS NOT NULL THEN 'especifica'
+         WHEN td.days  IS NOT NULL THEN 'global'
+         ELSE NULL END          AS tolerance_source,                       -- de onde veio a tolerância
     CASE WHEN lm.last_monitoring_date IS NULL THEN NULL
          ELSE DATEDIFF(DAY, lm.last_monitoring_date, CAST(SYSDATETIME() AS date)) END AS days_since,
-    CASE WHEN lm.last_monitoring_date IS NULL OR tol.days IS NULL THEN NULL
-         ELSE DATEDIFF(DAY, lm.last_monitoring_date, CAST(SYSDATETIME() AS date)) - tol.days END AS days_over,
+    CASE WHEN lm.last_monitoring_date IS NULL OR COALESCE(tol.days, td.days) IS NULL THEN NULL
+         ELSE DATEDIFF(DAY, lm.last_monitoring_date, CAST(SYSDATETIME() AS date)) - COALESCE(tol.days, td.days) END AS days_over,
     car.carencia_until,
     CAST(CASE WHEN car.carencia_until IS NOT NULL AND car.carencia_until >= CAST(SYSDATETIME() AS date) THEN 1 ELSE 0 END AS bit) AS in_carencia,
     CASE
         WHEN car.carencia_until IS NOT NULL AND car.carencia_until >= CAST(SYSDATETIME() AS date) THEN 'carencia'
-        WHEN tol.days IS NULL OR lm.last_monitoring_date IS NULL THEN 'sem_referencia'
-        WHEN DATEDIFF(DAY, lm.last_monitoring_date, CAST(SYSDATETIME() AS date)) - tol.days <= 0 THEN 'em_dia'
+        WHEN COALESCE(tol.days, td.days) IS NULL OR lm.last_monitoring_date IS NULL THEN 'sem_referencia'
+        WHEN DATEDIFF(DAY, lm.last_monitoring_date, CAST(SYSDATETIME() AS date)) - COALESCE(tol.days, td.days) <= 0 THEN 'em_dia'
         ELSE 'atrasado'
     END AS state
 FROM dbo.FARM_FIELD_PLANTING p
@@ -215,6 +256,7 @@ OUTER APPLY (
      ORDER BY CASE WHEN t.variety_id IS NOT NULL THEN 0 ELSE 1 END,
               CASE WHEN t.farm_id    IS NOT NULL THEN 0 ELSE 1 END
 ) tol
+LEFT JOIN dbo.MONITOR_TOLERANCE_DEFAULT td ON td.culture_id = sc.culture_id AND td.deleted_at IS NULL AND td.active = 1  -- fallback global por cultura
 OUTER APPLY (
     -- carência = última aplicação no talhão + carencia_days do BULÁRIO do produto
     -- (FARM_PRODUCT_LABEL, por cultura). Vazio hoje → carencia_until NULL até o bulário ser preenchido.
