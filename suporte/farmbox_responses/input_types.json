@@ -1,0 +1,116 @@
+{
+  "input_types": [
+    {
+      "id": 7,
+      "name": "Adjuvante",
+      "grace_period": {
+        "reentry": null,
+        "crop": null
+      }
+    },
+    {
+      "id": 13,
+      "name": "Fertilizante"
+    },
+    {
+      "id": 9,
+      "name": "Regulador",
+      "grace_period": {
+        "reentry": 2,
+        "crop": null
+      }
+    },
+    {
+      "id": 29,
+      "name": "Outros",
+      "grace_period": {
+        "reentry": 2,
+        "crop": null
+      }
+    },
+    {
+      "id": 2,
+      "name": "Inseticida",
+      "grace_period": {
+        "reentry": 2,
+        "crop": null
+      }
+    },
+    {
+      "id": 3,
+      "name": "Acaricida",
+      "grace_period": {
+        "reentry": 2,
+        "crop": null
+      }
+    },
+    {
+      "id": 4,
+      "name": "Fungicida",
+      "grace_period": {
+        "reentry": 2,
+        "crop": null
+      }
+    },
+    {
+      "id": 5,
+      "name": "Herbicida",
+      "grace_period": {
+        "reentry": 2,
+        "crop": null
+      }
+    },
+    {
+      "id": 32,
+      "name": "Sementes"
+    },
+    {
+      "id": 31,
+      "name": "Nutrição ",
+      "grace_period": {
+        "reentry": null,
+        "crop": null
+      }
+    },
+    {
+      "id": 33,
+      "name": "Micronutrientes",
+      "grace_period": {
+        "reentry": null,
+        "crop": null
+      }
+    },
+    {
+      "id": 30,
+      "name": "Inoculante",
+      "grace_period": {
+        "reentry": 0,
+        "crop": null
+      }
+    },
+    {
+      "id": 37,
+      "name": "Tratamento de Semente"
+    },
+    {
+      "id": 39,
+      "name": "Óleo Mineral/Vegetal",
+      "grace_period": {
+        "reentry": null,
+        "crop": null
+      }
+    },
+    {
+      "id": 41,
+      "name": "Corretivo de Solo"
+    }
+  ],
+  "next_page_url": "/api/v1/input_types?page=2",
+  "pagination": {
+    "total_entries": 21,
+    "total_pages": 2,
+    "per_page": 15,
+    "current_page": 1
+  },
+  "deleted_since": []
+}

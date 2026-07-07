@@ -1,0 +1,271 @@
+{
+  "inputs": [
+    {
+      "id": 29886,
+      "name": "Calypso",
+      "formulation": "liquid",
+      "input_type_name": "Inseticida",
+      "input_type_id": 2,
+      "register": "1800",
+      "manufacturer": "Bayer S.A. - São Paulo/ SP",
+      "input_classification": {
+        "toxicological": "4 - Categoria 4 - Produto Pouco Tóxico",
+        "toxicological_color": "#0000FF",
+        "environmental": "II - Produto Muito Perigoso ao Meio Ambiente"
+      },
+      "updated_at": "2019-12-10T13:45:59.000-03:00",
+      "dosage_unit": "l_ha"
+    },
+    {
+      "id": 29872,
+      "name": "Captan SC",
+      "formulation": "liquid",
+      "input_type_name": "Fungicida",
+      "input_type_id": 4,
+      "register": "1908305",
+      "manufacturer": "Adama Brasil S.A. - Londrina",
+      "input_classification": {
+        "toxicological": "4 - Categoria 4 - Produto Pouco Tóxico",
+        "toxicological_color": "#0000FF",
+        "environmental": "II - Produto Muito Perigoso ao Meio Ambiente"
+      },
+      "updated_at": "2019-12-10T13:47:43.000-03:00",
+      "dosage_unit": "l_ha"
+    },
+    {
+      "id": 29851,
+      "name": "Cropstar",
+      "formulation": "liquid",
+      "input_type_name": "Inseticida",
+      "input_type_id": 2,
+      "register": "2506",
+      "manufacturer": "Bayer S.A. - São Paulo/ SP",
+      "input_classification": {
+        "toxicological": "3 - Categoria 3 - Produto Moderadamente Tóxico",
+        "toxicological_color": "#FFFF00",
+        "environmental": "II - Produto Muito Perigoso ao Meio Ambiente"
+      },
+      "updated_at": "2019-12-10T14:06:51.000-03:00",
+      "dosage_unit": "l_ha"
+    },
+    {
+      "id": 29876,
+      "name": "Finish",
+      "formulation": "liquid",
+      "input_type_name": "Regulador",
+      "input_type_id": 9,
+      "register": "1198",
+      "manufacturer": "Bayer S.A. - São Paulo/ SP",
+      "input_classification": {
+        "toxicological": "4 - Categoria 4 - Produto Pouco Tóxico",
+        "toxicological_color": "#0000FF",
+        "environmental": "II - Produto Muito Perigoso ao Meio Ambiente"
+      },
+      "updated_at": "2019-12-10T14:10:10.000-03:00",
+      "dosage_unit": "l_ha"
+    },
+    {
+      "id": 29857,
+      "name": "Galil SC",
+      "formulation": "liquid",
+      "input_type_name": "Inseticida",
+      "input_type_id": 2,
+      "register": "10012",
+      "manufacturer": "Adama Brasil S.A. - Londrina",
+      "input_classification": {
+        "toxicological": "4 - Categoria 4 - Produto Pouco Tóxico",
+        "toxicological_color": "#0000FF",
+        "environmental": "II - Produto Muito Perigoso ao Meio Ambiente"
+      },
+      "updated_at": "2019-12-10T14:11:03.000-03:00",
+      "dosage_unit": "l_ha"
+    },
+    {
+      "id": 29887,
+      "name": "LT\t0025815-REGULADOR DE CRESCIMENTO LEGEND 250",
+      "formulation": "liquid",
+      "input_type_name": "Regulador",
+      "input_type_id": 9,
+      "register": "9010",
+      "manufacturer": "Albaugh Agro Brasil Ltda.- São Paulo",
+      "input_classification": {
+        "toxicological": "4 - Categoria 4 - Produto Pouco Tóxico",
+        "toxicological_color": "#0000FF",
+        "environmental": "III - Produto Perigoso ao Meio Ambiente"
+      },
+      "updated_at": "2019-12-10T14:21:19.000-03:00",
+      "dosage_unit": "l_ha"
+    },
+    {
+      "id": 29865,
+      "name": "malathion 1170 ULV",
+      "formulation": "liquid",
+      "input_type_name": "Inseticida",
+      "input_type_id": 2,
+      "register": "",
+      "manufacturer": "cheminova",
+      "updated_at": "2019-12-10T14:23:12.000-03:00",
+      "dosage_unit": "l_ha"
+    },
+    {
+      "id": 29840,
+      "name": "Maxim Advanced",
+      "formulation": "liquid",
+      "input_type_name": "Fungicida",
+      "input_type_id": 4,
+      "register": "9111",
+      "manufacturer": "Syngenta Proteção de Cultivos Ltda.  São Paulo",
+      "input_classification": {
+        "toxicological": "5 - Categoria 5 - Produto Improvável de Causar Dano Agudo",
+        "toxicological_color": "#0000FF",
+        "environmental": "II - Produto Muito Perigoso ao Meio Ambiente"
+      },
+      "updated_at": "2019-12-10T14:24:49.000-03:00",
+      "dosage_unit": "l_ha"
+    },
+    {
+      "id": 29843,
+      "name": "Mertin 400",
+      "formulation": "liquid",
+      "input_type_name": "Fungicida",
+      "input_type_id": 4,
+      "register": "3788200",
+      "manufacturer": "Syngenta Proteção de Cultivos Ltda.  São Paulo",
+      "input_classification": {
+        "toxicological": "4 - Categoria 4 - Produto Pouco Tóxico",
+        "toxicological_color": "#0000FF",
+        "environmental": "II - Produto Muito Perigoso ao Meio Ambiente"
+      },
+      "updated_at": "2019-12-10T14:25:40.000-03:00",
+      "dosage_unit": "l_ha"
+    },
+    {
+      "id": 30356,
+      "name": "MOLIBDATO DE SÓDIO 39% MO",
+      "formulation": "solid",
+      "input_type_name": "Fertilizante",
+      "input_type_id": 13,
+      "register": "",
+      "manufacturer": "",
+      "updated_at": "2019-12-10T14:33:50.000-03:00",
+      "dosage_unit": "kg_ha"
+    },
+    {
+      "id": 30355,
+      "name": "OXIDO DE COBRE GRAN. CU 20% FARELADO",
+      "formulation": "solid",
+      "input_type_name": "Fertilizante",
+      "input_type_id": 13,
+      "register": "",
+      "manufacturer": "",
+      "updated_at": "2019-12-10T14:35:41.000-03:00",
+      "dosage_unit": "kg_ha"
+    },
+    {
+      "id": 29855,
+      "name": "Polo 500 SC",
+      "formulation": "liquid",
+      "input_type_name": "Acaricida",
+      "input_type_id": 3,
+      "register": "8204",
+      "manufacturer": "Syngenta Proteção de Cultivos Ltda.  São Paulo",
+      "input_classification": {
+        "toxicological": "2 - Categoria 2 - Produto Altamente Tóxico",
+        "toxicological_color": "#FF0000",
+        "environmental": "II - Produto Muito Perigoso ao Meio Ambiente"
+      },
+      "updated_at": "2019-12-10T14:41:11.000-03:00",
+      "dosage_unit": "l_ha"
+    },
+    {
+      "id": 29866,
+      "name": "Priori",
+      "formulation": "liquid",
+      "input_type_name": "Fungicida",
+      "input_type_id": 4,
+      "register": "2198",
+      "manufacturer": "Syngenta Proteção de Cultivos Ltda.  São Paulo",
+      "input_classification": {
+        "toxicological": "5 - Categoria 5 - Produto Improvável de Causar Dano Agudo",
+        "toxicological_color": "#0000FF",
+        "environmental": "III - Produto Perigoso ao Meio Ambiente"
+      },
+      "updated_at": "2019-12-10T14:41:50.000-03:00",
+      "dosage_unit": "l_ha"
+    },
+    {
+      "id": 29868,
+      "name": "Rocks",
+      "formulation": "liquid",
+      "input_type_name": "Inseticida",
+      "input_type_id": 2,
+      "register": "9411",
+      "manufacturer": "FMC Química do Brasil Ltda. - Campinas",
+      "input_classification": {
+        "toxicological": "3 - Categoria 3 - Produto Moderadamente Tóxico",
+        "toxicological_color": "#FFFF00",
+        "environmental": "II - Produto Muito Perigoso ao Meio Ambiente"
+      },
+      "updated_at": "2019-12-10T14:42:08.000-03:00",
+      "dosage_unit": "l_ha"
+    },
+    {
+      "id": 35162,
+      "name": "Lorsban 480 BR",
+      "formulation": "liquid",
+      "input_type_name": "Acaricida",
+      "input_type_id": 3,
+      "register": "2298596",
+      "manufacturer": "Dow Agrosciences Industrial Ltda. - São Paulo",
+      "updated_at": "2020-01-14T09:58:28.000-03:00",
+      "dosage_unit": "l_ha"
+    }
+  ],
+  "next_page_url": "/api/v1/inputs?page=2",
+  "pagination": {
+    "total_entries": 898,
+    "total_pages": 60,
+    "per_page": 15,
+    "current_page": 1
+  },
+  "deleted_since": [
+    29718,
+    29720,
+    29722,
+    29721,
+    29717,
+    29719,
+    33389,
+    34536,
+    29713,
+    29869,
+    42320,
+    42319,
+    42317,
+    49746,
+    59612,
+    64163,
+    59610,
+    64164,
+    59609,
+    74813,
+    74814,
+    81279,
+    83199,
+    117266,
+    31917,
+    30066,
+    30060,
+    30064,
+    30059,
+    30065,
+    30061,
+    275320,
+    311275,
+    318110,
+    319047,
+    330021,
+    330227,
+    351823
+  ]
+}

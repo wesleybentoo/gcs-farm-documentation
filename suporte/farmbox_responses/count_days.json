@@ -1,0 +1,492 @@
+{
+  "count_days": [
+    {
+      "id": 38897,
+      "date": "2019-09-20",
+      "plantation_id": 36739,
+      "updated_at": "2019-09-27T13:33:39.000-03:00",
+      "count_groups": [
+        {
+          "count_group": {
+            "id": 587,
+            "name": "Avaliação de plantio ",
+            "updated_at": "2020-01-31T18:12:27.000-03:00"
+          },
+          "count_parameters": [
+            {
+              "count_parameter": {
+                "id": 2034,
+                "name": "Sementes em 3 m/L",
+                "updated_at": "2019-09-13T13:13:32.000-03:00",
+                "calculated": false,
+                "formula": ""
+              },
+              "total": 76.6,
+              "samples": 1,
+              "value": 76.6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 38898,
+      "date": "2019-09-20",
+      "plantation_id": 36737,
+      "updated_at": "2019-09-27T13:33:41.000-03:00",
+      "count_groups": [
+        {
+          "count_group": {
+            "id": 587,
+            "name": "Avaliação de plantio ",
+            "updated_at": "2020-01-31T18:12:27.000-03:00"
+          },
+          "count_parameters": [
+            {
+              "count_parameter": {
+                "id": 2034,
+                "name": "Sementes em 3 m/L",
+                "updated_at": "2019-09-13T13:13:32.000-03:00",
+                "calculated": false,
+                "formula": ""
+              },
+              "total": 75.0,
+              "samples": 1,
+              "value": 75.0
+            },
+            {
+              "count_parameter": {
+                "id": 2036,
+                "name": "Largura da plantadeira (m)",
+                "updated_at": "2019-09-13T13:21:30.000-03:00",
+                "calculated": false,
+                "formula": ""
+              },
+              "total": 13.5,
+              "samples": 1,
+              "value": 13.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 41894,
+      "date": "2019-11-14",
+      "plantation_id": 43316,
+      "updated_at": "2019-11-14T17:12:43.000-03:00",
+      "count_groups": [
+        {
+          "count_group": {
+            "id": 587,
+            "name": "Avaliação de plantio ",
+            "updated_at": "2020-01-31T18:12:27.000-03:00"
+          },
+          "count_parameters": [
+            {
+              "count_parameter": {
+                "id": 2034,
+                "name": "Sementes em 3 m/L",
+                "updated_at": "2019-09-13T13:13:32.000-03:00",
+                "calculated": false,
+                "formula": ""
+              },
+              "total": 116.0,
+              "samples": 2,
+              "value": 58.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 41895,
+      "date": "2019-11-14",
+      "plantation_id": 43328,
+      "updated_at": "2019-11-14T17:12:47.000-03:00",
+      "count_groups": [
+        {
+          "count_group": {
+            "id": 587,
+            "name": "Avaliação de plantio ",
+            "updated_at": "2020-01-31T18:12:27.000-03:00"
+          },
+          "count_parameters": [
+            {
+              "count_parameter": {
+                "id": 2034,
+                "name": "Sementes em 3 m/L",
+                "updated_at": "2019-09-13T13:13:32.000-03:00",
+                "calculated": false,
+                "formula": ""
+              },
+              "total": 52.0,
+              "samples": 1,
+              "value": 52.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 41955,
+      "date": "2019-11-15",
+      "plantation_id": 43316,
+      "updated_at": "2019-11-15T12:06:37.000-03:00",
+      "count_groups": [
+        {
+          "count_group": {
+            "id": 587,
+            "name": "Avaliação de plantio ",
+            "updated_at": "2020-01-31T18:12:27.000-03:00"
+          },
+          "count_parameters": [
+            {
+              "count_parameter": {
+                "id": 2034,
+                "name": "Sementes em 3 m/L",
+                "updated_at": "2019-09-13T13:13:32.000-03:00",
+                "calculated": false,
+                "formula": ""
+              },
+              "total": 58.0,
+              "samples": 1,
+              "value": 58.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 41956,
+      "date": "2019-11-15",
+      "plantation_id": 43328,
+      "updated_at": "2019-11-15T12:06:40.000-03:00",
+      "count_groups": [
+        {
+          "count_group": {
+            "id": 587,
+            "name": "Avaliação de plantio ",
+            "updated_at": "2020-01-31T18:12:27.000-03:00"
+          },
+          "count_parameters": [
+            {
+              "count_parameter": {
+                "id": 2034,
+                "name": "Sementes em 3 m/L",
+                "updated_at": "2019-09-13T13:13:32.000-03:00",
+                "calculated": false,
+                "formula": ""
+              },
+              "total": 53.0,
+              "samples": 1,
+              "value": 53.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 41999,
+      "date": "2019-11-17",
+      "plantation_id": 43338,
+      "updated_at": "2019-11-17T07:39:04.000-03:00",
+      "count_groups": [
+        {
+          "count_group": {
+            "id": 587,
+            "name": "Avaliação de plantio ",
+            "updated_at": "2020-01-31T18:12:27.000-03:00"
+          },
+          "count_parameters": [
+            {
+              "count_parameter": {
+                "id": 2034,
+                "name": "Sementes em 3 m/L",
+                "updated_at": "2019-09-13T13:13:32.000-03:00",
+                "calculated": false,
+                "formula": ""
+              },
+              "total": 62.0,
+              "samples": 1,
+              "value": 62.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 42000,
+      "date": "2019-11-17",
+      "plantation_id": 43339,
+      "updated_at": "2019-11-17T07:39:07.000-03:00",
+      "count_groups": [
+        {
+          "count_group": {
+            "id": 587,
+            "name": "Avaliação de plantio ",
+            "updated_at": "2020-01-31T18:12:27.000-03:00"
+          },
+          "count_parameters": [
+            {
+              "count_parameter": {
+                "id": 2034,
+                "name": "Sementes em 3 m/L",
+                "updated_at": "2019-09-13T13:13:32.000-03:00",
+                "calculated": false,
+                "formula": ""
+              },
+              "total": 57.0,
+              "samples": 1,
+              "value": 57.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 42089,
+      "date": "2019-11-18",
+      "plantation_id": 43329,
+      "updated_at": "2019-11-18T18:37:30.000-03:00",
+      "count_groups": [
+        {
+          "count_group": {
+            "id": 587,
+            "name": "Avaliação de plantio ",
+            "updated_at": "2020-01-31T18:12:27.000-03:00"
+          },
+          "count_parameters": [
+            {
+              "count_parameter": {
+                "id": 2034,
+                "name": "Sementes em 3 m/L",
+                "updated_at": "2019-09-13T13:13:32.000-03:00",
+                "calculated": false,
+                "formula": ""
+              },
+              "total": 57.0,
+              "samples": 1,
+              "value": 57.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 42106,
+      "date": "2019-11-18",
+      "plantation_id": 43338,
+      "updated_at": "2019-11-18T22:46:05.000-03:00",
+      "count_groups": [
+        {
+          "count_group": {
+            "id": 587,
+            "name": "Avaliação de plantio ",
+            "updated_at": "2020-01-31T18:12:27.000-03:00"
+          },
+          "count_parameters": [
+            {
+              "count_parameter": {
+                "id": 2034,
+                "name": "Sementes em 3 m/L",
+                "updated_at": "2019-09-13T13:13:32.000-03:00",
+                "calculated": false,
+                "formula": ""
+              },
+              "total": 60.0,
+              "samples": 1,
+              "value": 60.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 42107,
+      "date": "2019-11-18",
+      "plantation_id": 43339,
+      "updated_at": "2019-11-18T22:46:08.000-03:00",
+      "count_groups": [
+        {
+          "count_group": {
+            "id": 587,
+            "name": "Avaliação de plantio ",
+            "updated_at": "2020-01-31T18:12:27.000-03:00"
+          },
+          "count_parameters": [
+            {
+              "count_parameter": {
+                "id": 2034,
+                "name": "Sementes em 3 m/L",
+                "updated_at": "2019-09-13T13:13:32.000-03:00",
+                "calculated": false,
+                "formula": ""
+              },
+              "total": 57.0,
+              "samples": 1,
+              "value": 57.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 42108,
+      "date": "2019-11-18",
+      "plantation_id": 43347,
+      "updated_at": "2019-11-18T22:52:47.000-03:00",
+      "count_groups": [
+        {
+          "count_group": {
+            "id": 587,
+            "name": "Avaliação de plantio ",
+            "updated_at": "2020-01-31T18:12:27.000-03:00"
+          },
+          "count_parameters": [
+            {
+              "count_parameter": {
+                "id": 2034,
+                "name": "Sementes em 3 m/L",
+                "updated_at": "2019-09-13T13:13:32.000-03:00",
+                "calculated": false,
+                "formula": ""
+              },
+              "total": 57.0,
+              "samples": 1,
+              "value": 57.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 42182,
+      "date": "2019-11-19",
+      "plantation_id": 43338,
+      "updated_at": "2019-11-19T23:01:56.000-03:00",
+      "count_groups": [
+        {
+          "count_group": {
+            "id": 587,
+            "name": "Avaliação de plantio ",
+            "updated_at": "2020-01-31T18:12:27.000-03:00"
+          },
+          "count_parameters": [
+            {
+              "count_parameter": {
+                "id": 2034,
+                "name": "Sementes em 3 m/L",
+                "updated_at": "2019-09-13T13:13:32.000-03:00",
+                "calculated": false,
+                "formula": ""
+              },
+              "total": 60.0,
+              "samples": 1,
+              "value": 60.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 42183,
+      "date": "2019-11-19",
+      "plantation_id": 43339,
+      "updated_at": "2019-11-19T23:02:00.000-03:00",
+      "count_groups": [
+        {
+          "count_group": {
+            "id": 587,
+            "name": "Avaliação de plantio ",
+            "updated_at": "2020-01-31T18:12:27.000-03:00"
+          },
+          "count_parameters": [
+            {
+              "count_parameter": {
+                "id": 2034,
+                "name": "Sementes em 3 m/L",
+                "updated_at": "2019-09-13T13:13:32.000-03:00",
+                "calculated": false,
+                "formula": ""
+              },
+              "total": 57.0,
+              "samples": 1,
+              "value": 57.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 42184,
+      "date": "2019-11-19",
+      "plantation_id": 43347,
+      "updated_at": "2019-11-19T23:02:03.000-03:00",
+      "count_groups": [
+        {
+          "count_group": {
+            "id": 587,
+            "name": "Avaliação de plantio ",
+            "updated_at": "2020-01-31T18:12:27.000-03:00"
+          },
+          "count_parameters": [
+            {
+              "count_parameter": {
+                "id": 2034,
+                "name": "Sementes em 3 m/L",
+                "updated_at": "2019-09-13T13:13:32.000-03:00",
+                "calculated": false,
+                "formula": ""
+              },
+              "total": 57.0,
+              "samples": 1,
+              "value": 57.0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "next_page_url": "/api/v1/count_days?page=2",
+  "pagination": {
+    "total_entries": 5450,
+    "total_pages": 364,
+    "per_page": 15,
+    "current_page": 1
+  },
+  "deleted_since": [
+    38759,
+    38758,
+    41139,
+    82782,
+    82786,
+    82789,
+    82792,
+    95546,
+    132492,
+    133804,
+    134937,
+    155205,
+    155461,
+    174243,
+    145429,
+    178406,
+    204664,
+    215249,
+    86973,
+    86975,
+    215211,
+    215213,
+    265769,
+    332168,
+    306875,
+    306878,
+    298505,
+    298514,
+    298513,
+    298507,
+    298509,
+    298511
+  ]
+}

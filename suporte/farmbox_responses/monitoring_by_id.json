@@ -1,0 +1,1545 @@
+{
+  "id": 1940677,
+  "samples": 10,
+  "state": "closed",
+  "recommendation": "",
+  "delivered": false,
+  "methodology": "route",
+  "monitoring_stops_count": 10,
+  "phenology": true,
+  "phenology_methodology": 1,
+  "date": "2026-06-26",
+  "close_date": "2026-06-26 11:04:58",
+  "updated_at": "2026-06-26 12:04:00",
+  "monitors": [
+    {
+      "id": 3611,
+      "name": "Gilson Ivo Magalhães Junior",
+      "username": "gilson.i",
+      "email": "givomagalhaesjunior@gmail.com",
+      "crea": ""
+    }
+  ],
+  "phenological_stage": {
+    "name": "C12",
+    "classification": 2
+  },
+  "plantation": {
+    "id": 358344,
+    "variety_id": 11092,
+    "planned_variety_id": 11092,
+    "culture_id": 3,
+    "planned_culture_id": 3,
+    "state": "active",
+    "date": "2026-01-19",
+    "planned_date": "2026-01-14T00:00:00.000-03:00",
+    "emergence_date": "2026-01-25",
+    "activation_date": "2025-12-15",
+    "area": 120.0,
+    "name": "P 30",
+    "farm_name": "Celeiro Sementes - BA",
+    "variety_name": "FM 911 GLTP",
+    "planned_variety_name": "FM 911 GLTP",
+    "culture_name": "Algodão",
+    "culture_unit": "@",
+    "culture_unit_per_ha": "@ / Ha",
+    "planned_culture_name": "Algodão",
+    "harvest_name": "2025/2026",
+    "centroid": {
+      "lat": -14.379303768900257,
+      "lng": -45.59134221237992
+    },
+    "harvest_prediction_date": "2026-07-04",
+    "cycle": 2,
+    "observations": null,
+    "irrigated": true,
+    "updated_at": "2026-06-26T12:04:01.000-03:00",
+    "productivity": null,
+    "closed_date": null,
+    "farm": {
+      "id": 2112,
+      "name": "Celeiro Sementes - BA",
+      "cnpj_cpf": "",
+      "ie": "",
+      "storage_id": 2368,
+      "city": null
+    },
+    "plot": {
+      "id": 22083,
+      "name": "P 30",
+      "farm_id": 2112,
+      "area": 120.0,
+      "updated_at": "2026-06-26T12:04:01.000-03:00",
+      "disabled_at": null,
+      "geo_points": [
+        {
+          "latitude": "-14.384889647512155",
+          "longitude": "-45.591202630227315"
+        },
+        {
+          "latitude": "-14.384885018008328",
+          "longitude": "-45.591614149251654"
+        },
+        {
+          "latitude": "-14.384824180122425",
+          "longitude": "-45.59222813899879"
+        },
+        {
+          "latitude": "-14.384747997326558",
+          "longitude": "-45.59263219612387"
+        },
+        {
+          "latitude": "-14.38458126811006",
+          "longitude": "-45.59322517331418"
+        },
+        {
+          "latitude": "-14.38443598080851",
+          "longitude": "-45.593608780920874"
+        },
+        {
+          "latitude": "-14.384168719495314",
+          "longitude": "-45.594161685573226"
+        },
+        {
+          "latitude": "-14.383845065933762",
+          "longitude": "-45.59468190947649"
+        },
+        {
+          "latitude": "-14.383468771704246",
+          "longitude": "-45.59516342271479"
+        },
+        {
+          "latitude": "-14.383190794382374",
+          "longitude": "-45.595460149044186"
+        },
+        {
+          "latitude": "-14.382736737060817",
+          "longitude": "-45.59586499308932"
+        },
+        {
+          "latitude": "-14.382242885947381",
+          "longitude": "-45.59621741381068"
+        },
+        {
+          "latitude": "-14.381714965307616",
+          "longitude": "-45.59651332664197"
+        },
+        {
+          "latitude": "-14.381347098353608",
+          "longitude": "-45.59667748679823"
+        },
+        {
+          "latitude": "-14.380776156223495",
+          "longitude": "-45.59687194040458"
+        },
+        {
+          "latitude": "-14.38018814530896",
+          "longitude": "-45.59700230075339"
+        },
+        {
+          "latitude": "-14.37958988110019",
+          "longitude": "-45.597067057380684"
+        },
+        {
+          "latitude": "-14.379188763887052",
+          "longitude": "-45.59707337994655"
+        },
+        {
+          "latitude": "-14.378588842660722",
+          "longitude": "-45.5970275099786"
+        },
+        {
+          "latitude": "-14.377997204997063",
+          "longitude": "-45.59691574549777"
+        },
+        {
+          "latitude": "-14.377420708226968",
+          "longitude": "-45.59673938241025"
+        },
+        {
+          "latitude": "-14.377048097883396",
+          "longitude": "-45.59658689842547"
+        },
+        {
+          "latitude": "-14.37651156253982",
+          "longitude": "-45.596307773759975"
+        },
+        {
+          "latitude": "-14.376007387090374",
+          "longitude": "-45.59597109822556"
+        },
+        {
+          "latitude": "-14.375541414994995",
+          "longitude": "-45.59558077429176"
+        },
+        {
+          "latitude": "-14.375254678152645",
+          "longitude": "-45.59529296378349"
+        },
+        {
+          "latitude": "-14.374864132577219",
+          "longitude": "-45.594823563058185"
+        },
+        {
+          "latitude": "-14.37452504070195",
+          "longitude": "-45.594313814539134"
+        },
+        {
+          "latitude": "-14.37424133257931",
+          "longitude": "-45.59376962630881"
+        },
+        {
+          "latitude": "-14.374016296359466",
+          "longitude": "-45.593197305528065"
+        },
+        {
+          "latitude": "-14.373852540187931",
+          "longitude": "-45.59260348534656"
+        },
+        {
+          "latitude": "-14.373751961982864",
+          "longitude": "-45.59199504803877"
+        },
+        {
+          "latitude": "-14.373720614967727",
+          "longitude": "-45.59158478032475"
+        },
+        {
+          "latitude": "-14.373727555848765",
+          "longitude": "-45.590967698167674"
+        },
+        {
+          "latitude": "-14.373799123289583",
+          "longitude": "-45.59035495726414"
+        },
+        {
+          "latitude": "-14.37393448785957",
+          "longitude": "-45.589753659143696"
+        },
+        {
+          "latitude": "-14.374059428961665",
+          "longitude": "-45.58936260019317"
+        },
+        {
+          "latitude": "-14.374297278634815",
+          "longitude": "-45.58879575782163"
+        },
+        {
+          "latitude": "-14.374593151952004",
+          "longitude": "-45.58825842920936"
+        },
+        {
+          "latitude": "-14.374943619789072",
+          "longitude": "-45.5877568420658"
+        },
+        {
+          "latitude": "-14.375205614097617",
+          "longitude": "-45.587445197009515"
+        },
+        {
+          "latitude": "-14.375637755002828",
+          "longitude": "-45.58701586279295"
+        },
+        {
+          "latitude": "-14.376112383511758",
+          "longitude": "-45.58663667199403"
+        },
+        {
+          "latitude": "-14.37662399863222",
+          "longitude": "-45.5863120198145"
+        },
+        {
+          "latitude": "-14.376982710842428",
+          "longitude": "-45.58612776999507"
+        },
+        {
+          "latitude": "-14.377542612438512",
+          "longitude": "-45.585902046020806"
+        },
+        {
+          "latitude": "-14.378122923926263",
+          "longitude": "-45.585739376308425"
+        },
+        {
+          "latitude": "-14.378716919254224",
+          "longitude": "-45.585641646765794"
+        },
+        {
+          "latitude": "-14.379117122546921",
+          "longitude": "-45.58561316267139"
+        },
+        {
+          "latitude": "-14.379718582665605",
+          "longitude": "-45.585625807185124"
+        },
+        {
+          "latitude": "-14.380315232009131",
+          "longitude": "-45.58570470959563"
+        },
+        {
+          "latitude": "-14.380900154965001",
+          "longitude": "-45.58584895588382"
+        },
+        {
+          "latitude": "-14.381280232942194",
+          "longitude": "-45.58598062747183"
+        },
+        {
+          "latitude": "-14.38183064855454",
+          "longitude": "-45.58622970037902"
+        },
+        {
+          "latitude": "-14.382351772732338",
+          "longitude": "-45.58653803328036"
+        },
+        {
+          "latitude": "-14.382837565099807",
+          "longitude": "-45.58690205265788"
+        },
+        {
+          "latitude": "-14.38313899835758",
+          "longitude": "-45.58717361082347"
+        },
+        {
+          "latitude": "-14.383553623246918",
+          "longitude": "-45.58762076842862"
+        },
+        {
+          "latitude": "-14.383918985477472",
+          "longitude": "-45.58811106307786"
+        },
+        {
+          "latitude": "-14.384230850039193",
+          "longitude": "-45.58863881179889"
+        },
+        {
+          "latitude": "-14.384407226842848",
+          "longitude": "-45.589008447020774"
+        },
+        {
+          "latitude": "-14.38455729750704",
+          "longitude": "-45.5893901119735"
+        },
+        {
+          "latitude": "-14.384731425457254",
+          "longitude": "-45.58998084726318"
+        },
+        {
+          "latitude": "-14.384812652807023",
+          "longitude": "-45.59038386906866"
+        },
+        {
+          "latitude": "-14.384881160672588",
+          "longitude": "-45.59099700808417"
+        }
+      ]
+    },
+    "harvest": {
+      "id": 4869,
+      "name": "2025/2026",
+      "start_date": "2025-09-01",
+      "end_date": "2026-08-31",
+      "rain_start_date": "2025-09-01",
+      "rain_end_date": "2026-04-30"
+    },
+    "geo_points": [
+      {
+        "latitude": "-14.384889647512155",
+        "longitude": "-45.591202630227315"
+      },
+      {
+        "latitude": "-14.384885018008328",
+        "longitude": "-45.591614149251654"
+      },
+      {
+        "latitude": "-14.384824180122425",
+        "longitude": "-45.59222813899879"
+      },
+      {
+        "latitude": "-14.384747997326558",
+        "longitude": "-45.59263219612387"
+      },
+      {
+        "latitude": "-14.38458126811006",
+        "longitude": "-45.59322517331418"
+      },
+      {
+        "latitude": "-14.38443598080851",
+        "longitude": "-45.593608780920874"
+      },
+      {
+        "latitude": "-14.384168719495314",
+        "longitude": "-45.594161685573226"
+      },
+      {
+        "latitude": "-14.383845065933762",
+        "longitude": "-45.59468190947649"
+      },
+      {
+        "latitude": "-14.383468771704246",
+        "longitude": "-45.59516342271479"
+      },
+      {
+        "latitude": "-14.383190794382374",
+        "longitude": "-45.595460149044186"
+      },
+      {
+        "latitude": "-14.382736737060817",
+        "longitude": "-45.59586499308932"
+      },
+      {
+        "latitude": "-14.382242885947381",
+        "longitude": "-45.59621741381068"
+      },
+      {
+        "latitude": "-14.381714965307616",
+        "longitude": "-45.59651332664197"
+      },
+      {
+        "latitude": "-14.381347098353608",
+        "longitude": "-45.59667748679823"
+      },
+      {
+        "latitude": "-14.380776156223495",
+        "longitude": "-45.59687194040458"
+      },
+      {
+        "latitude": "-14.38018814530896",
+        "longitude": "-45.59700230075339"
+      },
+      {
+        "latitude": "-14.37958988110019",
+        "longitude": "-45.597067057380684"
+      },
+      {
+        "latitude": "-14.379188763887052",
+        "longitude": "-45.59707337994655"
+      },
+      {
+        "latitude": "-14.378588842660722",
+        "longitude": "-45.5970275099786"
+      },
+      {
+        "latitude": "-14.377997204997063",
+        "longitude": "-45.59691574549777"
+      },
+      {
+        "latitude": "-14.377420708226968",
+        "longitude": "-45.59673938241025"
+      },
+      {
+        "latitude": "-14.377048097883396",
+        "longitude": "-45.59658689842547"
+      },
+      {
+        "latitude": "-14.37651156253982",
+        "longitude": "-45.596307773759975"
+      },
+      {
+        "latitude": "-14.376007387090374",
+        "longitude": "-45.59597109822556"
+      },
+      {
+        "latitude": "-14.375541414994995",
+        "longitude": "-45.59558077429176"
+      },
+      {
+        "latitude": "-14.375254678152645",
+        "longitude": "-45.59529296378349"
+      },
+      {
+        "latitude": "-14.374864132577219",
+        "longitude": "-45.594823563058185"
+      },
+      {
+        "latitude": "-14.37452504070195",
+        "longitude": "-45.594313814539134"
+      },
+      {
+        "latitude": "-14.37424133257931",
+        "longitude": "-45.59376962630881"
+      },
+      {
+        "latitude": "-14.374016296359466",
+        "longitude": "-45.593197305528065"
+      },
+      {
+        "latitude": "-14.373852540187931",
+        "longitude": "-45.59260348534656"
+      },
+      {
+        "latitude": "-14.373751961982864",
+        "longitude": "-45.59199504803877"
+      },
+      {
+        "latitude": "-14.373720614967727",
+        "longitude": "-45.59158478032475"
+      },
+      {
+        "latitude": "-14.373727555848765",
+        "longitude": "-45.590967698167674"
+      },
+      {
+        "latitude": "-14.373799123289583",
+        "longitude": "-45.59035495726414"
+      },
+      {
+        "latitude": "-14.37393448785957",
+        "longitude": "-45.589753659143696"
+      },
+      {
+        "latitude": "-14.374059428961665",
+        "longitude": "-45.58936260019317"
+      },
+      {
+        "latitude": "-14.374297278634815",
+        "longitude": "-45.58879575782163"
+      },
+      {
+        "latitude": "-14.374593151952004",
+        "longitude": "-45.58825842920936"
+      },
+      {
+        "latitude": "-14.374943619789072",
+        "longitude": "-45.5877568420658"
+      },
+      {
+        "latitude": "-14.375205614097617",
+        "longitude": "-45.587445197009515"
+      },
+      {
+        "latitude": "-14.375637755002828",
+        "longitude": "-45.58701586279295"
+      },
+      {
+        "latitude": "-14.376112383511758",
+        "longitude": "-45.58663667199403"
+      },
+      {
+        "latitude": "-14.37662399863222",
+        "longitude": "-45.5863120198145"
+      },
+      {
+        "latitude": "-14.376982710842428",
+        "longitude": "-45.58612776999507"
+      },
+      {
+        "latitude": "-14.377542612438512",
+        "longitude": "-45.585902046020806"
+      },
+      {
+        "latitude": "-14.378122923926263",
+        "longitude": "-45.585739376308425"
+      },
+      {
+        "latitude": "-14.378716919254224",
+        "longitude": "-45.585641646765794"
+      },
+      {
+        "latitude": "-14.379117122546921",
+        "longitude": "-45.58561316267139"
+      },
+      {
+        "latitude": "-14.379718582665605",
+        "longitude": "-45.585625807185124"
+      },
+      {
+        "latitude": "-14.380315232009131",
+        "longitude": "-45.58570470959563"
+      },
+      {
+        "latitude": "-14.380900154965001",
+        "longitude": "-45.58584895588382"
+      },
+      {
+        "latitude": "-14.381280232942194",
+        "longitude": "-45.58598062747183"
+      },
+      {
+        "latitude": "-14.38183064855454",
+        "longitude": "-45.58622970037902"
+      },
+      {
+        "latitude": "-14.382351772732338",
+        "longitude": "-45.58653803328036"
+      },
+      {
+        "latitude": "-14.382837565099807",
+        "longitude": "-45.58690205265788"
+      },
+      {
+        "latitude": "-14.38313899835758",
+        "longitude": "-45.58717361082347"
+      },
+      {
+        "latitude": "-14.383553623246918",
+        "longitude": "-45.58762076842862"
+      },
+      {
+        "latitude": "-14.383918985477472",
+        "longitude": "-45.58811106307786"
+      },
+      {
+        "latitude": "-14.384230850039193",
+        "longitude": "-45.58863881179889"
+      },
+      {
+        "latitude": "-14.384407226842848",
+        "longitude": "-45.589008447020774"
+      },
+      {
+        "latitude": "-14.38455729750704",
+        "longitude": "-45.5893901119735"
+      },
+      {
+        "latitude": "-14.384731425457254",
+        "longitude": "-45.58998084726318"
+      },
+      {
+        "latitude": "-14.384812652807023",
+        "longitude": "-45.59038386906866"
+      },
+      {
+        "latitude": "-14.384881160672588",
+        "longitude": "-45.59099700808417"
+      }
+    ]
+  },
+  "monitoring_stops": [
+    {
+      "id": 18974733,
+      "longitude": "-45.5858283",
+      "latitude": "-14.3803867",
+      "date": "2026-06-26T09:22:21.000-03:00",
+      "user": {
+        "id": 3611,
+        "name": "Gilson Ivo Magalhães Junior",
+        "username": "gilson.i",
+        "email": "givomagalhaesjunior@gmail.com",
+        "crea": ""
+      },
+      "monitoring_stop_results": [
+        {
+          "id": 180321508,
+          "quantity": 10.0,
+          "updated_at": "2026-06-26 12:03:58",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74235,
+              "name": "Adulto",
+              "vegetative_action_level": 40.0,
+              "vegetative_damage_level": 50.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 40.0,
+              "reproductive_damage_level": 50.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 100.0,
+          "infestation_level": "clear"
+        },
+        {
+          "id": 180321509,
+          "quantity": 0.0,
+          "updated_at": "2026-06-26 12:03:58",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74234,
+              "name": "Ninfa",
+              "vegetative_action_level": 7.0,
+              "vegetative_damage_level": 10.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 7.0,
+              "reproductive_damage_level": 10.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 0.0,
+          "infestation_level": "clear"
+        },
+        {
+          "id": 180321510,
+          "quantity": 5.0,
+          "updated_at": "2026-06-26 12:03:58",
+          "target": {
+            "id": 3,
+            "name": "Ácaro-rajado",
+            "scientific_name": "Tetranychus urticae",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74233,
+              "name": "Presença",
+              "vegetative_action_level": 20.0,
+              "vegetative_damage_level": 25.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 20.0,
+              "reproductive_damage_level": 25.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 50.0,
+          "infestation_level": "clear"
+        }
+      ]
+    },
+    {
+      "id": 18974736,
+      "longitude": "-45.58755",
+      "latitude": "-14.38013",
+      "date": "2026-06-26T09:32:16.000-03:00",
+      "user": {
+        "id": 3611,
+        "name": "Gilson Ivo Magalhães Junior",
+        "username": "gilson.i",
+        "email": "givomagalhaesjunior@gmail.com",
+        "crea": ""
+      },
+      "monitoring_stop_results": [
+        {
+          "id": 180321517,
+          "quantity": 6.0,
+          "updated_at": "2026-06-26 12:03:58",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74235,
+              "name": "Adulto",
+              "vegetative_action_level": 40.0,
+              "vegetative_damage_level": 50.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 40.0,
+              "reproductive_damage_level": 50.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 60.0,
+          "infestation_level": "clear"
+        },
+        {
+          "id": 180321518,
+          "quantity": 0.0,
+          "updated_at": "2026-06-26 12:03:58",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74234,
+              "name": "Ninfa",
+              "vegetative_action_level": 7.0,
+              "vegetative_damage_level": 10.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 7.0,
+              "reproductive_damage_level": 10.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 0.0,
+          "infestation_level": "clear"
+        },
+        {
+          "id": 180321519,
+          "quantity": 4.0,
+          "updated_at": "2026-06-26 12:03:58",
+          "target": {
+            "id": 3,
+            "name": "Ácaro-rajado",
+            "scientific_name": "Tetranychus urticae",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74233,
+              "name": "Presença",
+              "vegetative_action_level": 20.0,
+              "vegetative_damage_level": 25.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 20.0,
+              "reproductive_damage_level": 25.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 40.0,
+          "infestation_level": "clear"
+        }
+      ]
+    },
+    {
+      "id": 18974738,
+      "longitude": "-45.5888639",
+      "latitude": "-14.3798176",
+      "date": "2026-06-26T09:40:39.000-03:00",
+      "user": {
+        "id": 3611,
+        "name": "Gilson Ivo Magalhães Junior",
+        "username": "gilson.i",
+        "email": "givomagalhaesjunior@gmail.com",
+        "crea": ""
+      },
+      "monitoring_stop_results": [
+        {
+          "id": 180321522,
+          "quantity": 5.0,
+          "updated_at": "2026-06-26 12:03:58",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74235,
+              "name": "Adulto",
+              "vegetative_action_level": 40.0,
+              "vegetative_damage_level": 50.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 40.0,
+              "reproductive_damage_level": 50.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 50.0,
+          "infestation_level": "clear"
+        },
+        {
+          "id": 180321523,
+          "quantity": 0.0,
+          "updated_at": "2026-06-26 12:03:58",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74234,
+              "name": "Ninfa",
+              "vegetative_action_level": 7.0,
+              "vegetative_damage_level": 10.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 7.0,
+              "reproductive_damage_level": 10.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 0.0,
+          "infestation_level": "clear"
+        }
+      ]
+    },
+    {
+      "id": 18974741,
+      "longitude": "-45.5904417",
+      "latitude": "-14.37951",
+      "date": "2026-06-26T09:47:34.000-03:00",
+      "user": {
+        "id": 3611,
+        "name": "Gilson Ivo Magalhães Junior",
+        "username": "gilson.i",
+        "email": "givomagalhaesjunior@gmail.com",
+        "crea": ""
+      },
+      "monitoring_stop_results": [
+        {
+          "id": 180321526,
+          "quantity": 3.0,
+          "updated_at": "2026-06-26 12:03:59",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74235,
+              "name": "Adulto",
+              "vegetative_action_level": 40.0,
+              "vegetative_damage_level": 50.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 40.0,
+              "reproductive_damage_level": 50.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 30.0,
+          "infestation_level": "clear"
+        },
+        {
+          "id": 180321528,
+          "quantity": 0.0,
+          "updated_at": "2026-06-26 12:03:59",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74234,
+              "name": "Ninfa",
+              "vegetative_action_level": 7.0,
+              "vegetative_damage_level": 10.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 7.0,
+              "reproductive_damage_level": 10.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 0.0,
+          "infestation_level": "clear"
+        },
+        {
+          "id": 180321529,
+          "quantity": 2.0,
+          "updated_at": "2026-06-26 12:03:59",
+          "target": {
+            "id": 3,
+            "name": "Ácaro-rajado",
+            "scientific_name": "Tetranychus urticae",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74233,
+              "name": "Presença",
+              "vegetative_action_level": 20.0,
+              "vegetative_damage_level": 25.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 20.0,
+              "reproductive_damage_level": 25.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 20.0,
+          "infestation_level": "clear"
+        }
+      ]
+    },
+    {
+      "id": 18974742,
+      "longitude": "-45.5871067",
+      "latitude": "-14.3829083",
+      "date": "2026-06-26T10:00:55.000-03:00",
+      "user": {
+        "id": 3611,
+        "name": "Gilson Ivo Magalhães Junior",
+        "username": "gilson.i",
+        "email": "givomagalhaesjunior@gmail.com",
+        "crea": ""
+      },
+      "monitoring_stop_results": [
+        {
+          "id": 180321530,
+          "quantity": 8.0,
+          "updated_at": "2026-06-26 12:03:59",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74235,
+              "name": "Adulto",
+              "vegetative_action_level": 40.0,
+              "vegetative_damage_level": 50.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 40.0,
+              "reproductive_damage_level": 50.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 80.0,
+          "infestation_level": "clear"
+        },
+        {
+          "id": 180321531,
+          "quantity": 0.0,
+          "updated_at": "2026-06-26 12:03:59",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74234,
+              "name": "Ninfa",
+              "vegetative_action_level": 7.0,
+              "vegetative_damage_level": 10.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 7.0,
+              "reproductive_damage_level": 10.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 0.0,
+          "infestation_level": "clear"
+        }
+      ]
+    },
+    {
+      "id": 18974745,
+      "longitude": "-45.5881504",
+      "latitude": "-14.383051",
+      "date": "2026-06-26T10:09:17.000-03:00",
+      "user": {
+        "id": 3611,
+        "name": "Gilson Ivo Magalhães Junior",
+        "username": "gilson.i",
+        "email": "givomagalhaesjunior@gmail.com",
+        "crea": ""
+      },
+      "monitoring_stop_results": [
+        {
+          "id": 180321535,
+          "quantity": 7.0,
+          "updated_at": "2026-06-26 12:03:59",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74235,
+              "name": "Adulto",
+              "vegetative_action_level": 40.0,
+              "vegetative_damage_level": 50.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 40.0,
+              "reproductive_damage_level": 50.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 70.0,
+          "infestation_level": "clear"
+        },
+        {
+          "id": 180321536,
+          "quantity": 0.0,
+          "updated_at": "2026-06-26 12:03:59",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74234,
+              "name": "Ninfa",
+              "vegetative_action_level": 7.0,
+              "vegetative_damage_level": 10.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 7.0,
+              "reproductive_damage_level": 10.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 0.0,
+          "infestation_level": "clear"
+        },
+        {
+          "id": 180321537,
+          "quantity": 4.0,
+          "updated_at": "2026-06-26 12:03:59",
+          "target": {
+            "id": 3,
+            "name": "Ácaro-rajado",
+            "scientific_name": "Tetranychus urticae",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74233,
+              "name": "Presença",
+              "vegetative_action_level": 20.0,
+              "vegetative_damage_level": 25.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 20.0,
+              "reproductive_damage_level": 25.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 40.0,
+          "infestation_level": "clear"
+        }
+      ]
+    },
+    {
+      "id": 18974747,
+      "longitude": "-45.5892823",
+      "latitude": "-14.3832633",
+      "date": "2026-06-26T10:20:31.000-03:00",
+      "user": {
+        "id": 3611,
+        "name": "Gilson Ivo Magalhães Junior",
+        "username": "gilson.i",
+        "email": "givomagalhaesjunior@gmail.com",
+        "crea": ""
+      },
+      "monitoring_stop_results": [
+        {
+          "id": 180321541,
+          "quantity": 4.0,
+          "updated_at": "2026-06-26 12:03:59",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74235,
+              "name": "Adulto",
+              "vegetative_action_level": 40.0,
+              "vegetative_damage_level": 50.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 40.0,
+              "reproductive_damage_level": 50.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 40.0,
+          "infestation_level": "clear"
+        },
+        {
+          "id": 180321542,
+          "quantity": 0.0,
+          "updated_at": "2026-06-26 12:03:59",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74234,
+              "name": "Ninfa",
+              "vegetative_action_level": 7.0,
+              "vegetative_damage_level": 10.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 7.0,
+              "reproductive_damage_level": 10.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 0.0,
+          "infestation_level": "clear"
+        }
+      ]
+    },
+    {
+      "id": 18974749,
+      "longitude": "-45.5963718",
+      "latitude": "-14.3769849",
+      "date": "2026-06-26T10:39:59.000-03:00",
+      "user": {
+        "id": 3611,
+        "name": "Gilson Ivo Magalhães Junior",
+        "username": "gilson.i",
+        "email": "givomagalhaesjunior@gmail.com",
+        "crea": ""
+      },
+      "monitoring_stop_results": [
+        {
+          "id": 180321546,
+          "quantity": 3.0,
+          "updated_at": "2026-06-26 12:04:00",
+          "target": {
+            "id": 3,
+            "name": "Ácaro-rajado",
+            "scientific_name": "Tetranychus urticae",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74233,
+              "name": "Presença",
+              "vegetative_action_level": 20.0,
+              "vegetative_damage_level": 25.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 20.0,
+              "reproductive_damage_level": 25.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 30.0,
+          "infestation_level": "clear"
+        },
+        {
+          "id": 180321547,
+          "quantity": 7.0,
+          "updated_at": "2026-06-26 12:04:00",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74235,
+              "name": "Adulto",
+              "vegetative_action_level": 40.0,
+              "vegetative_damage_level": 50.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 40.0,
+              "reproductive_damage_level": 50.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 70.0,
+          "infestation_level": "clear"
+        },
+        {
+          "id": 180321548,
+          "quantity": 0.0,
+          "updated_at": "2026-06-26 12:04:00",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74234,
+              "name": "Ninfa",
+              "vegetative_action_level": 7.0,
+              "vegetative_damage_level": 10.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 7.0,
+              "reproductive_damage_level": 10.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 0.0,
+          "infestation_level": "clear"
+        }
+      ]
+    },
+    {
+      "id": 18974751,
+      "longitude": "-45.5951885",
+      "latitude": "-14.3767582",
+      "date": "2026-06-26T10:48:54.000-03:00",
+      "user": {
+        "id": 3611,
+        "name": "Gilson Ivo Magalhães Junior",
+        "username": "gilson.i",
+        "email": "givomagalhaesjunior@gmail.com",
+        "crea": ""
+      },
+      "monitoring_stop_results": [
+        {
+          "id": 180321551,
+          "quantity": 6.0,
+          "updated_at": "2026-06-26 12:04:00",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74235,
+              "name": "Adulto",
+              "vegetative_action_level": 40.0,
+              "vegetative_damage_level": 50.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 40.0,
+              "reproductive_damage_level": 50.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 60.0,
+          "infestation_level": "clear"
+        },
+        {
+          "id": 180321552,
+          "quantity": 0.0,
+          "updated_at": "2026-06-26 12:04:00",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74234,
+              "name": "Ninfa",
+              "vegetative_action_level": 7.0,
+              "vegetative_damage_level": 10.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 7.0,
+              "reproductive_damage_level": 10.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 0.0,
+          "infestation_level": "clear"
+        }
+      ]
+    },
+    {
+      "id": 18974752,
+      "longitude": "-45.5931041",
+      "latitude": "-14.3764306",
+      "date": "2026-06-26T11:04:58.000-03:00",
+      "user": {
+        "id": 3611,
+        "name": "Gilson Ivo Magalhães Junior",
+        "username": "gilson.i",
+        "email": "givomagalhaesjunior@gmail.com",
+        "crea": ""
+      },
+      "monitoring_stop_results": [
+        {
+          "id": 180321553,
+          "quantity": 7.0,
+          "updated_at": "2026-06-26 12:04:00",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74235,
+              "name": "Adulto",
+              "vegetative_action_level": 40.0,
+              "vegetative_damage_level": 50.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 40.0,
+              "reproductive_damage_level": 50.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 70.0,
+          "infestation_level": "clear"
+        },
+        {
+          "id": 180321554,
+          "quantity": 0.0,
+          "updated_at": "2026-06-26 12:04:00",
+          "target": {
+            "id": 19,
+            "name": "Mosca-branca",
+            "scientific_name": "Bemisia tabaci",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74234,
+              "name": "Ninfa",
+              "vegetative_action_level": 7.0,
+              "vegetative_damage_level": 10.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 7.0,
+              "reproductive_damage_level": 10.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 0.0,
+          "infestation_level": "clear"
+        },
+        {
+          "id": 180321555,
+          "quantity": 4.0,
+          "updated_at": "2026-06-26 12:04:00",
+          "target": {
+            "id": 3,
+            "name": "Ácaro-rajado",
+            "scientific_name": "Tetranychus urticae",
+            "target_type": "plague",
+            "target_parameter": {
+              "id": 74233,
+              "name": "Presença",
+              "vegetative_action_level": 20.0,
+              "vegetative_damage_level": 25.0,
+              "use_vegetative_action_level": true,
+              "use_vegetative_damage_level": true,
+              "reproductive_action_level": 20.0,
+              "reproductive_damage_level": 25.0,
+              "type_action_level": "percentage_type",
+              "use_reproductive_action_level": true,
+              "use_reproductive_damage_level": true,
+              "calculated": false
+            }
+          },
+          "infestation": 40.0,
+          "infestation_level": "clear"
+        }
+      ]
+    }
+  ],
+  "monitoring_results": [
+    {
+      "id": 33144110,
+      "quantity": 22.0,
+      "target": {
+        "id": 3,
+        "name": "Ácaro-rajado",
+        "scientific_name": "Tetranychus urticae",
+        "target_type": "plague",
+        "target_parameter": {
+          "id": 74233,
+          "name": "Presença",
+          "vegetative_action_level": 20.0,
+          "vegetative_damage_level": 25.0,
+          "use_vegetative_action_level": true,
+          "use_vegetative_damage_level": true,
+          "reproductive_action_level": 20.0,
+          "reproductive_damage_level": 25.0,
+          "type_action_level": "percentage_type",
+          "use_reproductive_action_level": true,
+          "use_reproductive_damage_level": true,
+          "calculated": false
+        }
+      },
+      "infestation": 22.0,
+      "infestation_level": "clear",
+      "updated_at": "2026-06-26 12:04:00"
+    },
+    {
+      "id": 33144111,
+      "quantity": 0.0,
+      "target": {
+        "id": 19,
+        "name": "Mosca-branca",
+        "scientific_name": "Bemisia tabaci",
+        "target_type": "plague",
+        "target_parameter": {
+          "id": 74234,
+          "name": "Ninfa",
+          "vegetative_action_level": 7.0,
+          "vegetative_damage_level": 10.0,
+          "use_vegetative_action_level": true,
+          "use_vegetative_damage_level": true,
+          "reproductive_action_level": 7.0,
+          "reproductive_damage_level": 10.0,
+          "type_action_level": "percentage_type",
+          "use_reproductive_action_level": true,
+          "use_reproductive_damage_level": true,
+          "calculated": false
+        }
+      },
+      "infestation": 0.0,
+      "infestation_level": "clear",
+      "updated_at": "2026-06-26 12:04:00"
+    },
+    {
+      "id": 33144112,
+      "quantity": 63.0,
+      "target": {
+        "id": 19,
+        "name": "Mosca-branca",
+        "scientific_name": "Bemisia tabaci",
+        "target_type": "plague",
+        "target_parameter": {
+          "id": 74235,
+          "name": "Adulto",
+          "vegetative_action_level": 40.0,
+          "vegetative_damage_level": 50.0,
+          "use_vegetative_action_level": true,
+          "use_vegetative_damage_level": true,
+          "reproductive_action_level": 40.0,
+          "reproductive_damage_level": 50.0,
+          "type_action_level": "percentage_type",
+          "use_reproductive_action_level": true,
+          "use_reproductive_damage_level": true,
+          "calculated": false
+        }
+      },
+      "infestation": 63.0,
+      "infestation_level": "clear",
+      "updated_at": "2026-06-26 12:04:00"
+    }
+  ]
+}

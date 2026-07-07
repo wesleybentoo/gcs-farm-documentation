@@ -1,0 +1,289 @@
+{
+  "phenological_stages": [
+    {
+      "id": 39,
+      "name": "V1",
+      "position": 2,
+      "description": "Primeira folha expandida com colar visível. Após a emergência (VE), os estádios vegetativos subsequentes são identificados pela sucessiva expansão das folhas. Cada folha expandida apresenta aurícula (região do colar) visível. A folha mais inferior na plan",
+      "ignore_infestations": false,
+      "updated_at": "2023-04-13T16:08:55.000-03:00",
+      "classification": 1,
+      "classification_label": "Vegetativo",
+      "culture": {
+        "id": 4,
+        "name": "Milho"
+      }
+    },
+    {
+      "id": 40,
+      "name": "V2",
+      "position": 3,
+      "description": "Segunda folha expandida com colar visível. A planta se apresenta apta para iniciar a atividade fotossintética. Raízes seminais ramificadas e raízes do nó do caulículo em intenso crescimento. O meristema apical ainda permanece dentro do solo.",
+      "ignore_infestations": false,
+      "updated_at": "2023-04-13T16:08:55.000-03:00",
+      "classification": 1,
+      "classification_label": "Vegetativo",
+      "culture": {
+        "id": 4,
+        "name": "Milho"
+      }
+    },
+    {
+      "id": 41,
+      "name": "V3",
+      "position": 4,
+      "description": "Terceira folha expandida com colar visível. Atividade fotossintética em evolução. As reservas nutritivas da semente estão acabando. Raízes do nó do caulículo crescendo e se ramificando. O meristema apical continua dentro do solo.",
+      "ignore_infestations": false,
+      "updated_at": "2023-04-13T16:08:55.000-03:00",
+      "classification": 1,
+      "classification_label": "Vegetativo",
+      "culture": {
+        "id": 4,
+        "name": "Milho"
+      }
+    },
+    {
+      "id": 42,
+      "name": "V4",
+      "position": 5,
+      "description": "Quarta folha expandida com colar visível. Sistema radicular em desenvolvimento com ramificações diferenciadas e pelos absorventes. O meristema apical permanece no interior do solo. Entre os estádios V4 e V6 iniciam-se as diferenciações florais masculina (",
+      "ignore_infestations": false,
+      "updated_at": "2023-04-13T16:08:55.000-03:00",
+      "classification": 1,
+      "classification_label": "Vegetativo",
+      "culture": {
+        "id": 4,
+        "name": "Milho"
+      }
+    },
+    {
+      "id": 43,
+      "name": "V5 ",
+      "position": 6,
+      "description": "A identificação dos estádios fenológicos vegetativos da planta de milho fundamenta-se na observação das sucessivas expansões foliares associadas à visualização das respectivas aurículas. Após a expansão da quarta folha (V4), ocorrerá a expansão da quinta ",
+      "ignore_infestations": false,
+      "updated_at": "2023-04-13T16:08:55.000-03:00",
+      "classification": 1,
+      "classification_label": "Vegetativo",
+      "culture": {
+        "id": 4,
+        "name": "Milho"
+      }
+    },
+    {
+      "id": 44,
+      "name": "V6",
+      "position": 7,
+      "description": "A identificação dos estádios fenológicos vegetativos da planta de milho fundamenta-se na observação das sucessivas expansões foliares associadas à visualização das respectivas aurículas. Após a expansão da quarta folha (V4), ocorrerá a expansão da quinta ",
+      "ignore_infestations": false,
+      "updated_at": "2023-04-13T16:08:55.000-03:00",
+      "classification": 1,
+      "classification_label": "Vegetativo",
+      "culture": {
+        "id": 4,
+        "name": "Milho"
+      }
+    },
+    {
+      "id": 46,
+      "name": "V8",
+      "position": 9,
+      "description": "Planta com a oitava folha expandida e colar visível. Sistema radicular bem distribuído no solo com início do crescimento das raízes adventícias aéreas (esporões). Observa-se intenso crescimento do colmo em altura e diâmetro. Acentua-se o desenvolvimento d",
+      "ignore_infestations": false,
+      "updated_at": "2023-04-13T16:08:55.000-03:00",
+      "classification": 1,
+      "classification_label": "Vegetativo",
+      "culture": {
+        "id": 4,
+        "name": "Milho"
+      }
+    },
+    {
+      "id": 83,
+      "name": "Pré Poda",
+      "position": 1,
+      "description": "Pré Poda",
+      "ignore_infestations": false,
+      "updated_at": "2014-08-11T14:25:13.000-03:00",
+      "classification": 0,
+      "classification_label": "Outro",
+      "culture": {
+        "id": 8,
+        "name": "Videira"
+      }
+    },
+    {
+      "id": 84,
+      "name": "Poda",
+      "position": 2,
+      "description": "Poda",
+      "ignore_infestations": false,
+      "updated_at": "2014-08-11T14:25:27.000-03:00",
+      "classification": 0,
+      "classification_label": "Outro",
+      "culture": {
+        "id": 8,
+        "name": "Videira"
+      }
+    },
+    {
+      "id": 85,
+      "name": "Brotação",
+      "position": 3,
+      "description": "Brotação",
+      "ignore_infestations": false,
+      "updated_at": "2014-08-11T14:25:41.000-03:00",
+      "classification": 0,
+      "classification_label": "Outro",
+      "culture": {
+        "id": 8,
+        "name": "Videira"
+      }
+    },
+    {
+      "id": 86,
+      "name": "Desenvolvimento Vegetativo",
+      "position": 4,
+      "description": "Desenvolvimento Vegetativo",
+      "ignore_infestations": false,
+      "updated_at": "2014-08-11T14:27:38.000-03:00",
+      "classification": 0,
+      "classification_label": "Outro",
+      "culture": {
+        "id": 8,
+        "name": "Videira"
+      }
+    },
+    {
+      "id": 87,
+      "name": "Floração e Chumbinho",
+      "position": 5,
+      "description": "Floração e Chumbinho",
+      "ignore_infestations": false,
+      "updated_at": "2014-08-11T14:27:50.000-03:00",
+      "classification": 0,
+      "classification_label": "Outro",
+      "culture": {
+        "id": 8,
+        "name": "Videira"
+      }
+    },
+    {
+      "id": 88,
+      "name": "Crescimento de Bagas",
+      "position": 6,
+      "description": "Crescimento de Bagas",
+      "ignore_infestations": false,
+      "updated_at": "2014-08-11T14:29:58.000-03:00",
+      "classification": 0,
+      "classification_label": "Outro",
+      "culture": {
+        "id": 8,
+        "name": "Videira"
+      }
+    },
+    {
+      "id": 89,
+      "name": "Maturação de Ramo",
+      "position": 7,
+      "description": "Maturação de Ramo",
+      "ignore_infestations": false,
+      "updated_at": "2014-08-11T14:30:10.000-03:00",
+      "classification": 0,
+      "classification_label": "Outro",
+      "culture": {
+        "id": 8,
+        "name": "Videira"
+      }
+    },
+    {
+      "id": 90,
+      "name": "Maturação de Fruto",
+      "position": 8,
+      "description": "Maturação de Fruto",
+      "ignore_infestations": false,
+      "updated_at": "2014-08-11T14:30:29.000-03:00",
+      "classification": 0,
+      "classification_label": "Outro",
+      "culture": {
+        "id": 8,
+        "name": "Videira"
+      }
+    }
+  ],
+  "next_page_url": "/api/v1/phenological_stages?page=2",
+  "pagination": {
+    "total_entries": 1315,
+    "total_pages": 88,
+    "per_page": 15,
+    "current_page": 1
+  },
+  "deleted_since": [
+    138,
+    172,
+    181,
+    180,
+    176,
+    173,
+    173,
+    171,
+    169,
+    170,
+    168,
+    167,
+    166,
+    165,
+    164,
+    163,
+    162,
+    161,
+    160,
+    159,
+    158,
+    157,
+    156,
+    155,
+    328,
+    329,
+    352,
+    351,
+    350,
+    349,
+    307,
+    308,
+    309,
+    310,
+    311,
+    312,
+    313,
+    314,
+    315,
+    316,
+    317,
+    318,
+    319,
+    320,
+    321,
+    322,
+    323,
+    449,
+    346,
+    347,
+    348,
+    553,
+    566,
+    770,
+    818,
+    810,
+    827,
+    883,
+    1015,
+    941,
+    942,
+    1072,
+    1082,
+    1116,
+    1247,
+    1248
+  ]
+}

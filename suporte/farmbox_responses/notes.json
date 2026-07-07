@@ -1,0 +1,262 @@
+{
+  "notes": [
+    {
+      "id": 45851,
+      "description": "Observando ",
+      "user_name": "André Cantarelli",
+      "image_addresses": [
+        "https://s3.amazonaws.com/farmbox/files/42883/original/1486404615477.jpg?1486404795"
+      ],
+      "date": "2017-02-06T15:10:25.000-03:00",
+      "latitude": "-14.617155075073242",
+      "longitude": "-57.49795150756836",
+      "location_id": 6359,
+      "location_type": "Fields::Plantation",
+      "attachments": [
+        {}
+      ]
+    },
+    {
+      "id": 45852,
+      "description": "Em geral as aplicações estão atrasadas ",
+      "user_name": "André Cantarelli",
+      "image_addresses": [
+        "https://s3.amazonaws.com/farmbox/files/42884/original/1486405901671.jpg?1486405913"
+      ],
+      "date": "2017-02-06T15:31:44.000-03:00",
+      "latitude": "-14.615633010864258",
+      "longitude": "-57.49407196044922",
+      "location_id": 299,
+      "location_type": "Farms::Farm",
+      "attachments": [
+        {}
+      ]
+    },
+    {
+      "id": 45861,
+      "description": "Mosca",
+      "user_name": "André Cantarelli",
+      "image_addresses": [],
+      "date": "2017-02-06T16:03:01.000-03:00",
+      "latitude": "-14.615633964538574",
+      "longitude": "-57.49408721923828",
+      "location_id": 6360,
+      "location_type": "Fields::Plantation",
+      "attachments": []
+    },
+    {
+      "id": 46113,
+      "description": "Tyy",
+      "user_name": "André Cantarelli",
+      "image_addresses": [],
+      "date": "2017-02-06T16:04:14.000-03:00",
+      "latitude": "-14.617151260375977",
+      "longitude": "-57.497802734375",
+      "location_id": 6360,
+      "location_type": "Fields::Plantation",
+      "attachments": []
+    },
+    {
+      "id": 46768,
+      "description": "",
+      "user_name": "André Cantarelli",
+      "image_addresses": [
+        "https://s3.amazonaws.com/farmbox/files/43768/original/1487169131393.jpg?1487169144"
+      ],
+      "date": "2017-02-15T11:32:13.000-03:00",
+      "latitude": "-14.03819179534912",
+      "longitude": "-55.32365036010742",
+      "location_id": 6404,
+      "location_type": "Fields::Plantation",
+      "attachments": [
+        {}
+      ]
+    },
+    {
+      "id": 46769,
+      "description": "cuidado",
+      "user_name": "André Cantarelli",
+      "image_addresses": [],
+      "date": "2017-02-15T11:33:32.000-03:00",
+      "latitude": null,
+      "longitude": null,
+      "location_id": 6404,
+      "location_type": "Fields::Plantation",
+      "attachments": []
+    },
+    {
+      "id": 47686,
+      "description": "Jsjdjdjdjfj",
+      "user_name": "André Cantarelli",
+      "image_addresses": [
+        "https://s3.amazonaws.com/farmbox/files/44501/original/1487791242069.jpg?1487791336"
+      ],
+      "date": "2017-02-22T16:20:43.000-03:00",
+      "latitude": "-13.662494659423828",
+      "longitude": "-57.88702392578125",
+      "location_id": 6402,
+      "location_type": "Fields::Plantation",
+      "attachments": [
+        {}
+      ]
+    },
+    {
+      "id": 47687,
+      "description": "Observou-se desenvolvimento de 2 dias de diferença no ciclo do algodao. Area tratada vs testemunhas ",
+      "user_name": "André Cantarelli",
+      "image_addresses": [
+        "https://s3.amazonaws.com/farmbox/files/44502/original/1487792368600.jpg?1487792420"
+      ],
+      "date": "2017-02-22T16:40:09.000-03:00",
+      "latitude": "-13.66946506500244",
+      "longitude": "-57.86304473876953",
+      "location_id": 6402,
+      "location_type": "Fields::Plantation",
+      "attachments": [
+        {}
+      ]
+    },
+    {
+      "id": 51602,
+      "description": "Rrrr",
+      "user_name": "André Cantarelli",
+      "image_addresses": [],
+      "date": "2017-04-03T08:34:59.000-03:00",
+      "latitude": "-31.758609771728516",
+      "longitude": "-52.27254867553711",
+      "location_id": 6359,
+      "location_type": "Fields::Plantation",
+      "attachments": []
+    },
+    {
+      "id": 51603,
+      "description": "Www",
+      "user_name": "André Cantarelli",
+      "image_addresses": [],
+      "date": "2017-04-03T08:34:15.000-03:00",
+      "latitude": "-31.758609771728516",
+      "longitude": "-52.27254867553711",
+      "location_id": 6360,
+      "location_type": "Fields::Plantation",
+      "attachments": []
+    },
+    {
+      "id": 53203,
+      "description": "T",
+      "user_name": "André Cantarelli",
+      "image_addresses": [],
+      "date": "2017-04-15T17:56:16.000-03:00",
+      "latitude": "-27.285675048828125",
+      "longitude": "-48.925785064697266",
+      "location_id": 6362,
+      "location_type": "Fields::Plantation",
+      "attachments": []
+    },
+    {
+      "id": 109355,
+      "description": "Teste",
+      "user_name": "André Cantarelli",
+      "image_addresses": [],
+      "date": "2018-04-18T08:34:14.000-03:00",
+      "latitude": "-31.758678436279297",
+      "longitude": "-52.272483825683594",
+      "location_id": 16765,
+      "location_type": "Fields::Plantation",
+      "attachments": []
+    },
+    {
+      "id": 122266,
+      "description": "Verificar Fazenda",
+      "user_name": "André Cantarelli",
+      "image_addresses": [],
+      "date": "2018-06-19T09:48:15.000-03:00",
+      "latitude": null,
+      "longitude": null,
+      "location_id": 304,
+      "location_type": "Farms::Farm",
+      "attachments": []
+    },
+    {
+      "id": 122268,
+      "description": "Monitorar fazenda amanhã",
+      "user_name": "André Cantarelli",
+      "image_addresses": [],
+      "date": "2018-06-19T09:54:57.000-03:00",
+      "latitude": null,
+      "longitude": null,
+      "location_id": 304,
+      "location_type": "Farms::Farm",
+      "attachments": []
+    },
+    {
+      "id": 122269,
+      "description": "123",
+      "user_name": "André Cantarelli",
+      "image_addresses": [],
+      "date": "2018-06-19T09:57:36.000-03:00",
+      "latitude": null,
+      "longitude": null,
+      "location_id": 6505,
+      "location_type": "Fields::Plantation",
+      "attachments": []
+    }
+  ],
+  "next_page_url": "/api/v1/notes?page=2",
+  "pagination": {
+    "total_entries": 36830,
+    "total_pages": 2456,
+    "per_page": 15,
+    "current_page": 1
+  },
+  "deleted_since": [
+    1127037,
+    1143872,
+    1209037,
+    1514499,
+    1514500,
+    2033454,
+    919527,
+    2125514,
+    2125464,
+    2125465,
+    2125459,
+    2125463,
+    2125461,
+    2125462,
+    2125460,
+    2125466,
+    2054456,
+    2055050,
+    2304783,
+    2304785,
+    2304791,
+    2304789,
+    2304799,
+    2304800,
+    2304815,
+    2335714,
+    2233058,
+    2136892,
+    2874001,
+    2873974,
+    2901231,
+    2901164,
+    2901158,
+    2901154,
+    2901153,
+    2901152,
+    2901151,
+    2901237,
+    2901384,
+    2901395,
+    2901399,
+    2901374,
+    2901401,
+    2901236,
+    2901250,
+    2967789,
+    2986156,
+    3076395,
+    3085217
+  ]
+}

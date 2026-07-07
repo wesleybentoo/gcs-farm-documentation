@@ -1,0 +1,506 @@
+{
+  "count_monitorings": [
+    {
+      "id": 311248,
+      "date": "2019-09-20T14:51:05.000-03:00",
+      "plantation_id": 36739,
+      "latitude": "-14.3738127",
+      "longitude": "-45.5471702",
+      "updated_at": "2019-09-20T14:51:40.000-03:00",
+      "count_group": {
+        "id": 587,
+        "name": "Avaliação de plantio ",
+        "updated_at": "2020-01-31T18:12:27.000-03:00"
+      },
+      "count_monitoring_parameters": [
+        {
+          "count_parameter": {
+            "id": 2034,
+            "name": "Sementes em 3 m/L",
+            "updated_at": "2019-09-13T13:13:32.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 76.6
+        }
+      ]
+    },
+    {
+      "id": 311249,
+      "date": "2019-09-20T15:57:53.000-03:00",
+      "plantation_id": 36737,
+      "latitude": null,
+      "longitude": null,
+      "updated_at": "2019-09-20T15:02:19.000-03:00",
+      "count_group": {
+        "id": 587,
+        "name": "Avaliação de plantio ",
+        "updated_at": "2020-01-31T18:12:27.000-03:00"
+      },
+      "count_monitoring_parameters": [
+        {
+          "count_parameter": {
+            "id": 2034,
+            "name": "Sementes em 3 m/L",
+            "updated_at": "2019-09-13T13:13:32.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 75.0
+        },
+        {
+          "count_parameter": {
+            "id": 2036,
+            "name": "Largura da plantadeira (m)",
+            "updated_at": "2019-09-13T13:21:30.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 13.5
+        }
+      ]
+    },
+    {
+      "id": 311250,
+      "date": "2019-09-20T15:59:09.000-03:00",
+      "plantation_id": 36721,
+      "latitude": null,
+      "longitude": null,
+      "updated_at": "2019-09-20T15:02:23.000-03:00",
+      "count_group": {
+        "id": 587,
+        "name": "Avaliação de plantio ",
+        "updated_at": "2020-01-31T18:12:27.000-03:00"
+      },
+      "count_monitoring_parameters": [
+        {
+          "count_parameter": {
+            "id": 2034,
+            "name": "Sementes em 3 m/L",
+            "updated_at": "2019-09-13T13:13:32.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 75.0
+        },
+        {
+          "count_parameter": {
+            "id": 2036,
+            "name": "Largura da plantadeira (m)",
+            "updated_at": "2019-09-13T13:21:30.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 13.5
+        }
+      ]
+    },
+    {
+      "id": 311251,
+      "date": "2019-09-20T16:01:04.000-03:00",
+      "plantation_id": 36720,
+      "latitude": null,
+      "longitude": null,
+      "updated_at": "2019-09-20T15:02:27.000-03:00",
+      "count_group": {
+        "id": 589,
+        "name": "Stand de plantas inicial",
+        "updated_at": "2025-11-10T15:39:54.000-03:00"
+      },
+      "count_monitoring_parameters": [
+        {
+          "count_parameter": {
+            "id": 2038,
+            "name": "Plantas em 5 m/l",
+            "updated_at": "2019-09-13T13:28:43.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 122.0
+        }
+      ]
+    },
+    {
+      "id": 311252,
+      "date": "2019-09-20T16:01:29.000-03:00",
+      "plantation_id": 36720,
+      "latitude": null,
+      "longitude": null,
+      "updated_at": "2019-09-20T15:02:30.000-03:00",
+      "count_group": {
+        "id": 589,
+        "name": "Stand de plantas inicial",
+        "updated_at": "2025-11-10T15:39:54.000-03:00"
+      },
+      "count_monitoring_parameters": [
+        {
+          "count_parameter": {
+            "id": 2038,
+            "name": "Plantas em 5 m/l",
+            "updated_at": "2019-09-13T13:28:43.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 122.0
+        }
+      ]
+    },
+    {
+      "id": 311253,
+      "date": "2019-09-20T16:01:51.000-03:00",
+      "plantation_id": 36721,
+      "latitude": null,
+      "longitude": null,
+      "updated_at": "2019-09-20T15:02:33.000-03:00",
+      "count_group": {
+        "id": 589,
+        "name": "Stand de plantas inicial",
+        "updated_at": "2025-11-10T15:39:54.000-03:00"
+      },
+      "count_monitoring_parameters": [
+        {
+          "count_parameter": {
+            "id": 2038,
+            "name": "Plantas em 5 m/l",
+            "updated_at": "2019-09-13T13:28:43.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 122.0
+        }
+      ]
+    },
+    {
+      "id": 311254,
+      "date": "2019-09-20T16:03:41.000-03:00",
+      "plantation_id": 36720,
+      "latitude": null,
+      "longitude": null,
+      "updated_at": "2019-09-20T15:04:13.000-03:00",
+      "count_group": {
+        "id": 589,
+        "name": "Stand de plantas inicial",
+        "updated_at": "2025-11-10T15:39:54.000-03:00"
+      },
+      "count_monitoring_parameters": [
+        {
+          "count_parameter": {
+            "id": 2038,
+            "name": "Plantas em 5 m/l",
+            "updated_at": "2019-09-13T13:28:43.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 100.0
+        }
+      ]
+    },
+    {
+      "id": 311255,
+      "date": "2019-09-20T16:04:02.000-03:00",
+      "plantation_id": 36721,
+      "latitude": null,
+      "longitude": null,
+      "updated_at": "2019-09-20T15:04:15.000-03:00",
+      "count_group": {
+        "id": 589,
+        "name": "Stand de plantas inicial",
+        "updated_at": "2025-11-10T15:39:54.000-03:00"
+      },
+      "count_monitoring_parameters": [
+        {
+          "count_parameter": {
+            "id": 2038,
+            "name": "Plantas em 5 m/l",
+            "updated_at": "2019-09-13T13:28:43.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 122.0
+        }
+      ]
+    },
+    {
+      "id": 311345,
+      "date": "2019-09-23T08:58:16.000-03:00",
+      "plantation_id": 36720,
+      "latitude": "-14.4551134",
+      "longitude": "-46.4244389",
+      "updated_at": "2019-09-23T11:42:55.000-03:00",
+      "count_group": {
+        "id": 587,
+        "name": "Avaliação de plantio ",
+        "updated_at": "2020-01-31T18:12:27.000-03:00"
+      },
+      "count_monitoring_parameters": [
+        {
+          "count_parameter": {
+            "id": 2034,
+            "name": "Sementes em 3 m/L",
+            "updated_at": "2019-09-13T13:13:32.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 72.0
+        },
+        {
+          "count_parameter": {
+            "id": 2038,
+            "name": "Plantas em 5 m/l",
+            "updated_at": "2019-09-13T13:28:43.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 121.0
+        }
+      ]
+    },
+    {
+      "id": 311346,
+      "date": "2019-09-23T08:58:23.000-03:00",
+      "plantation_id": 36720,
+      "latitude": "-14.3024475",
+      "longitude": "-45.4359574",
+      "updated_at": "2019-09-23T11:42:58.000-03:00",
+      "count_group": {
+        "id": 589,
+        "name": "Stand de plantas inicial",
+        "updated_at": "2025-11-10T15:39:54.000-03:00"
+      },
+      "count_monitoring_parameters": [
+        {
+          "count_parameter": {
+            "id": 2038,
+            "name": "Plantas em 5 m/l",
+            "updated_at": "2019-09-13T13:28:43.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 121.0
+        }
+      ]
+    },
+    {
+      "id": 311347,
+      "date": "2019-09-23T08:58:34.000-03:00",
+      "plantation_id": 36720,
+      "latitude": "-14.4518454",
+      "longitude": "-46.4337487",
+      "updated_at": "2019-09-23T11:43:00.000-03:00",
+      "count_group": {
+        "id": 587,
+        "name": "Avaliação de plantio ",
+        "updated_at": "2020-01-31T18:12:27.000-03:00"
+      },
+      "count_monitoring_parameters": [
+        {
+          "count_parameter": {
+            "id": 2034,
+            "name": "Sementes em 3 m/L",
+            "updated_at": "2019-09-13T13:13:32.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 72.0
+        },
+        {
+          "count_parameter": {
+            "id": 2038,
+            "name": "Plantas em 5 m/l",
+            "updated_at": "2019-09-13T13:28:43.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 121.0
+        }
+      ]
+    },
+    {
+      "id": 311348,
+      "date": "2019-09-23T09:16:50.000-03:00",
+      "plantation_id": 36721,
+      "latitude": "-14.4518454",
+      "longitude": "-46.4337487",
+      "updated_at": "2019-09-23T11:43:02.000-03:00",
+      "count_group": {
+        "id": 589,
+        "name": "Stand de plantas inicial",
+        "updated_at": "2025-11-10T15:39:54.000-03:00"
+      },
+      "count_monitoring_parameters": [
+        {
+          "count_parameter": {
+            "id": 2038,
+            "name": "Plantas em 5 m/l",
+            "updated_at": "2019-09-13T13:28:43.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 119.0
+        }
+      ]
+    },
+    {
+      "id": 311349,
+      "date": "2019-09-23T09:22:15.000-03:00",
+      "plantation_id": 36721,
+      "latitude": "-14.4518454",
+      "longitude": "-46.4337487",
+      "updated_at": "2019-09-23T11:43:05.000-03:00",
+      "count_group": {
+        "id": 589,
+        "name": "Stand de plantas inicial",
+        "updated_at": "2025-11-10T15:39:54.000-03:00"
+      },
+      "count_monitoring_parameters": [
+        {
+          "count_parameter": {
+            "id": 2038,
+            "name": "Plantas em 5 m/l",
+            "updated_at": "2019-09-13T13:28:43.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 91.0
+        }
+      ]
+    },
+    {
+      "id": 311350,
+      "date": "2019-09-23T09:29:37.000-03:00",
+      "plantation_id": 36721,
+      "latitude": "-14.4518454",
+      "longitude": "-46.4337487",
+      "updated_at": "2019-09-23T11:43:07.000-03:00",
+      "count_group": {
+        "id": 589,
+        "name": "Stand de plantas inicial",
+        "updated_at": "2025-11-10T15:39:54.000-03:00"
+      },
+      "count_monitoring_parameters": [
+        {
+          "count_parameter": {
+            "id": 2038,
+            "name": "Plantas em 5 m/l",
+            "updated_at": "2019-09-13T13:28:43.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 123.0
+        }
+      ]
+    },
+    {
+      "id": 311351,
+      "date": "2019-09-23T09:33:16.000-03:00",
+      "plantation_id": 36721,
+      "latitude": "-14.4518454",
+      "longitude": "-46.4337487",
+      "updated_at": "2019-09-23T11:43:09.000-03:00",
+      "count_group": {
+        "id": 589,
+        "name": "Stand de plantas inicial",
+        "updated_at": "2025-11-10T15:39:54.000-03:00"
+      },
+      "count_monitoring_parameters": [
+        {
+          "count_parameter": {
+            "id": 2038,
+            "name": "Plantas em 5 m/l",
+            "updated_at": "2019-09-13T13:28:43.000-03:00",
+            "calculated": false,
+            "formula": ""
+          },
+          "value": 0.0
+        }
+      ]
+    }
+  ],
+  "next_page_url": "/api/v1/count_monitorings?page=2",
+  "pagination": {
+    "total_entries": 21749,
+    "total_pages": 1450,
+    "per_page": 15,
+    "current_page": 1
+  },
+  "deleted_since": [
+    310472,
+    310474,
+    310473,
+    310475,
+    310470,
+    310467,
+    310471,
+    310466,
+    310468,
+    310469,
+    322552,
+    322553,
+    322554,
+    322555,
+    618842,
+    618857,
+    618860,
+    618874,
+    679900,
+    694013,
+    694014,
+    694015,
+    694016,
+    694017,
+    912698,
+    912699,
+    912700,
+    917597,
+    917598,
+    922602,
+    1040545,
+    1042242,
+    1189491,
+    1189649,
+    1189652,
+    977251,
+    977265,
+    977252,
+    1207278,
+    1380894,
+    1466404,
+    1466405,
+    1501585,
+    1508711,
+    1561134,
+    1592125,
+    1592123,
+    1592122,
+    1592121,
+    1592120,
+    1695300,
+    1695301,
+    1695302,
+    1695303,
+    1695304,
+    1695305,
+    1695306,
+    1695307,
+    1695308,
+    1695309,
+    1695310,
+    1695311,
+    1888023,
+    1982806,
+    2030726,
+    2030728,
+    2030716,
+    2030717,
+    2030713,
+    2030714,
+    2030718,
+    2030729,
+    2030727,
+    2030715,
+    2030719,
+    2030720,
+    2030721,
+    2030722
+  ]
+}

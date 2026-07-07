@@ -1,0 +1,930 @@
+{
+  "id": 87929,
+  "code": "AP18",
+  "date": "2019-09-18",
+  "end_date": "2019-09-18",
+  "status": "finalized",
+  "closed_date": "2019-09-18T00:00:00.000-03:00",
+  "created_at": "2019-09-19T10:54:53.000-03:00",
+  "updated_at": "2019-09-19T13:36:25.000-03:00",
+  "observations": "Os produtos são dosados em um balde e adicionado no misturador junto com as sementes, apenas grafite em pó direto no misturador.",
+  "reopened_reference_id": null,
+  "retroactive": false,
+  "operation_type": "pulverization",
+  "charge": {
+    "id": 3120,
+    "name": "Juliandro Dias ",
+    "username": "juliandro.dias",
+    "email": "juliandro.dias@celeirosementes.com.br",
+    "crea": ""
+  },
+  "finisher": null,
+  "mixer": null,
+  "operator": null,
+  "activity_type": null,
+  "responsible": {
+    "id": 3119,
+    "name": "Donizete Oliveira",
+    "username": "donizete.s",
+    "email": "insumo.almoxba@celeirosementes.com.br",
+    "crea": ""
+  },
+  "first_movimentation_date": "2019-09-18T00:00:00.000-03:00",
+  "last_movimentation_date": "2019-09-18T00:00:00.000-03:00",
+  "equipments": [
+    {
+      "id": 73183,
+      "pressure": 0.01,
+      "pressure_unit": "bar",
+      "solution": 0.01,
+      "velocity": 0.01,
+      "tank_volume": null,
+      "area": 140.91,
+      "equipment": {
+        "id": 1405,
+        "name": "MISTURADOR DE SEMENTE",
+        "type": "land",
+        "tank_volume": 1000.0,
+        "disabled": false,
+        "serial": null,
+        "model": "TMS1000",
+        "manufacturer": "TREVISAN",
+        "operation_type": null,
+        "farms": [
+          {
+            "id": 2112,
+            "name": "Celeiro Sementes - BA"
+          }
+        ]
+      },
+      "beak": {
+        "id": 724,
+        "name": "TXA 8003 CONE"
+      }
+    }
+  ],
+  "plantations": [
+    {
+      "id": 197800,
+      "sought_area": 140.91,
+      "applied_area": 140.91,
+      "updated_at": "2019-09-19T10:54:53.000-03:00",
+      "plantation": {
+        "id": 36737,
+        "variety_id": 4514,
+        "planned_variety_id": null,
+        "culture_id": 2,
+        "planned_culture_id": null,
+        "state": "closed",
+        "date": "2019-09-19",
+        "planned_date": "2019-09-20T00:00:00.000-03:00",
+        "emergence_date": "2019-09-26",
+        "activation_date": "2019-09-14",
+        "area": 140.0,
+        "name": "P 58",
+        "farm_name": "Celeiro Sementes - BA",
+        "variety_name": "75/77 RSF IPRO-ULTRA",
+        "planned_variety_name": null,
+        "culture_name": "Soja",
+        "culture_unit": "Sc",
+        "culture_unit_per_ha": "Sc / Ha",
+        "planned_culture_name": null,
+        "harvest_name": "2019/20-1",
+        "centroid": {
+          "lat": -14.223364523077233,
+          "lng": -45.43797604353499
+        },
+        "harvest_prediction_date": "2020-01-12",
+        "cycle": 1,
+        "observations": "",
+        "irrigated": true,
+        "updated_at": "2026-06-17T17:04:55.000-03:00",
+        "productivity": 72.97,
+        "closed_date": "2020-01-11T00:00:00.000-03:00",
+        "farm": {
+          "id": 2112,
+          "name": "Celeiro Sementes - BA",
+          "cnpj_cpf": "",
+          "ie": "",
+          "storage_id": 2368,
+          "city": null
+        },
+        "plot": {
+          "id": 22116,
+          "name": "P 58",
+          "farm_id": 2112,
+          "area": 140.0,
+          "updated_at": "2026-06-20T15:34:23.000-03:00",
+          "disabled_at": null,
+          "geo_points": [
+            {
+              "latitude": "-14.229392502426004",
+              "longitude": "-45.437667254720054"
+            },
+            {
+              "latitude": "-14.22939890972439",
+              "longitude": "-45.438094349004075"
+            },
+            {
+              "latitude": "-14.229354625879958",
+              "longitude": "-45.43873329690632"
+            },
+            {
+              "latitude": "-14.229246141521292",
+              "longitude": "-45.439364127835574"
+            },
+            {
+              "latitude": "-14.229074619372076",
+              "longitude": "-45.43998008070315"
+            },
+            {
+              "latitude": "-14.22892613084563",
+              "longitude": "-45.44037918160018"
+            },
+            {
+              "latitude": "-14.228653955852737",
+              "longitude": "-45.44095577837044"
+            },
+            {
+              "latitude": "-14.228325089978792",
+              "longitude": "-45.44150043839909"
+            },
+            {
+              "latitude": "-14.227943057902463",
+              "longitude": "-45.44200732436377"
+            },
+            {
+              "latitude": "-14.227660832872367",
+              "longitude": "-45.44232156163309"
+            },
+            {
+              "latitude": "-14.227199550976378",
+              "longitude": "-45.44275364530722"
+            },
+            {
+              "latitude": "-14.226697165911377",
+              "longitude": "-45.44313452428548"
+            },
+            {
+              "latitude": "-14.22615906195804",
+              "longitude": "-45.443460116881056"
+            },
+            {
+              "latitude": "-14.225591006170953",
+              "longitude": "-45.44372693401084"
+            },
+            {
+              "latitude": "-14.224999086563853",
+              "longitude": "-45.4439321165753"
+            },
+            {
+              "latitude": "-14.224389646856634",
+              "longitude": "-45.444073466084376"
+            },
+            {
+              "latitude": "-14.223769218483863",
+              "longitude": "-45.44414946819904"
+            },
+            {
+              "latitude": "-14.223352775585504",
+              "longitude": "-45.44416340106733"
+            },
+            {
+              "latitude": "-14.222728834546318",
+              "longitude": "-45.44412903203806"
+            },
+            {
+              "latitude": "-14.222111703692542",
+              "longitude": "-45.44402872154751"
+            },
+            {
+              "latitude": "-14.221507996691164",
+              "longitude": "-45.44386354512915"
+            },
+            {
+              "latitude": "-14.221116186022247",
+              "longitude": "-45.443718237203825"
+            },
+            {
+              "latitude": "-14.220549126829159",
+              "longitude": "-45.443449220571665"
+            },
+            {
+              "latitude": "-14.220012237079937",
+              "longitude": "-45.44312154956697"
+            },
+            {
+              "latitude": "-14.219511270360147",
+              "longitude": "-45.44273873606812"
+            },
+            {
+              "latitude": "-14.21919991854749",
+              "longitude": "-45.442454895362346"
+            },
+            {
+              "latitude": "-14.218770537422428",
+              "longitude": "-45.44198956694413"
+            },
+            {
+              "latitude": "-14.21839038587515",
+              "longitude": "-45.441481227558086"
+            },
+            {
+              "latitude": "-14.21806353772356",
+              "longitude": "-45.44093532489592"
+            },
+            {
+              "latitude": "-14.217793495557697",
+              "longitude": "-45.44035770910955"
+            },
+            {
+              "latitude": "-14.217583153212221",
+              "longitude": "-45.43975457012664"
+            },
+            {
+              "latitude": "-14.217434764761707",
+              "longitude": "-45.439132371328355"
+            },
+            {
+              "latitude": "-14.217349920370268",
+              "longitude": "-45.43849778030011"
+            },
+            {
+              "latitude": "-14.217329529254547",
+              "longitude": "-45.437857597395976"
+            },
+            {
+              "latitude": "-14.217373809942076",
+              "longitude": "-45.437218682882474"
+            },
+            {
+              "latitude": "-14.217482287929423",
+              "longitude": "-45.43658788344044"
+            },
+            {
+              "latitude": "-14.21765380076529",
+              "longitude": "-45.435971958812274"
+            },
+            {
+              "latitude": "-14.217886510504137",
+              "longitude": "-45.435377509379634"
+            },
+            {
+              "latitude": "-14.218177923396857",
+              "longitude": "-45.43481090544691"
+            },
+            {
+              "latitude": "-14.218524916608201",
+              "longitude": "-45.434278218987174"
+            },
+            {
+              "latitude": "-14.218785310442353",
+              "longitude": "-45.43394477360323"
+            },
+            {
+              "latitude": "-14.219216397979746",
+              "longitude": "-45.43348109472532"
+            },
+            {
+              "latitude": "-14.219691937232122",
+              "longitude": "-45.43306558456379"
+            },
+            {
+              "latitude": "-14.220206832123369",
+              "longitude": "-45.432702696221895"
+            },
+            {
+              "latitude": "-14.220755564788268",
+              "longitude": "-45.43239631896506"
+            },
+            {
+              "latitude": "-14.22133225469698",
+              "longitude": "-45.43214973653056"
+            },
+            {
+              "latitude": "-14.221930721667484",
+              "longitude": "-45.43196559192296"
+            },
+            {
+              "latitude": "-14.22254455209052",
+              "longitude": "-45.431845859072325"
+            },
+            {
+              "latitude": "-14.222959063735818",
+              "longitude": "-45.431802484269554"
+            },
+            {
+              "latitude": "-14.223583831995473",
+              "longitude": "-45.4317926096445"
+            },
+            {
+              "latitude": "-14.224206247509219",
+              "longitude": "-45.431849002028684"
+            },
+            {
+              "latitude": "-14.224819639821542",
+              "longitude": "-45.43197105759907"
+            },
+            {
+              "latitude": "-14.225417435127316",
+              "longitude": "-45.43215746878951"
+            },
+            {
+              "latitude": "-14.225993226727402",
+              "longitude": "-45.43240623828251"
+            },
+            {
+              "latitude": "-14.22654084369577",
+              "longitude": "-45.43271470039531"
+            },
+            {
+              "latitude": "-14.227054417021387",
+              "longitude": "-45.433079549632566"
+            },
+            {
+              "latitude": "-14.227375151162924",
+              "longitude": "-45.433352201474634"
+            },
+            {
+              "latitude": "-14.227819960553365",
+              "longitude": "-45.433802060906146"
+            },
+            {
+              "latitude": "-14.228217017387301",
+              "longitude": "-45.434296654497246"
+            },
+            {
+              "latitude": "-14.228562066173376",
+              "longitude": "-45.434830681592985"
+            },
+            {
+              "latitude": "-14.228761354936678",
+              "longitude": "-45.435205796376465"
+            },
+            {
+              "latitude": "-14.229011799019688",
+              "longitude": "-45.435792646284824"
+            },
+            {
+              "latitude": "-14.229145275316847",
+              "longitude": "-45.436197279011765"
+            },
+            {
+              "latitude": "-14.229293670491078",
+              "longitude": "-45.43681950831956"
+            },
+            {
+              "latitude": "-14.229378518416183",
+              "longitude": "-45.43745413223712"
+            }
+          ]
+        },
+        "harvest": {
+          "id": 695,
+          "name": "2019/20-1",
+          "start_date": "2019-09-11",
+          "end_date": "2020-11-27",
+          "rain_start_date": "2019-09-11",
+          "rain_end_date": "2020-11-27"
+        },
+        "geo_points": [
+          {
+            "latitude": "-14.229392502426004",
+            "longitude": "-45.437667254720054"
+          },
+          {
+            "latitude": "-14.22939890972439",
+            "longitude": "-45.438094349004075"
+          },
+          {
+            "latitude": "-14.229354625879958",
+            "longitude": "-45.43873329690632"
+          },
+          {
+            "latitude": "-14.229246141521292",
+            "longitude": "-45.439364127835574"
+          },
+          {
+            "latitude": "-14.229074619372076",
+            "longitude": "-45.43998008070315"
+          },
+          {
+            "latitude": "-14.22892613084563",
+            "longitude": "-45.44037918160018"
+          },
+          {
+            "latitude": "-14.228653955852737",
+            "longitude": "-45.44095577837044"
+          },
+          {
+            "latitude": "-14.228325089978792",
+            "longitude": "-45.44150043839909"
+          },
+          {
+            "latitude": "-14.227943057902463",
+            "longitude": "-45.44200732436377"
+          },
+          {
+            "latitude": "-14.227660832872367",
+            "longitude": "-45.44232156163309"
+          },
+          {
+            "latitude": "-14.227199550976378",
+            "longitude": "-45.44275364530722"
+          },
+          {
+            "latitude": "-14.226697165911377",
+            "longitude": "-45.44313452428548"
+          },
+          {
+            "latitude": "-14.22615906195804",
+            "longitude": "-45.443460116881056"
+          },
+          {
+            "latitude": "-14.225591006170953",
+            "longitude": "-45.44372693401084"
+          },
+          {
+            "latitude": "-14.224999086563853",
+            "longitude": "-45.4439321165753"
+          },
+          {
+            "latitude": "-14.224389646856634",
+            "longitude": "-45.444073466084376"
+          },
+          {
+            "latitude": "-14.223769218483863",
+            "longitude": "-45.44414946819904"
+          },
+          {
+            "latitude": "-14.223352775585504",
+            "longitude": "-45.44416340106733"
+          },
+          {
+            "latitude": "-14.222728834546318",
+            "longitude": "-45.44412903203806"
+          },
+          {
+            "latitude": "-14.222111703692542",
+            "longitude": "-45.44402872154751"
+          },
+          {
+            "latitude": "-14.221507996691164",
+            "longitude": "-45.44386354512915"
+          },
+          {
+            "latitude": "-14.221116186022247",
+            "longitude": "-45.443718237203825"
+          },
+          {
+            "latitude": "-14.220549126829159",
+            "longitude": "-45.443449220571665"
+          },
+          {
+            "latitude": "-14.220012237079937",
+            "longitude": "-45.44312154956697"
+          },
+          {
+            "latitude": "-14.219511270360147",
+            "longitude": "-45.44273873606812"
+          },
+          {
+            "latitude": "-14.21919991854749",
+            "longitude": "-45.442454895362346"
+          },
+          {
+            "latitude": "-14.218770537422428",
+            "longitude": "-45.44198956694413"
+          },
+          {
+            "latitude": "-14.21839038587515",
+            "longitude": "-45.441481227558086"
+          },
+          {
+            "latitude": "-14.21806353772356",
+            "longitude": "-45.44093532489592"
+          },
+          {
+            "latitude": "-14.217793495557697",
+            "longitude": "-45.44035770910955"
+          },
+          {
+            "latitude": "-14.217583153212221",
+            "longitude": "-45.43975457012664"
+          },
+          {
+            "latitude": "-14.217434764761707",
+            "longitude": "-45.439132371328355"
+          },
+          {
+            "latitude": "-14.217349920370268",
+            "longitude": "-45.43849778030011"
+          },
+          {
+            "latitude": "-14.217329529254547",
+            "longitude": "-45.437857597395976"
+          },
+          {
+            "latitude": "-14.217373809942076",
+            "longitude": "-45.437218682882474"
+          },
+          {
+            "latitude": "-14.217482287929423",
+            "longitude": "-45.43658788344044"
+          },
+          {
+            "latitude": "-14.21765380076529",
+            "longitude": "-45.435971958812274"
+          },
+          {
+            "latitude": "-14.217886510504137",
+            "longitude": "-45.435377509379634"
+          },
+          {
+            "latitude": "-14.218177923396857",
+            "longitude": "-45.43481090544691"
+          },
+          {
+            "latitude": "-14.218524916608201",
+            "longitude": "-45.434278218987174"
+          },
+          {
+            "latitude": "-14.218785310442353",
+            "longitude": "-45.43394477360323"
+          },
+          {
+            "latitude": "-14.219216397979746",
+            "longitude": "-45.43348109472532"
+          },
+          {
+            "latitude": "-14.219691937232122",
+            "longitude": "-45.43306558456379"
+          },
+          {
+            "latitude": "-14.220206832123369",
+            "longitude": "-45.432702696221895"
+          },
+          {
+            "latitude": "-14.220755564788268",
+            "longitude": "-45.43239631896506"
+          },
+          {
+            "latitude": "-14.22133225469698",
+            "longitude": "-45.43214973653056"
+          },
+          {
+            "latitude": "-14.221930721667484",
+            "longitude": "-45.43196559192296"
+          },
+          {
+            "latitude": "-14.22254455209052",
+            "longitude": "-45.431845859072325"
+          },
+          {
+            "latitude": "-14.222959063735818",
+            "longitude": "-45.431802484269554"
+          },
+          {
+            "latitude": "-14.223583831995473",
+            "longitude": "-45.4317926096445"
+          },
+          {
+            "latitude": "-14.224206247509219",
+            "longitude": "-45.431849002028684"
+          },
+          {
+            "latitude": "-14.224819639821542",
+            "longitude": "-45.43197105759907"
+          },
+          {
+            "latitude": "-14.225417435127316",
+            "longitude": "-45.43215746878951"
+          },
+          {
+            "latitude": "-14.225993226727402",
+            "longitude": "-45.43240623828251"
+          },
+          {
+            "latitude": "-14.22654084369577",
+            "longitude": "-45.43271470039531"
+          },
+          {
+            "latitude": "-14.227054417021387",
+            "longitude": "-45.433079549632566"
+          },
+          {
+            "latitude": "-14.227375151162924",
+            "longitude": "-45.433352201474634"
+          },
+          {
+            "latitude": "-14.227819960553365",
+            "longitude": "-45.433802060906146"
+          },
+          {
+            "latitude": "-14.228217017387301",
+            "longitude": "-45.434296654497246"
+          },
+          {
+            "latitude": "-14.228562066173376",
+            "longitude": "-45.434830681592985"
+          },
+          {
+            "latitude": "-14.228761354936678",
+            "longitude": "-45.435205796376465"
+          },
+          {
+            "latitude": "-14.229011799019688",
+            "longitude": "-45.435792646284824"
+          },
+          {
+            "latitude": "-14.229145275316847",
+            "longitude": "-45.436197279011765"
+          },
+          {
+            "latitude": "-14.229293670491078",
+            "longitude": "-45.43681950831956"
+          },
+          {
+            "latitude": "-14.229378518416183",
+            "longitude": "-45.43745413223712"
+          }
+        ]
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": 310342,
+      "applied": 19.586,
+      "consumed": 19.586,
+      "updated_at": "2019-09-19T10:54:54.000-03:00",
+      "position": 1,
+      "applied_unit": "g",
+      "applied_dosage_value": 0.13899652260307999,
+      "applied_dosage_unit": "g_ha",
+      "sought_dosage_value": 0.139,
+      "sought_dosage_unit": "g_ha",
+      "sought_quantity": 19.58649,
+      "sought_quantity_unit": "g",
+      "cost_on_harvest": 0.0,
+      "input": {
+        "id": 29909,
+        "name": "0016939-INOCULANTE BIOMAX PREMIUM TURFA SOJA - ESTIRPE SEMIA 5080 DOSE",
+        "formulation": "liquid",
+        "input_type_name": "Inoculante",
+        "input_type_id": 30,
+        "register": "",
+        "manufacturer": "BioSOJA",
+        "updated_at": "2024-01-04T11:08:24.000-03:00",
+        "dosage_unit": "l_ha"
+      },
+      "plantations_costs": [
+        {
+          "plantation_id": 36737,
+          "cost": 0.0
+        }
+      ]
+    },
+    {
+      "id": 310343,
+      "applied": 16.205,
+      "consumed": 16.205,
+      "updated_at": "2019-09-19T10:54:54.000-03:00",
+      "position": 2,
+      "applied_unit": "l",
+      "applied_dosage_value": 0.11500248385494287,
+      "applied_dosage_unit": "l_ha",
+      "sought_dosage_value": 0.115,
+      "sought_dosage_unit": "l_ha",
+      "sought_quantity": 16.20465,
+      "sought_quantity_unit": "l",
+      "cost_on_harvest": 0.0,
+      "input": {
+        "id": 29908,
+        "name": "0000237-INOCULANTE RIZOLIQ TOP",
+        "formulation": "unity",
+        "input_type_name": "Inoculante",
+        "input_type_id": 30,
+        "register": "",
+        "manufacturer": "Rizobacter",
+        "updated_at": "2025-10-20T10:47:35.000-03:00",
+        "dosage_unit": "un_ha"
+      },
+      "plantations_costs": [
+        {
+          "plantation_id": 36737,
+          "cost": 0.0
+        }
+      ]
+    },
+    {
+      "id": 310344,
+      "applied": 28.182,
+      "consumed": 28.182,
+      "updated_at": "2019-09-19T10:54:54.000-03:00",
+      "position": 3,
+      "applied_unit": "l",
+      "applied_dosage_value": 0.2,
+      "applied_dosage_unit": "l_ha",
+      "sought_dosage_value": 0.2,
+      "sought_dosage_unit": "l_ha",
+      "sought_quantity": 28.182,
+      "sought_quantity_unit": "l",
+      "cost_on_harvest": 0.0,
+      "input": {
+        "id": 29874,
+        "name": "0020484-FERT. FOLIAR ENRAIZADOR ALGAMARE",
+        "formulation": "liquid",
+        "input_type_name": "Fertilizante",
+        "input_type_id": 13,
+        "register": "",
+        "manufacturer": "MICROQUIMICA",
+        "updated_at": "2024-01-30T09:40:47.000-03:00",
+        "dosage_unit": "l_ha"
+      },
+      "plantations_costs": [
+        {
+          "plantation_id": 36737,
+          "cost": 0.0
+        }
+      ]
+    },
+    {
+      "id": 310345,
+      "applied": 42.273,
+      "consumed": 42.273,
+      "updated_at": "2019-09-19T10:54:54.000-03:00",
+      "position": 4,
+      "applied_unit": "l",
+      "applied_dosage_value": 0.3,
+      "applied_dosage_unit": "l_ha",
+      "sought_dosage_value": 0.3,
+      "sought_dosage_unit": "l_ha",
+      "sought_quantity": 42.273,
+      "sought_quantity_unit": "l",
+      "cost_on_harvest": 0.0,
+      "input": {
+        "id": 34486,
+        "name": "0000910-FUNGICIDA VITAVAX THIRAN",
+        "formulation": "liquid",
+        "input_type_name": "Fungicida",
+        "input_type_id": 4,
+        "register": "",
+        "manufacturer": "",
+        "updated_at": "2020-09-16T16:04:09.000-03:00",
+        "dosage_unit": "l_ha"
+      },
+      "plantations_costs": [
+        {
+          "plantation_id": 36737,
+          "cost": 0.0
+        }
+      ]
+    },
+    {
+      "id": 310346,
+      "applied": 81.023,
+      "consumed": 81.023,
+      "updated_at": "2019-09-19T10:54:54.000-03:00",
+      "position": 5,
+      "applied_unit": "kg",
+      "applied_dosage_value": 0.574998225817898,
+      "applied_dosage_unit": "kg_ha",
+      "sought_dosage_value": 0.575,
+      "sought_dosage_unit": "kg_ha",
+      "sought_quantity": 81.02325,
+      "sought_quantity_unit": "kg",
+      "cost_on_harvest": 0.0,
+      "input": {
+        "id": 30465,
+        "name": "0005766-GRAFITE EM PO",
+        "formulation": "solid",
+        "input_type_name": "Tratamento de Semente",
+        "input_type_id": 37,
+        "register": "",
+        "manufacturer": "",
+        "updated_at": "2024-01-20T09:51:10.000-03:00",
+        "dosage_unit": "kg_ha"
+      },
+      "plantations_costs": [
+        {
+          "plantation_id": 36737,
+          "cost": 0.0
+        }
+      ]
+    }
+  ],
+  "progresses": [
+    {
+      "id": 86476,
+      "area": 140.91,
+      "wind_speed": null,
+      "humidity": null,
+      "temperature": null,
+      "wind_direction": null,
+      "pressure": 0.01,
+      "solution": 0.01,
+      "velocity": 0.01,
+      "updated_at": "2019-09-19T10:54:53.000-03:00",
+      "comment": null,
+      "initial_hour_meter": null,
+      "final_hour_meter": null,
+      "date": "2019-09-18T00:00:00.000-03:00",
+      "equipment": {
+        "id": 1405,
+        "name": "MISTURADOR DE SEMENTE",
+        "type": "land",
+        "tank_volume": 1000.0,
+        "disabled": false,
+        "serial": null,
+        "model": "TMS1000",
+        "manufacturer": "TREVISAN",
+        "operation_type": null,
+        "farms": [
+          {
+            "id": 2112,
+            "name": "Celeiro Sementes - BA"
+          }
+        ]
+      },
+      "plantations": [
+        {
+          "plantation_id": 36737,
+          "area": 140.91
+        }
+      ]
+    }
+  ],
+  "input_movimentations": [
+    {
+      "id": 293411,
+      "input_id": 29909,
+      "storage_id": 2368,
+      "value": 19.586,
+      "kind": "removed",
+      "unit": "g",
+      "datetime": "2019-09-18T00:00:00.000-03:00",
+      "batch_info": {
+        "batch_id": null,
+        "validity": null,
+        "batch_number": null
+      }
+    },
+    {
+      "id": 293412,
+      "input_id": 29908,
+      "storage_id": 2368,
+      "value": 16.205,
+      "kind": "removed",
+      "unit": "l",
+      "datetime": "2019-09-18T00:00:00.000-03:00",
+      "batch_info": {
+        "batch_id": null,
+        "validity": null,
+        "batch_number": null
+      }
+    },
+    {
+      "id": 293413,
+      "input_id": 29874,
+      "storage_id": 2368,
+      "value": 28.182,
+      "kind": "removed",
+      "unit": "l",
+      "datetime": "2019-09-18T00:00:00.000-03:00",
+      "batch_info": {
+        "batch_id": null,
+        "validity": null,
+        "batch_number": null
+      }
+    },
+    {
+      "id": 293414,
+      "input_id": 34486,
+      "storage_id": 2368,
+      "value": 42.273,
+      "kind": "removed",
+      "unit": "l",
+      "datetime": "2019-09-18T00:00:00.000-03:00",
+      "batch_info": {
+        "batch_id": null,
+        "validity": null,
+        "batch_number": null
+      }
+    },
+    {
+      "id": 293415,
+      "input_id": 30465,
+      "storage_id": 2368,
+      "value": 81.023,
+      "kind": "removed",
+      "unit": "kg",
+      "datetime": "2019-09-18T00:00:00.000-03:00",
+      "batch_info": {
+        "batch_id": null,
+        "validity": null,
+        "batch_number": null
+      }
+    }
+  ]
+}

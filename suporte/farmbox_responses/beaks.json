@@ -1,0 +1,72 @@
+{
+  "beaks": [
+    {
+      "id": 724,
+      "name": "TXA 8003 CONE"
+    },
+    {
+      "id": 745,
+      "name": "TXA 8002 CONE"
+    },
+    {
+      "id": 746,
+      "name": "TXA 8001 CONE"
+    },
+    {
+      "id": 747,
+      "name": "TTI 02 Leque"
+    },
+    {
+      "id": 749,
+      "name": "3D 02 LEQUE"
+    },
+    {
+      "id": 783,
+      "name": "ATOMIZADOR ROTATIVO"
+    },
+    {
+      "id": 784,
+      "name": "BICO CP"
+    },
+    {
+      "id": 875,
+      "name": "SPI Extreme Universal 7"
+    },
+    {
+      "id": 876,
+      "name": "TTi 11003"
+    },
+    {
+      "id": 725,
+      "name": "TT11003 Leque"
+    },
+    {
+      "id": 1178,
+      "name": "AIOBEM"
+    },
+    {
+      "id": 1229,
+      "name": "TT110 01"
+    },
+    {
+      "id": 1748,
+      "name": "XR 11002VP (Amarelo)"
+    },
+    {
+      "id": 3027,
+      "name": "3D 015 LEQUE"
+    },
+    {
+      "id": 3091,
+      "name": "XR 11004 "
+    }
+  ],
+  "next_page_url": "/api/v1/beaks?page=2",
+  "pagination": {
+    "total_entries": 19,
+    "total_pages": 2,
+    "per_page": 15,
+    "current_page": 1
+  },
+  "deleted_since": []
+}

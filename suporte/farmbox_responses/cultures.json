@@ -1,0 +1,55 @@
+{
+  "cultures": [
+    {
+      "id": 3,
+      "name": "Algodão"
+    },
+    {
+      "id": 19,
+      "name": "Braquiária"
+    },
+    {
+      "id": 1,
+      "name": "Café"
+    },
+    {
+      "id": 7,
+      "name": "Eucalipto"
+    },
+    {
+      "id": 5,
+      "name": "Feijão"
+    },
+    {
+      "id": 23,
+      "name": "Indefinido"
+    },
+    {
+      "id": 11,
+      "name": "Milheto"
+    },
+    {
+      "id": 4,
+      "name": "Milho"
+    },
+    {
+      "id": 54,
+      "name": "Mix Cobertura"
+    },
+    {
+      "id": 2,
+      "name": "Soja"
+    },
+    {
+      "id": 6,
+      "name": "Sorgo"
+    }
+  ],
+  "next_page_url": null,
+  "pagination": {
+    "total_entries": 11,
+    "total_pages": 1,
+    "per_page": 15,
+    "current_page": 1
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "varieties": [
+    {
+      "id": 4572,
+      "name": "NS7901RR",
+      "culture_id": 2,
+      "culture": {
+        "id": 2,
+        "name": "Soja"
+      }
+    },
+    {
+      "id": 4558,
+      "name": "IMA8405GLT",
+      "culture_id": 3,
+      "culture": {
+        "id": 3,
+        "name": "Algodão"
+      }
+    },
+    {
+      "id": 5343,
+      "name": "P3898  ",
+      "culture_id": 4,
+      "culture": {
+        "id": 4,
+        "name": "Milho"
+      }
+    },
+    {
+      "id": 5398,
+      "name": "TMG81WS",
+      "culture_id": 3,
+      "culture": {
+        "id": 3,
+        "name": "Algodão"
+      }
+    },
+    {
+      "id": 6295,
+      "name": "NS 90",
+      "culture_id": 4,
+      "culture": {
+        "id": 4,
+        "name": "Milho"
+      }
+    },
+    {
+      "id": 5364,
+      "name": "30F53R ",
+      "culture_id": 4,
+      "culture": {
+        "id": 4,
+        "name": "Milho"
+      }
+    },
+    {
+      "id": 5573,
+      "name": "DP1746BT2RF",
+      "culture_id": 2,
+      "culture": {
+        "id": 2,
+        "name": "Soja"
+      }
+    },
+    {
+      "id": 7315,
+      "name": "Dama",
+      "culture_id": 5,
+      "culture": {
+        "id": 5,
+        "name": "Feijão"
+      }
+    },
+    {
+      "id": 6976,
+      "name": "feijão Perola",
+      "culture_id": 5,
+      "culture": {
+        "id": 5,
+        "name": "Feijão"
+      }
+    },
+    {
+      "id": 10629,
+      "name": "C2811 IPRO Cordius",
+      "culture_id": 2,
+      "culture": {
+        "id": 2,
+        "name": "Soja"
+      }
+    },
+    {
+      "id": 10516,
+      "name": "TMG 2383 RFS IPRO",
+      "culture_id": 2,
+      "culture": {
+        "id": 2,
+        "name": "Soja"
+      }
+    },
+    {
+      "id": 10628,
+      "name": "C2834 IPRO Cordius",
+      "culture_id": 2,
+      "culture": {
+        "id": 2,
+        "name": "Soja"
+      }
+    },
+    {
+      "id": 10704,
+      "name": "BMX 80E87 RSF E Resulta",
+      "culture_id": 2,
+      "culture": {
+        "id": 2,
+        "name": "Soja"
+      }
+    },
+    {
+      "id": 11092,
+      "name": "FM 911 GLTP",
+      "culture_id": 3,
+      "culture": {
+        "id": 3,
+        "name": "Algodão"
+      }
+    },
+    {
+      "id": 11391,
+      "name": "CZ37B43IPRO",
+      "culture_id": 2,
+      "culture": {
+        "id": 2,
+        "name": "Soja"
+      }
+    }
+  ],
+  "next_page_url": "/api/v1/varieties?page=2",
+  "pagination": {
+    "total_entries": 162,
+    "total_pages": 11,
+    "per_page": 15,
+    "current_page": 1
+  },
+  "deleted_since": [
+    4553,
+    4515,
+    6687,
+    6686,
+    6683,
+    6681,
+    6682,
+    6685,
+    6684,
+    8418,
+    9424,
+    8416,
+    9425,
+    8415,
+    10503,
+    10504,
+    11531,
+    4570,
+    4556,
+    4566,
+    4555,
+    4569,
+    4557,
+    165,
+    1085,
+    6680
+  ]
+}

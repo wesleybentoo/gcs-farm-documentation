@@ -1,0 +1,50 @@
+{
+  "application_progresses": [
+    {
+      "id": 86476,
+      "area": 140.91,
+      "wind_speed": null,
+      "humidity": null,
+      "temperature": null,
+      "wind_direction": null,
+      "pressure": 0.01,
+      "solution": 0.01,
+      "velocity": 0.01,
+      "updated_at": "2019-09-19T10:54:53.000-03:00",
+      "comment": null,
+      "initial_hour_meter": null,
+      "final_hour_meter": null,
+      "date": "2019-09-18T00:00:00.000-03:00",
+      "equipment": {
+        "id": 1405,
+        "name": "MISTURADOR DE SEMENTE",
+        "type": "land",
+        "tank_volume": 1000.0,
+        "disabled": false,
+        "serial": null,
+        "model": "TMS1000",
+        "manufacturer": "TREVISAN",
+        "operation_type": null,
+        "farms": [
+          {
+            "id": 2112,
+            "name": "Celeiro Sementes - BA"
+          }
+        ]
+      },
+      "plantations": [
+        {
+          "plantation_id": 36737,
+          "area": 140.91
+        }
+      ]
+    }
+  ],
+  "next_page_url": null,
+  "pagination": {
+    "total_entries": 1,
+    "total_pages": 1,
+    "per_page": 15,
+    "current_page": 1
+  }
+}

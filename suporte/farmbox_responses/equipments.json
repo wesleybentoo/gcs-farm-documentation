@@ -1,0 +1,283 @@
+{
+  "equipments": [
+    {
+      "id": 1405,
+      "name": "MISTURADOR DE SEMENTE",
+      "type": "land",
+      "tank_volume": 1000.0,
+      "disabled": false,
+      "serial": null,
+      "model": "TMS1000",
+      "manufacturer": "TREVISAN",
+      "operation_type": null,
+      "farms": [
+        {
+          "id": 2112,
+          "name": "Celeiro Sementes - BA"
+        }
+      ]
+    },
+    {
+      "id": 1447,
+      "name": "APLICADOR DE ADUBOS MP",
+      "type": "land",
+      "tank_volume": 5000.0,
+      "disabled": false,
+      "serial": null,
+      "model": "MP-4730",
+      "manufacturer": "JOHN DEERE",
+      "operation_type": null,
+      "farms": [
+        {
+          "id": 2112,
+          "name": "Celeiro Sementes - BA"
+        }
+      ]
+    },
+    {
+      "id": 1376,
+      "name": "PULVERIZADOR 4730",
+      "type": "land",
+      "tank_volume": 3000.0,
+      "disabled": false,
+      "serial": null,
+      "model": "4730",
+      "manufacturer": "Jhon Deere",
+      "operation_type": null,
+      "farms": [
+        {
+          "id": 2112,
+          "name": "Celeiro Sementes - BA"
+        }
+      ]
+    },
+    {
+      "id": 1696,
+      "name": "HÉRCULES ARRASTO 1276",
+      "type": "land",
+      "tank_volume": 24000.0,
+      "disabled": false,
+      "serial": null,
+      "model": "HÉRCULES ",
+      "manufacturer": "Stara",
+      "operation_type": null,
+      "farms": [
+        {
+          "id": 2414,
+          "name": "Celeiro Sementes - PI"
+        }
+      ]
+    },
+    {
+      "id": 1697,
+      "name": "HÉRCULES CAMINHÃO 1921",
+      "type": "land",
+      "tank_volume": 24000.0,
+      "disabled": false,
+      "serial": null,
+      "model": "HÉRCULES 240000",
+      "manufacturer": "Stara",
+      "operation_type": null,
+      "farms": [
+        {
+          "id": 2414,
+          "name": "Celeiro Sementes - PI"
+        }
+      ]
+    },
+    {
+      "id": 1705,
+      "name": "PU 1264 + PU 1266",
+      "type": "land",
+      "tank_volume": 3000.0,
+      "disabled": false,
+      "serial": null,
+      "model": "4730",
+      "manufacturer": "John Deere",
+      "operation_type": null,
+      "farms": [
+        {
+          "id": 2414,
+          "name": "Celeiro Sementes - PI"
+        }
+      ]
+    },
+    {
+      "id": 1377,
+      "name": "AVIÃO AIR TRACTOR",
+      "type": "air",
+      "tank_volume": 2000.0,
+      "disabled": false,
+      "serial": null,
+      "model": "2000",
+      "manufacturer": "Air Tractor",
+      "operation_type": null,
+      "farms": [
+        {
+          "id": 2112,
+          "name": "Celeiro Sementes - BA"
+        },
+        {
+          "id": 2414,
+          "name": "Celeiro Sementes - PI"
+        }
+      ]
+    },
+    {
+      "id": 1747,
+      "name": "Tratador de Sementes",
+      "type": "land",
+      "tank_volume": 1000.0,
+      "disabled": false,
+      "serial": null,
+      "model": "TMS 1000",
+      "manufacturer": "Revisan ",
+      "operation_type": null,
+      "farms": [
+        {
+          "id": 2414,
+          "name": "Celeiro Sementes - PI"
+        }
+      ]
+    },
+    {
+      "id": 1778,
+      "name": "Misturadora Adubo",
+      "type": "land",
+      "tank_volume": 6000.0,
+      "disabled": false,
+      "serial": null,
+      "model": "Universal Line",
+      "manufacturer": "Digitron/Armelindo ",
+      "operation_type": null,
+      "farms": [
+        {
+          "id": 2414,
+          "name": "Celeiro Sementes - PI"
+        }
+      ]
+    },
+    {
+      "id": 2547,
+      "name": "PIVO CENTRAL",
+      "type": "land",
+      "tank_volume": 1000000.0,
+      "disabled": false,
+      "serial": null,
+      "model": "",
+      "manufacturer": "",
+      "operation_type": null,
+      "farms": [
+        {
+          "id": 2112,
+          "name": "Celeiro Sementes - BA"
+        }
+      ]
+    },
+    {
+      "id": 1378,
+      "name": "AVIÃO IPANEMA",
+      "type": "air",
+      "tank_volume": 600.0,
+      "disabled": false,
+      "serial": null,
+      "model": "600",
+      "manufacturer": "Embraer",
+      "operation_type": null,
+      "farms": [
+        {
+          "id": 2112,
+          "name": "Celeiro Sementes - BA"
+        }
+      ]
+    },
+    {
+      "id": 3041,
+      "name": "PU- 1264 + 1266 + 1389",
+      "type": "land",
+      "tank_volume": 3000.0,
+      "disabled": false,
+      "serial": null,
+      "model": "4730",
+      "manufacturer": "John Deere",
+      "operation_type": null,
+      "farms": [
+        {
+          "id": 2414,
+          "name": "Celeiro Sementes - PI"
+        }
+      ]
+    },
+    {
+      "id": 3779,
+      "name": "Super Brutus ",
+      "type": "land",
+      "tank_volume": 30000.0,
+      "disabled": false,
+      "serial": null,
+      "model": "distribuidor de esteira ",
+      "manufacturer": "Stara ",
+      "operation_type": null,
+      "farms": [
+        {
+          "id": 2112,
+          "name": "Celeiro Sementes - BA"
+        }
+      ]
+    },
+    {
+      "id": 1438,
+      "name": "TR. JD8335R ATIVO 1047 +PLANTADEIRA JD.2134  ATIVO 1053",
+      "type": "land",
+      "tank_volume": 1200.0,
+      "disabled": false,
+      "serial": null,
+      "model": "TR 8335 R + PL 2134 ",
+      "manufacturer": "JOHN DEERE",
+      "operation_type": null,
+      "farms": [
+        {
+          "id": 2112,
+          "name": "Celeiro Sementes - BA"
+        }
+      ]
+    },
+    {
+      "id": 1442,
+      "name": "TR. JD8335R ATIVO 966 +PLANTADEIRA JD.2134  ATIVO 1050",
+      "type": "land",
+      "tank_volume": 1200.0,
+      "disabled": false,
+      "serial": null,
+      "model": "TR 8335 R + PL 2134 ",
+      "manufacturer": "JOHN DEERE",
+      "operation_type": null,
+      "farms": [
+        {
+          "id": 2112,
+          "name": "Celeiro Sementes - BA"
+        }
+      ]
+    }
+  ],
+  "next_page_url": "/api/v1/equipments?page=2",
+  "pagination": {
+    "total_entries": 54,
+    "total_pages": 4,
+    "per_page": 15,
+    "current_page": 1
+  },
+  "deleted_since": [
+    1380,
+    1398,
+    1402,
+    1404,
+    1399,
+    1397,
+    1403,
+    1437,
+    1436,
+    1439,
+    1435
+  ]
+}

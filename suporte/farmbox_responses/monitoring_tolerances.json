@@ -1,0 +1,147 @@
+{
+  "monitoring_tolerances": [
+    {
+      "id": 381558,
+      "farm_id": 2112,
+      "culture_id": 2,
+      "variety_id": 4514,
+      "days": 7,
+      "created_at": "2024-06-19T19:06:48.000-03:00",
+      "updated_at": "2024-06-19T19:06:48.000-03:00"
+    },
+    {
+      "id": 381559,
+      "farm_id": 2414,
+      "culture_id": 2,
+      "variety_id": 4514,
+      "days": 7,
+      "created_at": "2024-06-19T19:06:48.000-03:00",
+      "updated_at": "2024-06-19T19:06:48.000-03:00"
+    },
+    {
+      "id": 381560,
+      "farm_id": 2416,
+      "culture_id": 2,
+      "variety_id": 4514,
+      "days": 7,
+      "created_at": "2024-06-19T19:06:48.000-03:00",
+      "updated_at": "2024-06-19T19:06:48.000-03:00"
+    },
+    {
+      "id": 381561,
+      "farm_id": 2112,
+      "culture_id": 3,
+      "variety_id": 4554,
+      "days": 7,
+      "created_at": "2024-06-19T19:06:48.000-03:00",
+      "updated_at": "2024-06-19T19:06:48.000-03:00"
+    },
+    {
+      "id": 381562,
+      "farm_id": 2414,
+      "culture_id": 3,
+      "variety_id": 4554,
+      "days": 7,
+      "created_at": "2024-06-19T19:06:48.000-03:00",
+      "updated_at": "2024-06-19T19:06:48.000-03:00"
+    },
+    {
+      "id": 381563,
+      "farm_id": 2416,
+      "culture_id": 3,
+      "variety_id": 4554,
+      "days": 7,
+      "created_at": "2024-06-19T19:06:48.000-03:00",
+      "updated_at": "2024-06-19T19:06:48.000-03:00"
+    },
+    {
+      "id": 381564,
+      "farm_id": 2112,
+      "culture_id": 3,
+      "variety_id": 4558,
+      "days": 7,
+      "created_at": "2024-06-19T19:06:48.000-03:00",
+      "updated_at": "2024-06-19T19:06:48.000-03:00"
+    },
+    {
+      "id": 381565,
+      "farm_id": 2414,
+      "culture_id": 3,
+      "variety_id": 4558,
+      "days": 7,
+      "created_at": "2024-06-19T19:06:48.000-03:00",
+      "updated_at": "2024-06-19T19:06:48.000-03:00"
+    },
+    {
+      "id": 381566,
+      "farm_id": 2416,
+      "culture_id": 3,
+      "variety_id": 4558,
+      "days": 7,
+      "created_at": "2024-06-19T19:06:48.000-03:00",
+      "updated_at": "2024-06-19T19:06:48.000-03:00"
+    },
+    {
+      "id": 381567,
+      "farm_id": 2112,
+      "culture_id": 3,
+      "variety_id": 4565,
+      "days": 7,
+      "created_at": "2024-06-19T19:06:48.000-03:00",
+      "updated_at": "2024-06-19T19:06:48.000-03:00"
+    },
+    {
+      "id": 381568,
+      "farm_id": 2414,
+      "culture_id": 3,
+      "variety_id": 4565,
+      "days": 7,
+      "created_at": "2024-06-19T19:06:48.000-03:00",
+      "updated_at": "2024-06-19T19:06:48.000-03:00"
+    },
+    {
+      "id": 381569,
+      "farm_id": 2416,
+      "culture_id": 3,
+      "variety_id": 4565,
+      "days": 7,
+      "created_at": "2024-06-19T19:06:48.000-03:00",
+      "updated_at": "2024-06-19T19:06:48.000-03:00"
+    },
+    {
+      "id": 381570,
+      "farm_id": 2112,
+      "culture_id": 2,
+      "variety_id": 4572,
+      "days": 7,
+      "created_at": "2024-06-19T19:06:48.000-03:00",
+      "updated_at": "2024-06-19T19:06:48.000-03:00"
+    },
+    {
+      "id": 381571,
+      "farm_id": 2414,
+      "culture_id": 2,
+      "variety_id": 4572,
+      "days": 7,
+      "created_at": "2024-06-19T19:06:48.000-03:00",
+      "updated_at": "2024-06-19T19:06:48.000-03:00"
+    },
+    {
+      "id": 381572,
+      "farm_id": 2416,
+      "culture_id": 2,
+      "variety_id": 4572,
+      "days": 7,
+      "created_at": "2024-06-19T19:06:48.000-03:00",
+      "updated_at": "2024-06-19T19:06:48.000-03:00"
+    }
+  ],
+  "next_page_url": "/api/v1/monitoring_tolerances?page=2",
+  "pagination": {
+    "total_entries": 307,
+    "total_pages": 21,
+    "per_page": 15,
+    "current_page": 1
+  },
+  "deleted_since": []
+}

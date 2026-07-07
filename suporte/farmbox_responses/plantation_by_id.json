@@ -1,0 +1,97 @@
+{
+  "id": 43414,
+  "variety_id": 5342,
+  "planned_variety_id": 5342,
+  "culture_id": 4,
+  "planned_culture_id": 4,
+  "state": "closed",
+  "date": "2020-01-11",
+  "planned_date": "2019-11-22T00:00:00.000-03:00",
+  "emergence_date": null,
+  "activation_date": "2020-01-11",
+  "area": 0.01,
+  "name": "PQ A 06 01",
+  "farm_name": "Pesquisa Celeiro - PI",
+  "variety_name": "P30 F53 VYHR",
+  "planned_variety_name": "P30 F53 VYHR",
+  "culture_name": "Milho",
+  "culture_unit": "Sc",
+  "culture_unit_per_ha": "Sc / Ha",
+  "planned_culture_name": "Milho",
+  "harvest_name": "2019/20-1",
+  "centroid": {
+    "lat": null,
+    "lng": null
+  },
+  "harvest_prediction_date": "2020-06-13",
+  "cycle": 1,
+  "observations": null,
+  "irrigated": false,
+  "updated_at": "2020-02-10T18:05:59.000-03:00",
+  "productivity": null,
+  "closed_date": "2020-02-10T00:00:00.000-03:00",
+  "farm": {
+    "id": 2416,
+    "name": "Pesquisa Celeiro - PI",
+    "cnpj_cpf": "",
+    "ie": "",
+    "storage_id": 2720,
+    "city": null
+  },
+  "plot": {
+    "id": 25535,
+    "name": "PQ A 06 01",
+    "farm_id": 2416,
+    "area": 18.0,
+    "updated_at": "2022-10-28T11:22:55.000-03:00",
+    "disabled_at": null,
+    "geo_points": [
+      {
+        "latitude": "-9.395863756648824",
+        "longitude": "-45.118831775119475"
+      },
+      {
+        "latitude": "-9.39417016891435",
+        "longitude": "-45.12565531485336"
+      },
+      {
+        "latitude": "-9.398875146878199",
+        "longitude": "-45.12702324145096"
+      },
+      {
+        "latitude": "-9.399388509558559",
+        "longitude": "-45.12491502516525"
+      },
+      {
+        "latitude": "-9.395863756648824",
+        "longitude": "-45.123809955051115"
+      },
+      {
+        "latitude": "-9.396414170879009",
+        "longitude": "-45.1217714761998"
+      },
+      {
+        "latitude": "-9.395779077458824",
+        "longitude": "-45.121578357150725"
+      },
+      {
+        "latitude": "-9.39652001966913",
+        "longitude": "-45.11896052115219"
+      }
+    ]
+  },
+  "harvest": {
+    "id": 695,
+    "name": "2019/20-1",
+    "start_date": "2019-09-11",
+    "end_date": "2020-11-27",
+    "rain_start_date": "2019-09-11",
+    "rain_end_date": "2020-11-27"
+  },
+  "geo_points": [
+    {
+      "latitude": "-9.394840977359001",
+      "longitude": "-45.118499627699606"
+    }
+  ]
+}

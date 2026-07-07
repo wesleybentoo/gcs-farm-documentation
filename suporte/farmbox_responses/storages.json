@@ -1,0 +1,30 @@
+{
+  "storages": [
+    {
+      "id": 2718,
+      "updated_at": "2019-12-23T19:21:42.000-03:00",
+      "disabled_at": null,
+      "name": "Almoxarifado Celeiro Sementes - PI",
+      "storage_type": 0,
+      "farm_id": 2414,
+      "default_storage": true
+    },
+    {
+      "id": 2368,
+      "updated_at": "2019-12-23T19:21:33.000-03:00",
+      "disabled_at": null,
+      "name": "Almoxarifado Celeiro Sementes",
+      "storage_type": 0,
+      "farm_id": 2112,
+      "default_storage": true
+    }
+  ],
+  "next_page_url": null,
+  "pagination": {
+    "total_entries": 2,
+    "total_pages": 1,
+    "per_page": 15,
+    "current_page": 1
+  },
+  "deleted_since": []
+}

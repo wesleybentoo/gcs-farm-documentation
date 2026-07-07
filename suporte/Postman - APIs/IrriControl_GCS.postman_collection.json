@@ -1,0 +1,278 @@
+{
+  "info": {
+    "_postman_id": "irricontrol-gcs-farm-v1",
+    "name": "IrriControl — GCS Connection Farm",
+    "description": "Endpoints públicos da API IrriControl para coleta de dados de pivôs.\n\nAutenticação: token JWT estático no header `Authorization` (sem prefixo Bearer).\nFarm vinculada ao token — não há parâmetro farm_id na URL.\n\nEndpoints:\n- GET /public/pivots/operations   → histórico de operações (paginado)\n- GET /public/pivots/current-state → estado atual do pivô (snapshot)\n- GET /public/pivots/history       → histórico de eventos (action/gps/config/...)\n\nDoc: https://public-app.irricontrol.net/docs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{token}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://public-app.irricontrol.net",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "description": "JWT do farm. Defina no environment (Celeiro 01 ou Celeiro 02)."
+    },
+    {
+      "key": "pivot_name",
+      "value": "",
+      "description": "Nome exato do pivô na plataforma IrriControl (ex: 'Pivô 01')."
+    }
+  ],
+  "item": [
+    {
+      "name": "Pivôs",
+      "description": "Todos os endpoints da tag Pivot.",
+      "item": [
+        {
+          "name": "GET Current State (Snapshot)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/public/pivots/current-state?pivot_name={{pivot_name}}",
+              "host": ["{{base_url}}"],
+              "path": ["public", "pivots", "current-state"],
+              "query": [
+                {
+                  "key": "pivot_name",
+                  "value": "{{pivot_name}}",
+                  "description": "[obrigatório] Nome do pivô (string)"
+                }
+              ]
+            },
+            "auth": {
+              "type": "inherit"
+            },
+            "description": "Retorna o estado atual (snapshot) de um pivô.\n\nMapeado em: IRRICONTROL_PIVOT_SNAPSHOT\n\nCampos principais da resposta:\n- pivot_information.id          → pivot_irri_id\n- pivot_status.status          → pivot_status\n- pivot_status.last_communication → last_comm_at\n- positions_information.current_angle → current_angle\n- positions_information.gps_lat / gps_lng\n- positions_information.current_arc\n- current_irrigation_information.*\n- hourmeter_information.*\n- rain_gauge_information.*\n- calculated_information.water_blade\n\nFrequência ETL recomendada: a cada 15 min (source = 'SNAPSHOT')."
+          },
+          "response": [
+            {
+              "name": "200 OK — Exemplo de resposta",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/public/pivots/current-state?pivot_name={{pivot_name}}",
+                  "host": ["{{base_url}}"],
+                  "path": ["public", "pivots", "current-state"],
+                  "query": [
+                    {"key": "pivot_name", "value": "{{pivot_name}}"}
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{"key": "Content-Type", "value": "application/json"}],
+              "body": "{\n  \"pivot_information\": {\n    \"id\": 42,\n    \"name\": \"Pivô 01\",\n    \"protocol\": 5.0,\n    \"automation_type\": \"CENTRAL\",\n    \"connection_status_type\": \"ONLINE\",\n    \"communication_type\": \"GPRS\",\n    \"is_irrifast\": false,\n    \"type\": \"PIVOT\"\n  },\n  \"pivot_status\": {\n    \"status\": \"IRRIGATING\",\n    \"last_communication\": \"2026-06-26T10:30:00Z\"\n  },\n  \"positions_information\": {\n    \"center_lat\": -12.345678,\n    \"center_lng\": -55.123456,\n    \"gps_lat\": -12.346000,\n    \"gps_lng\": -55.124000,\n    \"current_angle\": 182.4,\n    \"current_arc\": 90.0,\n    \"reference_angle\": 0.0\n  },\n  \"current_irrigation_information\": {\n    \"irrigation_direction\": \"CLOCKWISE\",\n    \"center_pressure\": 3.2,\n    \"center_pressure_psi\": 46.4,\n    \"end_tower_pressure\": 2.8,\n    \"end_tower_pressure_psi\": 40.6,\n    \"current_speed_percentage\": 75.0,\n    \"start_angle\": 0.0,\n    \"stop_angle\": 360.0\n  },\n  \"hourmeter_information\": {\n    \"total_hourmeter\": \"1250:30\",\n    \"total_hourmeter_wet\": \"900:00\",\n    \"total_hourmeter_dry\": \"350:30\"\n  },\n  \"rain_gauge_information\": {\n    \"pluviometer_measure\": 12.5,\n    \"is_raining\": false\n  },\n  \"calculated_information\": {\n    \"water_blade\": 18.3,\n    \"map_history\": [1, 0, 1, 1, 0]\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "GET Operations (Histórico paginado)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/public/pivots/operations?pivot_name={{pivot_name}}&date_start={{date_start}}&date_end={{date_end}}&limit=100&offset=0",
+              "host": ["{{base_url}}"],
+              "path": ["public", "pivots", "operations"],
+              "query": [
+                {
+                  "key": "pivot_name",
+                  "value": "{{pivot_name}}",
+                  "description": "[obrigatório] Nome do pivô"
+                },
+                {
+                  "key": "date_start",
+                  "value": "{{date_start}}",
+                  "description": "[obrigatório] Início do período — formato ISO 8601 (ex: 2026-06-01T00:00:00)"
+                },
+                {
+                  "key": "date_end",
+                  "value": "{{date_end}}",
+                  "description": "[obrigatório] Fim do período — formato ISO 8601 (ex: 2026-06-26T23:59:59)"
+                },
+                {
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Máximo 100 registros por página"
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset para paginação"
+                }
+              ]
+            },
+            "auth": {
+              "type": "inherit"
+            },
+            "description": "Retorna operações de irrigação de um pivô no período.\nPaginado: use `next` da resposta para avançar páginas.\n\nMapeado em: IRRICONTROL_PIVOT_OPERATION\n\nCampos principais:\n- id              → record_id\n- pivot_id        → pivot_irri_id\n- start_date / end_date\n- irrigation_mode (WET | DRY | STOP ...)\n- start_angle / stop_angle\n- hour_p / hour_hfp / hour_r / hour_total\n- water_blade\n- start_hourmeter / stop_hourmeter\n\nFrequência ETL: diária, dia anterior (source = 'OPERATION')."
+          },
+          "response": [
+            {
+              "name": "200 OK — Exemplo de resposta",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/public/pivots/operations?pivot_name={{pivot_name}}&date_start=2026-06-01T00:00:00&date_end=2026-06-26T23:59:59&limit=100&offset=0",
+                  "host": ["{{base_url}}"],
+                  "path": ["public", "pivots", "operations"],
+                  "query": [
+                    {"key": "pivot_name", "value": "{{pivot_name}}"},
+                    {"key": "date_start", "value": "2026-06-01T00:00:00"},
+                    {"key": "date_end", "value": "2026-06-26T23:59:59"},
+                    {"key": "limit", "value": "100"},
+                    {"key": "offset", "value": "0"}
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{"key": "Content-Type", "value": "application/json"}],
+              "body": "{\n  \"limit\": 100,\n  \"offset\": 0,\n  \"count\": 3,\n  \"next\": null,\n  \"previous\": null,\n  \"results\": [\n    {\n      \"id\": 1001,\n      \"pivot_id\": 42,\n      \"start_angle\": 0.0,\n      \"stop_angle\": 360.0,\n      \"irrigation_mode\": \"WET\",\n      \"start_date\": \"2026-06-10T06:00:00Z\",\n      \"end_date\": \"2026-06-10T18:30:00Z\",\n      \"hour_p\": 8.5,\n      \"hour_hfp\": 3.0,\n      \"hour_r\": 0.5,\n      \"hour_total\": 12.5,\n      \"water_blade\": 22.1,\n      \"start_hourmeter\": 1200,\n      \"stop_hourmeter\": 1213\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "GET History (Eventos paginados)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/public/pivots/history?pivot_name={{pivot_name}}&start_date={{date_start}}&end_date={{date_end}}&limit=50&offset=0",
+              "host": ["{{base_url}}"],
+              "path": ["public", "pivots", "history"],
+              "query": [
+                {
+                  "key": "pivot_name",
+                  "value": "{{pivot_name}}",
+                  "description": "[obrigatório] Nome do pivô"
+                },
+                {
+                  "key": "start_date",
+                  "value": "{{date_start}}",
+                  "description": "[opcional] ISO 8601"
+                },
+                {
+                  "key": "end_date",
+                  "value": "{{date_end}}",
+                  "description": "[opcional] ISO 8601"
+                },
+                {
+                  "key": "action",
+                  "value": "",
+                  "description": "[opcional] boolean — filtrar eventos tipo ACTION",
+                  "disabled": true
+                },
+                {
+                  "key": "config",
+                  "value": "",
+                  "description": "[opcional] boolean — filtrar eventos tipo CONFIG",
+                  "disabled": true
+                },
+                {
+                  "key": "gps",
+                  "value": "",
+                  "description": "[opcional] boolean — filtrar eventos tipo GPS",
+                  "disabled": true
+                },
+                {
+                  "key": "panel",
+                  "value": "",
+                  "description": "[opcional] boolean — filtrar eventos tipo PANEL",
+                  "disabled": true
+                },
+                {
+                  "key": "periodic",
+                  "value": "",
+                  "description": "[opcional] boolean — filtrar eventos tipo PERIODIC",
+                  "disabled": true
+                },
+                {
+                  "key": "maintenance",
+                  "value": "",
+                  "description": "[opcional] boolean — filtrar eventos tipo MAINTENANCE",
+                  "disabled": true
+                },
+                {
+                  "key": "central",
+                  "value": "",
+                  "description": "[opcional] boolean — filtrar eventos tipo CENTRAL",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Máximo 50 por página"
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset para paginação"
+                }
+              ]
+            },
+            "auth": {
+              "type": "inherit"
+            },
+            "description": "Retorna eventos do histórico de um pivô.\nFiltros de tipo de evento (action, gps, config, etc.) podem ser combinados.\nPaginado via `next`.\n\nMapeado em: IRRICONTROL_PIVOT_HISTORY\n\nCampos principais:\n- id              → record_id\n- type            → event_type_raw (valor bruto) / event_type (normalizado)\n- created         → event_at\n- created_by\n- status\n- current_direction (CLOCKWISE | COUNTER_CLOCKWISE | STOPPED)\n- current_angle\n- current_gps_position\n- current_speed_percentage\n- current_end_tower_pressure\n- pump_potency\n\nFrequência ETL: diária, dia anterior (source = 'HISTORY')."
+          },
+          "response": [
+            {
+              "name": "200 OK — Exemplo de resposta",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/public/pivots/history?pivot_name={{pivot_name}}&start_date=2026-06-25T00:00:00&end_date=2026-06-25T23:59:59&limit=50&offset=0",
+                  "host": ["{{base_url}}"],
+                  "path": ["public", "pivots", "history"],
+                  "query": [
+                    {"key": "pivot_name", "value": "{{pivot_name}}"},
+                    {"key": "start_date", "value": "2026-06-25T00:00:00"},
+                    {"key": "end_date", "value": "2026-06-25T23:59:59"},
+                    {"key": "limit", "value": "50"},
+                    {"key": "offset", "value": "0"}
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{"key": "Content-Type", "value": "application/json"}],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"count\": 2,\n  \"next\": null,\n  \"previous\": null,\n  \"results\": [\n    {\n      \"id\": 5001,\n      \"type\": \"ACTION\",\n      \"created\": \"2026-06-25T08:15:00Z\",\n      \"created_by\": \"operador@gcsagro.com.br\",\n      \"status\": \"IRRIGATING\",\n      \"current_direction\": \"CLOCKWISE\",\n      \"current_angle\": 90.5,\n      \"current_gps_position\": \"-12.345678,-55.123456\",\n      \"current_speed_percentage\": 80.0,\n      \"current_end_tower_pressure\": 2.9,\n      \"pump_potency\": 75.0\n    },\n    {\n      \"id\": 5002,\n      \"type\": \"GPS\",\n      \"created\": \"2026-06-25T09:00:00Z\",\n      \"created_by\": null,\n      \"status\": \"IRRIGATING\",\n      \"current_direction\": \"CLOCKWISE\",\n      \"current_angle\": 135.2,\n      \"current_gps_position\": \"-12.346100,-55.124200\",\n      \"current_speed_percentage\": 80.0,\n      \"current_end_tower_pressure\": 2.85,\n      \"pump_potency\": null\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

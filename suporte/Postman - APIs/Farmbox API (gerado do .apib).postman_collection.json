@@ -1,0 +1,3174 @@
+{
+  "info": {
+    "_postman_id": "d5a104ee-5611-402b-9398-7508c906e9e4",
+    "name": "Farmbox API (gerado do .apib)",
+    "description": "Coleção construída a partir do API Blueprint. Ajuste bodies/auth conforme necessário.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "3063467"
+  },
+  "item": [
+    {
+      "name": "Structures",
+      "item": [
+        {
+          "name": "GET /activity_types",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/activity_types",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "activity_types"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /activity_types",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/activity_types",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "activity_types"
+              ]
+            },
+            "description": "Lists all Activity Types\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Base)\n        + global: true (boolean, optional) - returns global activity types\n        + by_client: false (boolean, optional) - returns client activity types\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + activity_types (array[Activity Type])\n        + Include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /beaks",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/beaks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "beaks"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /cultures",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/cultures",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cultures"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /cultures/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/cultures/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cultures",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all cultures\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Page)\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + cultures (array[Culture])\n        + Include Collection Response Paginated Simple Base"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /varieties",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/varieties",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "varieties"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /varieties/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/varieties/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "varieties",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all culture varieties\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Base)\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + varieties (array[Variety])\n        + Include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /varieties",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/varieties",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "varieties"
+              ]
+            },
+            "description": "Info from a single variety\n\n+ Request\n    + Headers\n\n              Authorization: SECRET_TOKEN\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + include Variety"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /varieties/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/varieties/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "varieties",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Creates a new variety\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Variety Base)\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Variety"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /varieties/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/varieties/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "varieties",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Updates an existing variety\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Variety Base)\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Variety"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /equipments",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/equipments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "equipments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /farms",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/farms",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farms"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /farms/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/farms/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farms",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all farms\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Base)\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + farms (array[Farm])\n        + Include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /farms",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/farms",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farms"
+              ]
+            },
+            "description": "Info from a single farm\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + include Farm"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /farms/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/farms/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farms",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Creates a new farm\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Farm Base)\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Farm"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /farms/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/farms/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farms",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Updates an existing farm\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Farm Base)\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Farm"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /harvests",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/harvests",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "harvests"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /harvests/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/harvests/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "harvests",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all seasons\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Base)\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + harvests (array[Harvest])\n        + Include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /harvests",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/harvests",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "harvests"
+              ]
+            },
+            "description": "Info from a single harvest\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + include Harvest"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /harvests/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/harvests/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "harvests",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Creates a new harvest\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Harvest Base)\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Harvest"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /harvests/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/harvests/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "harvests",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Updates an existing harvest\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Harvest Base)\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Harvest"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /phenological_stages",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/phenological_stages",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "phenological_stages"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /phenological_stages/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/phenological_stages/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "phenological_stages",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all phenological stages\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Base)\n        + culture_id: 156 (number, optional) - Culture identifier\n        + classification: 1 (number, optional) - Actual phenological stage classification\n        \n\n+ Response 200 (application/json)\n    + Attributes ()\n        + phenological_stages (array[Phenological Stage])\n        + Include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /plantations",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plantations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plantations"
+              ]
+            },
+            "description": "Plantation is the concept from a plot in a harvest. Plots are timeless objects on Farmbox, so when a\nplot became present/active on a new harvest it'll create a plantation, and all the operations after that\nare executed on the plantation object."
+          },
+          "response": []
+        },
+        {
+          "name": "GET /plantations/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plantations/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plantations",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all active plantations (plots on harvests)\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Base)\n        + observation: filtro (string, optional) - Filter plantations by observation\n        + from_harvest_ids: 4233 (number, optional) - Harvest or List identifier to filter by\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + plantations (array[Plantation])\n        + Include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /plantation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plantation",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plantation"
+              ]
+            },
+            "description": "Info from a single plantation\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + include Plantation"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /plantations/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plantations/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plantations",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Creates a new plantation\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes ()\n        + include Plantation Base\n        + include Plantation Relationship\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Plantation"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /plantations/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plantations/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plantations",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Updates an existing plantation\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes ()\n        + include Plantation Base\n        + include Plantation Relationship\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + include Plantation"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /plots",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plots",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plots"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /plots/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plots/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plots",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all plots\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Base)\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + plots (array[Plot])\n        + Include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /plots",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plots",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plots"
+              ]
+            },
+            "description": "Info from a single plot\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + include Plot"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /plots/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plots/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plots",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Creates a new plot\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Plot Base)\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Plot"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /plots/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plots/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plots",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Updates an existing plot\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Plot Base)\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Plot"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /pluviometers",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pluviometers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pluviometers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /storages",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/storages",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "storages"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /storages/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/storages/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "storages",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all storages\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Base)\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + storages (array[Storage])\n        + Include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /storages",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/storages",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "storages"
+              ]
+            },
+            "description": "Info from a single storage\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + include Storage"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /storages/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/storages/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "storages",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Creates a new storage\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes ()\n        + include Storage Base\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Storage"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /storages/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/storages/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "storages",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Updates an existing storage\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes ()\n        + include Storage Base\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Storage"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /users",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Inputs",
+      "item": [
+        {
+          "name": "GET /input_types",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/input_types",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "input_types"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /input_types/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/input_types/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "input_types",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all input types\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Base)\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + input_types (array[Input Type])\n        + Include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /inputs",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/inputs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "inputs"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /inputs/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/inputs/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "inputs",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all inputs\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Base)\n        + by_status: all (string, optional) - Status - active | disabled | all\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + inputs (array[Input])\n        + Include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /inputs",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/inputs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "inputs"
+              ]
+            },
+            "description": "Info from a single input\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + include Input"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /inputs/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/inputs/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "inputs",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Creates a new input\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes ()\n        + include Input Base\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Input"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /inputs/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/inputs/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "inputs",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Updates an existing input\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Input Base)\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Input"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /input_values",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/input_values",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "input_values"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /input_values/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/input_values/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "input_values",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all input values\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Page)\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + input_values (array[InputValue])\n        + Include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /input_values",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/input_values",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "input_values"
+              ]
+            },
+            "description": "Info from a single input value\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + include InputValue"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /inventories",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/inventories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "inventories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /batches",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/batches",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "batches"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /batches/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/batches/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "batches",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all Batch\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Page) \n        + by_validity: 2023-11-13 (string, optional) - Validity Date\n        + by_input_id: 21 (number, optional) - Input identifier\n        + by_batch_number: `ACB12354DF` (string, optional) - Name Batch\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + batches (array[Batch])\n        + include Collection Response Paginated Simple Base"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /batches",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/batches",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "batches"
+              ]
+            },
+            "description": "Info from a single Batch\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + include Batch"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /batches/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/batches/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "batches",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Creates a new batch\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes ()\n        + include Batch Base\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + include Batch"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /movimentations",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/movimentations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "movimentations"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /movimentations/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/movimentations/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "movimentations",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all movimentations\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Base)\n        + by_start_date: `2015-05-05` (string, optional) - Date Start\n        + by_end_date: `2015-05-05` (string, optional) - Date End\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + movimentations (array[Movimentation])\n        + Include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /movimentations",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/movimentations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "movimentations"
+              ]
+            },
+            "description": "Info from a single movimentation\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + include Movimentation"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /movimentations/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/movimentations/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "movimentations",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Creates a new movimentation\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes ()\n        + include Movimentation Base\n        + include Movimentation Upload File\n        + batch_attributes (Batch Attributes, optional)\n        \n+ Response 201 (application/json)\n    + Attributes ()\n        + include Movimentation"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /movimentations/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/movimentations/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "movimentations",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Updates an existing movimentation\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes ()\n        + include Movimentation Base\n        + include Movimentation Upload File\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Movimentation"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Operations",
+      "item": [
+        {
+          "name": "GET /monitorings",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/monitorings?page=310",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitorings"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "310"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitorings/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/monitorings/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitorings",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists the monitorings\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n            \n    + Attributes (Query Base)\n        + start_date: `2015-05-05` (string, optional) - Date Start for field close date\n        + end_date: `2015-05-10` (string, optional) - Date End for field close date\n\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + monitorings (array[Monitoring Detail])\n        + Include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoring_day_results/",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/monitoring_day_results",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoring_day_results"
+              ],
+              "query": [
+                {
+                  "key": "updated_since",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Monitoring Day Result is the final result from all monitorings on a single day to a single plantation"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoring_day_results/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/monitoring_day_results/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoring_day_results",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists the results from each day monitored to each plantation\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n    \n    + Attributes (Query Base)\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + monitoring_day_results (array[Monitoring Day Result])\n        + include Collection Response Paginated Simple Base"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /applications/",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applications?page=410",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "410"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /applications/:id",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applications?code=681",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications"
+              ],
+              "query": [
+                {
+                  "key": "code",
+                  "value": "681"
+                }
+              ]
+            },
+            "description": "Lists all sought and executed applications\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes ()\n        + include Application Query Base\n        + from_farm_id: 4233 (number, optional) - Farm or List identifier to filter by\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + applications (array[Application])\n        + include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /applications",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications"
+              ]
+            },
+            "description": "Info from a single application\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + include Application"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /applications/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applications/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Creates a new sought application\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes ()\n        + include Application Base\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Application"
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH /applications/:application_id/finish",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applications/:application_id/finish",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications",
+                ":application_id",
+                "finish"
+              ],
+              "variable": [
+                {
+                  "key": "application_id"
+                }
+              ]
+            },
+            "description": "Removes an existing sought application\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n+ Response 200 (application/json)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /applications/:application_id/application_progresses",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applications/:application_id/application_progresses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications",
+                ":application_id",
+                "application_progresses"
+              ],
+              "variable": [
+                {
+                  "key": "application_id"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /applications/:application_id/application_progresses/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applications/:application_id/application_progresses/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications",
+                ":application_id",
+                "application_progresses",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "application_id"
+                },
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all progresses of an application\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Page)\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + application_progresses (array[Application Progress])\n        + include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /applications/:application_id/application_progresses",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applications/:application_id/application_progresses",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications",
+                ":application_id",
+                "application_progresses"
+              ],
+              "variable": [
+                {
+                  "key": "application_id"
+                }
+              ]
+            },
+            "description": "Info from a single application progress\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + include Application Progress"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /applications/:application_id/application_progresses/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applications/:application_id/application_progresses/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications",
+                ":application_id",
+                "application_progresses",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "application_id"
+                },
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Creates a new progress of an application\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes ()\n        + include Application Progress Base\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Application"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /applications/:application_id/application_progresses/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applications/:application_id/application_progresses/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications",
+                ":application_id",
+                "application_progresses",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "application_id"
+                },
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Updates an existing application progress\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Application Progress Base)\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Application Progress"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /count_days",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/count_days",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "count_days"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /count_monitorings",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/count_monitorings?page=1230",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "count_monitorings"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1230"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /plantations/:plantation_id/cropped_volumes",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plantations/320702/cropped_volumes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plantations",
+                "320702",
+                "cropped_volumes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /plantations/:plantation_id/cropped_volumes/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plantations/:plantation_id/cropped_volumes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plantations",
+                ":plantation_id",
+                "cropped_volumes",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "plantation_id"
+                },
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all cropped volumes from plantation\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Base)\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + cropped_volumes (array[Cropped Volume])\n        + include Collection Response Paginated Simple Base"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /plantations/:plantation_id/cropped_volumes",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plantations/:plantation_id/cropped_volumes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plantations",
+                ":plantation_id",
+                "cropped_volumes"
+              ],
+              "variable": [
+                {
+                  "key": "plantation_id"
+                }
+              ]
+            },
+            "description": "Info from a single cropped volume\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + include Cropped Volume"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /plantations/:plantation_id/cropped_volumes/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plantations/:plantation_id/cropped_volumes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plantations",
+                ":plantation_id",
+                "cropped_volumes",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "plantation_id"
+                },
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Increment plantation cropped volume.\n\nVolume will be added (sum) to the existing plantation cropped volume\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes ()\n        + include Cropped Volume Base\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Cropped Volume"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /plantations/:plantation_id/cropped_volumes/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plantations/:plantation_id/cropped_volumes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plantations",
+                ":plantation_id",
+                "cropped_volumes",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "plantation_id"
+                },
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Updates an existing cropped volume...\nThis will not affect productivity from already cropped/closed plantations\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes ()\n        + Cropped Volume Base\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Cropped Volume"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /notes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/notes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /pluviometer_monitorings",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pluviometer_monitorings?page=1026",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pluviometer_monitorings"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1026"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /pluviometer_monitorings/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pluviometer_monitorings/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pluviometer_monitorings",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all pluviometer monitorings\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Base)\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + pluviometer_monitorings (array[Pluviometer Monitoring])\n        + include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /pluviometer_monitorings",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pluviometer_monitorings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pluviometer_monitorings"
+              ]
+            },
+            "description": "Info from a single pluviometer monitoring\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + include Pluviometer Monitoring"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /phenological_stage_samples",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/phenological_stage_samples",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "phenological_stage_samples"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /phenological_stage_samples/:id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/phenological_stage_samples/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "phenological_stage_samples",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Lists all phenological stage teste samples\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes (Query Base)\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + phenological_stage_samples (array[Phenological Stage Sample])\n        + include Collection Response Paginated Base"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /trap_monitorings/",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/trap_monitorings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trap_monitorings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoring_tolerances",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/monitoring_tolerances",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoring_tolerances"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Rest Hooks",
+      "item": [
+        {
+          "name": "GET /resource_subscriptions/",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{token}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/resource_subscriptions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "resource_subscriptions"
+              ]
+            },
+            "description": "The concept is to register a URL for a resource type with the intention of notifying the provider of each change. <br>\n<b> At the moment, only the application resource is available.</b>"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /resource_subscriptions",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/resource_subscriptions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "resource_subscriptions"
+              ]
+            },
+            "description": "List all resource subscriptions registered\n\n+ Request\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes ()\n\n+ Response 200 (application/json)\n    + Attributes ()\n        + resource_subscriptions (array[Resource Subscription])"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /resource_subscriptions/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/resource_subscriptions/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "resource_subscriptions",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Creates a new resource subscription\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes ()\n        + include Resource Subscription Base\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + Resource Subscription"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /resource_subscriptions/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/resource_subscriptions/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "resource_subscriptions",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            },
+            "description": "Updates an existing resource subscription\n\n+ Request (application/json)\n    + Headers\n\n            Authorization: SECRET_TOKEN\n\n    + Attributes ()\n        + include Resource Subscription Base\n\n+ Response 201 (application/json)\n    + Attributes ()\n        + include Resource Subscription"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://farmbox.cc/api/v1"
+    },
+    {
+      "key": "token",
+      "value": "Hlr3mHzEfGSTiwt1v5aFIA"
+    }
+  ]
+}

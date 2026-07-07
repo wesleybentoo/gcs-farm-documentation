@@ -1,0 +1,447 @@
+{
+  "activity_type": [
+    {
+      "id": 995,
+      "name": " 1º Cobertura",
+      "no_culture": false,
+      "all_cultures": true,
+      "client_id": 232,
+      "inactive": false,
+      "cultures": []
+    },
+    {
+      "id": 19,
+      "name": "1ª Fungicida",
+      "no_culture": false,
+      "all_cultures": true,
+      "client_id": null,
+      "inactive": false,
+      "cultures": []
+    },
+    {
+      "id": 10,
+      "name": "1ª Fungicida+Inseticida",
+      "no_culture": false,
+      "all_cultures": false,
+      "client_id": null,
+      "inactive": false,
+      "cultures": [
+        {
+          "id": 3,
+          "name": "Algodão"
+        },
+        {
+          "id": 31,
+          "name": "Batata"
+        },
+        {
+          "id": 1,
+          "name": "Café"
+        },
+        {
+          "id": 4,
+          "name": "Milho"
+        },
+        {
+          "id": 2,
+          "name": "Soja"
+        },
+        {
+          "id": 6,
+          "name": "Sorgo"
+        },
+        {
+          "id": 5,
+          "name": "Feijão"
+        },
+        {
+          "id": 48,
+          "name": "Feijão Andu"
+        },
+        {
+          "id": 35,
+          "name": "Feijão-azuki"
+        },
+        {
+          "id": 40,
+          "name": "Feijão-caupi/Feijão-fradinho/Feijão-miúdo/Feijão-de-corda"
+        },
+        {
+          "id": 49,
+          "name": "Guandu-forrageiro"
+        },
+        {
+          "id": 36,
+          "name": "Feijão-mungo-verde"
+        },
+        {
+          "id": 90,
+          "name": "Feijão Preto"
+        },
+        {
+          "id": 11,
+          "name": "Milheto"
+        },
+        {
+          "id": 12,
+          "name": "Crotalária"
+        },
+        {
+          "id": 19,
+          "name": "Braquiária"
+        },
+        {
+          "id": 59,
+          "name": "Consórcio de Culturas"
+        },
+        {
+          "id": 73,
+          "name": "Mix de Plantas"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "1ª Pós-Emergente",
+      "no_culture": false,
+      "all_cultures": false,
+      "client_id": null,
+      "inactive": false,
+      "cultures": [
+        {
+          "id": 3,
+          "name": "Algodão"
+        },
+        {
+          "id": 31,
+          "name": "Batata"
+        },
+        {
+          "id": 1,
+          "name": "Café"
+        },
+        {
+          "id": 4,
+          "name": "Milho"
+        },
+        {
+          "id": 2,
+          "name": "Soja"
+        },
+        {
+          "id": 6,
+          "name": "Sorgo"
+        },
+        {
+          "id": 5,
+          "name": "Feijão"
+        },
+        {
+          "id": 11,
+          "name": "Milheto"
+        },
+        {
+          "id": 12,
+          "name": "Crotalária"
+        },
+        {
+          "id": 19,
+          "name": "Braquiária"
+        },
+        {
+          "id": 71,
+          "name": "Alho"
+        },
+        {
+          "id": 10,
+          "name": "Trigo"
+        },
+        {
+          "id": 24,
+          "name": "Arroz"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "name": "1° Biológico",
+      "no_culture": false,
+      "all_cultures": true,
+      "client_id": null,
+      "inactive": false,
+      "cultures": []
+    },
+    {
+      "id": 20,
+      "name": "2ª Fungicida",
+      "no_culture": false,
+      "all_cultures": true,
+      "client_id": null,
+      "inactive": false,
+      "cultures": []
+    },
+    {
+      "id": 11,
+      "name": "2ª Fungicida+Inseticida",
+      "no_culture": false,
+      "all_cultures": false,
+      "client_id": null,
+      "inactive": false,
+      "cultures": [
+        {
+          "id": 3,
+          "name": "Algodão"
+        },
+        {
+          "id": 31,
+          "name": "Batata"
+        },
+        {
+          "id": 1,
+          "name": "Café"
+        },
+        {
+          "id": 4,
+          "name": "Milho"
+        },
+        {
+          "id": 2,
+          "name": "Soja"
+        },
+        {
+          "id": 6,
+          "name": "Sorgo"
+        },
+        {
+          "id": 5,
+          "name": "Feijão"
+        },
+        {
+          "id": 11,
+          "name": "Milheto"
+        },
+        {
+          "id": 12,
+          "name": "Crotalária"
+        },
+        {
+          "id": 19,
+          "name": "Braquiária"
+        },
+        {
+          "id": 59,
+          "name": "Consórcio de Culturas"
+        },
+        {
+          "id": 73,
+          "name": "Mix de Plantas"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "2ª Pós-Emergente",
+      "no_culture": false,
+      "all_cultures": false,
+      "client_id": null,
+      "inactive": false,
+      "cultures": [
+        {
+          "id": 3,
+          "name": "Algodão"
+        },
+        {
+          "id": 5,
+          "name": "Feijão"
+        },
+        {
+          "id": 11,
+          "name": "Milheto"
+        },
+        {
+          "id": 4,
+          "name": "Milho"
+        },
+        {
+          "id": 2,
+          "name": "Soja"
+        },
+        {
+          "id": 6,
+          "name": "Sorgo"
+        },
+        {
+          "id": 12,
+          "name": "Crotalária"
+        },
+        {
+          "id": 19,
+          "name": "Braquiária"
+        },
+        {
+          "id": 10,
+          "name": "Trigo"
+        },
+        {
+          "id": 24,
+          "name": "Arroz"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "name": "2° Biológico",
+      "no_culture": false,
+      "all_cultures": true,
+      "client_id": null,
+      "inactive": false,
+      "cultures": []
+    },
+    {
+      "id": 996,
+      "name": "2º Cobertura",
+      "no_culture": false,
+      "all_cultures": true,
+      "client_id": 232,
+      "inactive": false,
+      "cultures": []
+    },
+    {
+      "id": 21,
+      "name": "3ª Fungicida",
+      "no_culture": false,
+      "all_cultures": true,
+      "client_id": null,
+      "inactive": false,
+      "cultures": []
+    },
+    {
+      "id": 12,
+      "name": "3ª Fungicida+Inseticida",
+      "no_culture": false,
+      "all_cultures": false,
+      "client_id": null,
+      "inactive": false,
+      "cultures": [
+        {
+          "id": 5,
+          "name": "Feijão"
+        },
+        {
+          "id": 3,
+          "name": "Algodão"
+        },
+        {
+          "id": 11,
+          "name": "Milheto"
+        },
+        {
+          "id": 4,
+          "name": "Milho"
+        },
+        {
+          "id": 2,
+          "name": "Soja"
+        },
+        {
+          "id": 6,
+          "name": "Sorgo"
+        },
+        {
+          "id": 12,
+          "name": "Crotalária"
+        },
+        {
+          "id": 19,
+          "name": "Braquiária"
+        },
+        {
+          "id": 59,
+          "name": "Consórcio de Culturas"
+        },
+        {
+          "id": 73,
+          "name": "Mix de Plantas"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "name": "3ª Pós-Emergente",
+      "no_culture": false,
+      "all_cultures": false,
+      "client_id": null,
+      "inactive": false,
+      "cultures": [
+        {
+          "id": 3,
+          "name": "Algodão"
+        },
+        {
+          "id": 5,
+          "name": "Feijão"
+        },
+        {
+          "id": 11,
+          "name": "Milheto"
+        },
+        {
+          "id": 4,
+          "name": "Milho"
+        },
+        {
+          "id": 2,
+          "name": "Soja"
+        },
+        {
+          "id": 6,
+          "name": "Sorgo"
+        },
+        {
+          "id": 12,
+          "name": "Crotalária"
+        },
+        {
+          "id": 19,
+          "name": "Braquiária"
+        },
+        {
+          "id": 10,
+          "name": "Trigo"
+        },
+        {
+          "id": 24,
+          "name": "Arroz"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "name": "3° Biológico",
+      "no_culture": false,
+      "all_cultures": true,
+      "client_id": null,
+      "inactive": false,
+      "cultures": []
+    },
+    {
+      "id": 997,
+      "name": "3º Cobertura",
+      "no_culture": false,
+      "all_cultures": true,
+      "client_id": 232,
+      "inactive": false,
+      "cultures": []
+    }
+  ],
+  "next_page_url": "/api/v1/activity_types?page=2",
+  "pagination": {
+    "total_entries": 56,
+    "total_pages": 4,
+    "per_page": 15,
+    "current_page": 1
+  },
+  "deleted_since": [
+    54
+  ]
+}

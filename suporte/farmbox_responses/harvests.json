@@ -1,0 +1,110 @@
+{
+  "harvests": [
+    {
+      "id": 695,
+      "name": "2019/20-1",
+      "start_date": "2019-09-11",
+      "end_date": "2020-11-27",
+      "rain_start_date": "2019-09-11",
+      "rain_end_date": "2020-11-27"
+    },
+    {
+      "id": 807,
+      "name": "2019/20-2",
+      "start_date": "2019-01-24",
+      "end_date": "2020-10-14",
+      "rain_start_date": "2019-01-24",
+      "rain_end_date": "2020-10-14"
+    },
+    {
+      "id": 858,
+      "name": "2020/2021",
+      "start_date": "2020-04-27",
+      "end_date": "2021-10-08",
+      "rain_start_date": "2020-04-27",
+      "rain_end_date": "2021-10-08"
+    },
+    {
+      "id": 1567,
+      "name": "2021/2022",
+      "start_date": "2021-04-23",
+      "end_date": "2022-09-03",
+      "rain_start_date": "2021-04-23",
+      "rain_end_date": "2022-09-03"
+    },
+    {
+      "id": 3078,
+      "name": "2023/2024",
+      "start_date": "2023-06-01",
+      "end_date": "2024-09-30",
+      "rain_start_date": "2023-06-01",
+      "rain_end_date": "2024-09-30"
+    },
+    {
+      "id": 2227,
+      "name": "2022/2023",
+      "start_date": "2022-05-15",
+      "end_date": "2023-10-20",
+      "rain_start_date": "2022-05-15",
+      "rain_end_date": "2023-10-20"
+    },
+    {
+      "id": 4869,
+      "name": "2025/2026",
+      "start_date": "2025-09-01",
+      "end_date": "2026-08-31",
+      "rain_start_date": "2025-09-01",
+      "rain_end_date": "2026-04-30"
+    },
+    {
+      "id": 5308,
+      "name": "2024/2025-Abertura",
+      "start_date": "2025-05-01",
+      "end_date": "2026-08-31",
+      "rain_start_date": "2025-05-01",
+      "rain_end_date": "2026-08-31"
+    },
+    {
+      "id": 3968,
+      "name": "2024/2025",
+      "start_date": "2024-06-15",
+      "end_date": "2025-09-30",
+      "rain_start_date": "2024-10-01",
+      "rain_end_date": "2025-08-31"
+    },
+    {
+      "id": 5772,
+      "name": "2026/2027",
+      "start_date": "2026-09-01",
+      "end_date": "2027-08-31",
+      "rain_start_date": "2026-09-01",
+      "rain_end_date": "2027-08-31"
+    },
+    {
+      "id": 5799,
+      "name": "2025/2026-Cafe",
+      "start_date": "2026-01-01",
+      "end_date": "2030-09-15",
+      "rain_start_date": "2026-01-01",
+      "rain_end_date": "2030-09-15"
+    },
+    {
+      "id": 5625,
+      "name": "2025/2026 - Ampessan",
+      "start_date": "2026-01-27",
+      "end_date": "2027-08-31",
+      "rain_start_date": "2026-01-27",
+      "rain_end_date": "2027-08-31"
+    }
+  ],
+  "next_page_url": null,
+  "pagination": {
+    "total_entries": 12,
+    "total_pages": 1,
+    "per_page": 15,
+    "current_page": 1
+  },
+  "deleted_since": [
+    1463
+  ]
+}

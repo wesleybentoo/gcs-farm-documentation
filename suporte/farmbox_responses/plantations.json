@@ -1,0 +1,1656 @@
+{
+  "plantations": [
+    {
+      "id": 43414,
+      "variety_id": 5342,
+      "planned_variety_id": 5342,
+      "culture_id": 4,
+      "planned_culture_id": 4,
+      "state": "closed",
+      "date": "2020-01-11",
+      "planned_date": "2019-11-22T00:00:00.000-03:00",
+      "emergence_date": null,
+      "activation_date": "2020-01-11",
+      "area": 0.01,
+      "name": "PQ A 06 01",
+      "farm_name": "Pesquisa Celeiro - PI",
+      "variety_name": "P30 F53 VYHR",
+      "planned_variety_name": "P30 F53 VYHR",
+      "culture_name": "Milho",
+      "culture_unit": "Sc",
+      "culture_unit_per_ha": "Sc / Ha",
+      "planned_culture_name": "Milho",
+      "harvest_name": "2019/20-1",
+      "centroid": {
+        "lat": null,
+        "lng": null
+      },
+      "harvest_prediction_date": "2020-06-13",
+      "cycle": 1,
+      "observations": null,
+      "irrigated": false,
+      "updated_at": "2020-02-10T18:05:59.000-03:00",
+      "productivity": null,
+      "closed_date": "2020-02-10T00:00:00.000-03:00",
+      "farm": {
+        "id": 2416,
+        "name": "Pesquisa Celeiro - PI",
+        "cnpj_cpf": "",
+        "ie": "",
+        "storage_id": 2720,
+        "city": null
+      },
+      "plot": {
+        "id": 25535,
+        "name": "PQ A 06 01",
+        "farm_id": 2416,
+        "area": 18.0,
+        "updated_at": "2022-10-28T11:22:55.000-03:00",
+        "disabled_at": null,
+        "geo_points": [
+          {
+            "latitude": "-9.395863756648824",
+            "longitude": "-45.118831775119475"
+          },
+          {
+            "latitude": "-9.39417016891435",
+            "longitude": "-45.12565531485336"
+          },
+          {
+            "latitude": "-9.398875146878199",
+            "longitude": "-45.12702324145096"
+          },
+          {
+            "latitude": "-9.399388509558559",
+            "longitude": "-45.12491502516525"
+          },
+          {
+            "latitude": "-9.395863756648824",
+            "longitude": "-45.123809955051115"
+          },
+          {
+            "latitude": "-9.396414170879009",
+            "longitude": "-45.1217714761998"
+          },
+          {
+            "latitude": "-9.395779077458824",
+            "longitude": "-45.121578357150725"
+          },
+          {
+            "latitude": "-9.39652001966913",
+            "longitude": "-45.11896052115219"
+          }
+        ]
+      },
+      "harvest": {
+        "id": 695,
+        "name": "2019/20-1",
+        "start_date": "2019-09-11",
+        "end_date": "2020-11-27",
+        "rain_start_date": "2019-09-11",
+        "rain_end_date": "2020-11-27"
+      },
+      "geo_points": [
+        {
+          "latitude": "-9.394840977359001",
+          "longitude": "-45.118499627699606"
+        }
+      ]
+    },
+    {
+      "id": 43416,
+      "variety_id": 5342,
+      "planned_variety_id": 5342,
+      "culture_id": 4,
+      "planned_culture_id": 4,
+      "state": "closed",
+      "date": "2020-01-08",
+      "planned_date": "2019-11-11T00:00:00.000-03:00",
+      "emergence_date": null,
+      "activation_date": "2020-01-08",
+      "area": 0.01,
+      "name": "PQ A 06 04",
+      "farm_name": "Pesquisa Celeiro - PI",
+      "variety_name": "P30 F53 VYHR",
+      "planned_variety_name": "P30 F53 VYHR",
+      "culture_name": "Milho",
+      "culture_unit": "Sc",
+      "culture_unit_per_ha": "Sc / Ha",
+      "planned_culture_name": "Milho",
+      "harvest_name": "2019/20-1",
+      "centroid": {
+        "lat": null,
+        "lng": null
+      },
+      "harvest_prediction_date": "2020-06-10",
+      "cycle": 1,
+      "observations": null,
+      "irrigated": false,
+      "updated_at": "2020-02-10T18:06:31.000-03:00",
+      "productivity": null,
+      "closed_date": "2020-01-20T00:00:00.000-03:00",
+      "farm": {
+        "id": 2416,
+        "name": "Pesquisa Celeiro - PI",
+        "cnpj_cpf": "",
+        "ie": "",
+        "storage_id": 2720,
+        "city": null
+      },
+      "plot": {
+        "id": 25538,
+        "name": "PQ A 06 04",
+        "farm_id": 2416,
+        "area": 45.5,
+        "updated_at": "2022-10-28T11:23:02.000-03:00",
+        "disabled_at": null,
+        "geo_points": [
+          {
+            "latitude": "-9.38954583835318",
+            "longitude": "-45.14305681638973"
+          },
+          {
+            "latitude": "-9.395859457143732",
+            "longitude": "-45.11881970641457"
+          },
+          {
+            "latitude": "-9.39444107796213",
+            "longitude": "-45.11836909530007"
+          },
+          {
+            "latitude": "-9.38814888486972",
+            "longitude": "-45.142647211781764"
+          }
+        ]
+      },
+      "harvest": {
+        "id": 695,
+        "name": "2019/20-1",
+        "start_date": "2019-09-11",
+        "end_date": "2020-11-27",
+        "rain_start_date": "2019-09-11",
+        "rain_end_date": "2020-11-27"
+      },
+      "geo_points": [
+        {
+          "latitude": "-9.394774420120228",
+          "longitude": "-45.118552557516914"
+        }
+      ]
+    },
+    {
+      "id": 47513,
+      "variety_id": 5342,
+      "planned_variety_id": null,
+      "culture_id": 4,
+      "planned_culture_id": null,
+      "state": "closed",
+      "date": "2020-01-20",
+      "planned_date": null,
+      "emergence_date": null,
+      "activation_date": "2019-12-16",
+      "area": 0.01,
+      "name": "A 06 PQ 04",
+      "farm_name": "Pesquisa Celeiro - PI",
+      "variety_name": "P30 F53 VYHR",
+      "planned_variety_name": null,
+      "culture_name": "Milho",
+      "culture_unit": "Sc",
+      "culture_unit_per_ha": "Sc / Ha",
+      "planned_culture_name": null,
+      "harvest_name": "2019/20-1",
+      "centroid": {
+        "lat": null,
+        "lng": null
+      },
+      "harvest_prediction_date": "2020-06-22",
+      "cycle": 1,
+      "observations": null,
+      "irrigated": false,
+      "updated_at": "2020-02-10T18:07:01.000-03:00",
+      "productivity": null,
+      "closed_date": "2020-01-20T00:00:00.000-03:00",
+      "farm": {
+        "id": 2416,
+        "name": "Pesquisa Celeiro - PI",
+        "cnpj_cpf": "",
+        "ie": "",
+        "storage_id": 2720,
+        "city": null
+      },
+      "plot": {
+        "id": 25538,
+        "name": "PQ A 06 04",
+        "farm_id": 2416,
+        "area": 45.5,
+        "updated_at": "2022-10-28T11:23:02.000-03:00",
+        "disabled_at": null,
+        "geo_points": [
+          {
+            "latitude": "-9.38954583835318",
+            "longitude": "-45.14305681638973"
+          },
+          {
+            "latitude": "-9.395859457143732",
+            "longitude": "-45.11881970641457"
+          },
+          {
+            "latitude": "-9.39444107796213",
+            "longitude": "-45.11836909530007"
+          },
+          {
+            "latitude": "-9.38814888486972",
+            "longitude": "-45.142647211781764"
+          }
+        ]
+      },
+      "harvest": {
+        "id": 695,
+        "name": "2019/20-1",
+        "start_date": "2019-09-11",
+        "end_date": "2020-11-27",
+        "rain_start_date": "2019-09-11",
+        "rain_end_date": "2020-11-27"
+      },
+      "geo_points": [
+        {
+          "latitude": "-9.395155477417736",
+          "longitude": "-45.118619780071434"
+        }
+      ]
+    },
+    {
+      "id": 47515,
+      "variety_id": 5348,
+      "planned_variety_id": null,
+      "culture_id": 2,
+      "planned_culture_id": null,
+      "state": "closed",
+      "date": "2019-12-10",
+      "planned_date": "2019-11-18T23:59:59.000-03:00",
+      "emergence_date": null,
+      "activation_date": "2019-11-09",
+      "area": 24.0,
+      "name": "PQ A 06  02-03",
+      "farm_name": "Pesquisa Celeiro - PI",
+      "variety_name": "Cultivares e Linhagens",
+      "planned_variety_name": null,
+      "culture_name": "Soja",
+      "culture_unit": "Sc",
+      "culture_unit_per_ha": "Sc / Ha",
+      "planned_culture_name": null,
+      "harvest_name": "2019/20-1",
+      "centroid": {
+        "lat": -9.39458325396858,
+        "lng": -45.13399109787383
+      },
+      "harvest_prediction_date": "2020-04-07",
+      "cycle": 1,
+      "observations": null,
+      "irrigated": false,
+      "updated_at": "2022-10-28T11:22:18.000-03:00",
+      "productivity": null,
+      "closed_date": "2020-04-07T00:00:00.000-03:00",
+      "farm": {
+        "id": 2416,
+        "name": "Pesquisa Celeiro - PI",
+        "cnpj_cpf": "",
+        "ie": "",
+        "storage_id": 2720,
+        "city": null
+      },
+      "plot": {
+        "id": 25536,
+        "name": "PQ A 06  02",
+        "farm_id": 2416,
+        "area": 56.5,
+        "updated_at": "2022-10-28T11:22:52.000-03:00",
+        "disabled_at": null,
+        "geo_points": [
+          {
+            "latitude": "-9.394291895809037",
+            "longitude": "-45.125674090316465"
+          },
+          {
+            "latitude": "-9.391751499571445",
+            "longitude": "-45.13505109303253"
+          },
+          {
+            "latitude": "-9.396472387717575",
+            "longitude": "-45.13633855335968"
+          },
+          {
+            "latitude": "-9.398885731683418",
+            "longitude": "-45.12706883900421"
+          }
+        ]
+      },
+      "harvest": {
+        "id": 695,
+        "name": "2019/20-1",
+        "start_date": "2019-09-11",
+        "end_date": "2020-11-27",
+        "rain_start_date": "2019-09-11",
+        "rain_end_date": "2020-11-27"
+      },
+      "geo_points": [
+        {
+          "latitude": "-9.392714735337915",
+          "longitude": "-45.13145513632261"
+        },
+        {
+          "latitude": "-9.397467364899667",
+          "longitude": "-45.132742596649756"
+        },
+        {
+          "latitude": "-9.396472387717575",
+          "longitude": "-45.136519146942724"
+        },
+        {
+          "latitude": "-9.391687989426776",
+          "longitude": "-45.135242415451636"
+        }
+      ]
+    },
+    {
+      "id": 43413,
+      "variety_id": 5348,
+      "planned_variety_id": 5348,
+      "culture_id": 2,
+      "planned_culture_id": 2,
+      "state": "closed",
+      "date": "2019-12-11",
+      "planned_date": "2019-11-11T23:59:59.000-03:00",
+      "emergence_date": null,
+      "activation_date": "2019-11-09",
+      "area": 35.0,
+      "name": "PQ A 06  02",
+      "farm_name": "Pesquisa Celeiro - PI",
+      "variety_name": "Cultivares e Linhagens",
+      "planned_variety_name": "Cultivares e Linhagens",
+      "culture_name": "Soja",
+      "culture_unit": "Sc",
+      "culture_unit_per_ha": "Sc / Ha",
+      "planned_culture_name": "Soja",
+      "harvest_name": "2019/20-1",
+      "centroid": {
+        "lat": -9.395810775439937,
+        "lng": -45.1292355306047
+      },
+      "harvest_prediction_date": "2020-04-08",
+      "cycle": 1,
+      "observations": null,
+      "irrigated": false,
+      "updated_at": "2022-10-28T11:22:20.000-03:00",
+      "productivity": null,
+      "closed_date": "2020-04-08T00:00:00.000-03:00",
+      "farm": {
+        "id": 2416,
+        "name": "Pesquisa Celeiro - PI",
+        "cnpj_cpf": "",
+        "ie": "",
+        "storage_id": 2720,
+        "city": null
+      },
+      "plot": {
+        "id": 25536,
+        "name": "PQ A 06  02",
+        "farm_id": 2416,
+        "area": 56.5,
+        "updated_at": "2022-10-28T11:22:52.000-03:00",
+        "disabled_at": null,
+        "geo_points": [
+          {
+            "latitude": "-9.394291895809037",
+            "longitude": "-45.125674090316465"
+          },
+          {
+            "latitude": "-9.391751499571445",
+            "longitude": "-45.13505109303253"
+          },
+          {
+            "latitude": "-9.396472387717575",
+            "longitude": "-45.13633855335968"
+          },
+          {
+            "latitude": "-9.398885731683418",
+            "longitude": "-45.12706883900421"
+          }
+        ]
+      },
+      "harvest": {
+        "id": 695,
+        "name": "2019/20-1",
+        "start_date": "2019-09-11",
+        "end_date": "2020-11-27",
+        "rain_start_date": "2019-09-11",
+        "rain_end_date": "2020-11-27"
+      },
+      "geo_points": [
+        {
+          "latitude": "-9.394291895809037",
+          "longitude": "-45.125674090316465"
+        },
+        {
+          "latitude": "-9.39270415034405",
+          "longitude": "-45.131446204116514"
+        },
+        {
+          "latitude": "-9.39740385580327",
+          "longitude": "-45.13273366444366"
+        },
+        {
+          "latitude": "-9.398885731683418",
+          "longitude": "-45.12706883900421"
+        }
+      ]
+    },
+    {
+      "id": 47514,
+      "variety_id": 5342,
+      "planned_variety_id": null,
+      "culture_id": 4,
+      "planned_culture_id": null,
+      "state": "closed",
+      "date": "2020-01-13",
+      "planned_date": "2019-11-20T23:59:59.000-03:00",
+      "emergence_date": null,
+      "activation_date": "2019-12-16",
+      "area": 64.0,
+      "name": "PQ A 06 01- 04",
+      "farm_name": "Pesquisa Celeiro - PI",
+      "variety_name": "P30 F53 VYHR",
+      "planned_variety_name": null,
+      "culture_name": "Milho",
+      "culture_unit": "Sc",
+      "culture_unit_per_ha": "Sc / Ha",
+      "planned_culture_name": null,
+      "harvest_name": "2019/20-1",
+      "centroid": {
+        "lat": -9.39334322194268,
+        "lng": -45.1288228555465
+      },
+      "harvest_prediction_date": "2020-06-15",
+      "cycle": 1,
+      "observations": null,
+      "irrigated": false,
+      "updated_at": "2022-10-28T11:22:26.000-03:00",
+      "productivity": null,
+      "closed_date": "2020-06-15T00:00:00.000-03:00",
+      "farm": {
+        "id": 2416,
+        "name": "Pesquisa Celeiro - PI",
+        "cnpj_cpf": "",
+        "ie": "",
+        "storage_id": 2720,
+        "city": null
+      },
+      "plot": {
+        "id": 25535,
+        "name": "PQ A 06 01",
+        "farm_id": 2416,
+        "area": 18.0,
+        "updated_at": "2022-10-28T11:22:55.000-03:00",
+        "disabled_at": null,
+        "geo_points": [
+          {
+            "latitude": "-9.395863756648824",
+            "longitude": "-45.118831775119475"
+          },
+          {
+            "latitude": "-9.39417016891435",
+            "longitude": "-45.12565531485336"
+          },
+          {
+            "latitude": "-9.398875146878199",
+            "longitude": "-45.12702324145096"
+          },
+          {
+            "latitude": "-9.399388509558559",
+            "longitude": "-45.12491502516525"
+          },
+          {
+            "latitude": "-9.395863756648824",
+            "longitude": "-45.123809955051115"
+          },
+          {
+            "latitude": "-9.396414170879009",
+            "longitude": "-45.1217714761998"
+          },
+          {
+            "latitude": "-9.395779077458824",
+            "longitude": "-45.121578357150725"
+          },
+          {
+            "latitude": "-9.39652001966913",
+            "longitude": "-45.11896052115219"
+          }
+        ]
+      },
+      "harvest": {
+        "id": 695,
+        "name": "2019/20-1",
+        "start_date": "2019-09-11",
+        "end_date": "2020-11-27",
+        "rain_start_date": "2019-09-11",
+        "rain_end_date": "2020-11-27"
+      },
+      "geo_points": [
+        {
+          "latitude": "-9.394531727341475",
+          "longitude": "-45.11841331485393"
+        },
+        {
+          "latitude": "-9.396542859754073",
+          "longitude": "-45.11894975665691"
+        },
+        {
+          "latitude": "-9.3958230873907",
+          "longitude": "-45.121610507999684"
+        },
+        {
+          "latitude": "-9.396415841210441",
+          "longitude": "-45.12178216937664"
+        },
+        {
+          "latitude": "-9.395907766569934",
+          "longitude": "-45.12386356357219"
+        },
+        {
+          "latitude": "-9.39937959508584",
+          "longitude": "-45.12495790485027"
+        },
+        {
+          "latitude": "-9.398850355183413",
+          "longitude": "-45.12699638370159"
+        },
+        {
+          "latitude": "-9.394256518839633",
+          "longitude": "-45.12562309268596"
+        },
+        {
+          "latitude": "-9.38955677067177",
+          "longitude": "-45.143057451282765"
+        },
+        {
+          "latitude": "-9.388207169043502",
+          "longitude": "-45.14267657760265"
+        }
+      ]
+    },
+    {
+      "id": 43415,
+      "variety_id": 5348,
+      "planned_variety_id": 5348,
+      "culture_id": 2,
+      "planned_culture_id": 2,
+      "state": "closed",
+      "date": "2019-12-11",
+      "planned_date": "2019-11-13T23:59:59.000-03:00",
+      "emergence_date": null,
+      "activation_date": "2019-11-30",
+      "area": 51.0,
+      "name": "PQ A 06 03",
+      "farm_name": "Pesquisa Celeiro - PI",
+      "variety_name": "Cultivares e Linhagens",
+      "planned_variety_name": "Cultivares e Linhagens",
+      "culture_name": "Soja",
+      "culture_unit": "Sc",
+      "culture_unit_per_ha": "Sc / Ha",
+      "planned_culture_name": "Soja",
+      "harvest_name": "2019/20-1",
+      "centroid": {
+        "lat": -9.393052659252694,
+        "lng": -45.139759497517204
+      },
+      "harvest_prediction_date": "2020-04-08",
+      "cycle": 1,
+      "observations": null,
+      "irrigated": false,
+      "updated_at": "2022-10-28T11:22:28.000-03:00",
+      "productivity": null,
+      "closed_date": "2020-04-08T00:00:00.000-03:00",
+      "farm": {
+        "id": 2416,
+        "name": "Pesquisa Celeiro - PI",
+        "cnpj_cpf": "",
+        "ie": "",
+        "storage_id": 2720,
+        "city": null
+      },
+      "plot": {
+        "id": 25537,
+        "name": "PQ A 06 03",
+        "farm_id": 2416,
+        "area": 50.0,
+        "updated_at": "2022-10-28T11:22:58.000-03:00",
+        "disabled_at": null,
+        "geo_points": [
+          {
+            "latitude": "-9.389589501848862",
+            "longitude": "-45.143077603509596"
+          },
+          {
+            "latitude": "-9.391770023361444",
+            "longitude": "-45.135095349481276"
+          },
+          {
+            "latitude": "-9.396448571739347",
+            "longitude": "-45.13629697911995"
+          },
+          {
+            "latitude": "-9.394416268896364",
+            "longitude": "-45.144365063836744"
+          }
+        ]
+      },
+      "harvest": {
+        "id": 695,
+        "name": "2019/20-1",
+        "start_date": "2019-09-11",
+        "end_date": "2020-11-27",
+        "rain_start_date": "2019-09-11",
+        "rain_end_date": "2020-11-27"
+      },
+      "geo_points": [
+        {
+          "latitude": "-9.389547161489487",
+          "longitude": "-45.143066874673536"
+        },
+        {
+          "latitude": "-9.391717098244532",
+          "longitude": "-45.135127535989454"
+        },
+        {
+          "latitude": "-9.396490911255063",
+          "longitude": "-45.136393538644484"
+        },
+        {
+          "latitude": "-9.394479778540756",
+          "longitude": "-45.144365063836744"
+        }
+      ]
+    },
+    {
+      "id": 47512,
+      "variety_id": 5348,
+      "planned_variety_id": null,
+      "culture_id": 2,
+      "planned_culture_id": null,
+      "state": "closed",
+      "date": "2020-01-02",
+      "planned_date": "2019-11-17T23:59:59.000-03:00",
+      "emergence_date": null,
+      "activation_date": "2019-12-16",
+      "area": 11.0,
+      "name": "A 06 PQ 05",
+      "farm_name": "Pesquisa Celeiro - PI",
+      "variety_name": "Cultivares e Linhagens",
+      "planned_variety_name": null,
+      "culture_name": "Soja",
+      "culture_unit": "Sc",
+      "culture_unit_per_ha": "Sc / Ha",
+      "planned_culture_name": null,
+      "harvest_name": "2019/20-1",
+      "centroid": {
+        "lat": -9.391119743885605,
+        "lng": -45.13065460218527
+      },
+      "harvest_prediction_date": "2020-04-30",
+      "cycle": 1,
+      "observations": null,
+      "irrigated": false,
+      "updated_at": "2022-10-28T11:22:32.000-03:00",
+      "productivity": null,
+      "closed_date": "2020-04-30T00:00:00.000-03:00",
+      "farm": {
+        "id": 2416,
+        "name": "Pesquisa Celeiro - PI",
+        "cnpj_cpf": "",
+        "ie": "",
+        "storage_id": 2720,
+        "city": null
+      },
+      "plot": {
+        "id": 25538,
+        "name": "PQ A 06 04",
+        "farm_id": 2416,
+        "area": 45.5,
+        "updated_at": "2022-10-28T11:23:02.000-03:00",
+        "disabled_at": null,
+        "geo_points": [
+          {
+            "latitude": "-9.38954583835318",
+            "longitude": "-45.14305681638973"
+          },
+          {
+            "latitude": "-9.395859457143732",
+            "longitude": "-45.11881970641457"
+          },
+          {
+            "latitude": "-9.39444107796213",
+            "longitude": "-45.11836909530007"
+          },
+          {
+            "latitude": "-9.38814888486972",
+            "longitude": "-45.142647211781764"
+          }
+        ]
+      },
+      "harvest": {
+        "id": 695,
+        "name": "2019/20-1",
+        "start_date": "2019-09-11",
+        "end_date": "2020-11-27",
+        "rain_start_date": "2019-09-11",
+        "rain_end_date": "2020-11-27"
+      },
+      "geo_points": [
+        {
+          "latitude": "-9.387823086140852",
+          "longitude": "-45.142621963871015"
+        },
+        {
+          "latitude": "-9.388161810556264",
+          "longitude": "-45.14268633688737"
+        },
+        {
+          "latitude": "-9.394470492272646",
+          "longitude": "-45.118439167392744"
+        },
+        {
+          "latitude": "-9.394152943925725",
+          "longitude": "-45.118374794376386"
+        }
+      ]
+    },
+    {
+      "id": 56498,
+      "variety_id": 5348,
+      "planned_variety_id": null,
+      "culture_id": 2,
+      "planned_culture_id": null,
+      "state": "closed",
+      "date": "2020-06-15",
+      "planned_date": null,
+      "emergence_date": "2020-06-20",
+      "activation_date": "2020-06-15",
+      "area": 2.2,
+      "name": "PQ A 06 01",
+      "farm_name": "Pesquisa Celeiro - PI",
+      "variety_name": "Cultivares e Linhagens",
+      "planned_variety_name": null,
+      "culture_name": "Soja",
+      "culture_unit": "Sc",
+      "culture_unit_per_ha": "Sc / Ha",
+      "planned_culture_name": null,
+      "harvest_name": "2019/20-2",
+      "centroid": {
+        "lat": -9.396461765866881,
+        "lng": -45.12423958835514
+      },
+      "harvest_prediction_date": "2020-10-13",
+      "cycle": 1,
+      "observations": "ativação do Talhão para para plantio 2º safra de soja, será plantado somente 2,2/ha da 2º safra",
+      "irrigated": false,
+      "updated_at": "2022-10-28T11:22:45.000-03:00",
+      "productivity": null,
+      "closed_date": "2020-10-13T00:00:00.000-03:00",
+      "farm": {
+        "id": 2416,
+        "name": "Pesquisa Celeiro - PI",
+        "cnpj_cpf": "",
+        "ie": "",
+        "storage_id": 2720,
+        "city": null
+      },
+      "plot": {
+        "id": 25535,
+        "name": "PQ A 06 01",
+        "farm_id": 2416,
+        "area": 18.0,
+        "updated_at": "2022-10-28T11:22:55.000-03:00",
+        "disabled_at": null,
+        "geo_points": [
+          {
+            "latitude": "-9.395863756648824",
+            "longitude": "-45.118831775119475"
+          },
+          {
+            "latitude": "-9.39417016891435",
+            "longitude": "-45.12565531485336"
+          },
+          {
+            "latitude": "-9.398875146878199",
+            "longitude": "-45.12702324145096"
+          },
+          {
+            "latitude": "-9.399388509558559",
+            "longitude": "-45.12491502516525"
+          },
+          {
+            "latitude": "-9.395863756648824",
+            "longitude": "-45.123809955051115"
+          },
+          {
+            "latitude": "-9.396414170879009",
+            "longitude": "-45.1217714761998"
+          },
+          {
+            "latitude": "-9.395779077458824",
+            "longitude": "-45.121578357150725"
+          },
+          {
+            "latitude": "-9.39652001966913",
+            "longitude": "-45.11896052115219"
+          }
+        ]
+      },
+      "harvest": {
+        "id": 807,
+        "name": "2019/20-2",
+        "start_date": "2019-01-24",
+        "end_date": "2020-10-14",
+        "rain_start_date": "2019-01-24",
+        "rain_end_date": "2020-10-14"
+      },
+      "geo_points": [
+        {
+          "latitude": "-9.395863756648824",
+          "longitude": "-45.118831775119475"
+        },
+        {
+          "latitude": "-9.39417016891435",
+          "longitude": "-45.12565531485336"
+        },
+        {
+          "latitude": "-9.398875146878199",
+          "longitude": "-45.12702324145096"
+        },
+        {
+          "latitude": "-9.399388509558559",
+          "longitude": "-45.12491502516525"
+        },
+        {
+          "latitude": "-9.395863756648824",
+          "longitude": "-45.123809955051115"
+        },
+        {
+          "latitude": "-9.396414170879009",
+          "longitude": "-45.1217714761998"
+        },
+        {
+          "latitude": "-9.395779077458824",
+          "longitude": "-45.121578357150725"
+        },
+        {
+          "latitude": "-9.39652001966913",
+          "longitude": "-45.11896052115219"
+        }
+      ]
+    },
+    {
+      "id": 59501,
+      "variety_id": 5997,
+      "planned_variety_id": 5997,
+      "culture_id": 4,
+      "planned_culture_id": 4,
+      "state": "closed",
+      "date": "2021-01-13",
+      "planned_date": "2021-01-12T00:00:00.000-03:00",
+      "emergence_date": "2021-01-14",
+      "activation_date": "2020-07-29",
+      "area": 56.5,
+      "name": "PQ A 06  02",
+      "farm_name": "Pesquisa Celeiro - PI",
+      "variety_name": "30F35VYHR",
+      "planned_variety_name": "30F35VYHR",
+      "culture_name": "Milho",
+      "culture_unit": "Sc",
+      "culture_unit_per_ha": "Sc / Ha",
+      "planned_culture_name": "Milho",
+      "harvest_name": "2020/2021",
+      "centroid": {
+        "lat": -9.395340756650674,
+        "lng": -45.13104680754512
+      },
+      "harvest_prediction_date": "2021-05-29",
+      "cycle": 1,
+      "observations": null,
+      "irrigated": false,
+      "updated_at": "2022-10-28T11:22:52.000-03:00",
+      "productivity": null,
+      "closed_date": "2021-05-29T00:00:00.000-03:00",
+      "farm": {
+        "id": 2416,
+        "name": "Pesquisa Celeiro - PI",
+        "cnpj_cpf": "",
+        "ie": "",
+        "storage_id": 2720,
+        "city": null
+      },
+      "plot": {
+        "id": 25536,
+        "name": "PQ A 06  02",
+        "farm_id": 2416,
+        "area": 56.5,
+        "updated_at": "2022-10-28T11:22:52.000-03:00",
+        "disabled_at": null,
+        "geo_points": [
+          {
+            "latitude": "-9.394291895809037",
+            "longitude": "-45.125674090316465"
+          },
+          {
+            "latitude": "-9.391751499571445",
+            "longitude": "-45.13505109303253"
+          },
+          {
+            "latitude": "-9.396472387717575",
+            "longitude": "-45.13633855335968"
+          },
+          {
+            "latitude": "-9.398885731683418",
+            "longitude": "-45.12706883900421"
+          }
+        ]
+      },
+      "harvest": {
+        "id": 858,
+        "name": "2020/2021",
+        "start_date": "2020-04-27",
+        "end_date": "2021-10-08",
+        "rain_start_date": "2020-04-27",
+        "rain_end_date": "2021-10-08"
+      },
+      "geo_points": [
+        {
+          "latitude": "-9.394291895809037",
+          "longitude": "-45.125674090316465"
+        },
+        {
+          "latitude": "-9.391751499571445",
+          "longitude": "-45.13505109303253"
+        },
+        {
+          "latitude": "-9.396472387717575",
+          "longitude": "-45.13633855335968"
+        },
+        {
+          "latitude": "-9.398885731683418",
+          "longitude": "-45.12706883900421"
+        }
+      ]
+    },
+    {
+      "id": 59502,
+      "variety_id": 5348,
+      "planned_variety_id": 5348,
+      "culture_id": 2,
+      "planned_culture_id": 2,
+      "state": "closed",
+      "date": "2020-12-21",
+      "planned_date": "2020-11-17T23:59:59.000-03:00",
+      "emergence_date": null,
+      "activation_date": "2020-07-29",
+      "area": 18.0,
+      "name": "PQ A 06 01",
+      "farm_name": "Pesquisa Celeiro - PI",
+      "variety_name": "Cultivares e Linhagens",
+      "planned_variety_name": "Cultivares e Linhagens",
+      "culture_name": "Soja",
+      "culture_unit": "Sc",
+      "culture_unit_per_ha": "Sc / Ha",
+      "planned_culture_name": "Soja",
+      "harvest_name": "2020/2021",
+      "centroid": {
+        "lat": -9.396461765866881,
+        "lng": -45.12423958835514
+      },
+      "harvest_prediction_date": "2021-04-19",
+      "cycle": 1,
+      "observations": null,
+      "irrigated": false,
+      "updated_at": "2022-10-28T11:22:55.000-03:00",
+      "productivity": null,
+      "closed_date": "2021-04-19T00:00:00.000-03:00",
+      "farm": {
+        "id": 2416,
+        "name": "Pesquisa Celeiro - PI",
+        "cnpj_cpf": "",
+        "ie": "",
+        "storage_id": 2720,
+        "city": null
+      },
+      "plot": {
+        "id": 25535,
+        "name": "PQ A 06 01",
+        "farm_id": 2416,
+        "area": 18.0,
+        "updated_at": "2022-10-28T11:22:55.000-03:00",
+        "disabled_at": null,
+        "geo_points": [
+          {
+            "latitude": "-9.395863756648824",
+            "longitude": "-45.118831775119475"
+          },
+          {
+            "latitude": "-9.39417016891435",
+            "longitude": "-45.12565531485336"
+          },
+          {
+            "latitude": "-9.398875146878199",
+            "longitude": "-45.12702324145096"
+          },
+          {
+            "latitude": "-9.399388509558559",
+            "longitude": "-45.12491502516525"
+          },
+          {
+            "latitude": "-9.395863756648824",
+            "longitude": "-45.123809955051115"
+          },
+          {
+            "latitude": "-9.396414170879009",
+            "longitude": "-45.1217714761998"
+          },
+          {
+            "latitude": "-9.395779077458824",
+            "longitude": "-45.121578357150725"
+          },
+          {
+            "latitude": "-9.39652001966913",
+            "longitude": "-45.11896052115219"
+          }
+        ]
+      },
+      "harvest": {
+        "id": 858,
+        "name": "2020/2021",
+        "start_date": "2020-04-27",
+        "end_date": "2021-10-08",
+        "rain_start_date": "2020-04-27",
+        "rain_end_date": "2021-10-08"
+      },
+      "geo_points": [
+        {
+          "latitude": "-9.395863756648824",
+          "longitude": "-45.118831775119475"
+        },
+        {
+          "latitude": "-9.39417016891435",
+          "longitude": "-45.12565531485336"
+        },
+        {
+          "latitude": "-9.398875146878199",
+          "longitude": "-45.12702324145096"
+        },
+        {
+          "latitude": "-9.399388509558559",
+          "longitude": "-45.12491502516525"
+        },
+        {
+          "latitude": "-9.395863756648824",
+          "longitude": "-45.123809955051115"
+        },
+        {
+          "latitude": "-9.396414170879009",
+          "longitude": "-45.1217714761998"
+        },
+        {
+          "latitude": "-9.395779077458824",
+          "longitude": "-45.121578357150725"
+        },
+        {
+          "latitude": "-9.39652001966913",
+          "longitude": "-45.11896052115219"
+        }
+      ]
+    },
+    {
+      "id": 59503,
+      "variety_id": 5348,
+      "planned_variety_id": 5348,
+      "culture_id": 2,
+      "planned_culture_id": 2,
+      "state": "closed",
+      "date": "2020-12-10",
+      "planned_date": "2020-11-17T23:59:59.000-03:00",
+      "emergence_date": null,
+      "activation_date": "2020-07-29",
+      "area": 50.0,
+      "name": "PQ A 06 03",
+      "farm_name": "Pesquisa Celeiro - PI",
+      "variety_name": "Cultivares e Linhagens",
+      "planned_variety_name": "Cultivares e Linhagens",
+      "culture_name": "Soja",
+      "culture_unit": "Sc",
+      "culture_unit_per_ha": "Sc / Ha",
+      "planned_culture_name": "Soja",
+      "harvest_name": "2020/2021",
+      "centroid": {
+        "lat": -9.393052357579569,
+        "lng": -45.13973177829615
+      },
+      "harvest_prediction_date": "2021-04-08",
+      "cycle": 1,
+      "observations": null,
+      "irrigated": false,
+      "updated_at": "2022-10-28T11:22:58.000-03:00",
+      "productivity": null,
+      "closed_date": "2021-04-08T00:00:00.000-03:00",
+      "farm": {
+        "id": 2416,
+        "name": "Pesquisa Celeiro - PI",
+        "cnpj_cpf": "",
+        "ie": "",
+        "storage_id": 2720,
+        "city": null
+      },
+      "plot": {
+        "id": 25537,
+        "name": "PQ A 06 03",
+        "farm_id": 2416,
+        "area": 50.0,
+        "updated_at": "2022-10-28T11:22:58.000-03:00",
+        "disabled_at": null,
+        "geo_points": [
+          {
+            "latitude": "-9.389589501848862",
+            "longitude": "-45.143077603509596"
+          },
+          {
+            "latitude": "-9.391770023361444",
+            "longitude": "-45.135095349481276"
+          },
+          {
+            "latitude": "-9.396448571739347",
+            "longitude": "-45.13629697911995"
+          },
+          {
+            "latitude": "-9.394416268896364",
+            "longitude": "-45.144365063836744"
+          }
+        ]
+      },
+      "harvest": {
+        "id": 858,
+        "name": "2020/2021",
+        "start_date": "2020-04-27",
+        "end_date": "2021-10-08",
+        "rain_start_date": "2020-04-27",
+        "rain_end_date": "2021-10-08"
+      },
+      "geo_points": [
+        {
+          "latitude": "-9.389589501848862",
+          "longitude": "-45.143077603509596"
+        },
+        {
+          "latitude": "-9.391770023361444",
+          "longitude": "-45.135095349481276"
+        },
+        {
+          "latitude": "-9.396448571739347",
+          "longitude": "-45.13629697911995"
+        },
+        {
+          "latitude": "-9.394416268896364",
+          "longitude": "-45.144365063836744"
+        }
+      ]
+    },
+    {
+      "id": 59505,
+      "variety_id": 5348,
+      "planned_variety_id": 5348,
+      "culture_id": 2,
+      "planned_culture_id": 2,
+      "state": "closed",
+      "date": "2020-12-18",
+      "planned_date": "2020-11-19T23:59:59.000-03:00",
+      "emergence_date": null,
+      "activation_date": "2020-07-29",
+      "area": 45.5,
+      "name": "PQ A 06 04",
+      "farm_name": "Pesquisa Celeiro - PI",
+      "variety_name": "Cultivares e Linhagens",
+      "planned_variety_name": "Cultivares e Linhagens",
+      "culture_name": "Soja",
+      "culture_unit": "Sc",
+      "culture_unit_per_ha": "Sc / Ha",
+      "planned_culture_name": "Soja",
+      "harvest_name": "2020/2021",
+      "centroid": {
+        "lat": -9.392009749695312,
+        "lng": -45.13068047853519
+      },
+      "harvest_prediction_date": "2021-04-16",
+      "cycle": 1,
+      "observations": "Talhão destinado para as parcelas",
+      "irrigated": false,
+      "updated_at": "2022-10-28T11:23:02.000-03:00",
+      "productivity": null,
+      "closed_date": "2021-04-16T00:00:00.000-03:00",
+      "farm": {
+        "id": 2416,
+        "name": "Pesquisa Celeiro - PI",
+        "cnpj_cpf": "",
+        "ie": "",
+        "storage_id": 2720,
+        "city": null
+      },
+      "plot": {
+        "id": 25538,
+        "name": "PQ A 06 04",
+        "farm_id": 2416,
+        "area": 45.5,
+        "updated_at": "2022-10-28T11:23:02.000-03:00",
+        "disabled_at": null,
+        "geo_points": [
+          {
+            "latitude": "-9.38954583835318",
+            "longitude": "-45.14305681638973"
+          },
+          {
+            "latitude": "-9.395859457143732",
+            "longitude": "-45.11881970641457"
+          },
+          {
+            "latitude": "-9.39444107796213",
+            "longitude": "-45.11836909530007"
+          },
+          {
+            "latitude": "-9.38814888486972",
+            "longitude": "-45.142647211781764"
+          }
+        ]
+      },
+      "harvest": {
+        "id": 858,
+        "name": "2020/2021",
+        "start_date": "2020-04-27",
+        "end_date": "2021-10-08",
+        "rain_start_date": "2020-04-27",
+        "rain_end_date": "2021-10-08"
+      },
+      "geo_points": [
+        {
+          "latitude": "-9.38954583835318",
+          "longitude": "-45.14305681638973"
+        },
+        {
+          "latitude": "-9.395859457143732",
+          "longitude": "-45.11881970641457"
+        },
+        {
+          "latitude": "-9.39444107796213",
+          "longitude": "-45.11836909530007"
+        },
+        {
+          "latitude": "-9.38814888486972",
+          "longitude": "-45.142647211781764"
+        }
+      ]
+    },
+    {
+      "id": 43298,
+      "variety_id": 5342,
+      "planned_variety_id": 5342,
+      "culture_id": 4,
+      "planned_culture_id": 4,
+      "state": "closed",
+      "date": "2020-01-10",
+      "planned_date": "2019-12-02T00:00:00.000-03:00",
+      "emergence_date": "2020-01-11",
+      "activation_date": "2019-09-29",
+      "area": 661.0,
+      "name": "A01",
+      "farm_name": "Celeiro Sementes - PI",
+      "variety_name": "P30 F53 VYHR",
+      "planned_variety_name": "P30 F53 VYHR",
+      "culture_name": "Milho",
+      "culture_unit": "Sc",
+      "culture_unit_per_ha": "Sc / Ha",
+      "planned_culture_name": "Milho",
+      "harvest_name": "2019/20-1",
+      "centroid": {
+        "lat": -9.412934477690293,
+        "lng": -45.109394448848356
+      },
+      "harvest_prediction_date": "2020-06-09",
+      "cycle": 1,
+      "observations": "por motivo de muita chuva, talhão foi plantado em 10 dias. neste talhão temo um teste comparativo onde temos adubação na linha de plantio e a mesma adubação a lanço.",
+      "irrigated": false,
+      "updated_at": "2026-04-09T15:32:26.000-03:00",
+      "productivity": 162.47,
+      "closed_date": "2020-06-23T00:00:00.000-03:00",
+      "farm": {
+        "id": 2414,
+        "name": "Celeiro Sementes - PI",
+        "cnpj_cpf": "",
+        "ie": "",
+        "storage_id": 2718,
+        "city": null
+      },
+      "plot": {
+        "id": 25470,
+        "name": "A01",
+        "farm_id": 2414,
+        "area": 661.0,
+        "updated_at": "2026-04-09T15:32:28.000-03:00",
+        "disabled_at": null,
+        "geo_points": [
+          {
+            "latitude": "-9.40247036588214",
+            "longitude": "-45.12207080159044"
+          },
+          {
+            "latitude": "-9.417542643695604",
+            "longitude": "-45.12679148945665"
+          },
+          {
+            "latitude": "-9.425163208076233",
+            "longitude": "-45.095463288162705"
+          },
+          {
+            "latitude": "-9.407974363715018",
+            "longitude": "-45.09357501301622"
+          },
+          {
+            "latitude": "-9.400861488437828",
+            "longitude": "-45.11906672749376"
+          },
+          {
+            "latitude": "-9.402555043435132",
+            "longitude": "-45.119925034378525"
+          },
+          {
+            "latitude": "-9.401792944712065",
+            "longitude": "-45.12198497090196"
+          }
+        ]
+      },
+      "harvest": {
+        "id": 695,
+        "name": "2019/20-1",
+        "start_date": "2019-09-11",
+        "end_date": "2020-11-27",
+        "rain_start_date": "2019-09-11",
+        "rain_end_date": "2020-11-27"
+      },
+      "geo_points": [
+        {
+          "latitude": "-9.40247036588214",
+          "longitude": "-45.12207080159044"
+        },
+        {
+          "latitude": "-9.417542643695604",
+          "longitude": "-45.12679148945665"
+        },
+        {
+          "latitude": "-9.425163208076233",
+          "longitude": "-45.095463288162705"
+        },
+        {
+          "latitude": "-9.407974363715018",
+          "longitude": "-45.09357501301622"
+        },
+        {
+          "latitude": "-9.400861488437828",
+          "longitude": "-45.11906672749376"
+        },
+        {
+          "latitude": "-9.402555043435132",
+          "longitude": "-45.119925034378525"
+        },
+        {
+          "latitude": "-9.401792944712065",
+          "longitude": "-45.12198497090196"
+        }
+      ]
+    },
+    {
+      "id": 43313,
+      "variety_id": 5342,
+      "planned_variety_id": 5342,
+      "culture_id": 4,
+      "planned_culture_id": 4,
+      "state": "closed",
+      "date": "2020-01-13",
+      "planned_date": "2019-12-03T00:00:00.000-03:00",
+      "emergence_date": "2020-01-18",
+      "activation_date": "2019-09-29",
+      "area": 482.0,
+      "name": "A02",
+      "farm_name": "Celeiro Sementes - PI",
+      "variety_name": "P30 F53 VYHR",
+      "planned_variety_name": "P30 F53 VYHR",
+      "culture_name": "Milho",
+      "culture_unit": "Sc",
+      "culture_unit_per_ha": "Sc / Ha",
+      "planned_culture_name": "Milho",
+      "harvest_name": "2019/20-1",
+      "centroid": {
+        "lat": -9.406210425395109,
+        "lng": -45.135661118638055
+      },
+      "harvest_prediction_date": "2020-06-16",
+      "cycle": 1,
+      "observations": "neste talhão temos um teste comparativo de KCL  com 200Kg/ha",
+      "irrigated": false,
+      "updated_at": "2026-04-09T15:32:26.000-03:00",
+      "productivity": 170.56,
+      "closed_date": "2020-07-01T00:00:00.000-03:00",
+      "farm": {
+        "id": 2414,
+        "name": "Celeiro Sementes - PI",
+        "cnpj_cpf": "",
+        "ie": "",
+        "storage_id": 2718,
+        "city": null
+      },
+      "plot": {
+        "id": 25471,
+        "name": "A02",
+        "farm_id": 2414,
+        "area": 482.0,
+        "updated_at": "2026-04-09T15:32:27.000-03:00",
+        "disabled_at": null,
+        "geo_points": [
+          {
+            "latitude": "-9.399560424131755",
+            "longitude": "-45.124949013438595"
+          },
+          {
+            "latitude": "-9.394471084051153",
+            "longitude": "-45.1443467490343"
+          },
+          {
+            "latitude": "-9.412126313670878",
+            "longitude": "-45.149153267588986"
+          },
+          {
+            "latitude": "-9.417687935434516",
+            "longitude": "-45.12682163689567"
+          },
+          {
+            "latitude": "-9.401928866002908",
+            "longitude": "-45.122072362796644"
+          },
+          {
+            "latitude": "-9.401124426956953",
+            "longitude": "-45.125291013614515"
+          }
+        ]
+      },
+      "harvest": {
+        "id": 695,
+        "name": "2019/20-1",
+        "start_date": "2019-09-11",
+        "end_date": "2020-11-27",
+        "rain_start_date": "2019-09-11",
+        "rain_end_date": "2020-11-27"
+      },
+      "geo_points": [
+        {
+          "latitude": "-9.399560424131755",
+          "longitude": "-45.124949013438595"
+        },
+        {
+          "latitude": "-9.394471084051153",
+          "longitude": "-45.1443467490343"
+        },
+        {
+          "latitude": "-9.412126313670878",
+          "longitude": "-45.149153267588986"
+        },
+        {
+          "latitude": "-9.417687935434516",
+          "longitude": "-45.12682163689567"
+        },
+        {
+          "latitude": "-9.401928866002908",
+          "longitude": "-45.122072362796644"
+        },
+        {
+          "latitude": "-9.401124426956953",
+          "longitude": "-45.125291013614515"
+        }
+      ]
+    }
+  ],
+  "next_page_url": "/api/v1/plantations?page=2",
+  "pagination": {
+    "total_entries": 1986,
+    "total_pages": 133,
+    "per_page": 15,
+    "current_page": 1
+  },
+  "deleted_since": [
+    36747,
+    36744,
+    36743,
+    36742,
+    36740,
+    36735,
+    36734,
+    36733,
+    36732,
+    36730,
+    36726,
+    36728,
+    43350,
+    43348,
+    43352,
+    43411,
+    43354,
+    43353,
+    43351,
+    43346,
+    55843,
+    55844,
+    55845,
+    55846,
+    55847,
+    55848,
+    55849,
+    57841,
+    68330,
+    68329,
+    68316,
+    68352,
+    68331,
+    68372,
+    49681,
+    77989,
+    78007,
+    78008,
+    78952,
+    79007,
+    98270,
+    98271,
+    111254,
+    168377,
+    168382,
+    168546,
+    168547,
+    168548,
+    168550,
+    168551,
+    168552,
+    168553,
+    169836,
+    148911,
+    170860,
+    148828,
+    178719,
+    198066,
+    206328,
+    148876,
+    226676,
+    243219,
+    260479,
+    260482,
+    260523,
+    260524,
+    260525,
+    260527,
+    260526,
+    260519,
+    294025,
+    272461,
+    321169,
+    321213,
+    358008,
+    358005,
+    358003,
+    357999,
+    357998,
+    357997,
+    358051,
+    358052,
+    358053,
+    358054,
+    358055,
+    358050,
+    358049,
+    358048,
+    358047,
+    358046,
+    358045,
+    358044,
+    358043,
+    358042,
+    358061,
+    358010,
+    358014,
+    358019,
+    358021,
+    358022,
+    358026,
+    358028,
+    358029,
+    358030,
+    358031,
+    358032,
+    358033,
+    358034,
+    358035,
+    358036,
+    358037,
+    358038,
+    358039,
+    358040,
+    358041,
+    390033,
+    437949,
+    438098,
+    437931,
+    438087,
+    446461,
+    446461,
+    446462,
+    437984
+  ]
+}

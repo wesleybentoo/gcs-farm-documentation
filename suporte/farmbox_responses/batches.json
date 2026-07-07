@@ -1,0 +1,266 @@
+{
+  "batches": [
+    {
+      "id": 50419,
+      "validity": "2001-04-20",
+      "input_id": 362411,
+      "batch_number": "25RNS2033A",
+      "input": {
+        "id": 362411,
+        "name": "0469088-FUNGICIDA SAFENITH (CLOROTALONIL 72,00%)",
+        "formulation": "liquid",
+        "input_type_name": "Fungicida",
+        "input_type_id": 4,
+        "register": null,
+        "manufacturer": "RAINBOW",
+        "updated_at": "2026-05-22T16:58:28.000-03:00",
+        "dosage_unit": "l_ha"
+      }
+    },
+    {
+      "id": 40597,
+      "validity": "2025-12-25",
+      "input_id": 330759,
+      "batch_number": "048-25-25600",
+      "input": {
+        "id": 330759,
+        "name": "0025815-REGULADOR DE CRESCIMENTO LEGEND 250 (CLORETO DE MEPIQUATE 25%)                              ",
+        "formulation": "liquid",
+        "input_type_name": "Regulador",
+        "input_type_id": 9,
+        "register": null,
+        "manufacturer": null,
+        "updated_at": "2025-12-08T15:33:22.000-03:00",
+        "dosage_unit": "l_ha"
+      }
+    },
+    {
+      "id": 41204,
+      "validity": "2025-12-31",
+      "input_id": 334440,
+      "batch_number": "002-25-400000",
+      "input": {
+        "id": 334440,
+        "name": "0469040-ISETICIDA CLORPIRI 480 EC (CLORPIRIFÓS 48,00%) BB 20 L",
+        "formulation": "liquid",
+        "input_type_name": "Inseticida",
+        "input_type_id": 2,
+        "register": null,
+        "manufacturer": null,
+        "updated_at": "2025-12-19T10:04:48.000-03:00",
+        "dosage_unit": "l_ha"
+      }
+    },
+    {
+      "id": 36298,
+      "validity": "2026-01-08",
+      "input_id": 316363,
+      "batch_number": "003-24-128000",
+      "input": {
+        "id": 316363,
+        "name": "0132366-INOCULANTE SIMBIOSE NOD ULTRA TSI",
+        "formulation": "unity",
+        "input_type_name": "Tratamento de Semente",
+        "input_type_id": 37,
+        "register": "",
+        "manufacturer": "SIMBIOSE",
+        "updated_at": "2025-10-22T09:48:59.000-03:00",
+        "dosage_unit": "un_ha"
+      }
+    },
+    {
+      "id": 43668,
+      "validity": "2026-01-20",
+      "input_id": 342755,
+      "batch_number": "0010-25-31500",
+      "input": {
+        "id": 342755,
+        "name": "0043386-FUNGICIDA PODERUS (AZOXISTROBINA 20% E CIPROCONAL 8%) ",
+        "formulation": "liquid",
+        "input_type_name": "Fungicida",
+        "input_type_id": 4,
+        "register": null,
+        "manufacturer": null,
+        "updated_at": "2026-01-31T13:18:54.000-03:00",
+        "dosage_unit": "l_ha"
+      }
+    },
+    {
+      "id": 43669,
+      "validity": "2026-01-28",
+      "input_id": 342759,
+      "batch_number": "003-25-666000",
+      "input": {
+        "id": 342759,
+        "name": "0043124-HERBICIDA HAMPTON EC (CARFENTRAZONA ETÍLICA 40%)                          ",
+        "formulation": "liquid",
+        "input_type_name": "Herbicida",
+        "input_type_id": 5,
+        "register": null,
+        "manufacturer": null,
+        "updated_at": "2026-01-31T13:36:13.000-03:00",
+        "dosage_unit": "l_ha"
+      }
+    },
+    {
+      "id": 43664,
+      "validity": "2026-01-30",
+      "input_id": 342737,
+      "batch_number": "003-23-46080",
+      "input": {
+        "id": 342737,
+        "name": "0043178-INSETICIDA TEMIBLE (TIODICARBE80%)                          ",
+        "formulation": "solid",
+        "input_type_name": "Inseticida",
+        "input_type_id": 2,
+        "register": null,
+        "manufacturer": "TECNOMYL",
+        "updated_at": "2026-01-31T10:19:52.000-03:00",
+        "dosage_unit": "kg_ha"
+      }
+    },
+    {
+      "id": 43670,
+      "validity": "2026-01-30",
+      "input_id": 342761,
+      "batch_number": "2780-25-15100",
+      "input": {
+        "id": 342761,
+        "name": "0043306-INSETICIDA VALLEX FULL (ACETAMIPRIDO 20% E PIRIPROXIFEM 10%)                                         ",
+        "formulation": "liquid",
+        "input_type_name": "Inseticida",
+        "input_type_id": 2,
+        "register": null,
+        "manufacturer": null,
+        "updated_at": "2026-01-31T13:45:25.000-03:00",
+        "dosage_unit": "l_ha"
+      }
+    },
+    {
+      "id": 45339,
+      "validity": "2026-03-29",
+      "input_id": 351832,
+      "batch_number": "25RFS2919A",
+      "input": {
+        "id": 351832,
+        "name": "0469042-HERBICIDA MESTRONG (MESOTRIONA 48%) (Etilenoglicol 6,00%) ",
+        "formulation": "liquid",
+        "input_type_name": "Herbicida",
+        "input_type_id": 5,
+        "register": null,
+        "manufacturer": null,
+        "updated_at": "2026-03-20T10:04:20.000-03:00",
+        "dosage_unit": "l_ha"
+      }
+    },
+    {
+      "id": 35973,
+      "validity": "2026-03-30",
+      "input_id": 205751,
+      "batch_number": "025019017",
+      "input": {
+        "id": 205751,
+        "name": "0016938-INOCULANTE BIOMAX PREMIUM LIQUIDO SOJA - ESTIRPE SEMIA 5079 DOSE",
+        "formulation": "unity",
+        "input_type_name": "Inoculante",
+        "input_type_id": 30,
+        "register": "",
+        "manufacturer": "",
+        "updated_at": "2025-11-24T06:46:04.000-03:00",
+        "dosage_unit": "un_ha"
+      }
+    },
+    {
+      "id": 35976,
+      "validity": "2026-03-30",
+      "input_id": 205751,
+      "batch_number": "025019065",
+      "input": {
+        "id": 205751,
+        "name": "0016938-INOCULANTE BIOMAX PREMIUM LIQUIDO SOJA - ESTIRPE SEMIA 5079 DOSE",
+        "formulation": "unity",
+        "input_type_name": "Inoculante",
+        "input_type_id": 30,
+        "register": "",
+        "manufacturer": "",
+        "updated_at": "2025-11-24T06:46:04.000-03:00",
+        "dosage_unit": "un_ha"
+      }
+    },
+    {
+      "id": 45331,
+      "validity": "2026-03-30",
+      "input_id": 278047,
+      "batch_number": "25RNS2279A",
+      "input": {
+        "id": 278047,
+        "name": "0045763-FUNGICIDA KINGSTAR XTRA                                          ",
+        "formulation": "solid",
+        "input_type_name": "Fungicida",
+        "input_type_id": 4,
+        "register": null,
+        "manufacturer": null,
+        "updated_at": "2025-01-28T06:36:47.000-03:00",
+        "dosage_unit": "kg_ha"
+      }
+    },
+    {
+      "id": 45341,
+      "validity": "2026-03-30",
+      "input_id": 351830,
+      "batch_number": "25RFS3514B",
+      "input": {
+        "id": 351830,
+        "name": "0469043-HERBICIDA TRICLOMAX (TRICLOPIR-BUTOTILICO 66,7%)",
+        "formulation": "liquid",
+        "input_type_name": "Herbicida",
+        "input_type_id": 5,
+        "register": null,
+        "manufacturer": null,
+        "updated_at": "2026-03-20T10:03:05.000-03:00",
+        "dosage_unit": "l_ha"
+      }
+    },
+    {
+      "id": 35977,
+      "validity": "2026-06-30",
+      "input_id": 38440,
+      "batch_number": "025018942",
+      "input": {
+        "id": 38440,
+        "name": "0030289-INOCULANTE AZOSPIRILLUM BIOMAX AZUM 3X10E8",
+        "formulation": "liquid",
+        "input_type_name": "Inoculante",
+        "input_type_id": 30,
+        "register": "",
+        "manufacturer": "",
+        "updated_at": "2024-09-19T09:47:46.000-03:00",
+        "dosage_unit": "ml_ha"
+      }
+    },
+    {
+      "id": 35979,
+      "validity": "2026-06-30",
+      "input_id": 38440,
+      "batch_number": "025019063",
+      "input": {
+        "id": 38440,
+        "name": "0030289-INOCULANTE AZOSPIRILLUM BIOMAX AZUM 3X10E8",
+        "formulation": "liquid",
+        "input_type_name": "Inoculante",
+        "input_type_id": 30,
+        "register": "",
+        "manufacturer": "",
+        "updated_at": "2024-09-19T09:47:46.000-03:00",
+        "dosage_unit": "ml_ha"
+      }
+    }
+  ],
+  "next_page_url": "/api/v1/batches?page=2",
+  "pagination": {
+    "total_entries": 65,
+    "total_pages": 5,
+    "per_page": 15,
+    "current_page": 1
+  }
+}

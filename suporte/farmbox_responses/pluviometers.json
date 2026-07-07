@@ -1,0 +1,230 @@
+{
+  "pluviometers": [
+    {
+      "id": 24994,
+      "name": "10",
+      "latitude": "-14.343278338453075",
+      "longitude": "-45.56119705700865",
+      "start_date": "2021-10-11",
+      "updated_at": "2026-06-26T05:30:32.000-03:00",
+      "farm_id": 2112,
+      "farm": {
+        "id": 2112,
+        "name": "Celeiro Sementes - BA"
+      }
+    },
+    {
+      "id": 24995,
+      "name": "11",
+      "latitude": "-14.358099780362016",
+      "longitude": "-45.57507590294797",
+      "start_date": "2021-10-11",
+      "updated_at": "2026-06-26T05:30:32.000-03:00",
+      "farm_id": 2112,
+      "farm": {
+        "id": 2112,
+        "name": "Celeiro Sementes - BA"
+      }
+    },
+    {
+      "id": 24996,
+      "name": "12",
+      "latitude": "-14.363644129021901",
+      "longitude": "-45.56421921523278",
+      "start_date": "2021-10-11",
+      "updated_at": "2021-11-29T09:40:02.000-03:00",
+      "farm_id": 2112,
+      "farm": {
+        "id": 2112,
+        "name": "Celeiro Sementes - BA"
+      }
+    },
+    {
+      "id": 24997,
+      "name": "13",
+      "latitude": "-14.370289680573354",
+      "longitude": "-45.583607838596535",
+      "start_date": "2021-10-11",
+      "updated_at": "2026-06-26T05:30:32.000-03:00",
+      "farm_id": 2112,
+      "farm": {
+        "id": 2112,
+        "name": "Celeiro Sementes - BA"
+      }
+    },
+    {
+      "id": 24998,
+      "name": "14",
+      "latitude": "-14.380443426978491",
+      "longitude": "-45.57580847232797",
+      "start_date": "2021-10-11",
+      "updated_at": "2026-06-26T05:30:30.000-03:00",
+      "farm_id": 2112,
+      "farm": {
+        "id": 2112,
+        "name": "Celeiro Sementes - BA"
+      }
+    },
+    {
+      "id": 24182,
+      "name": "15",
+      "latitude": "-14.385099299134533",
+      "longitude": "-45.59112925022104",
+      "start_date": "2021-10-11",
+      "updated_at": "2021-11-29T09:43:07.000-03:00",
+      "farm_id": 2112,
+      "farm": {
+        "id": 2112,
+        "name": "Celeiro Sementes - BA"
+      }
+    },
+    {
+      "id": 24183,
+      "name": "16",
+      "latitude": "-14.396403308790916",
+      "longitude": "-45.57044950485749",
+      "start_date": "2021-10-11",
+      "updated_at": "2026-06-26T05:30:30.000-03:00",
+      "farm_id": 2112,
+      "farm": {
+        "id": 2112,
+        "name": "Celeiro Sementes - BA"
+      }
+    },
+    {
+      "id": 24184,
+      "name": "17",
+      "latitude": "-14.418135000147576",
+      "longitude": "-45.56834649338974",
+      "start_date": "2021-10-11",
+      "updated_at": "2021-11-29T09:44:41.000-03:00",
+      "farm_id": 2112,
+      "farm": {
+        "id": 2112,
+        "name": "Celeiro Sementes - BA"
+      }
+    },
+    {
+      "id": 24185,
+      "name": "18",
+      "latitude": "-14.392450074977889",
+      "longitude": "-45.558054020405606",
+      "start_date": "2021-10-11",
+      "updated_at": "2021-11-29T09:45:29.000-03:00",
+      "farm_id": 2112,
+      "farm": {
+        "id": 2112,
+        "name": "Celeiro Sementes - BA"
+      }
+    },
+    {
+      "id": 24186,
+      "name": "19",
+      "latitude": "-14.383826124487543",
+      "longitude": "-45.551623855279786",
+      "start_date": "2021-10-11",
+      "updated_at": "2021-11-29T09:46:08.000-03:00",
+      "farm_id": 2112,
+      "farm": {
+        "id": 2112,
+        "name": "Celeiro Sementes - BA"
+      }
+    },
+    {
+      "id": 24187,
+      "name": "Digital 23/9",
+      "latitude": "-14.365820990298557",
+      "longitude": "-45.55286467871485",
+      "start_date": "2021-10-11",
+      "updated_at": "2026-05-13T05:30:16.000-03:00",
+      "farm_id": 2112,
+      "farm": {
+        "id": 2112,
+        "name": "Celeiro Sementes - BA"
+      }
+    },
+    {
+      "id": 24188,
+      "name": "Digital 39/42",
+      "latitude": "-14.402471666301368",
+      "longitude": "-45.58090968602071",
+      "start_date": "2021-10-11",
+      "updated_at": "2021-11-29T09:55:43.000-03:00",
+      "farm_id": 2112,
+      "farm": {
+        "id": 2112,
+        "name": "Celeiro Sementes - BA"
+      }
+    },
+    {
+      "id": 24189,
+      "name": "Digital 14/15",
+      "latitude": "-14.326610207672616",
+      "longitude": "-45.53202552917446",
+      "start_date": "2021-10-11",
+      "updated_at": "2025-05-28T15:12:07.000-03:00",
+      "farm_id": 2112,
+      "farm": {
+        "id": 2112,
+        "name": "Celeiro Sementes - BA"
+      }
+    },
+    {
+      "id": 24190,
+      "name": "20",
+      "latitude": "-14.221885227537916",
+      "longitude": "-45.4268689933936",
+      "start_date": "2021-10-11",
+      "updated_at": "2021-12-26T09:37:17.000-03:00",
+      "farm_id": 2112,
+      "farm": {
+        "id": 2112,
+        "name": "Celeiro Sementes - BA"
+      }
+    },
+    {
+      "id": 24191,
+      "name": "21",
+      "latitude": "-14.194441827958457",
+      "longitude": "-45.43662370122251",
+      "start_date": "2021-10-11",
+      "updated_at": "2026-06-26T05:30:32.000-03:00",
+      "farm_id": 2112,
+      "farm": {
+        "id": 2112,
+        "name": "Celeiro Sementes - BA"
+      }
+    }
+  ],
+  "next_page_url": "/api/v1/pluviometers?page=2",
+  "pagination": {
+    "total_entries": 76,
+    "total_pages": 6,
+    "per_page": 15,
+    "current_page": 1
+  },
+  "deleted_since": [
+    7910,
+    7909,
+    7912,
+    7908,
+    7911,
+    7913,
+    24167,
+    24168,
+    24170,
+    24169,
+    24171,
+    24172,
+    24173,
+    24174,
+    24175,
+    24176,
+    24177,
+    24178,
+    24179,
+    24180,
+    25000,
+    24999
+  ]
+}

@@ -1,0 +1,560 @@
+{
+  "activity_types": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/activity_types",
+    "count": 15,
+    "list_key": "activity_type",
+    "fields": [
+      "id",
+      "name",
+      "no_culture",
+      "all_cultures",
+      "client_id",
+      "inactive",
+      "cultures"
+    ]
+  },
+  "beaks": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/beaks",
+    "count": 15,
+    "list_key": "beaks",
+    "fields": [
+      "id",
+      "name"
+    ]
+  },
+  "cultures": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/cultures",
+    "count": 11,
+    "list_key": "cultures",
+    "fields": [
+      "id",
+      "name"
+    ]
+  },
+  "varieties": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/varieties",
+    "count": 15,
+    "list_key": "varieties",
+    "fields": [
+      "id",
+      "name",
+      "culture_id",
+      "culture"
+    ]
+  },
+  "equipments": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/equipments",
+    "count": 15,
+    "list_key": "equipments",
+    "fields": [
+      "id",
+      "name",
+      "type",
+      "tank_volume",
+      "disabled",
+      "serial",
+      "model",
+      "manufacturer",
+      "operation_type",
+      "farms"
+    ]
+  },
+  "farms": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/farms",
+    "count": 2,
+    "list_key": "farms",
+    "fields": [
+      "id",
+      "name",
+      "cnpj_cpf",
+      "ie",
+      "storage_id",
+      "city"
+    ]
+  },
+  "harvests": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/harvests",
+    "count": 12,
+    "list_key": "harvests",
+    "fields": [
+      "id",
+      "name",
+      "start_date",
+      "end_date",
+      "rain_start_date",
+      "rain_end_date"
+    ]
+  },
+  "phenological_stages": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/phenological_stages",
+    "count": 15,
+    "list_key": "phenological_stages",
+    "fields": [
+      "id",
+      "name",
+      "position",
+      "description",
+      "ignore_infestations",
+      "updated_at",
+      "classification",
+      "classification_label",
+      "culture"
+    ]
+  },
+  "plantations": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/plantations",
+    "count": 15,
+    "list_key": "plantations",
+    "fields": [
+      "id",
+      "variety_id",
+      "planned_variety_id",
+      "culture_id",
+      "planned_culture_id",
+      "state",
+      "date",
+      "planned_date",
+      "emergence_date",
+      "activation_date",
+      "area",
+      "name",
+      "farm_name",
+      "variety_name",
+      "planned_variety_name",
+      "culture_name",
+      "culture_unit",
+      "culture_unit_per_ha",
+      "planned_culture_name",
+      "harvest_name",
+      "centroid",
+      "harvest_prediction_date",
+      "cycle",
+      "observations",
+      "irrigated",
+      "updated_at",
+      "productivity",
+      "closed_date",
+      "farm",
+      "plot",
+      "harvest",
+      "geo_points"
+    ]
+  },
+  "plots": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/plots",
+    "count": 15,
+    "list_key": "plots",
+    "fields": [
+      "id",
+      "name",
+      "farm_id",
+      "area",
+      "updated_at",
+      "disabled_at",
+      "geo_points"
+    ]
+  },
+  "pluviometers": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/pluviometers",
+    "count": 15,
+    "list_key": "pluviometers",
+    "fields": [
+      "id",
+      "name",
+      "latitude",
+      "longitude",
+      "start_date",
+      "updated_at",
+      "farm_id",
+      "farm"
+    ]
+  },
+  "storages": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/storages",
+    "count": 2,
+    "list_key": "storages",
+    "fields": [
+      "id",
+      "updated_at",
+      "disabled_at",
+      "name",
+      "storage_type",
+      "farm_id",
+      "default_storage"
+    ]
+  },
+  "users": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/users",
+    "count": 15,
+    "list_key": "users",
+    "fields": [
+      "id",
+      "name",
+      "username",
+      "email",
+      "uuid",
+      "crea",
+      "phone",
+      "role_label"
+    ]
+  },
+  "input_types": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/input_types",
+    "count": 15,
+    "list_key": "input_types",
+    "fields": [
+      "id",
+      "name",
+      "grace_period"
+    ]
+  },
+  "inputs": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/inputs",
+    "count": 15,
+    "list_key": "inputs",
+    "fields": [
+      "id",
+      "name",
+      "formulation",
+      "input_type_name",
+      "input_type_id",
+      "register",
+      "manufacturer",
+      "input_classification",
+      "updated_at",
+      "dosage_unit"
+    ]
+  },
+  "input_values": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/input_values",
+    "count": 15,
+    "list_key": "input_values",
+    "fields": [
+      "id",
+      "input_id",
+      "farm_id",
+      "harvest_id",
+      "value",
+      "updated_at"
+    ]
+  },
+  "batches": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/batches",
+    "count": 15,
+    "list_key": "batches",
+    "fields": [
+      "id",
+      "validity",
+      "input_id",
+      "batch_number",
+      "input"
+    ]
+  },
+  "movimentations": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/movimentations",
+    "count": 15,
+    "list_key": "movimentations",
+    "fields": [
+      "id",
+      "input_id",
+      "storage_id",
+      "user_id",
+      "unit",
+      "date",
+      "observation",
+      "movimentation_type",
+      "quantity",
+      "invoice_number",
+      "invoice_file_url",
+      "batch_info",
+      "application_info"
+    ]
+  },
+  "monitorings": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/monitorings",
+    "count": 30,
+    "list_key": "monitorings",
+    "fields": [
+      "id",
+      "samples",
+      "state",
+      "recommendation",
+      "delivered",
+      "methodology",
+      "monitoring_stops_count",
+      "phenology",
+      "phenology_methodology",
+      "date",
+      "close_date",
+      "updated_at",
+      "monitors",
+      "phenological_stage",
+      "plantation",
+      "monitoring_stops",
+      "monitoring_results"
+    ]
+  },
+  "monitoring_day_results": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/monitoring_day_results",
+    "count": 30,
+    "list_key": "monitoring_day_results",
+    "fields": [
+      "id",
+      "date",
+      "updated_at",
+      "phenological_stage",
+      "plantation",
+      "count_targets",
+      "targets",
+      "monitors",
+      "monitoring_stops",
+      "notes"
+    ]
+  },
+  "monitoring_tolerances": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/monitoring_tolerances",
+    "count": 15,
+    "list_key": "monitoring_tolerances",
+    "fields": [
+      "id",
+      "farm_id",
+      "culture_id",
+      "variety_id",
+      "days",
+      "created_at",
+      "updated_at"
+    ]
+  },
+  "applications": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/applications",
+    "count": 15,
+    "list_key": "applications",
+    "fields": [
+      "id",
+      "code",
+      "date",
+      "end_date",
+      "status",
+      "closed_date",
+      "created_at",
+      "updated_at",
+      "observations",
+      "reopened_reference_id",
+      "retroactive",
+      "operation_type",
+      "charge",
+      "finisher",
+      "mixer",
+      "operator",
+      "activity_type",
+      "responsible",
+      "first_movimentation_date",
+      "last_movimentation_date",
+      "equipments",
+      "plantations",
+      "inputs",
+      "progresses",
+      "input_movimentations"
+    ]
+  },
+  "count_days": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/count_days",
+    "count": 15,
+    "list_key": "count_days",
+    "fields": [
+      "id",
+      "date",
+      "plantation_id",
+      "updated_at",
+      "count_groups"
+    ]
+  },
+  "count_monitorings": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/count_monitorings",
+    "count": 15,
+    "list_key": "count_monitorings",
+    "fields": [
+      "id",
+      "date",
+      "plantation_id",
+      "latitude",
+      "longitude",
+      "updated_at",
+      "count_group",
+      "count_monitoring_parameters"
+    ]
+  },
+  "notes": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/notes",
+    "count": 15,
+    "list_key": "notes",
+    "fields": [
+      "id",
+      "description",
+      "user_name",
+      "image_addresses",
+      "date",
+      "latitude",
+      "longitude",
+      "location_id",
+      "location_type",
+      "attachments"
+    ]
+  },
+  "pluviometer_monitorings": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/pluviometer_monitorings",
+    "count": 15,
+    "list_key": "pluviometer_monitorings",
+    "fields": [
+      "id",
+      "quantity",
+      "user_id",
+      "latitude",
+      "longitude",
+      "date",
+      "updated_at",
+      "pluviometer"
+    ]
+  },
+  "phenological_stage_samples": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/phenological_stage_samples",
+    "count": 15,
+    "list_key": "phenological_stage_samples",
+    "fields": [
+      "id",
+      "date",
+      "latitude",
+      "longitude",
+      "updated_at",
+      "phenological_stage",
+      "plantation"
+    ]
+  },
+  "trap_monitorings": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/trap_monitorings",
+    "count": 15,
+    "list_key": "trap_monitorings",
+    "fields": [
+      "id",
+      "change_pheromone",
+      "date",
+      "modified_at",
+      "user",
+      "trap",
+      "monitored_targets"
+    ]
+  },
+  "resource_subscriptions": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/resource_subscriptions",
+    "count": 0,
+    "list_key": "resource_subscriptions",
+    "fields": null
+  },
+  "farms_by_id": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/farms/2414",
+    "count": "?",
+    "list_key": null,
+    "fields": null
+  },
+  "plantation_by_id": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/plantations/43414",
+    "count": 1,
+    "list_key": "geo_points",
+    "fields": [
+      "latitude",
+      "longitude"
+    ]
+  },
+  "plantation_cropped_volumes": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/plantations/43414/cropped_volumes",
+    "count": 0,
+    "list_key": "cropped_volumes",
+    "fields": null
+  },
+  "monitoring_by_id": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/monitorings/1940677",
+    "count": 1,
+    "list_key": "monitors",
+    "fields": [
+      "id",
+      "name",
+      "username",
+      "email",
+      "crea"
+    ]
+  },
+  "application_by_id": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/applications/87929",
+    "count": 1,
+    "list_key": "equipments",
+    "fields": [
+      "id",
+      "pressure",
+      "pressure_unit",
+      "solution",
+      "velocity",
+      "tank_volume",
+      "area",
+      "equipment",
+      "beak"
+    ]
+  },
+  "application_progresses": {
+    "status": 200,
+    "url": "https://farmbox.cc/api/v1/applications/87929/application_progresses",
+    "count": 1,
+    "list_key": "application_progresses",
+    "fields": [
+      "id",
+      "area",
+      "wind_speed",
+      "humidity",
+      "temperature",
+      "wind_direction",
+      "pressure",
+      "solution",
+      "velocity",
+      "updated_at",
+      "comment",
+      "initial_hour_meter",
+      "final_hour_meter",
+      "date",
+      "equipment",
+      "plantations"
+    ]
+  }
+}

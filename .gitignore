@@ -1,0 +1,11 @@
+# Arquivos temporários de lock do Microsoft Office (Word/Excel)
+~$*
+
+# Sistemas operacionais
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Temporários de editor
+*.tmp
+*~

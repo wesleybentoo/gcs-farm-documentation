@@ -1,0 +1,28 @@
+{
+  "farms": [
+    {
+      "id": 2414,
+      "name": "Celeiro Sementes - PI",
+      "cnpj_cpf": "",
+      "ie": "",
+      "storage_id": 2718,
+      "city": null
+    },
+    {
+      "id": 2112,
+      "name": "Celeiro Sementes - BA",
+      "cnpj_cpf": "",
+      "ie": "",
+      "storage_id": 2368,
+      "city": null
+    }
+  ],
+  "next_page_url": null,
+  "pagination": {
+    "total_entries": 2,
+    "total_pages": 1,
+    "per_page": 15,
+    "current_page": 1
+  },
+  "deleted_since": []
+}
