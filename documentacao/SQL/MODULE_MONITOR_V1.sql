@@ -258,8 +258,10 @@ OUTER APPLY (
 ) tol
 LEFT JOIN dbo.MONITOR_TOLERANCE_DEFAULT td ON td.culture_id = sc.culture_id AND td.deleted_at IS NULL AND td.active = 1  -- fallback global por cultura
 OUTER APPLY (
-    -- carência = última aplicação no talhão + carencia_days do BULÁRIO do produto
+    -- carência = última aplicação DESTE plantio + carencia_days do BULÁRIO do produto
     -- (FARM_PRODUCT_LABEL, por cultura). Vazio hoje → carencia_until NULL até o bulário ser preenchido.
+    -- ESCOPO por plantio (igual ao lm acima): sem isso, a carência de um ciclo/cultura anterior
+    -- vazaria para o plantio vigente e bloquearia o monitoramento indevidamente.
     SELECT MAX(DATEADD(DAY, lbl.carencia_days, a.app_date)) AS carencia_until
       FROM dbo.FARM_APPLICATION_TARGET tg
       JOIN dbo.FARM_APPLICATION a        ON a.id = tg.application_id AND a.deleted_at IS NULL AND a.app_date IS NOT NULL
@@ -268,6 +270,7 @@ OUTER APPLY (
                                         AND lbl.carencia_days IS NOT NULL
                                         AND (lbl.culture_id = sc.culture_id OR lbl.culture_id IS NULL)
      WHERE tg.field_id = p.field_id AND tg.deleted_at IS NULL
+       AND (tg.planting_id = p.id OR tg.planting_id IS NULL)
 ) car
 WHERE p.deleted_at IS NULL AND p.active = 1 AND ISNULL(p.status,'') <> 'CLOSED';
 GO
