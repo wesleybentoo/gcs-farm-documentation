@@ -266,10 +266,13 @@ OUTER APPLY (
       JOIN dbo.FARM_APPLICATION a        ON a.id = tg.application_id AND a.deleted_at IS NULL AND a.app_date IS NOT NULL
       JOIN dbo.FARM_APPLICATION_INPUT ai ON ai.application_id = a.id AND ai.deleted_at IS NULL
       JOIN dbo.FARM_PRODUCT pr           ON pr.id = ai.product_id AND pr.deleted_at IS NULL
-      CROSS APPLY (SELECT COALESCE(
-             (SELECT po.reentrada_days FROM dbo.FARM_PRODUCT_CARENCIA po WHERE po.product_id = pr.id AND po.deleted_at IS NULL),
-             (SELECT cd.reentrada_days FROM dbo.FARM_PRODUCT_CARENCIA_DEFAULT cd WHERE cd.category_id = pr.category_id AND cd.deleted_at IS NULL)
-           ) AS reentrada) cx
+      -- override do PRODUTO vence a default da CATEGORIA quando a linha EXISTE (mesmo reentrada NULL =
+      -- "sem reentrada p/ este produto"); só cai no default se não há override cadastrado.
+      CROSS APPLY (SELECT TOP 1 v.reentrada_days AS reentrada FROM (
+             SELECT po.reentrada_days, 0 AS srcord FROM dbo.FARM_PRODUCT_CARENCIA po WHERE po.product_id = pr.id AND po.deleted_at IS NULL
+             UNION ALL
+             SELECT cd.reentrada_days, 1 AS srcord FROM dbo.FARM_PRODUCT_CARENCIA_DEFAULT cd WHERE cd.category_id = pr.category_id AND cd.deleted_at IS NULL
+           ) v ORDER BY v.srcord) cx
      WHERE tg.field_id = p.field_id AND tg.deleted_at IS NULL
        AND (tg.planting_id = p.id OR tg.planting_id IS NULL)
        AND cx.reentrada IS NOT NULL AND cx.reentrada > 0

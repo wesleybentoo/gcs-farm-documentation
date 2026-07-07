@@ -804,8 +804,9 @@ FROM (
   JOIN dbo.FARM_CULTURE cu ON cu.name = s.culture_name COLLATE Latin1_General_CI_AI AND cu.deleted_at IS NULL
   JOIN dbo.FARM_PEST pe ON LOWER(LTRIM(RTRIM(pe.name))) = LOWER(LTRIM(RTRIM(s.target_name))) COLLATE Latin1_General_CI_AI AND pe.deleted_at IS NULL
 ) j
--- nao sobrescreve chave (pest,param,phase,culture) editada pelo agronomo (source='app')
-WHERE NOT EXISTS (SELECT 1 FROM dbo.FARM_PEST_THRESHOLD t WHERE t.pest_id=j.pest_id AND t.culture_id=j.culture_id AND t.param_name=j.stage AND t.phase='all' AND t.deleted_at IS NULL)
+-- nao sobrescreve chave (pest,param,phase,culture) editada pelo agronomo; ignora deleted_at DE
+-- PROPOSITO: um limite que o agronomo APAGOU (tombstone source='app') NAO deve ser ressuscitado.
+WHERE NOT EXISTS (SELECT 1 FROM dbo.FARM_PEST_THRESHOLD t WHERE t.pest_id=j.pest_id AND t.culture_id=j.culture_id AND t.param_name=j.stage AND t.phase='all')
 GROUP BY j.pest_id, j.culture_id, j.stage;
 COMMIT;
 GO
