@@ -11,6 +11,7 @@ SQL canônico dos bancos `CONNECTOR_GCS_FARM` (raw) e `GCS_FARM` (master). **Em 
 | `RESET_FULL.sql` | Dropa `CONNECTOR_GCS_FARM` e `GCS_FARM` inteiros (só local/teste; em produção, **nunca**). |
 | `MODULE_AGRO_V1.sql` | **Módulo agronômico nativo** (FARM_* produtos/bulário/aplicações/monitoramento/pragas/contagem/estimativa). Roda **depois** do SETUP_FULL. |
 | `FLIGHT_LOG.sql` | **Aplicação Aérea** (FLIGHT_LOG*). Roda depois do MODULE_AGRO (FK → FARM_APPLICATION). |
+| `MONITOR_STOP_RESULTS.sql` | **Achados POR PARADA (ponto) + limites de controle** — recria `FARM_PEST_THRESHOLD` (nível de ação/dano por praga, editável) + cria `FARM_MONITORING_STOP_RESULT` (achado por ponto: lat/lon + praga + quantidade) e **materializa do raw** (`FARMBOX_MONITORING.record` → `monitoring_stops[].monitoring_stop_results[]`, ~842k linhas). Fonte do mapa de calor de pragas. Roda depois do MODULE_MONITOR. |
 | `MODULE_MONITOR_V1.sql` | **Monitoramentos — config que comanda o app** (MONITOR_TOLERANCE_DEFAULT [default global por cultura] + MONITOR_TOLERANCE [exceções] + METHODOLOGY/FIXED_POINT/REQUEST + estende FARM_MONITORING + `VW_MONITOR_FIELD_STATUS`). Roda depois do MODULE_AGRO; idempotente; seed do default por cultura (moda) + exceções + metodologia global. |
 | `FERT_EXPORT_PROFILES.sql` / `FERT_CROP_EXPORT_SCOPE.sql` | Perfis/escopo de exportação de fertilidade. |
 | `MATERIALIZE_FARM.sql` / `DROP_FARMBOX_MIRROR.sql` | Materialização FARM_* a partir do JSON cru / drop do espelho Farmbox (Fase B). |
