@@ -48,6 +48,13 @@ A navegação é **data-driven** a partir de `src/layout/navConfig.ts` (menu lat
 ### Produtos Aplicados (`agronomico/produtos-aplicados`) — IMPLEMENTADA
 **Mapa de produtos aplicados** (`ProdutosAplicadosPage`): mostra por talhão as aplicações registradas no Farmbox (dose média/ha, dose acumulada, intervalo entre aplicações). **Categoria obrigatória**; demais filtros opcionais: produto, variedade, cultura, safra, equipamento, fazenda. As opções de filtro presentes nas aplicações vêm de `GET /applications/refs`; o mapa + KPIs + cards vêm de `GET /applications/overview` (`category` obrigatória).
 
+### Monitoramento (`agronomico/monitoramento`)
+> Espelha e substitui a configuração que o agrônomo faz no Farmbox (limites de controle, tolerância, metodologia) e evolui o mapa de pragas. Categorias de alvo: **Doenças, Ervas Daninhas, Inimigos Naturais, Pragas**. **9 culturas** (inclui **Pousio** = "Pré Plantio/Pós Colheita" do Farmbox).
+
+- **Limites de Controle** — IMPLEMENTADA. Edita os níveis de ação/dano por **categoria de alvo → cultura → alvo/estágio**, cada linha com **Controle/Dano Vegetativo** e **Controle/Dano Reprodutivo** (`FARM_PEST_THRESHOLD`: `action/damage_level` + `rep_action/rep_damage_level` por `pest_id`×`param_name`×`culture_id`). Editável no app (o que o agrônomo altera vira `source='app'` e é preservado no re-seed do CSV Farmbox). Pré-carregado com o seed das 9 culturas / 4 categorias.
+- **Carência de Insumos** — IMPLEMENTADA. **Default por categoria** de produto (`FARM_PRODUCT_CARENCIA_DEFAULT`) + **override por produto** (`FARM_PRODUCT_CARENCIA`), com os dois prazos do Farmbox — **Reentrada** (pessoa entrar no talhão) e **Colheita**. A reentrada resolvida (override › default) alimenta o bloqueio de monitoramento na `VW_MONITOR_FIELD_STATUS`.
+- **Mapa de Calor** (evoluído) — IMPLEMENTADA. Densidade de achados por ponto (`FARM_MONITORING_STOP_RESULT`), com **seletor de parâmetro** (praga/alvo), **contorno dos talhões** e **camada de fotos de campo** (`FARM_MONITORING_NOTE`) — **clique no ponto** abre a nota georreferenciada com descrição, autor e fotos (URLs S3).
+
 ### Em construção
 Visão Geral, Recomendações, Insights.
 

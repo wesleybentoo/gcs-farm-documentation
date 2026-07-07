@@ -92,16 +92,34 @@ CROSS APPLY (SELECT TOP 1 p.farm_id FROM dbo.FARM_APPLICATION_TARGET t
              WHERE t.application_id=fa.id ORDER BY p.farm_id) x
 WHERE fa.deleted_at IS NULL;
 
-/* ── 3) PRAGAS (dedupe + COLLATE p/ não duplicar sob variações de caixa) ───── */
-INSERT INTO dbo.FARM_PEST (name)
-SELECT src.nm FROM (
-  SELECT DISTINCT LTRIM(RTRIM(JSON_VALUE(res.value,'$.target.name'))) AS nm
+/* ── 3) PRAGAS + CATEGORIA (target_type: plague->praga, disease->doenca, weed->erva_daninha;
+       inimigo_natural só vem do CSV). Dedupe + COLLATE. Backfill de categoria nos existentes. ─── */
+;WITH tgt AS (
+  SELECT LTRIM(RTRIM(JSON_VALUE(res.value,'$.target.name'))) AS nm,
+         MAX(CASE JSON_VALUE(res.value,'$.target.target_type')
+                  WHEN 'plague' THEN 'praga' WHEN 'disease' THEN 'doenca' WHEN 'weed' THEN 'erva_daninha' ELSE NULL END) AS cat
   FROM CONNECTOR_GCS_FARM.dbo.FARMBOX_MONITORING m
   CROSS APPLY OPENJSON(m.record,'$.monitoring_stops') st
   CROSS APPLY OPENJSON(st.value,'$.monitoring_stop_results') res
   WHERE m.deleted_at IS NULL AND JSON_VALUE(res.value,'$.target.name') IS NOT NULL AND LTRIM(RTRIM(JSON_VALUE(res.value,'$.target.name'))) <> ''
-) src
-WHERE NOT EXISTS (SELECT 1 FROM dbo.FARM_PEST pe WHERE pe.name = src.nm COLLATE Latin1_General_CI_AS);
+  GROUP BY LTRIM(RTRIM(JSON_VALUE(res.value,'$.target.name')))
+)
+INSERT INTO dbo.FARM_PEST (name, category)
+SELECT t.nm, t.cat FROM tgt t
+WHERE NOT EXISTS (SELECT 1 FROM dbo.FARM_PEST pe WHERE pe.name = t.nm COLLATE Latin1_General_CI_AS);
+;WITH tgt AS (
+  SELECT LTRIM(RTRIM(JSON_VALUE(res.value,'$.target.name'))) AS nm,
+         MAX(CASE JSON_VALUE(res.value,'$.target.target_type')
+                  WHEN 'plague' THEN 'praga' WHEN 'disease' THEN 'doenca' WHEN 'weed' THEN 'erva_daninha' ELSE NULL END) AS cat
+  FROM CONNECTOR_GCS_FARM.dbo.FARMBOX_MONITORING m
+  CROSS APPLY OPENJSON(m.record,'$.monitoring_stops') st
+  CROSS APPLY OPENJSON(st.value,'$.monitoring_stop_results') res
+  WHERE m.deleted_at IS NULL AND JSON_VALUE(res.value,'$.target.name') IS NOT NULL
+  GROUP BY LTRIM(RTRIM(JSON_VALUE(res.value,'$.target.name')))
+)
+UPDATE pe SET pe.category = t.cat
+FROM dbo.FARM_PEST pe JOIN tgt t ON pe.name = t.nm COLLATE Latin1_General_CI_AS
+WHERE pe.deleted_at IS NULL AND pe.category IS NULL AND t.cat IS NOT NULL;
 
 /* ── 4) MONITORAMENTO (cabeçalho + pontos + achados/índice por praga) ──────── */
 MERGE dbo.FARM_MONITORING AS tgt USING (

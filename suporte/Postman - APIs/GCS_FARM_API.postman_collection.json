@@ -3219,6 +3219,1023 @@
       ]
     },
     {
+      "name": "monitoramento  (/monitoramento)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /monitoramento/refs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/refs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "refs"
+              ]
+            },
+            "description": "Refs para pickers: culturas + variedades"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/tolerance",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/tolerance",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "tolerance"
+              ]
+            },
+            "description": "Tolerancia entre monitoramentos por cultura: default global + excecoes por variedade"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /monitoramento/tolerance/default",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/tolerance/default",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "tolerance",
+                "default"
+              ]
+            },
+            "description": "Define o default global de tolerancia (dias) da cultura",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"culture_id\": 1,\n  \"days\": 7\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /monitoramento/tolerance/default/:cultureId",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/tolerance/default/:cultureId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "tolerance",
+                "default",
+                ":cultureId"
+              ],
+              "variable": [
+                {
+                  "key": "cultureId",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Remove o default global de tolerancia da cultura"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /monitoramento/tolerance/exception",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/tolerance/exception",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "tolerance",
+                "exception"
+              ]
+            },
+            "description": "Cria/atualiza excecao de tolerancia por variedade",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"culture_id\": 1,\n  \"variety_id\": 10,\n  \"days\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /monitoramento/tolerance/exception/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/tolerance/exception/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "tolerance",
+                "exception",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza os dias de uma excecao de tolerancia",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"days\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /monitoramento/tolerance/exception/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/tolerance/exception/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "tolerance",
+                "exception",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Remove uma excecao de tolerancia por id"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /monitoramento/tolerance/exceptions/:cultureId",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/tolerance/exceptions/:cultureId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "tolerance",
+                "exceptions",
+                ":cultureId"
+              ],
+              "variable": [
+                {
+                  "key": "cultureId",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Remove TODAS as excecoes de tolerancia da cultura"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/methodology",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/methodology",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "methodology"
+              ]
+            },
+            "description": "Metodologia de monitoramento (configuracao atual)"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /monitoramento/methodology",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/methodology",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "methodology"
+              ]
+            },
+            "description": "Salva a metodologia de monitoramento",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"points_per_field\": 5,\n  \"grid_spacing_m\": 100,\n  \"notes\": \"metodologia padrao\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/status?farm=&culture=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Status por talhao (lista de tolerancia); farm (CSV) e culture opcionais"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/status/map",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/status/map?farm=&culture=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "status",
+                "map"
+              ],
+              "query": [
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Status por talhao + geometria (1 por talhao); farm (CSV) e culture opcionais"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/requests",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/requests?farm=&status=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "requests"
+              ],
+              "query": [
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "pending",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Lista solicitacoes de monitoramento; farm (CSV) e status (default pending)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /monitoramento/request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/request",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "request"
+              ]
+            },
+            "description": "Cria uma solicitacao de monitoramento (SOLICITAR); requestedBy vem do token",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"field_id\": 10,\n  \"planting_id\": null,\n  \"culture_id\": 1,\n  \"note\": \"verificar foco de praga\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /monitoramento/request/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/request/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "request",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Cancela uma solicitacao de monitoramento por id"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/history",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/history?farm=&culture=&monitor=&from=&to=&page=&pageSize=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "history"
+              ],
+              "query": [
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "monitor",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "from",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "to",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "disabled": true
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Historico de monitoramentos (paginado); farm (CSV), culture, monitor, from, to, page (default 1), pageSize (default 50)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/history/refs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/history/refs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "history",
+                "refs"
+              ]
+            },
+            "description": "Refs para filtros do historico (culturas/monitores)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/history/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/history/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "history",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Detalhe de um monitoramento por id"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/pests",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/pests?days=30&farm=&culture=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "pests"
+              ],
+              "query": [
+                {
+                  "key": "days",
+                  "value": "30",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Pragas com achados no periodo; days (default 30), farm (CSV), culture"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/heatmap",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/heatmap?pest=&days=7&farm=&culture=&param=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "heatmap"
+              ],
+              "query": [
+                {
+                  "key": "pest",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "days",
+                  "value": "7",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "param",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Mapa de calor de uma praga (1 parametro) + limite; pest obrigatorio, days (default 7), farm (CSV), culture, param"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/fields-geo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/fields-geo?days=30&farm=&culture=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "fields-geo"
+              ],
+              "query": [
+                {
+                  "key": "days",
+                  "value": "30",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Contorno dos talhoes monitorados; days (default 30), farm (CSV), culture"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/notes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/notes?days=7&farm=&culture=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "notes"
+              ],
+              "query": [
+                {
+                  "key": "days",
+                  "value": "7",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Notas georreferenciadas com fotos; days (default 7), farm (CSV), culture"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/thresholds/refs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/thresholds/refs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "thresholds",
+                "refs"
+              ]
+            },
+            "description": "Refs para a tela de limites de controle (categorias/culturas)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/thresholds",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/thresholds?category=&culture=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "thresholds"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Limites de controle por cultura + categoria (veg/rep); category e culture opcionais"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/pest-catalog",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/pest-catalog?category=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "pest-catalog"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Catalogo de pragas/alvos; category opcional"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /monitoramento/thresholds/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/thresholds/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "thresholds",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza um limite de controle por id",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"veg_action\": 2,\n  \"veg_damage\": 4,\n  \"rep_action\": 1,\n  \"rep_damage\": 3,\n  \"value_type\": \"count\",\n  \"max_per_sample\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /monitoramento/thresholds",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/thresholds",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "thresholds"
+              ]
+            },
+            "description": "Cria um limite de controle (praga x cultura x parametro)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pest_id\": 19,\n  \"culture_id\": 1,\n  \"param_name\": \"adultos\",\n  \"veg_action\": 2,\n  \"veg_damage\": 4,\n  \"rep_action\": 1,\n  \"rep_damage\": 3,\n  \"value_type\": \"count\",\n  \"max_per_sample\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /monitoramento/thresholds/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/thresholds/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "thresholds",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Remove um limite de controle por id"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/carencia",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/carencia",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "carencia"
+              ]
+            },
+            "description": "Carencia de insumos: default por categoria + override por produto"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /monitoramento/carencia/products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/carencia/products?category=&term=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "carencia",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "term",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Lista produtos para override de carencia; category obrigatoria, term (busca) opcional"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /monitoramento/carencia/default",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/carencia/default",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "carencia",
+                "default"
+              ]
+            },
+            "description": "Salva a carencia default por categoria (reentrada/colheita em dias; null limpa, campo ausente nao mexe)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category_id\": 1,\n  \"reentrada_days\": 1,\n  \"colheita_days\": 14\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /monitoramento/carencia/product",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/carencia/product",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "carencia",
+                "product"
+              ]
+            },
+            "description": "Salva override de carencia por produto (reentrada/colheita em dias; null limpa, campo ausente nao mexe)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"product_id\": 100,\n  \"reentrada_days\": 2,\n  \"colheita_days\": 21\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /monitoramento/carencia/product/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/monitoramento/carencia/product/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoramento",
+                "carencia",
+                "product",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Remove o override de carencia de um produto por id"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "name": "operations  (/operations)",
       "description": "Requer Bearer token",
       "item": [
