@@ -1,0 +1,6559 @@
+{
+  "info": {
+    "_postman_id": "7e0192cd-bafe-4438-a38a-8a26a20cac97",
+    "name": "GCS FARM API",
+    "description": "API do GCS FARM (gcs-backend). 28 modulos, 206 endpoints.\n\nVariaveis: {{baseUrl}} (default http://localhost:3000) e {{token}} (JWT).\nFluxo: POST /auth/login -> copie o token -> cole em {{token}}. Os demais modulos herdam Bearer {{token}}.\nGerado automaticamente a partir das rotas Express do backend.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "aereo  (/aereo)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /aereo/aircraft",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/aereo/aircraft",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aereo",
+                "aircraft"
+              ]
+            },
+            "description": "Lista aeronaves (refs p/ formulario)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /aereo/analysis/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/aereo/analysis/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aereo",
+                "analysis",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Detalhe da analise AP x Voo x Meteorologia (404 se nao encontrada)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /aereo/analysis/apps",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/aereo/analysis/apps?season=&culture=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aereo",
+                "analysis",
+                "apps"
+              ],
+              "query": [
+                {
+                  "key": "season",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Lista APs aereas para analise (filtro por safra/cultura)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /aereo/analysis/refs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/aereo/analysis/refs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aereo",
+                "analysis",
+                "refs"
+              ]
+            },
+            "description": "Refs da analise (safras/culturas de APs aereas)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /aereo/applications/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/aereo/applications/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aereo",
+                "applications",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Rollup construtivo de uma AP (uniao de logs, dedup area, soma volume, % por talhao)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /aereo/applications",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/aereo/applications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aereo",
+                "applications"
+              ]
+            },
+            "description": "APs que ja tem log(s) — visao construtiva (uniao entre logs)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /aereo/logs/:id/analyze",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/aereo/logs/:id/analyze",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aereo",
+                "logs",
+                ":id",
+                "analyze"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Pre-analise: talhoes tocados pela cobertura + AP sugerida por talhao"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /aereo/logs/:id/assign",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/aereo/logs/:id/assign",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aereo",
+                "logs",
+                ":id",
+                "assign"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Recorta a cobertura por AP (talhoes selecionados) e reconcilia",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"groups\": [\n    {\n      \"applicationRef\": \"AP-1\",\n      \"fieldIds\": [\n        10,\n        11\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /aereo/logs/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/aereo/logs/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aereo",
+                "logs",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Remove log de voo"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /aereo/logs/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/aereo/logs/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aereo",
+                "logs",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Detalhe de um log de voo (404 se nao encontrado)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /aereo/logs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/aereo/logs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aereo",
+                "logs"
+              ]
+            },
+            "description": "Lista logs de voo"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /aereo/logs",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/aereo/logs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aereo",
+                "logs"
+              ]
+            },
+            "description": "Sobe 1 arquivo .log (campo file) + name/applicationRef/swathM/datas/equipmentId/pilotPersonId opcionais",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /aereo/pilots",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/aereo/pilots",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aereo",
+                "pilots"
+              ]
+            },
+            "description": "Lista pilotos (refs p/ formulario)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "applications  (/applications)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /applications/overview",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/applications/overview?category=&product=&variety=&culture=&season=&equipment=&farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications",
+                "overview"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "product",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "variety",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "season",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "equipment",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Mapa por talhao + KPIs + cards; category obrigatoria, demais filtros opcionais"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /applications/refs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/applications/refs?farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications",
+                "refs"
+              ],
+              "query": [
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Opcoes de filtro (categorias/produtos/culturas/safras) presentes nas aplicacoes"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "auth  (/auth)",
+      "description": "Publico (sem auth)",
+      "item": [
+        {
+          "name": "POST /auth/login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "description": "Login por username/senha; grava MANAGEMENT_ACCESS_LOG e retorna token + refreshToken + user",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"secret\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /auth/refresh",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/refresh",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "refresh"
+              ]
+            },
+            "description": "Troca um refresh token valido por um novo par token/refreshToken (rotacao)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refreshToken\": \"<jwt-refresh>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "cadastros  (/cadastros)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /cadastros/catalog",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cadastros/catalog",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cadastros",
+                "catalog"
+              ]
+            },
+            "description": "Lista os 16 cadastros + contagem de itens"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /cadastros/entries/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cadastros/entries/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cadastros",
+                "entries",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Soft delete de um item do cadastro; 404 se inexistente"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /cadastros/entries/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cadastros/entries/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cadastros",
+                "entries",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Detalha um item do cadastro por id (404 se inexistente)"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /cadastros/entries/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/cadastros/entries/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cadastros",
+                "entries",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza um item do cadastro (code/description/payload); 404 se inexistente",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"ABC123\",\n  \"description\": \"Produto X\",\n  \"payload\": {\n    \"unidade\": \"kg\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /cadastros/entries",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cadastros/entries?cad_key=&q=&is_current=&onlyDeleted=&page=&pageSize=&sort=&f_<col>=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cadastros",
+                "entries"
+              ],
+              "query": [
+                {
+                  "key": "cad_key",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "q",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "is_current",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "onlyDeleted",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "pageSize",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "sort",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "f_<col>",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Lista itens de um cadastro (cad_key obrigatorio); busca, filtros dinamicos f_<col>, is_current, onlyDeleted, paginacao e sort"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /cadastros/import",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cadastros/import",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cadastros",
+                "import"
+              ]
+            },
+            "description": "Sobe 1 .xlsx (campo file), detecta e grava; 409 se nao detectou o cad_key (front reenvia com cad_key); enriquece dims apos sucesso",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /cadastros/imports/:id/errors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cadastros/imports/:id/errors",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cadastros",
+                "imports",
+                ":id",
+                "errors"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Lista erros de uma importacao especifica"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /cadastros/imports",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cadastros/imports?cad_key=&page=&pageSize=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cadastros",
+                "imports"
+              ],
+              "query": [
+                {
+                  "key": "cad_key",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "pageSize",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Lista historico de importacoes (paginado), filtro por cad_key"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /cadastros/missing-codes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cadastros/missing-codes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cadastros",
+                "missing-codes"
+              ]
+            },
+            "description": "Alerta de codigos usados nas operacoes sem cadastro correspondente"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "configs  (/configs)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "DELETE /configs/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/configs/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "configs",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Soft delete da config (deleted_at + active=0)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /configs/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/configs/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "configs",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Detalha uma config por id (sem segredos, com flags has_*)"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /configs/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/configs/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "configs",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza config parcial; segredos presentes no body sao cifrados ou limpados se vazios",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Farmbox\",\n  \"url\": \"https://api.exemplo.com\",\n  \"auth_type\": \"bearer\",\n  \"username\": \"user\",\n  \"client_id\": \"cid\",\n  \"active\": 1,\n  \"password\": \"novoSegredo\",\n  \"token\": \"tok\",\n  \"api_key\": \"key\",\n  \"client_secret\": \"cs\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /configs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/configs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "configs"
+              ]
+            },
+            "description": "Lista CONFIG_API (conexoes de APIs externas) sem segredos; flags has_* indicam o que esta preenchido"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /configs",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/configs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "configs"
+              ]
+            },
+            "description": "Cria config de API externa (name obrigatorio; segredos cifrados via chave simetrica)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Farmbox\",\n  \"url\": \"https://api.exemplo.com\",\n  \"auth_type\": \"bearer\",\n  \"username\": \"user\",\n  \"client_id\": \"cid\",\n  \"active\": 1,\n  \"password\": \"segredo\",\n  \"token\": \"tok\",\n  \"api_key\": \"key\",\n  \"client_secret\": \"cs\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "culturas  (/culturas)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "DELETE /culturas/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/culturas/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "culturas",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Remove cultura"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /culturas/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/culturas/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "culturas",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza cultura",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"SOJA\",\n  \"name\": \"Soja\",\n  \"color\": \"#0a0\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /culturas/",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/culturas/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "culturas",
+                ""
+              ]
+            },
+            "description": "Lista culturas"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /culturas/",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/culturas/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "culturas",
+                ""
+              ]
+            },
+            "description": "Cria cultura",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"SOJA\",\n  \"name\": \"Soja\",\n  \"color\": \"#0a0\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "estimate  (/estimate)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /estimate/catalog",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/estimate/catalog?culture=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "estimate",
+                "catalog"
+              ],
+              "query": [
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Parametros de contagem disponiveis p/ montar a formula da cultura"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /estimate/configs/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/estimate/configs/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "estimate",
+                "configs",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Soft-delete de uma configuracao de formula"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /estimate/configs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/estimate/configs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "estimate",
+                "configs"
+              ]
+            },
+            "description": "Todas as formulas (tela de configuracao)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /estimate/configs",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/estimate/configs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "estimate",
+                "configs"
+              ]
+            },
+            "description": "Cria/atualiza a formula de uma cultura",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cultureId\": 1,\n  \"formula\": \"...\",\n  \"params\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /estimate/cultures",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/estimate/cultures",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "estimate",
+                "cultures"
+              ]
+            },
+            "description": "Culturas com formula ativa + contagem (seletor do mapa)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /estimate/map",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/estimate/map?culture=&season=&variety=&farm=&sampling=&sampler=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "estimate",
+                "map"
+              ],
+              "query": [
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "season",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "variety",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "sampling",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "sampler",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Mapa de estimativa por pivo; sampling last|N e sampler (monitor_id)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "farmbox  (/farmbox)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /farmbox/config",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/farmbox/config",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farmbox",
+                "config"
+              ]
+            },
+            "description": "Dados da API Farmbox (name/url/auth_type/has_token) + status do scheduler, sem expor segredo"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /farmbox/endpoints",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/farmbox/endpoints",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farmbox",
+                "endpoints"
+              ]
+            },
+            "description": "Catalogo dos endpoints mapeados (debug/UI)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /farmbox/etl/status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/farmbox/etl/status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farmbox",
+                "etl",
+                "status"
+              ]
+            },
+            "description": "Estado do ETL (para o front travar/reidratar o botao)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /farmbox/etl",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/farmbox/etl",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farmbox",
+                "etl"
+              ]
+            },
+            "description": "Dispara o ETL raw->master em background (1 por vez)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"only\": [\n    \"harvests\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /farmbox/ingestions/:id/restart",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/farmbox/ingestions/:id/restart",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farmbox",
+                "ingestions",
+                ":id",
+                "restart"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Reinicia o endpoint da pagina 1 na mesma linha de log",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /farmbox/ingestions/:id/resume",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/farmbox/ingestions/:id/resume",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farmbox",
+                "ingestions",
+                ":id",
+                "resume"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Continua o endpoint da proxima pagina na mesma linha de log",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /farmbox/ingestions/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/farmbox/ingestions/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farmbox",
+                "ingestions",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Soft-delete de um registro de log de ingestao"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /farmbox/ingestions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/farmbox/ingestions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farmbox",
+                "ingestions"
+              ]
+            },
+            "description": "Ultimas execucoes do log de ingestao + fila pendente do ETL + frescor (lastSyncAt/daysSinceSync)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /farmbox/integrate/stop",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/farmbox/integrate/stop",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farmbox",
+                "integrate",
+                "stop"
+              ]
+            },
+            "description": "Cancela a ingestao em andamento",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /farmbox/integrate",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/farmbox/integrate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farmbox",
+                "integrate"
+              ]
+            },
+            "description": "Dispara ingestao API->raw em background; retorna snapshot inicial (202)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"updated_since\": \"2026-01-01\",\n  \"updated_until\": \"2026-06-30\",\n  \"only\": [\n    \"harvests\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /farmbox/progress",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/farmbox/progress",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farmbox",
+                "progress"
+              ]
+            },
+            "description": "Estado ao vivo da ingestao em andamento (polling)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /farmbox/sync",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/farmbox/sync",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farmbox",
+                "sync"
+              ]
+            },
+            "description": "Sync incremental por grupo (cursor updated_since automatico), ideal p/ cron/n8n",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"group\": \"frequente\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /farmbox/webhook",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/farmbox/webhook",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farmbox",
+                "webhook"
+              ]
+            },
+            "description": "Remove a assinatura de webhook na Farmbox"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /farmbox/webhook",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/farmbox/webhook",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farmbox",
+                "webhook"
+              ]
+            },
+            "description": "Estado da assinatura de webhook (local + Farmbox)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /farmbox/webhook",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/farmbox/webhook",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farmbox",
+                "webhook"
+              ]
+            },
+            "description": "Registra/atualiza a assinatura de webhook na Farmbox",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"post_url\": \"https://example.com/farmbox/webhook\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "farms  (/farms)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "DELETE /farms/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/farms/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farms",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Soft delete (paranoid) de fazenda por id"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /farms/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/farms/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farms",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Detalha uma fazenda por id (404 se inexistente)"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /farms/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/farms/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farms",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza fazenda por id",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Fazenda Celeiro\",\n  \"code\": \"CEL\",\n  \"city\": \"Luis Eduardo Magalhaes\",\n  \"state\": \"BA\",\n  \"total_area_hectares\": 1250,\n  \"active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /farms",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/farms",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farms"
+              ]
+            },
+            "description": "Lista todas as fazendas (ordenadas por id)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /farms",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/farms",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "farms"
+              ]
+            },
+            "description": "Cria fazenda (name obrigatorio)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Fazenda Celeiro\",\n  \"code\": \"CEL\",\n  \"city\": \"Luis Eduardo Magalhaes\",\n  \"state\": \"BA\",\n  \"total_area_hectares\": 1200,\n  \"active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "fertilidade  (/fertilidade)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /fertilidade/amendments/catalog",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/amendments/catalog",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "amendments",
+                "catalog"
+              ]
+            },
+            "description": "Tipos de corretivo (Calcario/Gesso/Fosfato) + unidade/efeito"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/amendments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/amendments?type=&season=&culture=&farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "amendments"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "season",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Doses de corretivo por talhao filtradas por tipo/safra/cultura/fazenda"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /fertilidade/amendments",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/amendments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "amendments"
+              ]
+            },
+            "description": "Salva doses de corretivo por talhao",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"CALCARIO\",\n  \"seasonId\": 1,\n  \"items\": [\n    {\n      \"fieldId\": 10,\n      \"rate\": 2.5,\n      \"prnt\": 85,\n      \"gradePct\": 100\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/config",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/config?farmId=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "config"
+              ],
+              "query": [
+                {
+                  "key": "farmId",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Parametros/visoes/profundidades/datas; farmId (CSV) restringe ao conjunto de fazendas"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/crop-export",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/crop-export?culture=&set=&scope=&tech=&variety=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "crop-export"
+              ],
+              "query": [
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "set",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "scope",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "tech",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "variety",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Coeficientes de exportacao por cultura/perfil/escopo (CULTURE|TECH|VARIETY)"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /fertilidade/crop-export",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/crop-export",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "crop-export"
+              ]
+            },
+            "description": "Salva coeficientes de exportacao/extracao por nutriente",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cultureId\": 1,\n  \"set\": \"ICL\",\n  \"scope\": {\n    \"scope\": \"CULTURE\"\n  },\n  \"rows\": [\n    {\n      \"nutrientCode\": \"N\",\n      \"exportKgPerTon\": 30,\n      \"extractionKgPerTon\": 50\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/culture-scopes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/culture-scopes?culture=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "culture-scopes"
+              ],
+              "query": [
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Tecnologias (principais) + variedades da cultura"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/depth-profiles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/depth-profiles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "depth-profiles"
+              ]
+            },
+            "description": "Perfis de profundidade de coleta"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/export-catalog",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/export-catalog",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "export-catalog"
+              ]
+            },
+            "description": "Nutrientes (grade) + culturas colhiveis (chips) p/ o cadastro"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /fertilidade/export-sets/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/export-sets/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "export-sets",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Edita perfil de exportacao",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"ICL\",\n  \"agronomist\": null,\n  \"description\": null,\n  \"isDefault\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/export-sets",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/export-sets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "export-sets"
+              ]
+            },
+            "description": "Perfis de exportacao (ICL, Embrapa, ...)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /fertilidade/export-sets",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/export-sets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "export-sets"
+              ]
+            },
+            "description": "Cria perfil de exportacao",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"ICL\",\n  \"name\": \"ICL\",\n  \"agronomist\": null,\n  \"description\": null,\n  \"isDefault\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /fertilidade/export",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/export",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "export"
+              ]
+            },
+            "description": "Exporta relatorio de fertilidade (xlsx padrao ou pdf) como arquivo",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"parameters\": [\n    \"pH\"\n  ],\n  \"depth\": \"0-20\",\n  \"year\": \"2025\",\n  \"farms\": [\n    1\n  ],\n  \"format\": \"pdf\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/history-points",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/history-points?farmId=&fieldId=&year=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "history-points"
+              ],
+              "query": [
+                {
+                  "key": "farmId",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "fieldId",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "year",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Pontos de coletas anteriores (farm/field/year)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/history-years",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/history-years?farmId=&fieldId=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "history-years"
+              ],
+              "query": [
+                {
+                  "key": "farmId",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "fieldId",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Anos com coletas para farm/field"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/import/status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/import/status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "import",
+                "status"
+              ]
+            },
+            "description": "Estado do processamento de importacao (polling)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /fertilidade/import",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/import",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "import"
+              ]
+            },
+            "description": "Sobe 1+ .xlsx (campo files/file) e processa em background (202)",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/imports",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/imports",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "imports"
+              ]
+            },
+            "description": "Historico de importacoes"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/map",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/map?parameter=&set=&depth=&year=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "map"
+              ],
+              "query": [
+                {
+                  "key": "parameter",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "set",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "depth",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "year",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Classe por talhao (parameter+set obrigatorios; depth/year opcionais)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/nutrient-export",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/nutrient-export?season=&culture=&farm=&mode=&set=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "nutrient-export"
+              ],
+              "query": [
+                {
+                  "key": "season",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "mode",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "set",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Exportacao de nutrientes = produtividade real x coeficiente por cultura (mode EXPORT|EXTRACTION)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/plans/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/plans/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "plans",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Campanha completa (cabecalho + pontos)"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /fertilidade/plans/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/plans/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "plans",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza campanha (substitui pontos)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Campanha 25/26\",\n  \"farmId\": 1,\n  \"fieldId\": 10,\n  \"season\": \"25/26\",\n  \"analysisType\": \"COMPLETA\",\n  \"depthProfileId\": 1,\n  \"points\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/plans",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/plans",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "plans"
+              ]
+            },
+            "description": "Lista campanhas de coleta"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /fertilidade/plans",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/plans",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "plans"
+              ]
+            },
+            "description": "Cria campanha de coleta (+ pontos)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Campanha 25/26\",\n  \"farmId\": 1,\n  \"fieldId\": 10,\n  \"season\": \"25/26\",\n  \"analysisType\": \"COMPLETA\",\n  \"depthProfileId\": 1,\n  \"points\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/points",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/points?parameter=&set=&depth=&year=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "points"
+              ],
+              "query": [
+                {
+                  "key": "parameter",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "set",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "depth",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "year",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Pontos de coleta com valor/classe"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/scale",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/scale?parameter=&set=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "scale"
+              ],
+              "query": [
+                {
+                  "key": "parameter",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "set",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Faixas (min/max/cor) + unidade por parametro/visao"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fertilidade/sets/:code/bands",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/sets/:code/bands?parameter=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "sets",
+                ":code",
+                "bands"
+              ],
+              "query": [
+                {
+                  "key": "parameter",
+                  "value": "",
+                  "disabled": true
+                }
+              ],
+              "variable": [
+                {
+                  "key": "code",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Faixas de um parametro na visao (para edicao)"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /fertilidade/sets/:code/bands",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/sets/:code/bands",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "sets",
+                ":code",
+                "bands"
+              ],
+              "variable": [
+                {
+                  "key": "code",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Substitui as faixas de um parametro na visao",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"parameter\": \"pH\",\n  \"bands\": [\n    {\n      \"min\": 0,\n      \"max\": 5,\n      \"color\": \"#f00\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /fertilidade/sets",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fertilidade/sets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fertilidade",
+                "sets"
+              ]
+            },
+            "description": "Cria uma visao (set) de interpretacao",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"CERRADO\",\n  \"name\": \"Cerrado\",\n  \"agronomist\": null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "fields  (/fields)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "DELETE /fields/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fields/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fields",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Soft delete de talhao; recalcula areas da gleba"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fields/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fields/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fields",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Detalha talhao por id com geometria vigente (404 se inexistente)"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /fields/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fields/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fields",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza talhao; opcional geometry Polygon regrava contorno e area; recalcula areas e re-linka fertilidade por geo",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plot_id\": 5,\n  \"name\": \"Talhao 01\",\n  \"code\": \"T01\",\n  \"area_hectares\": 46,\n  \"active\": true,\n  \"geometry\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [\n          -45.8,\n          -12.1\n        ],\n        [\n          -45.8,\n          -12.2\n        ],\n        [\n          -45.7,\n          -12.2\n        ],\n        [\n          -45.8,\n          -12.1\n        ]\n      ]\n    ]\n  },\n  \"source_format\": \"GEOJSON\",\n  \"source_filename\": \"t01.geojson\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /fields/bulk-delete",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fields/bulk-delete",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fields",
+                "bulk-delete"
+              ]
+            },
+            "description": "Soft-delete de varios talhoes (ids); recalcula areas das glebas afetadas",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ids\": [\n    10,\n    11,\n    12\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /fields/bulk-move",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fields/bulk-move",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fields",
+                "bulk-move"
+              ]
+            },
+            "description": "Move varios talhoes para outra gleba (ids + plot_id); recalcula areas",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ids\": [\n    10,\n    11\n  ],\n  \"plot_id\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fields/farmbox-unmapped",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fields/farmbox-unmapped",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fields",
+                "farmbox-unmapped"
+              ]
+            },
+            "description": "Plots do Farmbox ainda sem talhao no GCS, agrupados por fazenda Farmbox"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /fields/import-farmbox",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fields/import-farmbox",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fields",
+                "import-farmbox"
+              ]
+            },
+            "description": "Cria fazenda/gleba/talhoes (com contorno) a partir de plots do Farmbox e liga o de/para",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"farmId\": 1,\n  \"glebaId\": 5,\n  \"plotIds\": [\n    101,\n    102\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /fields",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fields?farm_id=&plot_id=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fields"
+              ],
+              "query": [
+                {
+                  "key": "farm_id",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "plot_id",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Lista talhoes (com geometria); filtra por farm_id (join na gleba) ou por plot_id"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /fields",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fields",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fields"
+              ]
+            },
+            "description": "Cria talhao (plot_id e name obrigatorios); opcional geometry Polygon (grava contorno + area) e upsert por (gleba,codigo)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plot_id\": 5,\n  \"name\": \"Talhao 01\",\n  \"code\": \"T01\",\n  \"area_hectares\": 45.5,\n  \"active\": true,\n  \"geometry\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [\n          -45.8,\n          -12.1\n        ],\n        [\n          -45.8,\n          -12.2\n        ],\n        [\n          -45.7,\n          -12.2\n        ],\n        [\n          -45.8,\n          -12.1\n        ]\n      ]\n    ]\n  },\n  \"source_format\": \"GEOJSON\",\n  \"source_filename\": \"t01.geojson\",\n  \"upsert\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "irrigation  (/irrigation)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /irrigation/overview",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/irrigation/overview?start=&end=&date=&farm=&hours=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "irrigation",
+                "overview"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "end",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "date",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "hours",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Pivos por talhao (stub com contrato final; status/lamina/pct null ate o ETL); janela start/end, fazenda e horas"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "me  (/me)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "PUT /me/password",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/me/password",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "me",
+                "password"
+              ]
+            },
+            "description": "Troca de senha (confere current_password + regras: min 5, 1 maiuscula, 1 especial)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"current_password\": \"Atual!1\",\n  \"new_password\": \"Nova!12\",\n  \"confirm_password\": \"Nova!12\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /me/preferences",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/me/preferences",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "me",
+                "preferences"
+              ]
+            },
+            "description": "Le as preferencias JSON do usuario (tema, fazenda selecionada, etc.)"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /me/preferences",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/me/preferences",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "me",
+                "preferences"
+              ]
+            },
+            "description": "Merge parcial das preferencias JSON do usuario (nao apaga o resto)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"theme\": \"dark\",\n  \"farm\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /me",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "me"
+              ]
+            },
+            "description": "Perfil do proprio usuario logado (resolvido pelo token; sem password_hash)"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /me",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "me"
+              ]
+            },
+            "description": "Atualiza dados pessoais do proprio usuario (nome/email/telefone/documento)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Meu Nome\",\n  \"email\": \"eu@ex.com\",\n  \"phone\": \"11999999999\",\n  \"document\": \"12345678900\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "modules  (/modules)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /modules",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/modules",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "modules"
+              ]
+            },
+            "description": "Lista catalogo de modulos nao deletados (ordena por sort_order, id)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "operations  (/operations)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /operations/by-operation",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/operations/by-operation?start=&end=&date=&op=&equip=&farm=&hours=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "operations",
+                "by-operation"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "end",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "date",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "op",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "equip",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "hours",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Detalhe por operacao + cobertura por talhao (mapa); janela start/end, filtros op/equip/farm/hours"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /operations/overview",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/operations/overview?date=&farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "operations",
+                "overview"
+              ],
+              "query": [
+                {
+                  "key": "date",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Visao geral das operacoes do dia (default: dia mais recente com dados); filtro por fazenda"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ops  (/ops)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "DELETE /ops/entries/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ops/entries/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "entries",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Remove lancamento"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /ops/features/:id/geometry",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/features/:id/geometry",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "features",
+                ":id",
+                "geometry"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Troca a geometria do objeto de KML",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [\n      0,\n      0\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /ops/features/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ops/features/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "features",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Exclui objeto de KML"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /ops/features/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/features/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "features",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Renomeia/move objeto de KML",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Pivo 1\",\n  \"category\": \"Pivos\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /ops/fields",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ops/fields?season=&culture=&farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "fields"
+              ],
+              "query": [
+                {
+                  "key": "season",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Pivos do escopo (safra/cultura quando informadas) com fazenda+gleba"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /ops/files/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ops/files/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "files",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Remove arquivo"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /ops/layers/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ops/layers/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "layers",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Remove camada"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /ops/programs/:id/categories/color",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/programs/:id/categories/color",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "programs",
+                ":id",
+                "categories",
+                "color"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Define cor da categoria",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"Pivos\",\n  \"color\": \"#0a0\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /ops/programs/:id/categories/icon",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/programs/:id/categories/icon",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "programs",
+                ":id",
+                "categories",
+                "icon"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Define icone da categoria",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"Pivos\",\n  \"icon\": \"pin\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /ops/programs/:id/categories/opacity",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/programs/:id/categories/opacity",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "programs",
+                ":id",
+                "categories",
+                "opacity"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Define opacidade da categoria",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"Pivos\",\n  \"opacity\": 0.5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /ops/programs/:id/categories",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ops/programs/:id/categories?category=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "programs",
+                ":id",
+                "categories"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "",
+                  "disabled": true
+                }
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Exclui categoria"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /ops/programs/:id/categories",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/programs/:id/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "programs",
+                ":id",
+                "categories"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Renomeia categoria (from->to)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"from\": \"Pivos\",\n  \"to\": \"Pivos Centrais\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /ops/programs/:id/files",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/programs/:id/files",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "programs",
+                ":id",
+                "files"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Adiciona arquivo ao programa",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"mapa.pdf\",\n  \"url\": \"https://...\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /ops/programs/:id/layers",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/programs/:id/layers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "programs",
+                ":id",
+                "layers"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Adiciona camada (KML) ao programa",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Talhoes\",\n  \"kml\": \"...\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /ops/programs/:id/tasks",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/programs/:id/tasks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "programs",
+                ":id",
+                "tasks"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Adiciona etapa ao programa",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Etapa 1\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /ops/programs/:id/teams",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/programs/:id/teams",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "programs",
+                ":id",
+                "teams"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Adiciona equipe ao programa",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Equipe A\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /ops/programs/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ops/programs/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "programs",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Remove programa"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /ops/programs/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ops/programs/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "programs",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Detalhe de um programa (404 se nao encontrado)"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /ops/programs/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/programs/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "programs",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza programa",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Plantio 26/27\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /ops/programs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ops/programs?farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "programs"
+              ],
+              "query": [
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Lista programas de operacao"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /ops/programs",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/programs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "programs"
+              ]
+            },
+            "description": "Cria programa (ownerUserId = usuario logado)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Plantio 26/27\",\n  \"seasonId\": 1,\n  \"cultureId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /ops/refs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ops/refs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "refs"
+              ]
+            },
+            "description": "Referencias p/ o cadastro (safras, culturas com plantio por safra, usuarios)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /ops/subtasks/:id/entries",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/subtasks/:id/entries",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "subtasks",
+                ":id",
+                "entries"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Adiciona lancamento (historico) a subetapa",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"targetId\": 10,\n  \"value\": 5,\n  \"date\": \"2026-07-01\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /ops/subtasks/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ops/subtasks/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "subtasks",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Remove subetapa"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /ops/subtasks/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/subtasks/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "subtasks",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza subetapa",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Subetapa 1\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /ops/tasks/:id/subtasks",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/tasks/:id/subtasks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "tasks",
+                ":id",
+                "subtasks"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Adiciona subetapa a etapa",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Subetapa 1\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /ops/tasks/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ops/tasks/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "tasks",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Remove etapa"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /ops/tasks/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/tasks/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "tasks",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza etapa",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Etapa 1\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /ops/teams/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ops/teams/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "teams",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Remove equipe"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /ops/teams/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ops/teams/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ops",
+                "teams",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza equipe",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Equipe A\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "pages  (/pages)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /pages",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/pages",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pages"
+              ]
+            },
+            "description": "Lista catalogo de paginas nao deletadas com o modulo (ordena por module.sort_order, sort_order, id)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "plots  (/plots)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "DELETE /plots/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/plots/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plots",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Soft delete de gleba; recalcula total da fazenda"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /plots/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/plots/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plots",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Detalha uma gleba por id (404 se inexistente)"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /plots/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plots/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plots",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza gleba; recalcula totais da fazenda atual e da antiga se trocou",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"farm_id\": 1,\n  \"name\": \"Gleba A\",\n  \"code\": \"GA\",\n  \"area_hectares\": 320,\n  \"active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /plots",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/plots?farm_id=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plots"
+              ],
+              "query": [
+                {
+                  "key": "farm_id",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Lista glebas; filtra por farm_id (aceita 1 ou lista -> IN)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /plots",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plots",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plots"
+              ]
+            },
+            "description": "Cria gleba (farm_id e name obrigatorios); recalcula total da fazenda",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"farm_id\": 1,\n  \"name\": \"Gleba A\",\n  \"code\": \"GA\",\n  \"area_hectares\": 300,\n  \"active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "productivity  (/productivity)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /productivity/cultures",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/productivity/cultures?season=&farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "productivity",
+                "cultures"
+              ],
+              "query": [
+                {
+                  "key": "season",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Culturas com plantios (seletor obrigatorio de cultura)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /productivity/evolution",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/productivity/evolution?culture=&level=&farm=&extremes=&field=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "productivity",
+                "evolution"
+              ],
+              "query": [
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "level",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "extremes",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "field",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Produtividade media por safra (level CULTURE|VARIETY|FARM|PLOT|FIELD)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /productivity/map",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/productivity/map?culture=&variety=&season=&fortnight=&farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "productivity",
+                "map"
+              ],
+              "query": [
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "variety",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "season",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "fortnight",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Mapa de produtividade por talhao filtrado por cultura/variedade/safra/quinzena/fazenda"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "scheduler  (/scheduler)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /scheduler/jobs/:id/history",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/scheduler/jobs/:id/history",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "scheduler",
+                "jobs",
+                ":id",
+                "history"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Ultimas 50 execucoes do job"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /scheduler/jobs/:id/run",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/scheduler/jobs/:id/run",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "scheduler",
+                "jobs",
+                ":id",
+                "run"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Dispara o job agora (manual) em background (202)",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /scheduler/jobs/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/scheduler/jobs/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "scheduler",
+                "jobs",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Edita cadencia/habilita um job (recalcula proxima execucao)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cadence_type\": \"interval\",\n  \"cadence_value\": \"3600\",\n  \"enabled\": true,\n  \"label\": \"Sync frequente\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /scheduler/jobs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/scheduler/jobs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "scheduler",
+                "jobs"
+              ]
+            },
+            "description": "Todos os jobs (agrupaveis por connector) + status global do scheduler"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "seasons  (/seasons)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "POST /seasons/backfill-planning",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/seasons/backfill-planning",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons",
+                "backfill-planning"
+              ]
+            },
+            "description": "Popula ciclo/cultura/variedade/plantio das safras ja cadastradas",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /seasons/cultures",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/seasons/cultures",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons",
+                "cultures"
+              ]
+            },
+            "description": "Catalogo de culturas (id/code/name/cor) p/ mapa e seletor"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /seasons/farmbox-unmapped",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/seasons/farmbox-unmapped?farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons",
+                "farmbox-unmapped"
+              ],
+              "query": [
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Safras do Farmbox ainda sem FARM_SEASON"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /seasons/",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/seasons/?farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Safras cadastradas (FARM_SEASON); com farm limita as com plantio nas fazendas"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /seasons/import-farmbox",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/seasons/import-farmbox",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons",
+                "import-farmbox"
+              ]
+            },
+            "description": "Registra/vincula safras do Farmbox como FARM_SEASON",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"harvestIds\": [\n    1,\n    2\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /seasons/productivity-outliers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/seasons/productivity-outliers?farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons",
+                "productivity-outliers"
+              ],
+              "query": [
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Plantios com produtividade fora da curva (a revisar)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /seasons/review-planting",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/seasons/review-planting",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons",
+                "review-planting"
+              ]
+            },
+            "description": "Corrige valor / troca cultura / aceita um plantio",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plantingId\": 123,\n  \"action\": \"accept\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /seasons/rotation/farmbox-unmapped",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/seasons/rotation/farmbox-unmapped?farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons",
+                "rotation",
+                "farmbox-unmapped"
+              ],
+              "query": [
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Quantas programacoes do Farmbox nao cadastradas"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /seasons/rotation/field-deviations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/seasons/rotation/field-deviations?season=&farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons",
+                "rotation",
+                "field-deviations"
+              ],
+              "query": [
+                {
+                  "key": "season",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Talhoes que fugiram do plano (mapa read-only)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /seasons/rotation/field-overrides",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/seasons/rotation/field-overrides?season=&farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons",
+                "rotation",
+                "field-overrides"
+              ],
+              "query": [
+                {
+                  "key": "season",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Overrides por talhao para uma safra"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /seasons/rotation/field-overrides",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/seasons/rotation/field-overrides",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons",
+                "rotation",
+                "field-overrides"
+              ]
+            },
+            "description": "Salva os overrides por talhao (edicao no mapa)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"season\": \"26/27\",\n  \"overrides\": [\n    {\n      \"fieldId\": 10,\n      \"cultureId\": 1\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /seasons/rotation/import-farmbox",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/seasons/rotation/import-farmbox?farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons",
+                "rotation",
+                "import-farmbox"
+              ],
+              "query": [
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Cria programacoes por pivo a partir do Farmbox",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /seasons/rotation/programming",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/seasons/rotation/programming?season=&farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons",
+                "rotation",
+                "programming"
+              ],
+              "query": [
+                {
+                  "key": "season",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Exclui a programacao (409 se ja executada)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /seasons/rotation/programming",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/seasons/rotation/programming",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons",
+                "rotation",
+                "programming"
+              ]
+            },
+            "description": "Cria uma programacao (FARM_SEASON manual, vazia)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"27/28\",\n  \"yearStart\": 2027,\n  \"yearEnd\": 2028\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /seasons/rotation/programming",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/seasons/rotation/programming?season=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons",
+                "rotation",
+                "programming"
+              ],
+              "query": [
+                {
+                  "key": "season",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Atualiza nome/anos da programacao",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"27/28\",\n  \"yearStart\": 2027,\n  \"yearEnd\": 2028\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /seasons/rotation",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/seasons/rotation?farm=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons",
+                "rotation"
+              ],
+              "query": [
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Matriz de rotacao (flat) + safras presentes"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "sectors  (/sectors)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "DELETE /sectors/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/sectors/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sectors",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Soft delete do setor (deleted_at + active=false)"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /sectors/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sectors/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sectors",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza setor por id",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"TI\",\n  \"name\": \"Tecnologia\",\n  \"description\": \"Depto de TI\",\n  \"sort_order\": 1,\n  \"active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /sectors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/sectors",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sectors"
+              ]
+            },
+            "description": "Lista setores/departamentos nao deletados (ordena por sort_order, nome)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /sectors",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sectors",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sectors"
+              ]
+            },
+            "description": "Cria setor (name obrigatorio)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"TI\",\n  \"name\": \"Tecnologia\",\n  \"description\": \"Depto de TI\",\n  \"sort_order\": 1,\n  \"active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "solinftec  (/solinftec)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /solinftec/auth-token",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/solinftec/auth-token",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "solinftec",
+                "auth-token"
+              ]
+            },
+            "description": "Gera/retorna token de autenticacao da Solinftec"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /solinftec/config",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/solinftec/config",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "solinftec",
+                "config"
+              ]
+            },
+            "description": "Dados da CONFIG_API da Solinftec sem expor segredos (has_token em vez de token)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /solinftec/etl",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/solinftec/etl",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "solinftec",
+                "etl"
+              ]
+            },
+            "description": "Roda o ETL (raw -> GCS_FARM); source opcional weather|operation|both, data opcional",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"source\": \"both\",\n  \"reference_date\": \"2026-07-06\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /solinftec/ingestions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/solinftec/ingestions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "solinftec",
+                "ingestions"
+              ]
+            },
+            "description": "Lista execucoes (SOLINFTEC_INGESTION_LOG, TOP 200) + pendencias do ETL (weather/operation raw nao processado)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /solinftec/integrate/operation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/solinftec/integrate/operation",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "solinftec",
+                "integrate",
+                "operation"
+              ]
+            },
+            "description": "Integracao completa de detalhes da operacao (id 22) ponta-a-ponta; sem body roda D-1, opcional reference_date; 502 se erro",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reference_date\": \"2026-07-06\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /solinftec/integrate/weather",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/solinftec/integrate/weather",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "solinftec",
+                "integrate",
+                "weather"
+              ]
+            },
+            "description": "Integracao completa de meteorologia (id 21) ponta-a-ponta; sem body roda D-1, opcional reference_date; 502 se erro",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reference_date\": \"2026-07-06\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /solinftec/integrate",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/solinftec/integrate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "solinftec",
+                "integrate"
+              ]
+            },
+            "description": "Dispara integracao manual (re-puxar da Solinftec); source weather|operation|both, data opcional; 502 se algum erro",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"source\": \"both\",\n  \"reference_date\": \"2026-07-06\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /solinftec/pull/operation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/solinftec/pull/operation",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "solinftec",
+                "pull",
+                "operation"
+              ]
+            },
+            "description": "Puxa pagina crua de operacao (identifier 22); data manual ou D-1; 502 se erro",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reference_date\": \"2026-07-06\",\n  \"size\": 100,\n  \"page\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /solinftec/pull/weather",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/solinftec/pull/weather",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "solinftec",
+                "pull",
+                "weather"
+              ]
+            },
+            "description": "Puxa pagina crua de meteorologia (identifier 21); data manual ou D-1; 502 se erro",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reference_date\": \"2026-07-06\",\n  \"size\": 100,\n  \"page\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "userTypes  (/user-types)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /user-types/:id/access",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user-types/:id/access",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-types",
+                ":id",
+                "access"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Matriz de paginas + permissoes do perfil (merge de todas as paginas com o access existente)"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /user-types/:id/access",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user-types/:id/access",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-types",
+                ":id",
+                "access"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Substitui a matriz de permissoes do perfil (destroy + bulkCreate; ignora linhas sem nenhuma permissao)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"access\": [\n    {\n      \"page_id\": 1,\n      \"can_read\": true,\n      \"can_write\": false,\n      \"can_delete\": false,\n      \"can_admin\": false\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /user-types/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user-types/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-types",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Soft delete do perfil (deleted_at + active=false)"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /user-types/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user-types/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-types",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza perfil por id",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"ADMIN\",\n  \"name\": \"Administrador\",\n  \"description\": \"Acesso total\",\n  \"active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /user-types",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user-types",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-types"
+              ]
+            },
+            "description": "Lista perfis (tipos de usuario) nao deletados, ordenados por nome"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /user-types",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user-types",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user-types"
+              ]
+            },
+            "description": "Cria perfil (name obrigatorio)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"ADMIN\",\n  \"name\": \"Administrador\",\n  \"description\": \"Acesso total\",\n  \"active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "users  (/users)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /users/:id/farms",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/:id/farms",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                ":id",
+                "farms"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Escopo de fazendas do usuario; retorna { farm_ids }"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /users/:id/farms",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users/:id/farms",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                ":id",
+                "farms"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Substitui o escopo de fazendas do usuario (destroy + bulkCreate)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"farm_ids\": [\n    1,\n    2,\n    3\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /users/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Soft delete do usuario (deleted_at + active=false)"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /users/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Detalha um usuario por id (sem password_hash) com person/type/sector"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /users/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza usuario e dados da pessoa (campos parciais; password troca o hash)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Fulano\",\n  \"email\": \"novo@ex.com\",\n  \"phone\": \"11988887777\",\n  \"document\": \"12345678900\",\n  \"type_user_id\": 2,\n  \"sector_id\": 3,\n  \"active\": true,\n  \"password\": \"NovaSenha!1\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            },
+            "description": "Lista usuarios nao deletados (sem password_hash) com person/type/sector"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /users",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            },
+            "description": "Cria pessoa + usuario (name/username/password/sector_id obrigatorios; type_user_id opcional)",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Fulano\",\n  \"username\": \"fulano\",\n  \"password\": \"Senha!1\",\n  \"sector_id\": 1,\n  \"type_user_id\": 1,\n  \"email\": \"fulano@ex.com\",\n  \"document\": \"12345678900\",\n  \"phone\": \"11999999999\",\n  \"person_type\": \"PF\",\n  \"active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "variedades  (/variedades)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "DELETE /variedades/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/variedades/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "variedades",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Remove variedade"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /variedades/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/variedades/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "variedades",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza variedade",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cultureId\": 1,\n  \"name\": \"Cultivar X\",\n  \"kind\": \"cultivar\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /variedades/",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/variedades/?culture=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "variedades",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Lista variedades (filtro opcional por cultura)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /variedades/",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/variedades/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "variedades",
+                ""
+              ]
+            },
+            "description": "Cria variedade/hibrido",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cultureId\": 1,\n  \"name\": \"Cultivar X\",\n  \"kind\": \"cultivar\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "variety-traits  (/variety-traits)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "DELETE /variety-traits/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/variety-traits/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "variety-traits",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Remove caracteristica"
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /variety-traits/:id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/variety-traits/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "variety-traits",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Atualiza caracteristica",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cultureId\": 1,\n  \"name\": \"Ciclo\",\n  \"type\": \"text\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /variety-traits/",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/variety-traits/?culture=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "variety-traits",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "culture",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Lista caracteristicas do catalogo (filtro opcional por cultura)"
+          },
+          "response": []
+        },
+        {
+          "name": "POST /variety-traits/",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/variety-traits/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "variety-traits",
+                ""
+              ]
+            },
+            "description": "Cria caracteristica",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cultureId\": 1,\n  \"name\": \"Ciclo\",\n  \"type\": \"text\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "weather  (/weather)",
+      "description": "Requer Bearer token",
+      "item": [
+        {
+          "name": "GET /weather/application-window",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/weather/application-window?farm=&lat=&lng=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "weather",
+                "application-window"
+              ],
+              "query": [
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "lat",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "lng",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Janela de aplicacao (Delta T); usa lat/lng ou resolve pela 1a fazenda selecionada"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /weather/by-station",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/weather/by-station?start=&end=&date=&code=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "weather",
+                "by-station"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "end",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "date",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "code",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Compilado horario + KPIs por estacao (code) ou ALL; janela start/end"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /weather/field-weather",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/weather/field-weather?start=&end=&date=&farm=&grain=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "weather",
+                "field-weather"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "end",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "date",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "grain",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Clima por talhao do grid IDW (FIELD_WEATHER_HOURLY); grain=day agrega horas (chuva soma/vento max/media), grain=hour por talhaoxdiaxhora"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /weather/forecast",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/weather/forecast?farm=&lat=&lng=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "weather",
+                "forecast"
+              ],
+              "query": [
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "lat",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "lng",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Previsao Open-Meteo (proxy); usa lat/lng ou resolve pela 1a fazenda selecionada"
+          },
+          "response": []
+        },
+        {
+          "name": "GET /weather/overview",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/weather/overview?start=&end=&date=&farm=&hours=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "weather",
+                "overview"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "end",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "date",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "farm",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "hours",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Estacoes (heatmap) + talhoes + chuva por pivo; janela start/end, fazenda e horas"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
