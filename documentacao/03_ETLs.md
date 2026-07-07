@@ -1,6 +1,6 @@
 # GCS Connection Farm — Documentação dos ETLs
 
-**Data:** 2026-07-05 (rev. Fase B) · **Back:** `gcs-backend` (Node/Express/TS/Sequelize, SQL Server).
+**Data:** 2026-07-07 (rev. Fase B + Aplicação Aérea) · **Back:** `gcs-backend` (Node/Express/TS/Sequelize, SQL Server).
 
 > **Fase B (05/07/2026):** o espelho tipado `FARMBOX_*` dentro do `GCS_FARM` foi **eliminado** (29 tabelas + 4 views `VW_FARMBOX_*` dropadas). O ETL Farmbox agora lê o JSON cru direto do `CONNECTOR_GCS_FARM` e grava direto no domínio nativo `FARM_*`. Scripts canônicos: `MATERIALIZE_FARM.sql`, `DROP_FARMBOX_MIRROR.sql`, `MODULE_AGRO_V1.sql`. Detalhes na seção 2.
 
@@ -93,6 +93,42 @@ Cobre os pipelines de **ingestão** (API externa → raw no `CONNECTOR_GCS_FARM`
 - **Ingestão/ETL pendentes** (API de pivôs bloqueada — **502/403**, tokens por fazenda). No scheduler, jobs **desabilitados e sem runner** (`irricontrol.snapshot` 15min, `irricontrol.operations` daily 04:30). Tabelas raw `IRRICONTROL_*` já existem, prontas para quando for liberado.
 - **STUB do app — `irrigation.service.ts` + `irrigation.routes.ts`** (montado em `app.ts`; o router aplica `authRequired`). `GET /irrigation/overview?start=&end=&farm=1,2&hours=8,9` (`start`/`end` `YYYY-MM-DD`; `farm` CSV via `parseFarmIds`; `hours` via `parseHours`). Devolve **contrato final** já consumido pelo painel Irrigação: os talhões das fazendas selecionadas (vazio = todas) **com geometria** (`FARM_FIELDS`⋈`FARM_PLOTS`, `deleted_at IS NULL`, filtro `p.farm_id IN (:farms)`; geometria via `geometry.service`). **SEM novas tabelas.**
 - Campos `status`/`appliedMm`/`pct` = **null**, `availableDates=[]` e `kpis={pivots:0,running:0,appliedMm:0}` até a ingestão/ETL existir. Quando o módulo for normalizado, o ponto exato da query real é o **`TODO(IrriControl ETL)`** no `.map(...)` de `irrigationOverview` (preencher por talhão no período via `CONNECTOR_GCS_FARM.IRRICONTROL_*` com `BETWEEN :start AND :end` + `DATEPART(HOUR, ...) IN (:hours)` e `availableDates`) — assinatura/forma não mudam. Front: `farm/irrigacaoService.ts` + `components/map/IrrigationMap.tsx` ("Irrigação — dados em breve").
+
+---
+
+## 3b. APLICAÇÃO AÉREA (log de voo) — `flightLog.service.ts` + `flightLogDecode.ts`
+
+> **Não é um ETL agendado.** Diferente de Solinftec/Farmbox (que puxam de API externa em janelas de tempo pelo scheduler), este pipeline roda **sob demanda, por upload**: cada arquivo `.log` do Air Tractor é decodificado e materializado no ato do `POST`. Não há job no `CONFIG_SCHEDULER`, não há cursor `updated_since`, não há `processed=0` — a unidade de trabalho é **um arquivo**. Todo o fluxo opera **só na conexão `masterDb` (GCS_FARM)** — não é cross-database e não toca o `CONNECTOR_GCS_FARM`.
+
+### 3b.1. Entrada — `POST /aereo/logs` (multipart)
+- Rota `aereo.routes.ts` (router com `authRequired`), upload via `multer` em **memória** (`memoryStorage`, limite `MAX_UPLOAD_MB` ou 20 MB). Campo do arquivo = `file`; metadados opcionais no corpo: `name`, `applicationRef`, `swathM`, `startedAt`/`endedAt`, `equipmentId`, `pilotPersonId` (o `uploadedBy` vem de `req.user`).
+- O buffer do arquivo vai direto para `importFlightLog` — **sem** camada raw/ingestão; o `.log` cru é guardado na própria linha (`raw_data`).
+
+### 3b.2. Decode do binário — `flightLogDecode.ts` (`decodeFlightLog`)
+- Formato **AS4.01/ATT** do GPS do Air Tractor (MapStar / Satloc-AgNav). Stream de registros `[0xA5][tamanho][payload]`. Varre buscando o marcador de **posição** `A5 2B 01` (comprimento **43 bytes**) e lê, por offset: `+5` f32 tempo · `+9` f64 **lat** · `+17` f64 **lon** · `+25` f32 alt(m) · `+29` f32 vel(m/s) · `+33` f32 rumo · `+42` byte **flag da barra** (`2` = aplicando). A **vazão** vem em registro próprio (comprimento 9, canal `0x20`, f32 em `+4`), associado ao último ponto com barra aberta.
+- Sanidade geográfica dos pontos (lat/lon dentro da faixa BR) descarta lixo binário. Deriva: distância total e **aplicada** (Haversine), velocidade média/mín/máx, tempo de voo/aplicado (por distância÷velocidade — o relógio do log é ambíguo), `bbox`/centro, **largura de faixa** (`detectSwath`, autocorrelação do cross-track dos pontos aplicando) e, com vazão suficiente, **vazão mediana (L/min)** e **taxa (L/ha)**.
+
+### 3b.3. Materialização — `importFlightLog` → `FLIGHT_LOG`
+- **Dedup** por `sha256(arquivo)` (`file_hash`): reenvio do mesmo `.log` → **409**. `< 10` pontos reconhecidos → **400** (log inválido).
+- **Geometria (GEOGRAPHY)** montada a partir dos pontos como WKT (`wktMultiLineString`, com simplificação por distância p/ limitar tamanho): `track_geom` = trilha completa (só referência; o render usa o blob); `applied_geom` = centro dos trechos aplicando **bufferizado** por metade da faixa (`STBuffer(swath/2)`), com `Reduce`/`MakeValid`/`ReorientObject` p/ manter a área tratável e válida. A **`applied_area_ha`** é `STArea/10000` da cobertura.
+- **`points_blob`** = pontos compactos `[lat,lon,alt,spd,hdg,boom,flow]` serializados em JSON e **gzip** (`gzipPoints`), usados para re-render no mapa sem reprocessar o binário.
+- **Fazenda dominante:** após inserir, um `UPDATE` seta `farm_id` pela fazenda de **maior área coberta** (interseção `applied_geom` × `FARM_FIELD_GEOMETRY`⋈`FARM_FIELDS`⋈`FARM_PLOTS`, `ORDER BY SUM(STIntersection.STArea) DESC`) — não pelo centro do envelope (que cairia fora de cobertura côncava/multipart).
+
+### 3b.4. Analyze — `analyzeFlightLog` (`GET /aereo/logs/:id/analyze`)
+- Passo **de leitura** (não grava): cruza `applied_geom` com `FARM_FIELD_GEOMETRY` (índice espacial `SIX_FARM_FIELD_GEOMETRY`) para listar os **talhões tocados** (área aplicada por talhão > 0,1 ha) e ranqueia as **APs candidatas** (`FARM_APPLICATION_TARGET`⋈`FARM_APPLICATION` que miram ≥1 talhão tocado): ordena por nº de talhões cobertos › não-finalizada › data mais recente (`app_date DESC`), e devolve a **AP dominante** sugerida + contexto (logs já existentes por AP, área buscada total). A geometria diz **quais** talhões foram cobertos (confiável); a AP correta é escolha do usuário.
+
+### 3b.5. Assign — `assignFlightLog` (`POST /aereo/logs/:id/assign`)
+- Recebe grupos `{ applicationId, fieldIds[] }` (um talhão só pode ir para **uma** AP no mesmo voo). Em transação: limpa split anterior, e por grupo **recorta a cobertura** = `applied_geom ∩ UnionAggregate(geom dos talhões atribuídos)`, grava `FLIGHT_LOG_APP` (`coverage_geom`, área/volume/taxa/velocidade derivados) e, por talhão, `FLIGHT_LOG_APP_FIELD` com **aplicado × buscado** (`pct_exec = aplicado/buscado`).
+- **Reconciliação:** a área atribuída é a **área da união** das coberturas por AP (dedup de sliver na fronteira, não a soma); o restante vira `external_area_ha` (aplicado fora dos talhões buscados) e o log passa a `status='assigned'`. As visões `listApplicationsWithLogs`/`getApplicationRollup` fazem o rollup construtivo por AP (união de cobertura entre logs, sem dupla contagem; volume acumula em sobreposição).
+
+### Gatilhos Aplicação Aérea
+| Etapa | Job (scheduler) | Rota | Escopo |
+|---|---|---|---|
+| Import (decode→geometria→blob) | **nenhum — sob demanda** | `POST /aereo/logs` (multipart) | 1 arquivo `.log` por chamada; dedup por `file_hash` |
+| Analyze (talhões tocados + AP candidata) | — | `GET /aereo/logs/:id/analyze` | leitura; interseção espacial |
+| Assign (recorte por AP + reconciliação) | — | `POST /aereo/logs/:id/assign` | grupos AP→talhões; transação |
+
+> Tabelas próprias (só no `masterDb`/GCS_FARM): `FLIGHT_LOG` (metadados + `raw_data`/`points_blob` + `track_geom`/`applied_geom`), `FLIGHT_LOG_APP` (cobertura recortada por AP) e `FLIGHT_LOG_APP_FIELD` (aplicado×buscado por talhão). Refs do cadastro: aeronaves em `MACHINE_OPERATION_EQUIPMENT` (grupo `AVIAO-BAHIA`), pilotos em `MANAGEMENT_PEOPLES`.
 
 ---
 

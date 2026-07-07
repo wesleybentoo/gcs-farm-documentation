@@ -1,14 +1,14 @@
 # GCS Connection Farm — Documentação dos Bancos de Dados
 
-**Data:** 2026-06-28 · **Atualizado:** 2026-07-03 (Painel de Operações, planejamento agrícola, produtividade/estimativa, cultivos, exportação/corretivos) · **SGBD:** SQL Server (uma instância, dois bancos).
-DDL completa e comentada: ver `SQL/SETUP_FULL.sql` (**fonte única** — sem recortes por módulo).
+**Data:** 2026-06-28 · **Atualizado:** 2026-07-07 (módulo agronômico nativo `FARM_*`, aplicação aérea `FLIGHT_LOG*`, `FERT_EXPORT_SET`, inventário pós-Fase B) · **SGBD:** SQL Server (uma instância, dois bancos).
+DDL completa e comentada: `SQL/SETUP_FULL.sql` (base) **+** `SQL/MODULE_AGRO_V1.sql` (domínio agronômico nativo `FARM_*`) **+** `SQL/FLIGHT_LOG.sql` (aplicação aérea) **+** `SQL/FERT_EXPORT_PROFILES.sql` (perfis de exportação de nutrientes). `SETUP_FULL.sql` **não é mais** fonte única literal das tabelas — o schema vivo é a soma desses scripts.
 
 ## Arquitetura em duas camadas
 - **`CONNECTOR_GCS_FARM` (raw / landing):** guarda o dado **cru** que cada integração devolveu (JSON original + logs de ingestão). Fonte da verdade do que chegou; não se enriquece.
 - **`GCS_FARM` (master / tratado):** dado **normalizado/tipado** + configuração + gestão de acesso + módulos agronômicos. É onde o app lê.
 - **Fluxo:** API externa → *ingestão* grava raw no CONNECTOR → *ETL* (set-based, cross-database por nome de 3 partes) transforma raw → master. Ver `03_ETLs.md`.
 
-Inventário: **CONNECTOR** 47 tabelas / 6 views (inclui a landing `FARMBOX_*` com JSON cru — permanece). **GCS_FARM** — na **Fase B (05/07/2026)** o espelho tipado do Farmbox foi eliminado: **DROP de 29 tabelas `FARMBOX_*` + 4 views `VW_FARMBOX_*`** (contadas na foto de 03/07 de 107 tabelas / 17 views / 1 proc), passando a ~**78 tabelas / 13 views / 1 proc**. *(Crescimento desde 28/06: Painel de Operações (OPS_*), planejamento agrícola, variedades/características, produtividade/estimativa, exportação de nutrientes e corretivos; redução na Fase B: remoção do espelho Farmbox — CONNECTOR→FARM_* direto.)*
+Inventário (foto do schema **vivo**, pós-Fase B): **CONNECTOR** **47 tabelas / 6 views / 0 proc** (inclui a landing `FARMBOX_*` com JSON cru — permanece). **GCS_FARM** **104 tabelas / 13 views / 1 proc**. Na **Fase B (05/07/2026)** o espelho tipado do Farmbox foi eliminado do master: **DROP de todas as tabelas espelho `FARMBOX_*`** (removidas dinamicamente por `SQL/DROP_FARMBOX_MIRROR.sql` — `FROM sys.tables WHERE name LIKE 'FARMBOX[_]%'`) **+ as 4 views `VW_FARMBOX_*`** (a foto de 03/07 era 107 tabelas / 17 views / 1 proc — as views fecham exatamente: 17 − 4 = 13). No mesmo período entraram tabelas nativas novas (módulo agronômico `FARM_*` em `SQL/MODULE_AGRO_V1.sql` e aplicação aérea `FLIGHT_LOG*` em `SQL/FLIGHT_LOG.sql`); o total de tabelas do master hoje é **104** (número lido do banco vivo, não reconstruído pela conta da transição). *(Crescimento desde 28/06: Painel de Operações (OPS_*), planejamento agrícola, variedades/características, produtividade/estimativa, exportação de nutrientes e corretivos, módulo agronômico nativo `FARM_*` e logs de voo; redução na Fase B: remoção do espelho Farmbox — CONNECTOR→`FARM_*` direto.)*
 
 Convenções gerais: **soft-delete** (`deleted_at`, paranoid); raw com flag **`processed`** (0=pendente) + `processed_at`; segredos **cifrados** em `CONFIG_API` (DMK/cert); geometria em **`geography`** (SRID 4326); timestamps em UTC.
 
@@ -31,9 +31,12 @@ Convenções gerais: **soft-delete** (`deleted_at`, paranoid); raw com flag **`p
 - Views: `IRRICONTROL_PENDING_QUEUE`, `IRRICONTROL_STALE_INGESTIONS`.
 - O endpoint `GET /irrigation/overview` (stub com contrato final) **não cria tabelas novas**: lê os talhões das fazendas a partir de `FARM_FIELDS`+`FARM_PLOTS` (+ contorno via `FARM_FIELD_GEOMETRY`/`geometry.service`) e devolve `status`/`appliedMm`/`pct` = null e `availableDates` = []. A query real sobre `IRRICONTROL_*` (normalização raw→master + período/hora) segue **pendente**.
 
-### Farmbox (raw, ~33 tabelas + 2 views)
-- `FARMBOX_*` (transacionais: APPLICATION, MONITORING, PLANTATION, MOVIMENTATION, COUNT_*, TRAP_MONITORING, PLUVIOMETER_*…) e `FARMBOX_REF_*` (referências FULL: CULTURE, VARIETY, EQUIPMENT, USER, INPUT_TYPE, ACTIVITY_TYPE, PHENOLOGICAL_STAGE, BEAK). Cada um guarda o JSON cru + chave natural (`farmbox_id`/`record_id`).
-- `FARMBOX_INGESTION_LOG`, `FARMBOX_INTEGRATION_ERROR`, `FARMBOX_RESOURCE_SUBSCRIPTION` (webhook).
+### Farmbox (raw, 33 tabelas + 2 views)
+Cada tabela guarda o JSON cru (coluna `record`) + chave natural (`farmbox_id`/`record_id`). Lista **exaustiva** (schema vivo):
+- **Transacionais:** `FARMBOX_APPLICATION`, `FARMBOX_APPLICATION_PROGRESS`, `FARMBOX_MONITORING`, `FARMBOX_MONITORING_DAY_RESULT`, `FARMBOX_MONITORING_NOTE`, `FARMBOX_MONITORING_TOLERANCE`, `FARMBOX_PLANTATION`, `FARMBOX_MOVIMENTATION`, `FARMBOX_COUNT_DAY`, `FARMBOX_COUNT_MONITORING`, `FARMBOX_TRAP_MONITORING`, `FARMBOX_PLUVIOMETER`, `FARMBOX_PLUVIOMETER_MONITORING`, `FARMBOX_HARVEST`, `FARMBOX_BATCH`, `FARMBOX_STORAGE`, `FARMBOX_NOTE`, `FARMBOX_PHENOLOGICAL_STAGE_SAMPLE`, `FARMBOX_INPUT`, `FARMBOX_INPUT_VALUE`.
+- **Estrutura/dimensões espelhadas:** `FARMBOX_FARM`, `FARMBOX_PLOT`.
+- **Referências FULL (`FARMBOX_REF_*`):** `FARMBOX_REF_CULTURE`, `FARMBOX_REF_VARIETY`, `FARMBOX_REF_EQUIPMENT`, `FARMBOX_REF_USER`, `FARMBOX_REF_INPUT_TYPE`, `FARMBOX_REF_ACTIVITY_TYPE`, `FARMBOX_REF_PHENOLOGICAL_STAGE`, `FARMBOX_REF_BEAK`.
+- **Ingestão/controle:** `FARMBOX_INGESTION_LOG`, `FARMBOX_INTEGRATION_ERROR`, `FARMBOX_RESOURCE_SUBSCRIPTION` (webhook).
 - Views: `FARMBOX_PENDING_PROCESSING`, `FARMBOX_STALE_INGESTIONS`.
 
 > Observação: as tabelas `CONFIG_*` (`CONFIG_API`, `CONFIG_CONNECTORS`, `CONFIG_SCHEDULER`, `CONFIG_SCHEDULER_LOG`) existem **apenas no GCS_FARM** (não há `CONFIG_*` no CONNECTOR); o conector, quando precisa, lê a CONFIG por nome de 3 partes (`GCS_FARM.dbo.CONFIG_*`).
@@ -88,13 +91,13 @@ Programações de operação a campo (abertura de área, expansão, tratos), ful
 - `FIELD_WEATHER_HOURLY` — **grid de clima por talhão × dia × hora** (IDW), todas as métricas. Fonte da verdade dos KPIs/mapa de calor.
 - `FIELD_WEATHER_COVERAGE` — confiança por talhão×métrica (distância ao sensor mais próximo). Ver `SOLINFTEC_CLIMA_Grid_v1.md`.
 
-### Fertilidade (FERT_*, 20 tabelas + 5 views + 1 proc)
+### Fertilidade (FERT_*, 21 tabelas + 5 views + 1 proc)
 - Catálogo: `FERT_LAB`, `FERT_PARAMETER`, `FERT_INTERPRETATION_SET` (visões PADRÃO/CERRADO/MACRO_FOCO), `FERT_INTERPRETATION` (faixas/classes, com contexto de argila), `FERT_SET_PARAMETER`.
 - Amostras: `FERT_SAMPLE` → `FERT_SAMPLE_POINT` → `FERT_POINT_DEPTH` → `FERT_RESULT` (valor por parâmetro/profundidade).
 - Importação: `FERT_IMPORT` / `FERT_IMPORT_ERROR`.
 - Planejamento: `FERT_SAMPLE_PLAN` (+ `analysis_type`), `FERT_DEPTH_PROFILE` / `_ITEM`.
 - Cálculo (corretivos — modelo genérico): `FERT_CALC_MODEL` / `_INPUT` / `_RESULT` *(estrutura pronta, motor genérico pendente)*.
-- **Exportação de nutrientes:** `FERT_CROP_EXPORT` — coeficientes de exportação por cultura×nutriente (kg/t exportado; base ICL/Embrapa, editável na tela Configurações); `FERT_EXPORT_NUTRIENT` — catálogo de nutrientes. A tela **Exportação de Nutrientes** cruza a produtividade real (`FARM_FIELD_PLANTING`) × coeficiente para estimar a extração por talhão/cultura.
+- **Exportação de nutrientes:** `FERT_EXPORT_SET` — **perfil** de coeficientes pesquisado (ex.: ICL, Embrapa, Fundação MT; espelha `FERT_INTERPRETATION_SET`, com `is_default` e agrônomo/fonte); `FERT_CROP_EXPORT` — coeficientes de exportação por perfil×cultura×nutriente (`set_id`→`FERT_EXPORT_SET`; kg/t exportado; base ICL/Embrapa, editável na tela Configurações); `FERT_EXPORT_NUTRIENT` — catálogo de nutrientes. A tela **Exportação de Nutrientes** cruza a produtividade real (`FARM_FIELD_PLANTING`) × coeficiente do perfil para estimar a extração por talhão/cultura.
 - **Adubação de corretivos:** `FERT_AMENDMENT_APPLICATION` — recomendação/dose de corretivos (Calcário/Gesso/Fosfato) por talhão.
 - Views `VW_FERT_RESULT_CLASSIFIED`, `VW_FERT_SAMPLE_LATEST`, `VW_FERT_SAMPLE_WIDE`, `VW_FERT_POINT_STATUS`, `VW_FERT_CROP_EXPORT` (apoia a tela de Exportação de Nutrientes); proc **`usp_fert_resolve_field_geo`** (resolve ponto→talhão por geo).
 
@@ -102,12 +105,27 @@ Programações de operação a campo (abertura de área, expansão, tratos), ful
 - `VRA_ZONE_SET` / `VRA_ZONE` (zonas), `VRA_PRESCRIPTION` / `_DOSE` / `_PRODUCT` (prescrições), `VRA_MAP_TYPE`, `VRA_EXPORT_FORMAT`; views `VW_VRA_ZONE_CURRENT`, `VW_VRA_PRESCRIPTION_MAP`.
 
 ### Farmbox no master — sem espelho (removido na Fase B, 05/07/2026)
-> **Estado ATUAL:** **não há mais espelho tipado `FARMBOX_*` dentro do `GCS_FARM`.** Na Fase B, as **29 tabelas `FARMBOX_*` + 4 views `VW_FARMBOX_*`** foram **DROPADAS** (ver `SQL/DROP_FARMBOX_MIRROR.sql`). O dado cru do Farmbox continua na landing `CONNECTOR_GCS_FARM` (tabelas `FARMBOX_*` com coluna `record` = JSON, ver seção do CONNECTOR acima) e o ETL agora lê esse JSON **direto** (`JSON_VALUE`/`OPENJSON` sobre `record`) e grava **direto** no domínio nativo `FARM_*` do `GCS_FARM` (ver `SQL/MATERIALIZE_FARM.sql` e `03_ETLs.md`). Não existe mais camada intermediária tipada.
+> **Estado ATUAL:** **não há mais espelho tipado `FARMBOX_*` dentro do `GCS_FARM`.** Na Fase B, **todas as tabelas espelho `FARMBOX_*`** (DROP dinâmico sobre `sys.tables WHERE name LIKE 'FARMBOX[_]%'`) **+ as 4 views `VW_FARMBOX_*`** foram **DROPADAS** (ver `SQL/DROP_FARMBOX_MIRROR.sql`). O dado cru do Farmbox continua na landing `CONNECTOR_GCS_FARM` (tabelas `FARMBOX_*` com coluna `record` = JSON, ver seção do CONNECTOR acima) e o ETL agora lê esse JSON **direto** (`JSON_VALUE`/`OPENJSON` sobre `record`) e grava **direto** no domínio nativo `FARM_*` do `GCS_FARM` (ver `SQL/MATERIALIZE_FARM.sql` e `03_ETLs.md`). Não existe mais camada intermediária tipada.
 - **Resolução de ids** (raw → domínio): `field_id` via `CONFIG_CONNECTORS(type='farmbox', code=record.plot.id).field_id`; pontes `FARM_CULTURE.farmbox_culture_id`, `FARM_VARIETY.farmbox_variety_id`, `FARM_FIELD_PLANTING.farmbox_plantation_id`, `FARM_PRODUCT.farmbox_input_id`.
 - **Contagem de campo** (base da **estimativa de produtividade**): a extinta `FARMBOX_COUNT_MONITORING` foi substituída por `FARM_COUNT` (materializada do CONNECTOR); os `parameters` (JSON `{count_parameter:{id,name}, value}`) continuam sendo os `pID` das fórmulas de `PROD_ESTIMATE_FORMULA`, avaliadas ao vivo pelo `estimate.service.ts`.
 - **Amostrador** (ponte contagem→monitor): não vem mais de `FARMBOX_MONITORING_DAY_MONITOR`, e sim do JSON cru `CONNECTOR..._MONITORING_DAY_RESULT.record.monitors[]` (`monitor_id`/`monitor_name` por `plantation_id`+`result_date`); a contagem não grava usuário, então a estimativa atribui o amostrador por mesmo-dia (alta confiança) ou ±7 dias (aprox.).
 - **Safras não mapeadas:** a antiga view `VW_FARMBOX_HARVEST_UNMAPPED` deixou de existir; as safras do Farmbox ainda sem `FARM_SEASON` são detectadas direto do CONNECTOR (`seasons.service.ts`, ver `03_ETLs.md`).
-- Módulo agronômico nativo que sucede o Farmbox: ver as tabelas `FARM_*` de produtos/aplicações/monitoramento/estimativa em `SQL/MODULE_AGRO_V1.sql`.
+- Módulo agronômico nativo que sucede o Farmbox: ver a seção **Módulo Agronômico nativo** abaixo (DDL em `SQL/MODULE_AGRO_V1.sql`).
+
+### Módulo Agronômico nativo (FARM_*, 22 tabelas) — sucede o Farmbox
+Domínio próprio que substitui o espelho `FARMBOX_*` (DDL em `SQL/MODULE_AGRO_V1.sql`). Cada tabela tem `source` (`farmbox`/`app`) e ponte `farmbox_*_id` para backfill idempotente; reusa Safra/Ciclo/Cultura/Variedade/Talhão/Equipamento já existentes. Convenção: `id BIGINT IDENTITY`, soft-delete, `created/updated_at`.
+- **Catálogo de alvos:** `FARM_PEST` — pragas/doenças/daninhas/inimigos naturais (base de bulário e monitoramento). `FARM_PEST_THRESHOLD` — nível de ação (índice de controle) por cultura×praga.
+- **Produtos:** `FARM_PRODUCT_CATEGORY` — categorias (herbicida/fungicida/fertilizante…). `FARM_PRODUCT` — produto comercial (dose/formulação/registro MAPA; ponte `farmbox_input_id`). `FARM_PRODUCT_TEST` — produto experimental/ensaio; `FARM_PRODUCT_TRIAL` — ensaios de dose/método/gota do produto de teste (performance herdada pelo comercial via `test_product_id`). `FARM_ACTIVE_INGREDIENT` — catálogo próprio de princípios ativos; `FARM_PRODUCT_INGREDIENT` — N:N produto↔princípio ativo (+concentração). `FARM_PRODUCT_REF` — referência a cadastros externos de produto (DBA/ERP). `FARM_PRODUCT_LABEL` — **bulário** (dose min/max, calda, gota, carência/reentrada por produto×cultura×praga×modo de equipamento; base da recomendação automática).
+- **Aplicações:** `FARM_ART` — Anotação de Responsabilidade Técnica (agrônomo/CREA/validade). `FARM_APPLICATION` — aplicação (data/equipamento/modo terrestre|aéreo|ferti/ART; ponte `farmbox_application_id`). `FARM_APPLICATION_INPUT` — produto + dose por aplicação. `FARM_APPLICATION_TARGET` — onde foi aplicada (talhão/plantio + área pretendida/aplicada, contexto cultura/variedade/safra desnormalizado).
+- **Monitoramento:** `FARM_MONITORING` — monitoramento por talhão/plantio (metodologia/estágio/amostrador; ponte `farmbox_monitoring_id`). `FARM_MONITORING_POINT` — pontos/paradas com coordenada. `FARM_MONITORING_FINDING` — o índice medido (infestação por alvo). `FARM_MONITORING_DAY_MONITOR` — amostrador (quem monitorou) por `plantation_id`+dia (elo com a contagem).
+- **Contagem & estimativa:** `FARM_COUNT` — contagem em campo (base da estimativa; `parameters` JSON com os pIDs medidos). `FARM_COUNT_PARAM` — parâmetros medidos na contagem (pID normalizado). `FARM_ESTIMATE` — estimativa calculada (snapshot por contagem; `formula_id`→`PROD_ESTIMATE_FORMULA`).
+- **Produtividade (colheita):** `FARM_HARVEST_YIELD` — registro detalhado de colheita por plantio (área/quantidade/produtividade/umidade; o rollup fica em `FARM_FIELD_PLANTING.productivity`).
+
+### Aplicação Aérea — Logs de Voo (FLIGHT_LOG*, 3 tabelas)
+Log do Air Tractor (AS4.01/ATT) decodificado no backend (DDL em `SQL/FLIGHT_LOG.sql`). Geometria em `geography` SRID 4326 (padrão da casa).
+- `FLIGHT_LOG` — o **voo**: .log cru (`raw_data VARBINARY`), pontos decodificados (`points_blob`), trilha (`track_geom` MULTILINESTRING) e cobertura aplicada (`applied_geom` MULTIPOLYGON = buffer da trilha com barra aberta), + métricas agregadas (distância/área/velocidade/vazão/taxa) e cadastro do voo (datas, `equipment_id`→`MACHINE_OPERATION_EQUIPMENT`, `pilot_person_id`→`MANAGEMENT_PEOPLES`). Dedup por `file_hash`.
+- `FLIGHT_LOG_APP` — **split**: 1 linha por AP do Farmbox presente no log (`application_id`→`FARM_APPLICATION`; `is_external` p/ cobertura fora de talhão); `coverage_geom` = recorte da cobertura nos talhões daquela AP + área/volume/taxa.
+- `FLIGHT_LOG_APP_FIELD` — por talhão dentro da AP (`field_id`→`FARM_FIELDS`; área aplicada × pretendida, `pct_exec`).
 
 ---
 
@@ -119,4 +137,4 @@ Programações de operação a campo (abertura de área, expansão, tratos), ful
 - Acesso: `MANAGEMENT_USERS` → perfil/setor; permissões via `MANAGEMENT_ACCESS` + overrides; escopo via `MANAGEMENT_USER_FARM`.
 - **Planejamento/produtividade:** `FARM_FIELD_PLANTING` (`season_cycle_id`→`FARM_SEASON_CYCLE`→`FARM_SEASON`/`FARM_CULTURE`; `field_id`→`FARM_FIELDS`; `variety_id`→`FARM_VARIETY`) casa com o Farmbox por `farmbox_plantation_id` ⇔ contagem materializada em `FARM_COUNT.plantation_id` (pós-Fase B; antes vinha do extinto `FARMBOX_COUNT_MONITORING`). A **estimativa** avalia a fórmula por ponto de contagem e valida contra `FARM_FIELD_PLANTING.productivity`; sem o plantio materializado, a contagem fica invisível (JOIN interno) — ver backfill em `03_ETLs.md`.
 
-Para colunas, tipos, PKs, FKs, índices e checks exatos, consultar o arquivo de **Create Schemas Full** desta pasta.
+Para colunas, tipos, PKs, FKs, índices e checks exatos, consultar os scripts de DDL desta pasta: `SQL/SETUP_FULL.sql` (base) + `SQL/MODULE_AGRO_V1.sql` (agronômico `FARM_*`) + `SQL/FLIGHT_LOG.sql` (aplicação aérea) + `SQL/FERT_EXPORT_PROFILES.sql` (perfis de exportação).
