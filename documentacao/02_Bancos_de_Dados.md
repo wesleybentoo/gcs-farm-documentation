@@ -127,6 +127,15 @@ Log do Air Tractor (AS4.01/ATT) decodificado no backend (DDL em `SQL/FLIGHT_LOG.
 - `FLIGHT_LOG_APP` — **split**: 1 linha por AP do Farmbox presente no log (`application_id`→`FARM_APPLICATION`; `is_external` p/ cobertura fora de talhão); `coverage_geom` = recorte da cobertura nos talhões daquela AP + área/volume/taxa.
 - `FLIGHT_LOG_APP_FIELD` — por talhão dentro da AP (`field_id`→`FARM_FIELDS`; área aplicada × pretendida, `pct_exec`).
 
+### Monitoramentos — config que comanda o app (MONITOR_*, 4 tabelas + 1 view)
+Configuração que o agrônomo define e o **nosso** app de monitoramento obedece (DDL em `SQL/MODULE_MONITOR_V1.sql`; roda depois do MODULE_AGRO). Os EVENTOS reusam `FARM_MONITORING*` (acima).
+- `MONITOR_TOLERANCE` — **tolerância entre monitoramentos** (dias) por escopo `farm_id`(NULL=todas) + `culture_id` + `variety_id`(NULL=default "todas as variedades"). Resolução: variedade+fazenda › variedade › default+fazenda › default. Índice único filtrado por escopo. **Seed** a partir do Farmbox (`FARMBOX_MONITORING_TOLERANCE`, farm 2112) via pontes `farmbox_culture_id`/`farmbox_variety_id`.
+- `MONITOR_METHODOLOGY` — **metodologia de execução** padrão: `farm_id`(NULL=global) + `default_method` (route|fixed_stops|free_stops), `lock_method`, `samples_per_stop`, `lock_samples`, `phenology_required`, `phenology_frequency` (per_stop|per_field). 1 linha global seed inicial.
+- `MONITOR_FIXED_POINT` — **paradas fixas** por talhão (`field_id`, `seq`, lat/lon, `label`) — usadas quando o método é `fixed_stops`.
+- `MONITOR_REQUEST` — **solicitação** de monitoramento (botão "SOLICITAR"): `field_id`/`planting_id`/`culture_id`, `requested_by`, `status` (pending|assigned|done|cancelled), `assigned_monitor_id`, `fulfilled_monitoring_id`→`FARM_MONITORING`.
+- `FARM_MONITORING` (do MODULE_AGRO) foi **estendida**: `duration_min`, `stops_count`, `started_at`, `ended_at`, `request_id`→`MONITOR_REQUEST` (`source='gcs'` p/ eventos do nosso app vs `'farmbox'`).
+- **`VW_MONITOR_FIELD_STATUS`** (view) — por plantio vigente: última monitoria, tolerância resolvida, `days_over` (dias além da tolerância), `carencia_until` (última aplicação + `carencia_days` do bulário `FARM_PRODUCT_LABEL`) e `state` (em_dia | atrasado | carencia | sem_referencia). Alimenta o mapa/lista de tolerância.
+
 ---
 
 ## Relacionamentos-chave

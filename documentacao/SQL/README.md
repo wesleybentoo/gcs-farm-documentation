@@ -7,8 +7,15 @@ SQL canônico dos bancos `CONNECTOR_GCS_FARM` (raw) e `GCS_FARM` (master). **Em 
 ## Arquivos
 | Arquivo | O que é |
 |---|---|
-| `SETUP_FULL.sql` | **Fonte da verdade.** Build completo dos dois bancos, na ordem correta (CONNECTOR → GCS_FARM → módulos agronômicos). Re-executável. |
+| `SETUP_FULL.sql` | **Núcleo canônico.** Build dos dois bancos (CONNECTOR → GCS_FARM): núcleo + FARM_* base + FERT_* + OPS_* + VRA. Re-executável. |
 | `RESET_FULL.sql` | Dropa `CONNECTOR_GCS_FARM` e `GCS_FARM` inteiros (só local/teste; em produção, **nunca**). |
+| `MODULE_AGRO_V1.sql` | **Módulo agronômico nativo** (FARM_* produtos/bulário/aplicações/monitoramento/pragas/contagem/estimativa). Roda **depois** do SETUP_FULL. |
+| `FLIGHT_LOG.sql` | **Aplicação Aérea** (FLIGHT_LOG*). Roda depois do MODULE_AGRO (FK → FARM_APPLICATION). |
+| `MODULE_MONITOR_V1.sql` | **Monitoramentos — config que comanda o app** (MONITOR_TOLERANCE/METHODOLOGY/FIXED_POINT/REQUEST + estende FARM_MONITORING + `VW_MONITOR_FIELD_STATUS`). Roda depois do MODULE_AGRO; idempotente; faz seed da tolerância do Farmbox (farm 2112) e da metodologia global. |
+| `FERT_EXPORT_PROFILES.sql` / `FERT_CROP_EXPORT_SCOPE.sql` | Perfis/escopo de exportação de fertilidade. |
+| `MATERIALIZE_FARM.sql` / `DROP_FARMBOX_MIRROR.sql` | Materialização FARM_* a partir do JSON cru / drop do espelho Farmbox (Fase B). |
+
+> **Ordem de execução:** `SETUP_FULL` → `MODULE_AGRO_V1` → (`FLIGHT_LOG`, `MODULE_MONITOR_V1`, `FERT_*`). A DDL COMPLETA do domínio é a soma desses (módulos com FK para FARM_APPLICATION não cabem no SETUP_FULL). Ver `../AUDITORIA_2026-07-07.md`.
 
 > **Fonte única:** o `SETUP_FULL.sql` é o **único** SQL de schema. Os recortes por módulo (`modulos/`) e as cópias legadas em `Arquivos Suporte/` foram **removidos (03/07)** — não há mais duplicata que possa dar drift.
 
