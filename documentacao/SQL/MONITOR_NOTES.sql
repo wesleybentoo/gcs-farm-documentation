@@ -47,8 +47,9 @@ SELECT nt.note_id, pl.plid, fp.field_id, fp.id,
           note_date DATETIME2 '$.date', description NVARCHAR(1000) '$.description', user_name NVARCHAR(200) '$.user_name',
           location_id BIGINT '$.location_id', location_type NVARCHAR(60) '$.location_type',
           image_addresses NVARCHAR(MAX) '$.image_addresses' AS JSON) nt
-  CROSS APPLY (SELECT CASE WHEN nt.location_type = 'Fields::Plantation' THEN nt.location_id
-                          ELSE TRY_CAST(JSON_VALUE(dr.record,'$.plantation.id') AS bigint) END AS plid) pl
+  -- só atribui talhão/plantio quando a nota é do tipo plantation (senão NULL — não chuta a área;
+  -- a nota ainda aparece pelo lat/lon). Evita herdar o plantation do dia p/ nota de outro nível.
+  CROSS APPLY (SELECT CASE WHEN nt.location_type = 'Fields::Plantation' THEN nt.location_id ELSE NULL END AS plid) pl
   LEFT JOIN dbo.FARM_FIELD_PLANTING fp ON fp.farmbox_plantation_id = pl.plid AND fp.deleted_at IS NULL
  WHERE dr.deleted_at IS NULL AND nt.lat IS NOT NULL AND nt.lon IS NOT NULL;
 GO
