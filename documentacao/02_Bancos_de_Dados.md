@@ -1,6 +1,6 @@
 # GCS Connection Farm — Documentação dos Bancos de Dados
 
-**Data:** 2026-06-28 · **Atualizado:** 2026-07-07 (módulo agronômico nativo `FARM_*`, aplicação aérea `FLIGHT_LOG*`, `FERT_EXPORT_SET`, inventário pós-Fase B) · **SGBD:** SQL Server (uma instância, dois bancos).
+**Data:** 2026-06-28 · **Atualizado:** 2026-07-08 (Clima por Safra `WEATHER_SEASON_SUMMARY`, Fenologia `FARM_PHENOLOGICAL_STAGE*`/`FARM_MEDIA`, Pesquisa `FARM_RESEARCH_*`; ver `AUDITORIA_2026-07-08.md`) · 2026-07-07 (módulo agronômico nativo `FARM_*`, aplicação aérea `FLIGHT_LOG*`, `FERT_EXPORT_SET`, inventário pós-Fase B) · **SGBD:** SQL Server (uma instância, dois bancos).
 DDL completa e comentada: `SQL/SETUP_FULL.sql` (base) **+** `SQL/MODULE_AGRO_V1.sql` (domínio agronômico nativo `FARM_*`) **+** `SQL/FLIGHT_LOG.sql` (aplicação aérea) **+** `SQL/FERT_EXPORT_PROFILES.sql` (perfis de exportação de nutrientes). `SETUP_FULL.sql` **não é mais** fonte única literal das tabelas — o schema vivo é a soma desses scripts.
 
 ## Arquitetura em duas camadas
@@ -85,11 +85,12 @@ Programações de operação a campo (abertura de área, expansão, tratos), ful
 - Dims: `_EQUIPMENT`, `_OPERATOR`, `_OPERATION`, `_STOP_REASON` (enriquecidas pelos cadastros Solinftec).
 - View `MACHINE_OPERATION_SUMMARY`.
 
-### Clima (WEATHER_* + FIELD_WEATHER_*, 4 tabelas)
+### Clima (WEATHER_* + FIELD_WEATHER_* + WEATHER_SEASON_SUMMARY, 5 tabelas)
 - `WEATHER_STATION` — sensor como **ponto puro** (code, lat/long, `geom`, tipo). **Sem** field_id/farm_id (legado removido em 28/06): não há vínculo estação→talhão; o clima por talhão vem do grid IDW.
 - `WEATHER_READING` — leitura horária por estação (1 por raw; 24 métricas: 10 base + 7 min + 7 max).
-- `FIELD_WEATHER_HOURLY` — **grid de clima por talhão × dia × hora** (IDW), todas as métricas. Fonte da verdade dos KPIs/mapa de calor.
+- `FIELD_WEATHER_HOURLY` — **grid de clima por talhão × dia × hora** (IDW), todas as métricas. Fonte da verdade dos KPIs/mapa de calor. **Cobertura de telemetria hoje: a partir de ~jun/2026** (ver auditoria 08/07).
 - `FIELD_WEATHER_COVERAGE` — confiança por talhão×métrica (distância ao sensor mais próximo). Ver `SOLINFTEC_CLIMA_Grid_v1.md`.
+- `WEATHER_SEASON_SUMMARY` — **consolidado de clima POR PLANTIO** (safra·ciclo·variedade·talhão) para exportação (`field_planting_id`→`FARM_FIELD_PLANTING`; índice único filtrado `UQ_WSS_planting`). Precip/temp (méd/mín/máx)/umidade/radiação/nº dias com chuva **calculados do grid horário na janela do plantio** via **Recalcular do grid** (`recomputeSeasonClimate`, `MERGE WITH (HOLDLOCK)`); irrigação é **manual**; editar qualquer célula marca a linha `manual` (não é mais sobrescrita). `window_start`/`window_end` = plant_date → COALESCE(closed, harvest_prediction, hoje). DDL em `SQL/WEATHER_SEASON_SUMMARY.sql`. **Ressalva (auditoria 08/07):** o total guardado cobre só os dias da janela com telemetria — **hoje é parcial** (grid ~jun/2026); recomenda-se expor `days_with_data`/`window_days`.
 
 ### Fertilidade (FERT_*, 21 tabelas + 5 views + 1 proc)
 - Catálogo: `FERT_LAB`, `FERT_PARAMETER`, `FERT_INTERPRETATION_SET` (visões PADRÃO/CERRADO/MACRO_FOCO), `FERT_INTERPRETATION` (faixas/classes, com contexto de argila), `FERT_SET_PARAMETER`.
@@ -141,6 +142,17 @@ Configuração que o agrônomo define e o **nosso** app de monitoramento obedece
 - **Limites de controle (`FARM_PEST_THRESHOLD` RECRIADA):** estava vazia e com shape que não casava; foi recriada no formato do Farmbox, **editável no nosso app**, por `pest_id`→`FARM_PEST` + `param_name` (estágio: Adulto|Ninfa|Ovo|Presença…) + `phase` + **`culture_id`→`FARM_CULTURE` (limite POR CULTURA)**. Guarda `action_level`/`damage_level` (= **Controle/Dano VEGETATIVO**), `rep_action_level`/`rep_damage_level` (= **REPRODUTIVO**), `value_type` (percentage_type|average_type|presence_type), `max_per_sample`, `source` (`farmbox`|`app`) e `active`. Índice **único filtrado** `(pest_id, param_name, phase, culture_id) WHERE deleted_at IS NULL`. **Seed** do CSV do Farmbox (exportação `estagios_ativos`): **740 linhas, 9 culturas** (inclui **Pousio** = "Pré Plantio/Pós Colheita"), **4 categorias**. DDL/ALTERs em `SQL/MONITOR_STOP_RESULTS.sql` + `SQL/MONITOR_THRESHOLDS_CSV.sql`.
 - **`VW_MONITOR_FIELD_STATUS`** (view) — por plantio vigente: última monitoria, tolerância resolvida (`COALESCE`: exceção `MONITOR_TOLERANCE` › default global `MONITOR_TOLERANCE_DEFAULT`), `tolerance_source` (especifica|global), `days_over` (dias além da tolerância), `carencia_until` e `state` (em_dia | atrasado | carencia | sem_referencia). Alimenta o mapa/lista de tolerância.
   - **Carência agora usa a REENTRADA resolvida** (não mais o `carencia_days` do bulário): última aplicação **deste plantio** + prazo de reentrada = *override por produto* (`FARM_PRODUCT_CARENCIA`) › *default por categoria* (`FARM_PRODUCT_CARENCIA_DEFAULT`). O **escopo é por plantio** (`planting_id`, igual ao cálculo da última monitoria) — sem isso, a carência de um ciclo anterior vazaria para o plantio vigente.
+
+### Fenologia — catálogo + guia de campo + mídia (FARM_PHENOLOGICAL_STAGE*, FARM_MEDIA, 3 tabelas)
+Estágios fenológicos por cultura, materializados do catálogo do Farmbox + **guia de campo curado pelo agrônomo** (o ETL não sobrescreve). DDL em `SQL/MODULE_PHENOLOGY_V1.sql` (roda depois do MODULE_AGRO). **Vivo: 216 estágios / 10 culturas; 95,7% dos monitoramentos linkados.**
+- `FARM_PHENOLOGICAL_STAGE` — o estágio: `culture_id`→`FARM_CULTURE`, `code` **NVARCHAR(200)** (name do Farmbox: código curto VE/V1/R5.1 **ou** rótulo longo p/ café/algodão), `position`, `classification` (vegetative|reproductive), `description`, `ignore_infestations`, `source` (`farmbox`|`app`), ponte `farmbox_stage_id`. **Colunas de GUIA (curadoria, o MERGE não toca):** `id_tips`, `days_after_emergence_min`/`_max`, `confused_with_ids` (JSON de ids irmãos). Únicos filtrados `(culture_id, code)` e `farmbox_stage_id`. Linkado por `FARM_MONITORING.phenological_stage_id`. **Auditoria 08/07:** 17 estágios com `classification` NULL ficam presos (Farmbox não editável + MERGE re-NULLifica) — evolução mapeada = override curado.
+- `FARM_PHENOLOGICAL_STAGE_MEDIA` — N fotos/vídeos por estágio: `stage_id`→estágio, `media_id`→`FARM_MEDIA` (upload nosso) **ou** `external_url`, `position`, `caption`.
+- `FARM_MEDIA` — **blob genérico no banco** (REUTILIZÁVEL por outros módulos): `content_type`, `size_bytes`, `sha256` (dedup), `data VARBINARY(MAX)`. Servido por `GET /media/:id` (ETag=sha256, `Cache-Control` immutable, atrás de auth). Gravação via `bind` binário (NUNCA `replacements` — evita `0x`-hex inline / OOM).
+
+### Pesquisa — Ensaios de Faixa / strip test (FARM_RESEARCH_*, 2 tabelas) — *módulo PAUSADO (construído e no ar)*
+Dataset **paralelo** de pesquisa (aditivo — **não toca** `FARM_FIELD_PLANTING`): variedades cultivadas em **faixas** no mesmo talhão+ciclo, para comparar produtividade em igualdade. DDL em `SQL/MODULE_RESEARCH_V1.sql`. **Vivo: 50 ensaios / 119 faixas.** *(Evolução pausada por decisão do usuário 08/07; nada removido.)*
+- `FARM_RESEARCH_TRIAL` — o ensaio (1 por talhão+ciclo): `field_id`→`FARM_FIELDS`, `season_cycle_id`→`FARM_SEASON_CYCLE` (carrega safra+ciclo+cultura), `name`, `description`, `trial_date`, `status`, `source` (`farmbox`|`app`). Único filtrado `UQ_FRT_field_cycle`.
+- `FARM_RESEARCH_STRIP` — a faixa: `trial_id`→ensaio, `variety_id`→`FARM_VARIETY`, `geom GEOGRAPHY` (SRID 4326; NULL = talhão inteiro), `area_ha` (**número confiável**), `productivity`, `farmbox_plantation_id` (dedup do histórico), `notes`. Índice espacial `SIX_FARM_RESEARCH_STRIP`. **Auditoria 08/07:** 6 faixas têm `geom` = talhão inteiro (>1,5× `area_ha`) — só o mapa engana, as contas usam `area_ha`.
 
 ---
 
