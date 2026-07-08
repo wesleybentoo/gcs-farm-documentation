@@ -47,5 +47,53 @@ IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name='IX_FARM_MONITORING_stage')
 CREATE INDEX IX_FARM_MONITORING_stage ON dbo.FARM_MONITORING(phenological_stage_id) WHERE phenological_stage_id IS NOT NULL;
 GO
 
-SELECT 'FARM_PHENOLOGICAL_STAGE' t, COUNT(*) n FROM dbo.FARM_PHENOLOGICAL_STAGE;
+/* ── 3) GUIA DE CAMPO — curadoria do agrônomo (NÃO vem do Farmbox; o ETL não toca) ──
+   Enriquece o estágio para ajudar o monitor a IDENTIFICAR na lavoura, offline. */
+IF COL_LENGTH('dbo.FARM_PHENOLOGICAL_STAGE','id_tips') IS NULL
+  ALTER TABLE dbo.FARM_PHENOLOGICAL_STAGE ADD
+    id_tips NVARCHAR(MAX) NULL,                 -- dicas de identificação (uma por linha) — como reconhecer na planta
+    days_after_emergence_min INT NULL,          -- faixa típica de dias após emergência
+    days_after_emergence_max INT NULL,
+    confused_with_ids NVARCHAR(200) NULL;       -- JSON array de ids de estágios irmãos ("não confundir com")
+GO
+
+/* ── 4) MÍDIA — blob genérico servível (reutilizável por outros módulos) ──────── */
+IF OBJECT_ID('dbo.FARM_MEDIA','U') IS NULL
+CREATE TABLE dbo.FARM_MEDIA (
+    id           BIGINT IDENTITY(1,1) CONSTRAINT PK_FARM_MEDIA PRIMARY KEY,
+    content_type VARCHAR(100) NOT NULL,
+    byte_size    INT NOT NULL,
+    sha256       CHAR(64) NULL,                 -- dedup + ETag (conteúdo imutável)
+    data         VARBINARY(MAX) NOT NULL,
+    created_at   DATETIME2(3) NOT NULL CONSTRAINT DF_FMEDIA_created DEFAULT SYSUTCDATETIME(),
+    deleted_at   DATETIME2(3) NULL
+);
+GO
+IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name='IX_FARM_MEDIA_sha')
+CREATE INDEX IX_FARM_MEDIA_sha ON dbo.FARM_MEDIA(sha256) WHERE deleted_at IS NULL;
+GO
+
+/* ── 5) MÍDIA DO ESTÁGIO (N fotos/vídeos por estágio; upload OU URL externa) ──── */
+IF OBJECT_ID('dbo.FARM_PHENOLOGICAL_STAGE_MEDIA','U') IS NULL
+CREATE TABLE dbo.FARM_PHENOLOGICAL_STAGE_MEDIA (
+    id           BIGINT IDENTITY(1,1) CONSTRAINT PK_FPSM PRIMARY KEY,
+    stage_id     BIGINT NOT NULL CONSTRAINT FK_FPSM_stage REFERENCES dbo.FARM_PHENOLOGICAL_STAGE(id),
+    kind         VARCHAR(10) NOT NULL CONSTRAINT CK_FPSM_kind CHECK (kind IN ('image','video')),
+    media_id     BIGINT NULL CONSTRAINT FK_FPSM_media REFERENCES dbo.FARM_MEDIA(id),  -- upload nosso
+    external_url NVARCHAR(1000) NULL,           -- OU link externo (ex.: vídeo hospedado)
+    caption      NVARCHAR(300) NULL,
+    sort_order   INT NOT NULL CONSTRAINT DF_FPSM_sort DEFAULT 0,
+    created_at   DATETIME2(3) NOT NULL CONSTRAINT DF_FPSM_created DEFAULT SYSUTCDATETIME(),
+    updated_at   DATETIME2(3) NULL,
+    deleted_at   DATETIME2(3) NULL,
+    CONSTRAINT CK_FPSM_src CHECK (media_id IS NOT NULL OR external_url IS NOT NULL)
+);
+GO
+IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name='IX_FPSM_stage')
+CREATE INDEX IX_FPSM_stage ON dbo.FARM_PHENOLOGICAL_STAGE_MEDIA(stage_id, sort_order) WHERE deleted_at IS NULL;
+GO
+
+SELECT 'FARM_PHENOLOGICAL_STAGE' t, COUNT(*) n FROM dbo.FARM_PHENOLOGICAL_STAGE
+UNION ALL SELECT 'FARM_MEDIA', COUNT(*) FROM dbo.FARM_MEDIA
+UNION ALL SELECT 'FARM_PHENOLOGICAL_STAGE_MEDIA', COUNT(*) FROM dbo.FARM_PHENOLOGICAL_STAGE_MEDIA;
 GO
