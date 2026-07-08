@@ -283,7 +283,7 @@ CREATE TABLE dbo.FARM_MONITORING (
     monitoring_date DATE NULL,
     methodology    VARCHAR(40)  NULL,
     samples        INT NULL,
-    phenological_stage NVARCHAR(60) NULL,
+    phenological_stage NVARCHAR(200) NULL,  -- nome do estágio (código curto p/ grãos OU rótulo descritivo longo); casa com FARM_PHENOLOGICAL_STAGE.code
     mon_state      VARCHAR(20)  NULL,
     recommendation NVARCHAR(2000) NULL,
     monitor_person_id BIGINT NULL,                 -- amostrador → MANAGEMENT_PEOPLES
