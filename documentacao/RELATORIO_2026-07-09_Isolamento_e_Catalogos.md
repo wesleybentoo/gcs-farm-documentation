@@ -62,6 +62,18 @@ resolução mais-específico-vence no config-read + no engine-read por grupo do 
 - **Smoke pós-deploy sugerido:** login (ti@ e wesley@) → `/farms` (7 fazendas) → 1 tela por módulo →
   editar metodologia como wesley (GRUPO) e conferir que vira override do grupo, não o baseline.
 
-## 4. Regressão / ETL
-- Rodada verificação adversarial (workflow) de regressão nos services/ETL/páginas — resultado anexado
-  em seguida; ETL grava `cg` NULL (baseline), compatível com os índices novos.
+## 4. Regressão / ETL — verificado (workflow adversarial)
+**Verdito: sem quebra.**
+- **DDL:** backward-compatible; `cg` NULL reproduz a unicidade antiga; nenhum código referencia nome de
+  índice (só o índice espacial `SIX_FARM_FIELD_GEOMETRY`, intocado). Confirmado por grep direto.
+- **ETL: nenhuma mudança necessária.** Zero `MERGE` nos 8 catálogos; os 2 `INSERT ... WHERE NOT EXISTS`
+  do `farmMaterialize.service` (carência default + threshold) gravam baseline (`cg` NULL) e batem 1:1
+  com os índices. `etl.service` só faz MERGE em WEATHER/MACHINE (fora do escopo).
+- **Páginas: todas intactas**, exceto os 3 catálogos globais (culturas/variedades/características) que
+  mostravam botão de escrita a GRUPO (403 no save). **Corrigido** (`e3fb2cd`): read-only + aviso p/
+  não-GLOBAL; leitura segue livre. Demais (thresholds, carência, tolerância, metodologia, níveis
+  críticos, perfis de export, e todas as farm-scoped) mantêm o contrato — gravam baseline, sem quebra.
+
+## 5. Ajuste de front adicional (nesta sessão)
+- **Catálogos globais read-only p/ não-GLOBAL** (`e3fb2cd`): esconde Novo/Editar/Excluir + aviso nas
+  telas de Cultura/Variedade/Característica; casa com o gate de escrita do back.
