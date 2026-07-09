@@ -129,6 +129,8 @@ O nível vem do **entitlement no JWT** (não do que o cliente pede). O comparati
 
 > **Sequência recomendada:** puxar a *fatia fina* da Fase 4 (isolamento por identidade) para perto do início — é o maior risco (R1/R2) e é entregável hoje, sem schema novo.
 
+> **STATUS (atualizado):** Fases 1-3 ✅. **Fase 4 (isolamento) ✅ implementada e homologada no `GCS_FARM_TEST`** — tenant+tier em `MANAGEMENT_USERS`, `authRequired` resolve escopo ao vivo, `scopeFarmIds` fail-closed, IDOR fechado em todas as rotas por id/escrita, 2 auditorias adversariais. Detalhes completos em **`07_Fase4_Isolamento_Multicliente.md`**. Produção (`GCS_FARM`) ainda intocada (migração + deploy = passo deliberado). Backlog latente (governança de catálogo global = Fase 5; `farm_id` no fato de operações = ETL) documentado no doc 07 §6.
+
 ---
 
 ## 9. Estado atual × alvo (resumo)

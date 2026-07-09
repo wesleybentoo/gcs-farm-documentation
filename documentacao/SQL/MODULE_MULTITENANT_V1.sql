@@ -99,3 +99,44 @@ UPDATE dbo.FARM_CULTURE SET default_row_spacing_cm = 81.0
 UPDATE dbo.FARM_CULTURE SET default_row_spacing_cm = 40.5
  WHERE deleted_at IS NULL AND default_row_spacing_cm IS NULL AND LOWER(name) IN (N'soja', N'milho', N'sorgo');
 GO
+
+/* ---------- D) IDENTIDADE DO USUARIO: tenant (client_group_id) + nivel de acesso ----------
+   Ancora de tenant DIRETA no usuario (nao derivada do mapeamento de fazendas, que pode
+   estar incompleto). access_scope define o alcance:
+     GLOBAL  = ve TODAS as fazendas (super admin da plataforma);
+     GRUPO   = ve todas as fazendas do proprio grupo (default seguro = preserva o hoje);
+     FAZENDA = ve apenas as fazendas mapeadas em MANAGEMENT_USER_FARM (dentro do grupo).
+   O entitlement efetivo (allowedFarmIds) e resolvido no backend a partir de (scope, grupo). */
+IF COL_LENGTH('dbo.MANAGEMENT_USERS','client_group_id') IS NULL
+  ALTER TABLE dbo.MANAGEMENT_USERS ADD client_group_id BIGINT NULL;
+GO
+IF COL_LENGTH('dbo.MANAGEMENT_USERS','access_scope') IS NULL
+  ALTER TABLE dbo.MANAGEMENT_USERS ADD access_scope VARCHAR(10) NOT NULL
+    CONSTRAINT DF_MANAGEMENT_USERS_access_scope DEFAULT 'GRUPO';
+GO
+IF NOT EXISTS (SELECT 1 FROM sys.foreign_keys WHERE name='FK_MANAGEMENT_USERS_cliente_grupo')
+  ALTER TABLE dbo.MANAGEMENT_USERS ADD CONSTRAINT FK_MANAGEMENT_USERS_cliente_grupo
+    FOREIGN KEY (client_group_id) REFERENCES dbo.CLIENTE_GRUPO(id);
+GO
+IF NOT EXISTS (SELECT 1 FROM sys.check_constraints WHERE name='CK_MANAGEMENT_USERS_access_scope')
+  ALTER TABLE dbo.MANAGEMENT_USERS ADD CONSTRAINT CK_MANAGEMENT_USERS_access_scope
+    CHECK (access_scope IN ('GLOBAL','GRUPO','FAZENDA'));
+GO
+
+/* tenant do usuario = grupo das fazendas que ele mapeia (o mais frequente); so onde ainda NULL */
+UPDATE u SET u.client_group_id = x.cg
+  FROM dbo.MANAGEMENT_USERS u
+ CROSS APPLY (
+   SELECT TOP 1 fa.client_group_id AS cg
+     FROM dbo.MANAGEMENT_USER_FARM uf
+     JOIN dbo.FARM_FARMS fa ON fa.id = uf.farm_id AND fa.deleted_at IS NULL
+    WHERE uf.user_id = u.id AND uf.active = 1 AND uf.deleted_at IS NULL AND fa.client_group_id IS NOT NULL
+    GROUP BY fa.client_group_id ORDER BY COUNT(*) DESC
+ ) x
+ WHERE u.deleted_at IS NULL AND u.client_group_id IS NULL;
+GO
+/* quem ficou sem grupo (sem mapeamento) -> grupo GCS (tenant do baseline atual) */
+UPDATE u SET u.client_group_id = (SELECT id FROM dbo.CLIENTE_GRUPO WHERE code='GCS')
+  FROM dbo.MANAGEMENT_USERS u
+ WHERE u.deleted_at IS NULL AND u.client_group_id IS NULL;
+GO
