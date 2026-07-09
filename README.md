@@ -25,6 +25,7 @@ suporte/          # arquivos de apoio (planilhas, KMLs, logs de voo, coleções 
 | `03_ETLs.md` | Pipelines de ETL (Farmbox, Solinftec) |
 | `04_Guia_Arquitetura_e_Novos_Modulos.md` | Guia de arquitetura e como criar novos módulos |
 | `05_Arquitetura_Multicliente_e_Escopos.md` | Arquitetura multicliente (CLIENTE_GRUPO), escopos globais (geográfico/safra/config), herança + copy-on-write e plano de ataque faseado |
+| `06_Fase3_Homologacao_e_Mapa_de_Impacto.md` | Fase 3: homologação do escopo no GCS_FARM_TEST + mapa de impacto ranqueado (P0/P1/P2) do que alterar no código |
 | `Niveis_criticos_e_exportacao_ICL.md` | Níveis críticos de solo e exportação de nutrientes (base ICL) |
 | `BRIEFING_FARMBOX_INTEGRATION.md` | Briefing da integração com o Farmbox |
 | `*.pdf` | Especificações funcionais das APIs Solinftec (Operação, Meteorológicos) |
