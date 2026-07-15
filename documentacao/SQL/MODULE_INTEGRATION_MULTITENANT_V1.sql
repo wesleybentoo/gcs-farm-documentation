@@ -23,12 +23,12 @@ BEGIN
     url               NVARCHAR(400) NULL,
     auth_type         VARCHAR(30) NULL,
     username          NVARCHAR(200) NULL,
-    password          NVARCHAR(MAX) NULL,     -- cifrado
-    token             NVARCHAR(MAX) NULL,     -- cifrado
+    password          VARBINARY(MAX) NULL,    -- cifrado (ENCRYPTBYKEY, igual CONFIG_API)
+    token             VARBINARY(MAX) NULL,    -- cifrado
     token_expires_at  DATETIME2 NULL,
-    api_key           NVARCHAR(MAX) NULL,     -- cifrado
+    api_key           VARBINARY(MAX) NULL,    -- cifrado
     client_id         NVARCHAR(200) NULL,
-    client_secret     NVARCHAR(MAX) NULL,     -- cifrado
+    client_secret     VARBINARY(MAX) NULL,    -- cifrado
     legacy_config_api_id BIGINT NULL,         -- rastro da migracao CONFIG_API
     active            BIT NOT NULL DEFAULT 1,
     created_at        DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
