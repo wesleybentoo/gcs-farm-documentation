@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  a{color:var(--accent,#12946b);text-decoration:none}
+  a:hover{color:var(--accent-strong,#0f8a64)}
+  ::selection{background:var(--accent,#12946b);color:#fff}
+  @keyframes fcpulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:.1;transform:scale(1.25)}}
+</style>
+</helmet>
+<div data-theme="{{ theme }}" style="{{ rootStyle }}">
+
+  <header style="position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);background:color-mix(in srgb, var(--bg,#f1f3f2) 82%, transparent);border-bottom:1px solid var(--border,#dbe1df)">
+    <div style="max-width:1120px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:10px">
+        <svg width="26" height="26" viewBox="0 0 48 48" fill="none" style="flex-shrink:0"><g stroke="var(--fg,#1a2320)" stroke-width="2" stroke-linecap="round"><line x1="24" y1="24" x2="24" y2="9"/><line x1="24" y1="24" x2="38.3" y2="19.4"/><line x1="24" y1="24" x2="32.8" y2="36.1"/><line x1="24" y1="24" x2="15.2" y2="36.1"/><line x1="24" y1="24" x2="9.7" y2="19.4"/></g><g fill="var(--fg,#1a2320)"><circle cx="24" cy="24" r="3"/><circle cx="38.3" cy="19.4" r="2.8"/><circle cx="32.8" cy="36.1" r="2.8"/><circle cx="15.2" cy="36.1" r="2.8"/><circle cx="9.7" cy="19.4" r="2.8"/></g><circle cx="24" cy="9" r="4" fill="var(--accent,#12946b)"/></svg>
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px;letter-spacing:-0.02em;color:var(--fg,#1a2320)">Farm<span style="color:var(--accent,#12946b)">Connect</span></span>
+      </div>
+      <button onClick="{{ toggleTheme }}" style="display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:var(--fg,#1a2320);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:999px;padding:8px 14px">
+        <span style="width:14px;height:14px;border-radius:50%;background:var(--accent,#12946b)"></span>
+        {{ toggleLabel }}
+      </button>
+    </div>
+  </header>
+
+  <section style="max-width:1120px;margin:0 auto;padding:84px 32px 56px;text-align:center">
+    <div style="display:inline-flex;flex-direction:column;align-items:center;gap:30px">
+      <div style="display:flex;align-items:center;gap:22px">
+        <svg width="80" height="80" viewBox="0 0 48 48" fill="none" style="flex-shrink:0"><g stroke="var(--fg,#1a2320)" stroke-width="2" stroke-linecap="round"><line x1="24" y1="24" x2="24" y2="9"/><line x1="24" y1="24" x2="38.3" y2="19.4"/><line x1="24" y1="24" x2="32.8" y2="36.1"/><line x1="24" y1="24" x2="15.2" y2="36.1"/><line x1="24" y1="24" x2="9.7" y2="19.4"/></g><g stroke="var(--fg,#1a2320)" stroke-width="1.4" stroke-linecap="round" opacity="0.4"><line x1="24" y1="9" x2="38.3" y2="19.4"/><line x1="38.3" y1="19.4" x2="32.8" y2="36.1"/><line x1="32.8" y1="36.1" x2="15.2" y2="36.1"/><line x1="15.2" y1="36.1" x2="9.7" y2="19.4"/><line x1="9.7" y1="19.4" x2="24" y2="9"/></g><g fill="var(--fg,#1a2320)"><circle cx="24" cy="24" r="3"/><circle cx="38.3" cy="19.4" r="2.8"/><circle cx="32.8" cy="36.1" r="2.8"/><circle cx="15.2" cy="36.1" r="2.8"/><circle cx="9.7" cy="19.4" r="2.8"/></g><circle cx="24" cy="9" r="8" stroke="var(--accent,#12946b)" stroke-width="2" style="transform-box:fill-box;transform-origin:center;animation:fcpulse 3.2s ease-in-out infinite"/><circle cx="24" cy="9" r="4" fill="var(--accent,#12946b)"/></svg>
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:52px;letter-spacing:-0.035em;line-height:1;color:var(--fg,#1a2320)">Farm<span style="color:var(--accent,#12946b)">Connect</span></span>
+      </div>
+      <p style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:500;letter-spacing:-0.01em;color:var(--fg,#1a2320);margin:0;max-width:620px">A fazenda conectada que decide com você.</p>
+      <p style="font-size:16px;line-height:1.7;color:var(--muted,#64716c);margin:0;max-width:640px;text-wrap:pretty">Conecta telemetria, solo, satélite, pulverização e irrigação — e transforma o dado em estratégia, plano de ação e recomendação. Não é só coleta: é decisão.</p>
+    </div>
+  </section>
+
+  <section style="max-width:1120px;margin:0 auto;padding:56px 32px;border-top:1px solid var(--border,#dbe1df)">
+    <p style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent,#12946b);margin:0 0 8px">O símbolo</p>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.02em;color:var(--fg,#1a2320);margin:0">Uma malha de dados que converge para decidir</h2>
+    <p style="font-size:15px;line-height:1.7;color:var(--muted,#64716c);max-width:660px;margin:12px 0 0;text-wrap:pretty">Cada nó é uma fonte de dado da fazenda; o nó esmeralda é o hub que reúne tudo e vira decisão. A mesma marca tem versões para cada uso.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-top:32px">
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:16px">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:110px"><svg width="66" height="66" viewBox="0 0 48 48" fill="none"><g stroke="var(--fg,#1a2320)" stroke-width="2" stroke-linecap="round"><line x1="24" y1="24" x2="24" y2="9"/><line x1="24" y1="24" x2="38.3" y2="19.4"/><line x1="24" y1="24" x2="32.8" y2="36.1"/><line x1="24" y1="24" x2="15.2" y2="36.1"/><line x1="24" y1="24" x2="9.7" y2="19.4"/></g><g stroke="var(--fg,#1a2320)" stroke-width="1.4" stroke-linecap="round" opacity="0.4"><line x1="24" y1="9" x2="38.3" y2="19.4"/><line x1="38.3" y1="19.4" x2="32.8" y2="36.1"/><line x1="32.8" y1="36.1" x2="15.2" y2="36.1"/><line x1="15.2" y1="36.1" x2="9.7" y2="19.4"/><line x1="9.7" y1="19.4" x2="24" y2="9"/></g><g fill="var(--fg,#1a2320)"><circle cx="24" cy="24" r="3"/><circle cx="38.3" cy="19.4" r="2.8"/><circle cx="32.8" cy="36.1" r="2.8"/><circle cx="15.2" cy="36.1" r="2.8"/><circle cx="9.7" cy="19.4" r="2.8"/></g><circle cx="24" cy="9" r="4" fill="var(--accent,#12946b)"/></svg></div>
+        <span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c);text-align:center">primária</span>
+      </div>
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:16px">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:110px"><svg width="66" height="66" viewBox="0 0 48 48" fill="none"><g stroke="var(--fg,#1a2320)" stroke-width="1.6" stroke-linecap="round" opacity="0.85"><line x1="24" y1="24" x2="24" y2="9"/><line x1="24" y1="24" x2="38.3" y2="19.4"/><line x1="24" y1="24" x2="32.8" y2="36.1"/><line x1="24" y1="24" x2="15.2" y2="36.1"/><line x1="24" y1="24" x2="9.7" y2="19.4"/></g><g stroke="var(--fg,#1a2320)" stroke-width="1.8" fill="var(--surface,#fff)"><circle cx="38.3" cy="19.4" r="3"/><circle cx="32.8" cy="36.1" r="3"/><circle cx="15.2" cy="36.1" r="3"/><circle cx="9.7" cy="19.4" r="3"/></g><circle cx="24" cy="24" r="2.2" fill="var(--fg,#1a2320)"/><circle cx="24" cy="9" r="3.8" fill="var(--accent,#12946b)"/></svg></div>
+        <span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c);text-align:center">contorno</span>
+      </div>
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:16px">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:110px"><svg width="66" height="66" viewBox="0 0 48 48" fill="none"><g stroke="var(--fg,#1a2320)" stroke-width="2" stroke-linecap="round"><line x1="24" y1="23" x2="11" y2="13"/><line x1="24" y1="23" x2="25" y2="9"/><line x1="24" y1="23" x2="38" y2="17"/><line x1="24" y1="23" x2="34" y2="32"/><line x1="24" y1="23" x2="16" y2="34"/></g><g stroke="var(--fg,#1a2320)" stroke-width="1.4" stroke-linecap="round" opacity="0.4"><line x1="11" y1="13" x2="25" y2="9"/><line x1="25" y1="9" x2="38" y2="17"/><line x1="34" y1="32" x2="16" y2="34"/></g><g fill="var(--fg,#1a2320)"><circle cx="24" cy="23" r="3"/><circle cx="11" cy="13" r="2.6"/><circle cx="38" cy="17" r="2.6"/><circle cx="34" cy="32" r="2.6"/><circle cx="16" cy="34" r="2.6"/></g><circle cx="25" cy="9" r="3.8" fill="var(--accent,#12946b)"/></svg></div>
+        <span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c);text-align:center">constelação</span>
+      </div>
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:16px">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:110px"><svg width="72" height="72" viewBox="0 0 48 48" fill="none"><rect x="5" y="5" width="38" height="38" rx="11" stroke="var(--fg,#1a2320)" stroke-width="2" fill="none"/><g transform="translate(7.2 7.2) scale(0.7)"><g stroke="var(--fg,#1a2320)" stroke-width="2.2" stroke-linecap="round"><line x1="24" y1="24" x2="24" y2="9"/><line x1="24" y1="24" x2="38.3" y2="19.4"/><line x1="24" y1="24" x2="32.8" y2="36.1"/><line x1="24" y1="24" x2="15.2" y2="36.1"/><line x1="24" y1="24" x2="9.7" y2="19.4"/></g><g fill="var(--fg,#1a2320)"><circle cx="24" cy="24" r="3.2"/><circle cx="38.3" cy="19.4" r="3"/><circle cx="32.8" cy="36.1" r="3"/><circle cx="15.2" cy="36.1" r="3"/><circle cx="9.7" cy="19.4" r="3"/></g><circle cx="24" cy="9" r="4.2" fill="var(--accent,#12946b)"/></g></svg></div>
+        <span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c);text-align:center">selo</span>
+      </div>
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:16px">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:110px"><svg width="62" height="62" viewBox="0 0 48 48" fill="none"><g stroke="var(--fg,#1a2320)" stroke-width="2.6" stroke-linecap="round"><line x1="24" y1="24" x2="24" y2="11"/><line x1="24" y1="24" x2="35" y2="32"/><line x1="24" y1="24" x2="13" y2="32"/></g><g fill="var(--fg,#1a2320)"><circle cx="24" cy="11" r="3"/><circle cx="35" cy="32" r="3"/><circle cx="13" cy="32" r="3"/></g><circle cx="24" cy="24" r="8.5" stroke="var(--accent,#12946b)" stroke-width="2" opacity="0.4"/><circle cx="24" cy="24" r="4.6" fill="var(--accent,#12946b)"/></svg></div>
+        <span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c);text-align:center">mínima · favicon</span>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:16px">
+      <div style="background:#ffffff;border:1px solid var(--border,#dbe1df);border-radius:14px;padding:24px;display:flex;flex-direction:column;align-items:center;gap:12px">
+        <svg width="40" height="40" viewBox="0 0 48 48" fill="none"><g stroke="#1a2320" stroke-width="2" stroke-linecap="round"><line x1="24" y1="24" x2="24" y2="9"/><line x1="24" y1="24" x2="38.3" y2="19.4"/><line x1="24" y1="24" x2="32.8" y2="36.1"/><line x1="24" y1="24" x2="15.2" y2="36.1"/><line x1="24" y1="24" x2="9.7" y2="19.4"/></g><g fill="#1a2320"><circle cx="24" cy="24" r="3"/><circle cx="38.3" cy="19.4" r="2.8"/><circle cx="32.8" cy="36.1" r="2.8"/><circle cx="15.2" cy="36.1" r="2.8"/><circle cx="9.7" cy="19.4" r="2.8"/></g><circle cx="24" cy="9" r="4" fill="#12946b"/></svg>
+        <span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c)">sobre claro</span>
+      </div>
+      <div style="background:#0c1210;border:1px solid #263630;border-radius:14px;padding:24px;display:flex;flex-direction:column;align-items:center;gap:12px">
+        <svg width="40" height="40" viewBox="0 0 48 48" fill="none"><g stroke="#eaf2ee" stroke-width="2" stroke-linecap="round"><line x1="24" y1="24" x2="24" y2="9"/><line x1="24" y1="24" x2="38.3" y2="19.4"/><line x1="24" y1="24" x2="32.8" y2="36.1"/><line x1="24" y1="24" x2="15.2" y2="36.1"/><line x1="24" y1="24" x2="9.7" y2="19.4"/></g><g fill="#eaf2ee"><circle cx="24" cy="24" r="3"/><circle cx="38.3" cy="19.4" r="2.8"/><circle cx="32.8" cy="36.1" r="2.8"/><circle cx="15.2" cy="36.1" r="2.8"/><circle cx="9.7" cy="19.4" r="2.8"/></g><circle cx="24" cy="9" r="4" fill="#2fcf9a"/></svg>
+        <span style="font-family:ui-monospace,monospace;font-size:11px;color:#8ba097">sobre escuro</span>
+      </div>
+      <div style="background:#12946b;border:1px solid #12946b;border-radius:14px;padding:24px;display:flex;flex-direction:column;align-items:center;gap:12px">
+        <svg width="40" height="40" viewBox="0 0 48 48" fill="none"><g stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="24" y1="24" x2="24" y2="9"/><line x1="24" y1="24" x2="38.3" y2="19.4"/><line x1="24" y1="24" x2="32.8" y2="36.1"/><line x1="24" y1="24" x2="15.2" y2="36.1"/><line x1="24" y1="24" x2="9.7" y2="19.4"/></g><g fill="#fff"><circle cx="24" cy="24" r="3"/><circle cx="38.3" cy="19.4" r="2.8"/><circle cx="32.8" cy="36.1" r="2.8"/><circle cx="15.2" cy="36.1" r="2.8"/><circle cx="9.7" cy="19.4" r="2.8"/><circle cx="24" cy="9" r="4"/></g></svg>
+        <span style="font-family:ui-monospace,monospace;font-size:11px;color:rgba(255,255,255,.8)">sobre esmeralda</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1120px;margin:0 auto;padding:56px 32px;border-top:1px solid var(--border,#dbe1df)">
+    <p style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent,#12946b);margin:0 0 8px">Paleta · Graphite &amp; Emerald</p>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.02em;color:var(--fg,#1a2320);margin:0">Base neutra, esmeralda como decisão</h2>
+    <p style="font-size:15px;line-height:1.7;color:var(--muted,#64716c);max-width:660px;margin:12px 0 0;text-wrap:pretty">O grafite deixa os dados e gráficos respirarem; o esmeralda marca ação, positivo e recomendação. Cores funcionais completam a UI.</p>
+
+    <div style="margin-top:32px">
+      <p style="font-family:ui-monospace,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted,#64716c);margin:0 0 12px">Esmeralda</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px">
+        <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden"><div style="height:64px;background:#e6f5ef"></div><div style="padding:7px 9px;font-family:ui-monospace,monospace;font-size:10.5px;color:var(--muted,#64716c)">50 · #E6F5EF</div></div>
+        <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden"><div style="height:64px;background:#bfe8d7"></div><div style="padding:7px 9px;font-family:ui-monospace,monospace;font-size:10.5px;color:var(--muted,#64716c)">100 · #BFE8D7</div></div>
+        <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden"><div style="height:64px;background:#5cc9a5"></div><div style="padding:7px 9px;font-family:ui-monospace,monospace;font-size:10.5px;color:var(--muted,#64716c)">300 · #5CC9A5</div></div>
+        <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden"><div style="height:64px;background:#12946b;position:relative"><span style="position:absolute;top:7px;left:9px;font-family:ui-monospace,monospace;font-size:9px;color:#fff;background:rgba(0,0,0,.2);padding:2px 5px;border-radius:4px">base</span></div><div style="padding:7px 9px;font-family:ui-monospace,monospace;font-size:10.5px;color:var(--muted,#64716c)">500 · #12946B</div></div>
+        <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden"><div style="height:64px;background:#0b6b4e"></div><div style="padding:7px 9px;font-family:ui-monospace,monospace;font-size:10.5px;color:var(--muted,#64716c)">700 · #0B6B4E</div></div>
+        <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden"><div style="height:64px;background:#083f2f"></div><div style="padding:7px 9px;font-family:ui-monospace,monospace;font-size:10.5px;color:var(--muted,#64716c)">900 · #083F2F</div></div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:28px">
+      <div>
+        <p style="font-family:ui-monospace,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted,#64716c);margin:0 0 12px">Neutros · grafite</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+          <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden"><div style="height:56px;background:#f1f3f2"></div><div style="padding:6px 8px;font-family:ui-monospace,monospace;font-size:9.5px;color:var(--muted,#64716c)">#F1F3F2</div></div>
+          <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden"><div style="height:56px;background:#dbe1df"></div><div style="padding:6px 8px;font-family:ui-monospace,monospace;font-size:9.5px;color:var(--muted,#64716c)">#DBE1DF</div></div>
+          <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden"><div style="height:56px;background:#64716c"></div><div style="padding:6px 8px;font-family:ui-monospace,monospace;font-size:9.5px;color:var(--muted,#64716c)">#64716C</div></div>
+          <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden"><div style="height:56px;background:#232d2a"></div><div style="padding:6px 8px;font-family:ui-monospace,monospace;font-size:9.5px;color:var(--muted,#64716c)">#232D2A</div></div>
+          <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden"><div style="height:56px;background:#121a17"></div><div style="padding:6px 8px;font-family:ui-monospace,monospace;font-size:9.5px;color:var(--muted,#64716c)">#121A17</div></div>
+          <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden"><div style="height:56px;background:#0c1210"></div><div style="padding:6px 8px;font-family:ui-monospace,monospace;font-size:9.5px;color:var(--muted,#64716c)">#0C1210</div></div>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:ui-monospace,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted,#64716c);margin:0 0 12px">Funcionais</p>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+          <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden;display:flex;align-items:center;gap:10px;padding:10px 12px"><span style="width:26px;height:26px;border-radius:6px;background:#1a9e73;flex-shrink:0"></span><div><div style="font-size:12px;font-weight:600;color:var(--fg,#1a2320)">Sucesso</div><div style="font-family:ui-monospace,monospace;font-size:10px;color:var(--muted,#64716c)">#1A9E73</div></div></div>
+          <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden;display:flex;align-items:center;gap:10px;padding:10px 12px"><span style="width:26px;height:26px;border-radius:6px;background:#c08a2c;flex-shrink:0"></span><div><div style="font-size:12px;font-weight:600;color:var(--fg,#1a2320)">Alerta</div><div style="font-family:ui-monospace,monospace;font-size:10px;color:var(--muted,#64716c)">#C08A2C</div></div></div>
+          <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden;display:flex;align-items:center;gap:10px;padding:10px 12px"><span style="width:26px;height:26px;border-radius:6px;background:#c8452f;flex-shrink:0"></span><div><div style="font-size:12px;font-weight:600;color:var(--fg,#1a2320)">Erro</div><div style="font-family:ui-monospace,monospace;font-size:10px;color:var(--muted,#64716c)">#C8452F</div></div></div>
+          <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden;display:flex;align-items:center;gap:10px;padding:10px 12px"><span style="width:26px;height:26px;border-radius:6px;background:#3f77b0;flex-shrink:0"></span><div><div style="font-size:12px;font-weight:600;color:var(--fg,#1a2320)">Info</div><div style="font-family:ui-monospace,monospace;font-size:10px;color:var(--muted,#64716c)">#3F77B0</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:36px;background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;overflow:hidden">
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:14px 20px;border-bottom:1px solid var(--border,#dbe1df);font-family:ui-monospace,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted,#64716c)"><span>Token</span><span>Light</span><span>Dark</span></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;align-items:center;padding:12px 20px;border-bottom:1px solid var(--border,#dbe1df)"><span style="font-family:ui-monospace,monospace;font-size:13px;color:var(--fg,#1a2320)">--bg</span><span style="display:flex;align-items:center;gap:8px;font-family:ui-monospace,monospace;font-size:12px;color:var(--muted,#64716c)"><span style="width:16px;height:16px;border-radius:4px;border:1px solid var(--border,#dbe1df);background:#f1f3f2"></span>#F1F3F2</span><span style="display:flex;align-items:center;gap:8px;font-family:ui-monospace,monospace;font-size:12px;color:var(--muted,#64716c)"><span style="width:16px;height:16px;border-radius:4px;border:1px solid #263630;background:#0c1210"></span>#0C1210</span></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;align-items:center;padding:12px 20px;border-bottom:1px solid var(--border,#dbe1df)"><span style="font-family:ui-monospace,monospace;font-size:13px;color:var(--fg,#1a2320)">--surface</span><span style="display:flex;align-items:center;gap:8px;font-family:ui-monospace,monospace;font-size:12px;color:var(--muted,#64716c)"><span style="width:16px;height:16px;border-radius:4px;border:1px solid var(--border,#dbe1df);background:#ffffff"></span>#FFFFFF</span><span style="display:flex;align-items:center;gap:8px;font-family:ui-monospace,monospace;font-size:12px;color:var(--muted,#64716c)"><span style="width:16px;height:16px;border-radius:4px;border:1px solid #263630;background:#121a17"></span>#121A17</span></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;align-items:center;padding:12px 20px;border-bottom:1px solid var(--border,#dbe1df)"><span style="font-family:ui-monospace,monospace;font-size:13px;color:var(--fg,#1a2320)">--border</span><span style="display:flex;align-items:center;gap:8px;font-family:ui-monospace,monospace;font-size:12px;color:var(--muted,#64716c)"><span style="width:16px;height:16px;border-radius:4px;border:1px solid var(--border,#dbe1df);background:#dbe1df"></span>#DBE1DF</span><span style="display:flex;align-items:center;gap:8px;font-family:ui-monospace,monospace;font-size:12px;color:var(--muted,#64716c)"><span style="width:16px;height:16px;border-radius:4px;border:1px solid #263630;background:#263630"></span>#263630</span></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;align-items:center;padding:12px 20px;border-bottom:1px solid var(--border,#dbe1df)"><span style="font-family:ui-monospace,monospace;font-size:13px;color:var(--fg,#1a2320)">--fg</span><span style="display:flex;align-items:center;gap:8px;font-family:ui-monospace,monospace;font-size:12px;color:var(--muted,#64716c)"><span style="width:16px;height:16px;border-radius:4px;border:1px solid var(--border,#dbe1df);background:#1a2320"></span>#1A2320</span><span style="display:flex;align-items:center;gap:8px;font-family:ui-monospace,monospace;font-size:12px;color:var(--muted,#64716c)"><span style="width:16px;height:16px;border-radius:4px;border:1px solid #263630;background:#eaf2ee"></span>#EAF2EE</span></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;align-items:center;padding:12px 20px;border-bottom:1px solid var(--border,#dbe1df)"><span style="font-family:ui-monospace,monospace;font-size:13px;color:var(--fg,#1a2320)">--muted</span><span style="display:flex;align-items:center;gap:8px;font-family:ui-monospace,monospace;font-size:12px;color:var(--muted,#64716c)"><span style="width:16px;height:16px;border-radius:4px;border:1px solid var(--border,#dbe1df);background:#64716c"></span>#64716C</span><span style="display:flex;align-items:center;gap:8px;font-family:ui-monospace,monospace;font-size:12px;color:var(--muted,#64716c)"><span style="width:16px;height:16px;border-radius:4px;border:1px solid #263630;background:#8ba097"></span>#8BA097</span></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;align-items:center;padding:12px 20px"><span style="font-family:ui-monospace,monospace;font-size:13px;color:var(--fg,#1a2320)">--accent</span><span style="display:flex;align-items:center;gap:8px;font-family:ui-monospace,monospace;font-size:12px;color:var(--muted,#64716c)"><span style="width:16px;height:16px;border-radius:4px;border:1px solid var(--border,#dbe1df);background:#12946b"></span>#12946B</span><span style="display:flex;align-items:center;gap:8px;font-family:ui-monospace,monospace;font-size:12px;color:var(--muted,#64716c)"><span style="width:16px;height:16px;border-radius:4px;border:1px solid #263630;background:#2fcf9a"></span>#2FCF9A</span></div>
+    </div>
+  </section>
+
+  <section style="max-width:1120px;margin:0 auto;padding:56px 32px;border-top:1px solid var(--border,#dbe1df)">
+    <p style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent,#12946b);margin:0 0 8px">Tipografia</p>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.02em;color:var(--fg,#1a2320);margin:0">Sem serifa, técnica e legível</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:32px">
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:28px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;color:var(--fg,#1a2320)">Space Grotesk</span><span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c)">títulos · marca</span></div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:600;letter-spacing:-0.03em;color:var(--fg,#1a2320);margin-top:16px;line-height:1">Aa Gg</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;color:var(--muted,#64716c);margin-top:10px;letter-spacing:0.02em">ABCDEFGHIJKLM · 0123456789</div>
+      </div>
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:28px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'Inter',sans-serif;font-weight:600;font-size:22px;color:var(--fg,#1a2320)">Inter</span><span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c)">interface · texto</span></div>
+        <div style="font-family:'Inter',sans-serif;font-size:44px;font-weight:600;color:var(--fg,#1a2320);margin-top:16px;line-height:1">Aa Gg</div>
+        <div style="font-family:'Inter',sans-serif;font-size:14px;color:var(--muted,#64716c);margin-top:10px">ABCDEFGHIJKLM · 0123456789</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1120px;margin:0 auto;padding:56px 32px 40px;border-top:1px solid var(--border,#dbe1df)">
+    <p style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent,#12946b);margin:0 0 8px">Aplicação</p>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600;letter-spacing:-0.02em;color:var(--fg,#1a2320);margin:0">A marca no sistema</h2>
+    <p style="font-size:15px;line-height:1.7;color:var(--muted,#64716c);max-width:660px;margin:12px 0 0">Use o toggle no topo para ver em light e dark. As áreas listradas indicam imagens de satélite e mapas reais.</p>
+
+    <div style="margin-top:32px;border:1px solid var(--border,#dbe1df);border-radius:18px;overflow:hidden;background:var(--surface,#fff);box-shadow:0 40px 80px -40px rgba(0,0,0,.4)">
+      <div style="display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--border,#dbe1df);background:var(--surface2,#e9edec)">
+        <span style="width:11px;height:11px;border-radius:50%;background:#c8452f"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:#c08a2c"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:#1a9e73"></span>
+        <span style="margin-left:12px;font-family:ui-monospace,monospace;font-size:12px;color:var(--muted,#64716c);background:var(--bg,#f1f3f2);padding:4px 12px;border-radius:6px">app.farmconnect.io/painel</span>
+      </div>
+      <div style="display:grid;grid-template-columns:220px 1fr;min-height:540px">
+        <aside style="border-right:1px solid var(--border,#dbe1df);padding:20px 14px;display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:9px;padding:4px 8px 18px">
+            <svg width="22" height="22" viewBox="0 0 48 48" fill="none" style="flex-shrink:0"><g stroke="var(--fg,#1a2320)" stroke-width="2" stroke-linecap="round"><line x1="24" y1="24" x2="24" y2="9"/><line x1="24" y1="24" x2="38.3" y2="19.4"/><line x1="24" y1="24" x2="32.8" y2="36.1"/><line x1="24" y1="24" x2="15.2" y2="36.1"/><line x1="24" y1="24" x2="9.7" y2="19.4"/></g><g fill="var(--fg,#1a2320)"><circle cx="24" cy="24" r="3"/><circle cx="38.3" cy="19.4" r="2.8"/><circle cx="32.8" cy="36.1" r="2.8"/><circle cx="15.2" cy="36.1" r="2.8"/><circle cx="9.7" cy="19.4" r="2.8"/></g><circle cx="24" cy="9" r="4" fill="var(--accent,#12946b)"/></svg>
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.02em;color:var(--fg,#1a2320)">Farm<span style="color:var(--accent,#12946b)">Connect</span></span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:var(--primary-soft,#e2f2ec);color:var(--accent-strong,#0f8a64);font-family:'Inter',sans-serif;font-size:14px;font-weight:600"><span style="width:7px;height:7px;border-radius:50%;background:var(--accent,#12946b)"></span>Visão geral</div>
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;color:var(--muted,#64716c);font-family:'Inter',sans-serif;font-size:14px" style-hover="background:var(--surface2,#e9edec)"><span style="width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.4"></span>Telemetria</div>
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;color:var(--muted,#64716c);font-family:'Inter',sans-serif;font-size:14px" style-hover="background:var(--surface2,#e9edec)"><span style="width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.4"></span>Pulverização</div>
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;color:var(--muted,#64716c);font-family:'Inter',sans-serif;font-size:14px" style-hover="background:var(--surface2,#e9edec)"><span style="width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.4"></span>Solo &amp; sensores</div>
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;color:var(--muted,#64716c);font-family:'Inter',sans-serif;font-size:14px" style-hover="background:var(--surface2,#e9edec)"><span style="width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.4"></span>Satélite</div>
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;color:var(--muted,#64716c);font-family:'Inter',sans-serif;font-size:14px" style-hover="background:var(--surface2,#e9edec)"><span style="width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.4"></span>Irrigação</div>
+          <div style="margin-top:auto;display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;color:var(--muted,#64716c);font-family:'Inter',sans-serif;font-size:14px" style-hover="background:var(--surface2,#e9edec)"><span style="width:7px;height:7px;border-radius:50%;background:var(--accent,#12946b)"></span>Plano de ação</div>
+        </aside>
+        <main style="padding:22px 24px;background:var(--bg,#f1f3f2);display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+            <div>
+              <h3 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:var(--fg,#1a2320);margin:0">Fazenda Santa Clara</h3>
+              <p style="font-family:'Inter',sans-serif;font-size:13px;color:var(--muted,#64716c);margin:3px 0 0">1.240 ha · atualizado há 4 min</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font-family:'Inter',sans-serif;font-size:13px;color:var(--muted,#64716c);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:999px;padding:8px 14px">Buscar talhão…</span>
+              <span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--on-accent,#fff);background:var(--accent,#12946b);border-radius:999px;padding:9px 16px">Gerar plano</span>
+              <span style="width:34px;height:34px;border-radius:50%;background:var(--fg,#1a2320);color:var(--surface,#fff);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px">JR</span>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px">
+            <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:14px;padding:16px"><div style="font-family:'Inter',sans-serif;font-size:12px;color:var(--muted,#64716c)">Máquinas em operação</div><div style="font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:600;color:var(--fg,#1a2320);margin-top:6px">8<span style="font-size:15px;color:var(--muted,#64716c);font-weight:400"> / 12</span></div></div>
+            <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:14px;padding:16px"><div style="font-family:'Inter',sans-serif;font-size:12px;color:var(--muted,#64716c)">Pulverizado hoje</div><div style="font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:600;color:var(--fg,#1a2320);margin-top:6px">148 <span style="font-size:15px;color:var(--muted,#64716c);font-weight:400">ha</span></div></div>
+            <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:14px;padding:16px"><div style="font-family:'Inter',sans-serif;font-size:12px;color:var(--muted,#64716c)">Umidade do solo</div><div style="font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:600;color:var(--accent,#12946b);margin-top:6px">62%</div></div>
+            <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:14px;padding:16px"><div style="font-family:'Inter',sans-serif;font-size:12px;color:var(--muted,#64716c)">NDVI médio</div><div style="font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:600;color:var(--fg,#1a2320);margin-top:6px">0,74 <span style="font-size:13px;color:var(--accent,#12946b);font-weight:600">▲</span></div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:14px">
+            <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--fg,#1a2320)">Mapa de taxa variável</span><span style="font-family:'Inter',sans-serif;font-size:12px;color:var(--muted,#64716c)">Talhão 04 · N</span></div>
+              <div style="flex:1;min-height:150px;border-radius:10px;border:1px dashed var(--border,#dbe1df);background:repeating-linear-gradient(135deg,var(--surface2,#e9edec) 0 11px,transparent 11px 22px);display:flex;align-items:flex-end;padding:12px"><span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);padding:3px 8px;border-radius:6px">mapa de prescrição</span></div>
+            </div>
+            <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px">
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--fg,#1a2320)">Recomendação</span>
+              <div style="display:flex;align-items:flex-start;gap:9px"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent,#12946b);margin-top:6px;flex-shrink:0"></span><span style="font-family:'Inter',sans-serif;font-size:12.5px;line-height:1.5;color:var(--fg,#1a2320)">Reduzir N em 12% nas zonas de alto NDVI</span></div>
+              <div style="display:flex;align-items:flex-start;gap:9px"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent,#12946b);margin-top:6px;flex-shrink:0"></span><span style="font-family:'Inter',sans-serif;font-size:12.5px;line-height:1.5;color:var(--fg,#1a2320)">Adiar pulverização do Talhão 07 (chuva &lt; 24h)</span></div>
+              <div style="display:flex;align-items:flex-start;gap:9px"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent,#12946b);margin-top:6px;flex-shrink:0"></span><span style="font-family:'Inter',sans-serif;font-size:12.5px;line-height:1.5;color:var(--fg,#1a2320)">Irrigar setor 3 hoje à noite</span></div>
+              <span style="margin-top:auto;font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;text-align:center;color:var(--on-accent,#fff);background:var(--accent,#12946b);border-radius:9px;padding:9px">Aplicar plano</span>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <footer style="max-width:1120px;margin:0 auto;padding:32px;border-top:1px solid var(--border,#dbe1df);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <span style="font-family:'Inter',sans-serif;font-size:13px;color:var(--muted,#64716c)">FarmConnect · guia de marca</span>
+    <span style="font-family:ui-monospace,monospace;font-size:12px;color:var(--muted,#64716c)">Space Grotesk · Inter · Graphite #232D2A · Emerald #12946B</span>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Tema&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:null,&quot;options&quot;:[&quot;#12946b&quot;,&quot;#0f857a&quot;,&quot;#c9a253&quot;,&quot;#bd6a48&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Tema&quot;}}">
+class Component extends DCLogic {
+  state = { theme: null };
+  themes = {
+    light: { bg:'#f1f3f2', surface:'#ffffff', surface2:'#e9edec', border:'#dbe1df', fg:'#1a2320', muted:'#64716c', accent:'#12946b', accentStrong:'#0f8a64', primarySoft:'#e2f2ec', onAccent:'#ffffff' },
+    dark:  { bg:'#0c1210', surface:'#121a17', surface2:'#1b2723', border:'#263630', fg:'#eaf2ee', muted:'#8ba097', accent:'#2fcf9a', accentStrong:'#5be0b4', primarySoft:'#16332a', onAccent:'#0c1210' }
+  };
+  renderVals() {
+    const mode = this.state.theme || (this.props.startTheme === 'dark' ? 'dark' : 'light');
+    const t = this.themes[mode] || this.themes.light;
+    const accent = this.props.accent || t.accent;
+    const vars = {
+      '--bg':t.bg, '--surface':t.surface, '--surface2':t.surface2, '--border':t.border,
+      '--fg':t.fg, '--muted':t.muted, '--accent':accent, '--accent-strong':t.accentStrong,
+      '--primary-soft':t.primarySoft, '--on-accent':t.onAccent
+    };
+    const rootStyle = Object.entries(vars).map(([k,v]) => `${k}:${v}`).join(';')
+      + ";background:var(--bg);color:var(--fg);min-height:100vh;font-family:'Inter',system-ui,sans-serif;transition:background .35s ease,color .35s ease";
+    return {
+      theme: mode,
+      rootStyle,
+      toggleLabel: mode === 'dark' ? 'Modo claro' : 'Modo escuro',
+      toggleTheme: () => this.setState(s => ({ theme: (s.theme || (this.props.startTheme === 'dark' ? 'dark' : 'light')) === 'dark' ? 'light' : 'dark' }))
+    };
+  }
+}
+</script>
+</body>
+</html>

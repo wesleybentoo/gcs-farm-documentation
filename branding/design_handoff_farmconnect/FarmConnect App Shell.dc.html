@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  a{color:var(--accent,#12946b);text-decoration:none}
+  ::selection{background:var(--accent,#12946b);color:#fff}
+  @keyframes fcshimmer{0%{background-position:-360px 0}100%{background-position:360px 0}}
+  @keyframes fctoastin{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+</style>
+</helmet>
+<div data-theme="{{ theme }}" style="{{ rootStyle }}">
+  <div style="display:grid;grid-template-columns:{{ shellCols }};min-height:100vh;transition:grid-template-columns .22s ease">
+
+    <!-- SIDEBAR -->
+    <aside style="border-right:1px solid var(--border,#dbe1df);background:var(--surface,#fff);display:flex;flex-direction:column;padding:16px 12px;position:sticky;top:0;height:100vh">
+      <div style="display:flex;align-items:center;gap:10px;padding:6px 8px 18px;overflow:hidden">
+        <svg width="26" height="26" viewBox="0 0 48 48" fill="none" style="flex-shrink:0"><g stroke="var(--fg,#1a2320)" stroke-width="2" stroke-linecap="round"><line x1="24" y1="24" x2="24" y2="9"/><line x1="24" y1="24" x2="38.3" y2="19.4"/><line x1="24" y1="24" x2="32.8" y2="36.1"/><line x1="24" y1="24" x2="15.2" y2="36.1"/><line x1="24" y1="24" x2="9.7" y2="19.4"/></g><g fill="var(--fg,#1a2320)"><circle cx="24" cy="24" r="3"/><circle cx="38.3" cy="19.4" r="2.8"/><circle cx="32.8" cy="36.1" r="2.8"/><circle cx="15.2" cy="36.1" r="2.8"/><circle cx="9.7" cy="19.4" r="2.8"/></g><circle cx="24" cy="9" r="4" fill="var(--accent,#12946b)"/></svg>
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;letter-spacing:-0.02em;color:var(--fg,#1a2320);white-space:nowrap;opacity:{{ labelOpacity }}">Farm<span style="color:var(--accent,#12946b)">Connect</span></span>
+      </div>
+      <nav style="display:flex;flex-direction:column;gap:3px;flex:1">
+        <div data-nav="Visão geral" onClick="{{ pickNav }}" style="{{ navVisaoStyle }}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span style="white-space:nowrap;opacity:{{ labelOpacity }}">Visão geral</span></div>
+        <div data-nav="Telemetria" onClick="{{ pickNav }}" style="{{ navTelemetriaStyle }}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg><span style="white-space:nowrap;opacity:{{ labelOpacity }}">Telemetria</span></div>
+        <div data-nav="Pulverização" onClick="{{ pickNav }}" style="{{ navPulvStyle }}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M12 3v6M9 6h6M6 12h12l-1.5 9h-9z"/></svg><span style="white-space:nowrap;opacity:{{ labelOpacity }}">Pulverização</span></div>
+        <div data-nav="Satélite" onClick="{{ pickNav }}" style="{{ navSateliteStyle }}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span style="white-space:nowrap;opacity:{{ labelOpacity }}">Satélite</span></div>
+        <div data-nav="Solo &amp; sensores" onClick="{{ pickNav }}" style="{{ navSoloStyle }}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M12 2s6 5.5 6 10a6 6 0 0 1-12 0c0-4.5 6-10 6-10z"/></svg><span style="white-space:nowrap;opacity:{{ labelOpacity }}">Solo &amp; sensores</span></div>
+        <div data-nav="Irrigação" onClick="{{ pickNav }}" style="{{ navIrrigStyle }}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M12 22a7 7 0 0 0 7-7c0-4-7-11-7-11S5 11 5 15a7 7 0 0 0 7 7z"/></svg><span style="white-space:nowrap;opacity:{{ labelOpacity }}">Irrigação</span></div>
+        <div style="height:1px;background:var(--border,#dbe1df);margin:8px 8px"></div>
+        <div data-nav="Plano de ação" onClick="{{ pickNav }}" style="{{ navPlanoStyle }}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M13 2L4.09 12.97a1 1 0 0 0 .78 1.63H11l-1 7.4 8.91-10.97a1 1 0 0 0-.78-1.63H12z"/></svg><span style="white-space:nowrap;opacity:{{ labelOpacity }}">Plano de ação</span></div>
+      </nav>
+      <div data-nav="Configurações" onClick="{{ pickNav }}" style="{{ navConfigStyle }}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.6-2-3.4-2.4 1a7 7 0 0 0-2-1.2L14 2h-4l-.5 2.6a7 7 0 0 0-2 1.2l-2.4-1-2 3.4 2 1.6A7 7 0 0 0 5 12a7 7 0 0 0 .1 1.2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 2 1.2L10 22h4l.5-2.6a7 7 0 0 0 2-1.2l2.4 1 2-3.4-2-1.6A7 7 0 0 0 19 12z"/></svg><span style="white-space:nowrap;opacity:{{ labelOpacity }}">Configurações</span></div>
+    </aside>
+
+    <!-- MAIN -->
+    <div style="display:flex;flex-direction:column;min-width:0">
+      <!-- TOPBAR -->
+      <header style="position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 24px;border-bottom:1px solid var(--border,#dbe1df);background:color-mix(in srgb, var(--bg,#f1f3f2) 85%, transparent);backdrop-filter:blur(10px)">
+        <div style="display:flex;align-items:center;gap:12px;min-width:0">
+          <span onClick="{{ toggleCollapse }}" style="cursor:pointer;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:9px;color:var(--fg,#1a2320);flex-shrink:0" style-hover="background:var(--surface2,#e9edec)"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></span>
+          <div style="display:flex;align-items:center;gap:7px;font-family:'Inter',sans-serif;font-size:13.5px;min-width:0">
+            <span style="color:var(--muted,#64716c);white-space:nowrap">Santa Clara</span><span style="color:var(--muted,#64716c)">/</span><span style="color:var(--fg,#1a2320);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ st.nav }}</span>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="position:relative;display:none" style-hover="display:block"></div>
+          <span style="position:relative;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:9px;cursor:pointer;color:var(--fg,#1a2320);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df)" style-hover="border-color:var(--accent,#12946b)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-3.2-3.2"/></svg></span>
+          <span onClick="{{ pushToast }}" style="position:relative;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:9px;cursor:pointer;color:var(--fg,#1a2320);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df)" style-hover="border-color:var(--accent,#12946b)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg><span style="position:absolute;top:6px;right:6px;width:8px;height:8px;border-radius:50%;background:var(--err,#c8452f);border:2px solid var(--surface,#fff)"></span></span>
+          <span onClick="{{ toggleTheme }}" style="width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:9px;cursor:pointer;color:var(--fg,#1a2320);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df)" style-hover="border-color:var(--accent,#12946b)"><span style="width:13px;height:13px;border-radius:50%;background:var(--accent,#12946b)"></span></span>
+          <span style="width:34px;height:34px;border-radius:50%;background:var(--fg,#1a2320);color:var(--surface,#fff);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;margin-left:2px">JR</span>
+        </div>
+      </header>
+
+      <!-- CONTENT -->
+      <main style="flex:1;padding:24px;background:var(--bg,#f1f3f2);display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+          <div>
+            <h1 style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:600;letter-spacing:-0.025em;color:var(--fg,#1a2320);margin:0">{{ st.nav }}</h1>
+            <p style="font-family:'Inter',sans-serif;font-size:13.5px;color:var(--muted,#64716c);margin:4px 0 0">Fazenda Santa Clara · 1.240 ha</p>
+          </div>
+          <div style="display:flex;gap:9px">
+            <button onClick="{{ toggleLoading }}" style="cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:13.5px;color:var(--fg,#1a2320);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:10px;padding:10px 15px" style-hover="border-color:var(--accent,#12946b)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 5v5h-5M4 19v-5h5M19 9a8 8 0 0 0-13-3M5 15a8 8 0 0 0 13 3"/></svg>{{ loadingLabel }}</button>
+            <button onClick="{{ toggleEmpty }}" style="cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:13.5px;color:var(--fg,#1a2320);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:10px;padding:10px 15px" style-hover="border-color:var(--accent,#12946b)">{{ emptyLabel }}</button>
+            <button onClick="{{ pushToast }}" style="cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:13.5px;color:var(--on-accent,#fff);background:var(--accent,#12946b);border:none;border-radius:10px;padding:10px 15px" style-hover="background:var(--accent-strong,#0f8a64)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>Gerar plano</button>
+          </div>
+        </div>
+
+        <!-- SKELETON -->
+        <sc-if value="{{ isLoading }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:18px">
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+              <div style="{{ skel }};height:92px"></div><div style="{{ skel }};height:92px"></div><div style="{{ skel }};height:92px"></div><div style="{{ skel }};height:92px"></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:14px">
+              <div style="{{ skel }};height:240px"></div><div style="{{ skel }};height:240px"></div>
+            </div>
+          </div>
+        </sc-if>
+
+        <!-- EMPTY -->
+        <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+          <div style="border:1.5px dashed var(--border,#dbe1df);border-radius:16px;padding:64px 24px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;background:var(--surface,#fff)">
+            <span style="width:64px;height:64px;border-radius:16px;background:var(--primary-soft,#e2f2ec);color:var(--accent,#12946b);display:flex;align-items:center;justify-content:center"><svg width="30" height="30" viewBox="0 0 48 48" fill="none"><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="24" y1="24" x2="24" y2="12"/><line x1="24" y1="24" x2="35" y2="18.5"/><line x1="24" y1="24" x2="32" y2="35"/><line x1="24" y1="24" x2="16" y2="35"/><line x1="24" y1="24" x2="13" y2="18.5"/></g><g fill="currentColor"><circle cx="24" cy="12" r="3"/><circle cx="35" cy="18.5" r="2.6"/><circle cx="32" cy="35" r="2.6"/><circle cx="16" cy="35" r="2.6"/><circle cx="13" cy="18.5" r="2.6"/></g></svg></span>
+            <div><h3 style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;color:var(--fg,#1a2320);margin:0">Nenhuma fonte conectada ainda</h3><p style="font-family:'Inter',sans-serif;font-size:14px;line-height:1.6;color:var(--muted,#64716c);margin:8px 0 0;max-width:380px">Conecte máquinas, sensores ou satélite para o FarmConnect começar a gerar recomendações.</p></div>
+            <div style="display:flex;gap:10px"><button onClick="{{ toggleEmpty }}" style="cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--on-accent,#fff);background:var(--accent,#12946b);border:none;border-radius:10px;padding:11px 18px" style-hover="background:var(--accent-strong,#0f8a64)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>Conectar fonte</button><button onClick="{{ toggleEmpty }}" style="cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--fg,#1a2320);background:transparent;border:1px solid var(--border,#dbe1df);border-radius:10px;padding:11px 18px" style-hover="background:var(--surface2,#e9edec)">Ver dados de exemplo</button></div>
+          </div>
+        </sc-if>
+
+        <!-- DATA -->
+        <sc-if value="{{ isData }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:18px">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px">
+              <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:14px;padding:16px"><div style="font-family:'Inter',sans-serif;font-size:12px;color:var(--muted,#64716c)">Máquinas em operação</div><div style="font-family:'Space Grotesk',sans-serif;font-size:27px;font-weight:600;color:var(--fg,#1a2320);margin-top:6px">8<span style="font-size:15px;color:var(--muted,#64716c);font-weight:400"> / 12</span></div></div>
+              <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:14px;padding:16px"><div style="font-family:'Inter',sans-serif;font-size:12px;color:var(--muted,#64716c)">Pulverizado hoje</div><div style="font-family:'Space Grotesk',sans-serif;font-size:27px;font-weight:600;color:var(--fg,#1a2320);margin-top:6px">148 <span style="font-size:15px;color:var(--muted,#64716c);font-weight:400">ha</span></div></div>
+              <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:14px;padding:16px"><div style="font-family:'Inter',sans-serif;font-size:12px;color:var(--muted,#64716c)">Umidade do solo</div><div style="font-family:'Space Grotesk',sans-serif;font-size:27px;font-weight:600;color:var(--accent,#12946b);margin-top:6px">62%</div></div>
+              <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:14px;padding:16px"><div style="font-family:'Inter',sans-serif;font-size:12px;color:var(--muted,#64716c)">NDVI médio</div><div style="font-family:'Space Grotesk',sans-serif;font-size:27px;font-weight:600;color:var(--fg,#1a2320);margin-top:6px">0,74 <span style="font-size:13px;color:var(--ok,#1a9e73);font-weight:600">▲</span></div></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:14px">
+              <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px">
+                <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--fg,#1a2320)">Mapa de taxa variável</span><span style="font-family:'Inter',sans-serif;font-size:12px;color:var(--muted,#64716c)">Talhão 04 · N</span></div>
+                <div style="flex:1;min-height:190px;border-radius:10px;border:1px dashed var(--border,#dbe1df);background:repeating-linear-gradient(135deg,var(--surface2,#e9edec) 0 11px,transparent 11px 22px);display:flex;align-items:flex-end;padding:12px"><span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);padding:3px 8px;border-radius:6px">mapa de prescrição</span></div>
+              </div>
+              <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:11px">
+                <span style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--fg,#1a2320)">Recomendações</span>
+                <div style="display:flex;align-items:flex-start;gap:9px"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent,#12946b);margin-top:6px;flex-shrink:0"></span><span style="font-family:'Inter',sans-serif;font-size:12.5px;line-height:1.5;color:var(--fg,#1a2320)">Reduzir N em 12% nas zonas de alto NDVI</span></div>
+                <div style="display:flex;align-items:flex-start;gap:9px"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent,#12946b);margin-top:6px;flex-shrink:0"></span><span style="font-family:'Inter',sans-serif;font-size:12.5px;line-height:1.5;color:var(--fg,#1a2320)">Adiar pulverização do Talhão 07 (chuva &lt; 24h)</span></div>
+                <div style="display:flex;align-items:flex-start;gap:9px"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent,#12946b);margin-top:6px;flex-shrink:0"></span><span style="font-family:'Inter',sans-serif;font-size:12.5px;line-height:1.5;color:var(--fg,#1a2320)">Irrigar setor 3 hoje à noite</span></div>
+                <button onClick="{{ pushToast }}" style="margin-top:auto;cursor:pointer;font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;text-align:center;color:var(--on-accent,#fff);background:var(--accent,#12946b);border:none;border-radius:9px;padding:9px">Aplicar plano</button>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+      </main>
+    </div>
+  </div>
+
+  <!-- TOASTS -->
+  <div style="position:fixed;right:20px;bottom:20px;z-index:200;display:flex;flex-direction:column;gap:10px;width:340px;max-width:calc(100vw - 40px)">
+    <sc-for list="{{ toasts }}" as="toast" hint-placeholder-count="0">
+      <div style="{{ toast.style }}">
+        <span style="{{ toast.iconStyle }}">{{ toast.icon }}</span>
+        <div style="flex:1;min-width:0"><div style="font-family:'Inter',sans-serif;font-size:13.5px;font-weight:600;color:var(--fg,#1a2320)">{{ toast.title }}</div><div style="font-family:'Inter',sans-serif;font-size:12.5px;color:var(--muted,#64716c);margin-top:1px">{{ toast.msg }}</div></div>
+        <span data-id="{{ toast.id }}" onClick="{{ dismissToast }}" style="cursor:pointer;color:var(--muted,#64716c);width:22px;height:22px;display:flex;align-items:center;justify-content:center;border-radius:6px;flex-shrink:0;font-size:15px">×</span>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Tema&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:null,&quot;options&quot;:[&quot;#12946b&quot;,&quot;#0f857a&quot;,&quot;#c9a253&quot;,&quot;#bd6a48&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Tema&quot;}}">
+class Component extends DCLogic {
+  state = { theme:null, nav:'Visão geral', collapsed:false, view:'data', toasts:[] };
+  _seq = 0;
+  _variants = [
+    { icon:'✓', kind:'ok', title:'Plano aplicado', msg:'Prescrição enviada às máquinas.' },
+    { icon:'!', kind:'warn', title:'Chuva prevista', msg:'Pulverização do Talhão 07 pode aguardar.' },
+    { icon:'i', kind:'info', title:'Nova imagem de satélite', msg:'Disponível para 14 jul.' },
+    { icon:'×', kind:'err', title:'Sensor offline', msg:'Sensor 12 sem dados há 6h.' }
+  ];
+  themes = {
+    light: { bg:'#f1f3f2', surface:'#ffffff', surface2:'#e9edec', border:'#dbe1df', fg:'#1a2320', muted:'#64716c', accent:'#12946b', accentStrong:'#0f8a64', primarySoft:'#e2f2ec', onAccent:'#ffffff', ok:'#1a9e73', warn:'#c08a2c', err:'#c8452f', info:'#3f77b0', skelBase:'#e9edec', skelHi:'#f4f6f5' },
+    dark:  { bg:'#0c1210', surface:'#121a17', surface2:'#1b2723', border:'#263630', fg:'#eaf2ee', muted:'#8ba097', accent:'#2fcf9a', accentStrong:'#5be0b4', primarySoft:'#16332a', onAccent:'#0c1210', ok:'#35c98f', warn:'#d9b24e', err:'#e06a52', info:'#6aa3d9', skelBase:'#1b2723', skelHi:'#243530' }
+  };
+  renderVals() {
+    const mode = this.state.theme || (this.props.startTheme === 'dark' ? 'dark' : 'light');
+    const t = this.themes[mode] || this.themes.light;
+    const accent = this.props.accent || t.accent;
+    const vars = { '--bg':t.bg,'--surface':t.surface,'--surface2':t.surface2,'--border':t.border,'--fg':t.fg,'--muted':t.muted,'--accent':accent,'--accent-strong':t.accentStrong,'--primary-soft':t.primarySoft,'--on-accent':t.onAccent,'--ok':t.ok,'--warn':t.warn,'--err':t.err,'--info':t.info };
+    const rootStyle = Object.entries(vars).map(([k,v]) => `${k}:${v}`).join(';')
+      + ";background:var(--bg);color:var(--fg);min-height:100vh;font-family:'Inter',system-ui,sans-serif;transition:background .35s ease,color .35s ease";
+    const s = this.state;
+    const navStyle = (on) => `display:flex;align-items:center;gap:12px;padding:10px 11px;border-radius:10px;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;font-weight:${on?600:500};white-space:nowrap;overflow:hidden;color:${on?'var(--accent-strong)':'var(--muted)'};background:${on?'var(--primary-soft)':'transparent'}`;
+    const skel = `border-radius:14px;background:linear-gradient(90deg, ${t.skelBase} 25%, ${t.skelHi} 37%, ${t.skelBase} 63%);background-size:720px 100%;animation:fcshimmer 1.3s ease-in-out infinite`;
+    const kindColor = { ok:t.ok, warn:t.warn, err:t.err, info:t.info };
+    const toasts = s.toasts.map(tt => ({
+      ...tt,
+      style: `display:flex;align-items:flex-start;gap:11px;background:var(--surface);border:1px solid var(--border);border-left:3px solid ${kindColor[tt.kind]};border-radius:12px;padding:13px 14px;box-shadow:0 16px 36px -16px rgba(0,0,0,.4);animation:fctoastin .25s ease`,
+      iconStyle: `width:22px;height:22px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;background:${kindColor[tt.kind]}`
+    }));
+    const set = (patch) => this.setState(patch);
+    return {
+      theme: mode, rootStyle,
+      shellCols: s.collapsed ? '72px 1fr' : '236px 1fr',
+      labelOpacity: s.collapsed ? 0 : 1,
+      st: s,
+      navVisaoStyle: navStyle(s.nav==='Visão geral'), navTelemetriaStyle: navStyle(s.nav==='Telemetria'), navPulvStyle: navStyle(s.nav==='Pulverização'), navSateliteStyle: navStyle(s.nav==='Satélite'), navSoloStyle: navStyle(s.nav==='Solo & sensores'), navIrrigStyle: navStyle(s.nav==='Irrigação'), navPlanoStyle: navStyle(s.nav==='Plano de ação'), navConfigStyle: navStyle(s.nav==='Configurações'),
+      skel,
+      isLoading: s.view==='loading', isEmpty: s.view==='empty', isData: s.view==='data',
+      loadingLabel: s.view==='loading' ? 'Ver dados' : 'Simular carregando',
+      emptyLabel: s.view==='empty' ? 'Ver dados' : 'Estado vazio',
+      toasts,
+      pickNav: (e) => set({ nav: e.currentTarget.getAttribute('data-nav') }),
+      toggleCollapse: () => set(st => ({ collapsed: !st.collapsed })),
+      toggleTheme: () => set(st => ({ theme: (st.theme || (this.props.startTheme === 'dark' ? 'dark':'light')) === 'dark' ? 'light':'dark' })),
+      toggleLoading: () => { if (this.state.view==='loading') { set({ view:'data' }); } else { set({ view:'loading' }); setTimeout(() => { if (this.state.view==='loading') this.setState({ view:'data' }); }, 2200); } },
+      toggleEmpty: () => set(st => ({ view: st.view==='empty' ? 'data' : 'empty' })),
+      pushToast: () => { const v = this._variants[this._seq % this._variants.length]; const id = ++this._seq; set(st => ({ toasts: [...st.toasts, { ...v, id }] })); setTimeout(() => this.setState(st => ({ toasts: st.toasts.filter(x => x.id !== id) })), 4200); },
+      dismissToast: (e) => { const id = +e.currentTarget.getAttribute('data-id'); set(st => ({ toasts: st.toasts.filter(x => x.id !== id) })); }
+    };
+  }
+}
+</script>
+</body>
+</html>

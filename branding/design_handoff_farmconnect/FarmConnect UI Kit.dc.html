@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  a{color:var(--accent,#12946b);text-decoration:none}
+  a:hover{color:var(--accent-strong,#0f8a64)}
+  ::selection{background:var(--accent,#12946b);color:#fff}
+  @keyframes fcspin{to{transform:rotate(360deg)}}
+  @keyframes fcping{0%{transform:scale(1);opacity:.6}70%,100%{transform:scale(2.4);opacity:0}}
+  input[type=range]{accent-color:var(--accent,#12946b)}
+</style>
+</helmet>
+<div data-theme="{{ theme }}" style="{{ rootStyle }}">
+
+  <header style="position:sticky;top:0;z-index:30;backdrop-filter:blur(10px);background:color-mix(in srgb, var(--bg,#f1f3f2) 82%, transparent);border-bottom:1px solid var(--border,#dbe1df)">
+    <div style="max-width:1080px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:10px">
+        <svg width="24" height="24" viewBox="0 0 48 48" fill="none" style="flex-shrink:0"><g stroke="var(--fg,#1a2320)" stroke-width="2" stroke-linecap="round"><line x1="24" y1="24" x2="24" y2="9"/><line x1="24" y1="24" x2="38.3" y2="19.4"/><line x1="24" y1="24" x2="32.8" y2="36.1"/><line x1="24" y1="24" x2="15.2" y2="36.1"/><line x1="24" y1="24" x2="9.7" y2="19.4"/></g><g fill="var(--fg,#1a2320)"><circle cx="24" cy="24" r="3"/><circle cx="38.3" cy="19.4" r="2.8"/><circle cx="32.8" cy="36.1" r="2.8"/><circle cx="15.2" cy="36.1" r="2.8"/><circle cx="9.7" cy="19.4" r="2.8"/></g><circle cx="24" cy="9" r="4" fill="var(--accent,#12946b)"/></svg>
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.02em;color:var(--fg,#1a2320)">Farm<span style="color:var(--accent,#12946b)">Connect</span></span>
+        <span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c);border:1px solid var(--border,#dbe1df);border-radius:999px;padding:3px 9px;margin-left:4px">UI Kit</span>
+      </div>
+      <button onClick="{{ toggleTheme }}" style="display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:var(--fg,#1a2320);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:999px;padding:8px 14px">
+        <span style="width:14px;height:14px;border-radius:50%;background:var(--accent,#12946b)"></span>
+        {{ toggleLabel }}
+      </button>
+    </div>
+  </header>
+
+  <div style="max-width:1080px;margin:0 auto;padding:52px 32px 20px">
+    <p style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent,#12946b);margin:0 0 10px">Sistema de componentes</p>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:600;letter-spacing:-0.03em;color:var(--fg,#1a2320);margin:0">Kit de UI para web</h1>
+    <p style="font-size:15px;line-height:1.7;color:var(--muted,#64716c);margin:12px 0 0;max-width:640px;text-wrap:pretty">Componentes prontos na paleta Graphite &amp; Emerald, com estados e interação reais. Alterne o tema no topo — tudo responde.</p>
+  </div>
+
+  <!-- BOTÕES -->
+  <section style="max-width:1080px;margin:0 auto;padding:40px 32px;border-top:1px solid var(--border,#dbe1df)">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:var(--fg,#1a2320);margin:0 0 20px">Botões</h2>
+    <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+        <button style="display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--on-accent,#fff);background:var(--accent,#12946b);border:none;border-radius:10px;padding:11px 18px" style-hover="background:var(--accent-strong,#0f8a64)">Primário</button>
+        <button style="display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--fg,#1a2320);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:10px;padding:11px 18px" style-hover="border-color:var(--accent,#12946b)">Secundário</button>
+        <button style="display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--fg,#1a2320);background:transparent;border:1px solid transparent;border-radius:10px;padding:11px 18px" style-hover="background:var(--surface2,#e9edec)">Fantasma</button>
+        <button style="display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:#fff;background:var(--err,#c8452f);border:none;border-radius:10px;padding:11px 18px" style-hover="filter:brightness(1.08)">Excluir</button>
+        <button style="cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--accent,#12946b);background:none;border:none;padding:11px 6px" style-hover="color:var(--accent-strong,#0f8a64)">Botão de texto</button>
+      </div>
+      <div style="height:1px;background:var(--border,#dbe1df)"></div>
+      <span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c);text-transform:uppercase;letter-spacing:0.05em">Com ícones</span>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+        <button style="display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--on-accent,#fff);background:var(--accent,#12946b);border:none;border-radius:10px;padding:11px 18px" style-hover="background:var(--accent-strong,#0f8a64)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>Novo talhão</button>
+        <button style="display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--fg,#1a2320);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:10px;padding:11px 18px" style-hover="border-color:var(--accent,#12946b)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v10M8 10l4 4 4-4M5 19h14"/></svg>Exportar</button>
+        <button style="display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--fg,#1a2320);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:10px;padding:11px 18px" style-hover="border-color:var(--accent,#12946b)">Próximo<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+        <span style="width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;cursor:pointer;color:var(--on-accent,#fff);background:var(--accent,#12946b)" style-hover="background:var(--accent-strong,#0f8a64)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        <span style="width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;cursor:pointer;color:var(--fg,#1a2320);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df)" style-hover="border-color:var(--accent,#12946b)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18M6 12h12M10 19h4"/></svg></span>
+        <span style="width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;cursor:pointer;color:var(--fg,#1a2320);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df)" style-hover="border-color:var(--accent,#12946b)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-3.2-3.2"/></svg></span>
+        <span style="width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;cursor:pointer;color:var(--fg,#1a2320);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df)" style-hover="border-color:var(--accent,#12946b)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l8 4-8 4-8-4 8-4zM4 12l8 4 8-4M4 16l8 4 8-4"/></svg></span>
+        <span style="width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;cursor:pointer;color:var(--fg,#1a2320);background:transparent" style-hover="background:var(--surface2,#e9edec)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 5v5h-5M4 19v-5h5M19 9a8 8 0 0 0-13-3M5 15a8 8 0 0 0 13 3"/></svg></span>
+        <span style="width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;cursor:pointer;color:var(--err,#c8452f);background:transparent" style-hover="background:var(--err-soft,#f9e7e2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg></span>
+        <span style="width:52px;height:52px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;cursor:pointer;color:var(--on-accent,#fff);background:var(--accent,#12946b);box-shadow:0 10px 24px -8px color-mix(in srgb,var(--accent,#12946b) 70%, transparent);margin-left:6px" style-hover="background:var(--accent-strong,#0f8a64)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULÁRIOS -->
+  <section style="max-width:1080px;margin:0 auto;padding:40px 32px;border-top:1px solid var(--border,#dbe1df)">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:var(--fg,#1a2320);margin:0 0 20px">Campos de formulário</h2>
+    <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
+      <div style="display:flex;flex-direction:column;gap:7px">
+        <span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--fg,#1a2320)">Nome da fazenda</span>
+        <input type="text" placeholder="Ex: Santa Clara" style="width:100%;background:var(--bg,#f1f3f2);border:1px solid var(--border,#dbe1df);color:var(--fg,#1a2320);border-radius:10px;padding:11px 12px;font-family:'Inter',sans-serif;font-size:14px;outline:none" style-focus="border-color:var(--accent,#12946b)"/>
+        <span style="font-family:'Inter',sans-serif;font-size:11.5px;color:var(--muted,#64716c)">Como aparece nos relatórios.</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:7px">
+        <span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--fg,#1a2320)">Área (ha)</span>
+        <input type="text" value="1.240" style="width:100%;background:var(--bg,#f1f3f2);border:1px solid var(--err,#c8452f);color:var(--fg,#1a2320);border-radius:10px;padding:11px 12px;font-family:'Inter',sans-serif;font-size:14px;outline:none"/>
+        <span style="font-family:'Inter',sans-serif;font-size:11.5px;color:var(--err,#c8452f)">Use apenas números.</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:7px">
+        <span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--fg,#1a2320)">Cultura</span>
+        <div style="position:relative">
+          <button onClick="{{ toggleSel }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--bg,#f1f3f2);border:1px solid var(--border,#dbe1df);color:var(--fg,#1a2320);border-radius:10px;padding:11px 12px;font-family:'Inter',sans-serif;font-size:14px;cursor:pointer" style-hover="border-color:var(--accent,#12946b)">{{ st.sel }}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--muted,#64716c)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="{{ selChevron }}"><path d="M6 9l6 6 6-6"/></svg></button>
+          <sc-if value="{{ selOpen }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ closeSel }}" style="position:fixed;inset:0;z-index:40"></div>
+            <div style="position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:41;background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:12px;box-shadow:0 20px 44px -20px rgba(0,0,0,.45);padding:6px">
+              <div data-value="Milho" onClick="{{ pickSel }}" style="display:flex;align-items:center;justify-content:space-between;font-family:'Inter',sans-serif;font-size:14px;color:var(--fg,#1a2320);padding:9px 11px;border-radius:8px;cursor:pointer" style-hover="background:var(--surface2,#e9edec)">Milho</div>
+              <div data-value="Soja" onClick="{{ pickSel }}" style="display:flex;align-items:center;justify-content:space-between;font-family:'Inter',sans-serif;font-size:14px;color:var(--fg,#1a2320);padding:9px 11px;border-radius:8px;cursor:pointer" style-hover="background:var(--surface2,#e9edec)">Soja</div>
+              <div data-value="Café" onClick="{{ pickSel }}" style="display:flex;align-items:center;justify-content:space-between;font-family:'Inter',sans-serif;font-size:14px;color:var(--fg,#1a2320);padding:9px 11px;border-radius:8px;cursor:pointer" style-hover="background:var(--surface2,#e9edec)">Café</div>
+              <div data-value="Cana" onClick="{{ pickSel }}" style="display:flex;align-items:center;justify-content:space-between;font-family:'Inter',sans-serif;font-size:14px;color:var(--fg,#1a2320);padding:9px 11px;border-radius:8px;cursor:pointer" style-hover="background:var(--surface2,#e9edec)">Cana</div>
+            </div>
+          </sc-if>
+        </div>
+        <span style="font-family:'Inter',sans-serif;font-size:11.5px;color:var(--muted,#64716c)">Dropdown estilizado, sem a caixa do sistema.</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:7px">
+        <span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--fg,#1a2320)">Buscar talhão</span>
+        <div style="position:relative">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="position:absolute;left:12px;top:50%;transform:translateY(-50%)"><circle cx="11" cy="11" r="7" stroke="var(--muted,#64716c)" stroke-width="2"/><path d="M21 21l-4-4" stroke="var(--muted,#64716c)" stroke-width="2" stroke-linecap="round"/></svg>
+          <input type="text" placeholder="Talhão, cultura…" style="width:100%;background:var(--bg,#f1f3f2);border:1px solid var(--border,#dbe1df);color:var(--fg,#1a2320);border-radius:10px;padding:11px 12px 11px 36px;font-family:'Inter',sans-serif;font-size:14px;outline:none" style-focus="border-color:var(--accent,#12946b)"/>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:7px;grid-column:1/-1">
+        <span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--fg,#1a2320)">Observações de manejo</span>
+        <textarea rows="3" placeholder="Anotações do talhão…" style="width:100%;background:var(--bg,#f1f3f2);border:1px solid var(--border,#dbe1df);color:var(--fg,#1a2320);border-radius:10px;padding:11px 12px;font-family:'Inter',sans-serif;font-size:14px;outline:none;resize:vertical" style-focus="border-color:var(--accent,#12946b)"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELEÇÃO -->
+  <section style="max-width:1080px;margin:0 auto;padding:40px 32px;border-top:1px solid var(--border,#dbe1df)">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:var(--fg,#1a2320);margin:0 0 20px">Seleção &amp; interruptores</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px">
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c);text-transform:uppercase;letter-spacing:0.05em">Checkbox</span>
+        <div onClick="{{ onCheckA }}" style="display:flex;align-items:center;gap:11px;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;color:var(--fg,#1a2320)"><span style="{{ chkABox }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="{{ chkAMark }}"><path d="M5 12l4.5 4.5L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Telemetria</div>
+        <div onClick="{{ onCheckB }}" style="display:flex;align-items:center;gap:11px;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;color:var(--fg,#1a2320)"><span style="{{ chkBBox }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="{{ chkBMark }}"><path d="M5 12l4.5 4.5L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Imagens de satélite</div>
+        <div onClick="{{ onCheckC }}" style="display:flex;align-items:center;gap:11px;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;color:var(--fg,#1a2320)"><span style="{{ chkCBox }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="{{ chkCMark }}"><path d="M5 12l4.5 4.5L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sensores de solo</div>
+      </div>
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c);text-transform:uppercase;letter-spacing:0.05em">Radio</span>
+        <div onClick="{{ onRadioA }}" style="display:flex;align-items:center;gap:11px;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;color:var(--fg,#1a2320)"><span style="{{ radPadraoBox }}"><span style="{{ radPadraoDot }}"></span></span>Dose padrão</div>
+        <div onClick="{{ onRadioB }}" style="display:flex;align-items:center;gap:11px;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;color:var(--fg,#1a2320)"><span style="{{ radEcoBox }}"><span style="{{ radEcoDot }}"></span></span>Econômica</div>
+        <div onClick="{{ onRadioC }}" style="display:flex;align-items:center;gap:11px;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;color:var(--fg,#1a2320)"><span style="{{ radMaxBox }}"><span style="{{ radMaxDot }}"></span></span>Máx. produtividade</div>
+      </div>
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:16px">
+        <span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c);text-transform:uppercase;letter-spacing:0.05em">Switch</span>
+        <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Inter',sans-serif;font-size:14px;color:var(--fg,#1a2320)">Alertas por push</span><div onClick="{{ onSwitchA }}" style="width:44px;height:26px;border-radius:999px;padding:3px;cursor:pointer;transition:background .2s;background:{{ swABg }}"><div style="width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .2s;transform:{{ swAKnob }}"></div></div></div>
+        <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Inter',sans-serif;font-size:14px;color:var(--fg,#1a2320)">Sincronizar offline</span><div onClick="{{ onSwitchB }}" style="width:44px;height:26px;border-radius:999px;padding:3px;cursor:pointer;transition:background .2s;background:{{ swBBg }}"><div style="width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .2s;transform:{{ swBKnob }}"></div></div></div>
+      </div>
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c);text-transform:uppercase;letter-spacing:0.05em">Segmented</span>
+        <div style="display:flex;gap:4px;background:var(--surface2,#e9edec);border-radius:10px;padding:4px">
+          <div onClick="{{ onSegMapa }}" style="{{ segMapaStyle }}">Mapa</div>
+          <div onClick="{{ onSegSatelite }}" style="{{ segSateliteStyle }}">Satélite</div>
+          <div onClick="{{ onSegSolo }}" style="{{ segSoloStyle }}">Solo</div>
+        </div>
+        <span style="font-family:'Inter',sans-serif;font-size:11.5px;color:var(--muted,#64716c)">Camada ativa: {{ st.seg }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDERS -->
+  <section style="max-width:1080px;margin:0 auto;padding:40px 32px;border-top:1px solid var(--border,#dbe1df)">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:var(--fg,#1a2320);margin:0 0 20px">Sliders</h2>
+    <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--fg,#1a2320)">Umidade alvo do solo</span><span style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--accent,#12946b)">{{ st.slider }}%</span></div>
+        <input type="range" min="0" max="100" value="{{ st.slider }}" onInput="{{ onSlider }}" style="width:100%;cursor:pointer"/>
+        <span style="font-family:'Inter',sans-serif;font-size:11.5px;color:var(--muted,#64716c)">Dispara irrigação abaixo do alvo.</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--fg,#1a2320)">Vazão de pulverização</span><span style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--accent,#12946b)">{{ st.slider2 }} L/ha</span></div>
+        <input type="range" min="1" max="10" step="1" value="{{ st.slider2 }}" onInput="{{ onSlider2 }}" style="width:100%;cursor:pointer"/>
+        <div style="display:flex;justify-content:space-between;font-family:ui-monospace,monospace;font-size:10px;color:var(--muted,#64716c)"><span>1</span><span>5</span><span>10</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARDS -->
+  <section style="max-width:1080px;margin:0 auto;padding:40px 32px;border-top:1px solid var(--border,#dbe1df)">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:var(--fg,#1a2320);margin:0 0 20px">Cards</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <span style="width:40px;height:40px;border-radius:11px;background:var(--primary-soft,#e2f2ec);color:var(--accent,#12946b);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l8 4-8 4-8-4 8-4zM4 12l8 4 8-4M4 16l8 4 8-4"/></svg></span>
+          <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--ok,#1a9e73)">▲ 6%</span>
+        </div>
+        <div><div style="font-family:'Inter',sans-serif;font-size:13px;color:var(--muted,#64716c)">NDVI médio</div><div style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:600;color:var(--fg,#1a2320);line-height:1.1">0,74</div></div>
+      </div>
+
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px">
+        <span style="width:40px;height:40px;border-radius:11px;background:var(--primary-soft,#e2f2ec);color:var(--accent,#12946b);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 5v5h-5M4 19v-5h5M19 9a8 8 0 0 0-13-3M5 15a8 8 0 0 0 13 3"/></svg></span>
+        <div><div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--fg,#1a2320)">Plano de ação</div><p style="font-family:'Inter',sans-serif;font-size:13px;line-height:1.55;color:var(--muted,#64716c);margin:6px 0 0">A IA gera a estratégia do talhão a partir dos dados conectados.</p></div>
+        <button style="align-self:flex-start;display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:var(--on-accent,#fff);background:var(--accent,#12946b);border:none;border-radius:9px;padding:9px 14px" style-hover="background:var(--accent-strong,#0f8a64)">Gerar<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;overflow:hidden;display:flex;flex-direction:column">
+        <div style="height:104px;background:repeating-linear-gradient(135deg,var(--surface2,#e9edec) 0 10px,transparent 10px 20px);display:flex;align-items:flex-end;padding:10px"><span style="font-family:ui-monospace,monospace;font-size:10px;color:var(--muted,#64716c);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);padding:2px 7px;border-radius:5px">imagem de satélite</span></div>
+        <div style="padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--fg,#1a2320)">Talhão 04</span><span style="font-size:11px;font-weight:600;color:var(--ok,#1a9e73);background:var(--ok-soft,#e4f5ee);padding:3px 9px;border-radius:999px">Ótimo</span></div>
+          <p style="font-family:'Inter',sans-serif;font-size:12.5px;color:var(--muted,#64716c);margin:0">Milho · 320 ha · atualizado há 4 min</p>
+          <button style="align-self:flex-start;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:var(--fg,#1a2320);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:9px;padding:8px 14px" style-hover="border-color:var(--accent,#12946b)">Ver detalhes</button>
+        </div>
+      </div>
+
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:flex-start;gap:12px">
+          <span style="width:40px;height:40px;border-radius:11px;background:var(--warn-soft,#f7efdb);color:var(--warn,#c08a2c);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span>
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--fg,#1a2320)">Janela de pulverização</div><p style="font-family:'Inter',sans-serif;font-size:12.5px;color:var(--muted,#64716c);margin:4px 0 0">Hoje, 16h–19h · vento &lt; 10 km/h</p></div>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button style="flex:1;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:var(--on-accent,#fff);background:var(--accent,#12946b);border:none;border-radius:9px;padding:9px" style-hover="background:var(--accent-strong,#0f8a64)">Agendar</button>
+          <button style="cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:var(--fg,#1a2320);background:transparent;border:1px solid var(--border,#dbe1df);border-radius:9px;padding:9px 14px" style-hover="background:var(--surface2,#e9edec)">Adiar</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BADGES & CHIPS -->
+  <section style="max-width:1080px;margin:0 auto;padding:40px 32px;border-top:1px solid var(--border,#dbe1df)">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:var(--fg,#1a2320);margin:0 0 20px">Badges &amp; chips</h2>
+    <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--ok,#1a9e73);background:var(--ok-soft,#e4f5ee);padding:5px 11px;border-radius:999px"><span style="width:6px;height:6px;border-radius:50%;background:var(--ok,#1a9e73)"></span>Ótimo</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--warn,#c08a2c);background:var(--warn-soft,#f7efdb);padding:5px 11px;border-radius:999px"><span style="width:6px;height:6px;border-radius:50%;background:var(--warn,#c08a2c)"></span>Atenção</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--err,#c8452f);background:var(--err-soft,#f9e7e2);padding:5px 11px;border-radius:999px"><span style="width:6px;height:6px;border-radius:50%;background:var(--err,#c8452f)"></span>Crítico</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--info,#3f77b0);background:var(--info-soft,#e6eef7);padding:5px 11px;border-radius:999px"><span style="width:6px;height:6px;border-radius:50%;background:var(--info,#3f77b0)"></span>Info</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+        <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--on-accent,#fff);background:var(--accent,#12946b);padding:5px 11px;border-radius:999px">Novo</span>
+        <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:#fff;background:var(--fg,#1a2320);padding:5px 11px;border-radius:999px">Beta</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-size:13px;color:var(--fg,#1a2320);background:var(--surface2,#e9edec);padding:6px 8px 6px 12px;border-radius:999px">Talhão 04 <span style="cursor:pointer;width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:var(--border,#dbe1df);color:var(--muted,#64716c);font-size:11px">×</span></span>
+        <span style="display:inline-flex;align-items:center;gap:7px;font-family:'Inter',sans-serif;font-size:13px;color:var(--fg,#1a2320)">Notificações <span style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;color:#fff;background:var(--err,#c8452f);min-width:18px;height:18px;padding:0 5px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center">3</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALERTAS -->
+  <section style="max-width:1080px;margin:0 auto;padding:40px 32px;border-top:1px solid var(--border,#dbe1df)">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:var(--fg,#1a2320);margin:0 0 20px">Alertas</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px">
+      <div style="background:var(--ok-soft,#e4f5ee);border:1px solid color-mix(in srgb, var(--ok,#1a9e73) 30%, transparent);border-radius:12px;padding:15px 16px;display:flex;gap:12px"><span style="width:20px;height:20px;border-radius:50%;background:var(--ok,#1a9e73);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">✓</span><div><div style="font-family:'Inter',sans-serif;font-size:13.5px;font-weight:600;color:var(--fg,#1a2320)">Plano aplicado</div><div style="font-family:'Inter',sans-serif;font-size:12.5px;color:var(--muted,#64716c);margin-top:2px">A prescrição foi enviada às máquinas.</div></div></div>
+      <div style="background:var(--warn-soft,#f7efdb);border:1px solid color-mix(in srgb, var(--warn,#c08a2c) 30%, transparent);border-radius:12px;padding:15px 16px;display:flex;gap:12px"><span style="width:20px;height:20px;border-radius:50%;background:var(--warn,#c08a2c);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">!</span><div><div style="font-family:'Inter',sans-serif;font-size:13.5px;font-weight:600;color:var(--fg,#1a2320)">Chuva prevista</div><div style="font-family:'Inter',sans-serif;font-size:12.5px;color:var(--muted,#64716c);margin-top:2px">Pulverização do Talhão 07 pode ser adiada.</div></div></div>
+      <div style="background:var(--err-soft,#f9e7e2);border:1px solid color-mix(in srgb, var(--err,#c8452f) 30%, transparent);border-radius:12px;padding:15px 16px;display:flex;gap:12px"><span style="width:20px;height:20px;border-radius:50%;background:var(--err,#c8452f);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">×</span><div><div style="font-family:'Inter',sans-serif;font-size:13.5px;font-weight:600;color:var(--fg,#1a2320)">Sensor offline</div><div style="font-family:'Inter',sans-serif;font-size:12.5px;color:var(--muted,#64716c);margin-top:2px">Sensor 12 sem dados há 6h.</div></div></div>
+      <div style="background:var(--info-soft,#e6eef7);border:1px solid color-mix(in srgb, var(--info,#3f77b0) 30%, transparent);border-radius:12px;padding:15px 16px;display:flex;gap:12px"><span style="width:20px;height:20px;border-radius:50%;background:var(--info,#3f77b0);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">i</span><div><div style="font-family:'Inter',sans-serif;font-size:13.5px;font-weight:600;color:var(--fg,#1a2320)">Nova imagem de satélite</div><div style="font-family:'Inter',sans-serif;font-size:12.5px;color:var(--muted,#64716c);margin-top:2px">Disponível para 14 jul.</div></div></div>
+    </div>
+  </section>
+
+  <!-- ABAS + TABELA -->
+  <section style="max-width:1080px;margin:0 auto;padding:40px 32px;border-top:1px solid var(--border,#dbe1df)">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:var(--fg,#1a2320);margin:0 0 20px">Abas &amp; tabela</h2>
+    <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:0 26px 26px;overflow:hidden">
+      <div style="display:flex;gap:24px;border-bottom:1px solid var(--border,#dbe1df);margin-bottom:20px">
+        <button onClick="{{ onTabVisao }}" style="{{ tabVisaoStyle }}">Talhões</button>
+        <button onClick="{{ onTabDados }}" style="{{ tabDadosStyle }}">Máquinas</button>
+        <button onClick="{{ onTabAlertas }}" style="{{ tabAlertasStyle }}">Alertas</button>
+      </div>
+      <sc-if value="{{ isVisao }}" hint-placeholder-val="{{ true }}">
+        <div style="border:1px solid var(--border,#dbe1df);border-radius:12px;overflow:hidden">
+          <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;padding:11px 16px;background:var(--surface2,#e9edec);font-family:ui-monospace,monospace;font-size:11px;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted,#64716c)"><span>Talhão</span><span>Cultura</span><span>NDVI</span><span>Status</span></div>
+          <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;padding:13px 16px;border-top:1px solid var(--border,#dbe1df);align-items:center;font-family:'Inter',sans-serif;font-size:13.5px;color:var(--fg,#1a2320)" style-hover="background:var(--surface2,#e9edec)"><span>Talhão 04</span><span style="color:var(--muted,#64716c)">Milho</span><span>0,74</span><span><span style="font-size:11px;font-weight:600;color:var(--ok,#1a9e73);background:var(--ok-soft,#e4f5ee);padding:3px 9px;border-radius:999px">Ótimo</span></span></div>
+          <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;padding:13px 16px;border-top:1px solid var(--border,#dbe1df);align-items:center;font-family:'Inter',sans-serif;font-size:13.5px;color:var(--fg,#1a2320)" style-hover="background:var(--surface2,#e9edec)"><span>Talhão 07</span><span style="color:var(--muted,#64716c)">Soja</span><span>0,58</span><span><span style="font-size:11px;font-weight:600;color:var(--warn,#c08a2c);background:var(--warn-soft,#f7efdb);padding:3px 9px;border-radius:999px">Atenção</span></span></div>
+          <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;padding:13px 16px;border-top:1px solid var(--border,#dbe1df);align-items:center;font-family:'Inter',sans-serif;font-size:13.5px;color:var(--fg,#1a2320)" style-hover="background:var(--surface2,#e9edec)"><span>Talhão 12</span><span style="color:var(--muted,#64716c)">Café</span><span>0,41</span><span><span style="font-size:11px;font-weight:600;color:var(--err,#c8452f);background:var(--err-soft,#f9e7e2);padding:3px 9px;border-radius:999px">Crítico</span></span></div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isDados }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:28px;text-align:center;font-family:'Inter',sans-serif;font-size:14px;color:var(--muted,#64716c)">8 de 12 máquinas em operação · 3 ociosas · 1 em manutenção</div>
+      </sc-if>
+      <sc-if value="{{ isAlertas }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:28px;text-align:center;font-family:'Inter',sans-serif;font-size:14px;color:var(--muted,#64716c)">2 alertas abertos · 1 crítico · atualizados há 4 min</div>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- MAPA -->
+  <section style="max-width:1080px;margin:0 auto;padding:40px 32px;border-top:1px solid var(--border,#dbe1df)">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:var(--fg,#1a2320);margin:0 0 20px">Mapa (satélite)</h2>
+    <div style="position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--border,#dbe1df);min-height:460px;background:#20302a;background-image:repeating-linear-gradient(58deg, rgba(255,255,255,.04) 0 14px, transparent 14px 30px),repeating-linear-gradient(-58deg, rgba(0,0,0,.10) 0 14px, transparent 14px 30px)">
+      <div style="position:absolute;left:16%;top:22%;width:150px;height:120px;border-radius:22px;background:color-mix(in srgb, var(--ok,#1a9e73) 42%, transparent);filter:blur(1px)"></div>
+      <div style="position:absolute;left:46%;top:40%;width:190px;height:150px;border-radius:26px;background:color-mix(in srgb, var(--warn,#c08a2c) 40%, transparent);filter:blur(1px)"></div>
+      <div style="position:absolute;left:24%;top:55%;width:130px;height:110px;border-radius:20px;background:color-mix(in srgb, var(--err,#c8452f) 38%, transparent);filter:blur(1px)"></div>
+
+      <div style="position:absolute;left:16px;top:16px;display:flex;gap:4px;padding:4px;border-radius:11px;background:color-mix(in srgb, var(--surface,#fff) 86%, transparent);backdrop-filter:blur(8px);border:1px solid color-mix(in srgb, var(--border,#dbe1df) 70%, transparent)">
+        <div onClick="{{ onMapSat }}" style="{{ mapSatStyle }}">Satélite</div>
+        <div onClick="{{ onMapNdvi }}" style="{{ mapNdviStyle }}">NDVI</div>
+        <div onClick="{{ onMapSolo }}" style="{{ mapSoloStyle }}">Solo</div>
+      </div>
+
+      <div style="position:absolute;right:16px;top:16px;display:flex;gap:8px">
+        <span style="width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;cursor:pointer;color:var(--fg,#1a2320);background:color-mix(in srgb, var(--surface,#fff) 86%, transparent);backdrop-filter:blur(8px);border:1px solid color-mix(in srgb, var(--border,#dbe1df) 70%, transparent)" style-hover="color:var(--accent,#12946b)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l8 4-8 4-8-4 8-4zM4 12l8 4 8-4M4 16l8 4 8-4"/></svg></span>
+        <span style="width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;cursor:pointer;color:var(--fg,#1a2320);background:color-mix(in srgb, var(--surface,#fff) 86%, transparent);backdrop-filter:blur(8px);border:1px solid color-mix(in srgb, var(--border,#dbe1df) 70%, transparent)" style-hover="color:var(--accent,#12946b)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></span>
+      </div>
+
+      <div style="position:absolute;left:16px;top:66px;display:flex;gap:8px;flex-wrap:wrap;max-width:320px">
+        <div style="position:relative">
+          <button onClick="{{ toggleMapTal }}" style="display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:12.5px;color:var(--fg,#1a2320);background:color-mix(in srgb, var(--surface,#fff) 86%, transparent);backdrop-filter:blur(8px);border:1px solid color-mix(in srgb, var(--border,#dbe1df) 70%, transparent);border-radius:9px;padding:8px 12px">{{ st.mapTal }}<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--muted,#64716c)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          <sc-if value="{{ mapTalOpen }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ closeMapTal }}" style="position:fixed;inset:0;z-index:40"></div>
+            <div style="position:absolute;top:calc(100% + 6px);left:0;z-index:41;min-width:150px;background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:11px;box-shadow:0 20px 44px -20px rgba(0,0,0,.45);padding:6px">
+              <div data-value="Todos os talhões" onClick="{{ pickTal }}" style="font-family:'Inter',sans-serif;font-size:13px;color:var(--fg,#1a2320);padding:8px 10px;border-radius:7px;cursor:pointer" style-hover="background:var(--surface2,#e9edec)">Todos os talhões</div>
+              <div data-value="Talhão 04" onClick="{{ pickTal }}" style="font-family:'Inter',sans-serif;font-size:13px;color:var(--fg,#1a2320);padding:8px 10px;border-radius:7px;cursor:pointer" style-hover="background:var(--surface2,#e9edec)">Talhão 04</div>
+              <div data-value="Talhão 07" onClick="{{ pickTal }}" style="font-family:'Inter',sans-serif;font-size:13px;color:var(--fg,#1a2320);padding:8px 10px;border-radius:7px;cursor:pointer" style-hover="background:var(--surface2,#e9edec)">Talhão 07</div>
+              <div data-value="Talhão 12" onClick="{{ pickTal }}" style="font-family:'Inter',sans-serif;font-size:13px;color:var(--fg,#1a2320);padding:8px 10px;border-radius:7px;cursor:pointer" style-hover="background:var(--surface2,#e9edec)">Talhão 12</div>
+            </div>
+          </sc-if>
+        </div>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-weight:600;font-size:12.5px;color:var(--fg,#1a2320);background:color-mix(in srgb, var(--surface,#fff) 86%, transparent);backdrop-filter:blur(8px);border:1px solid color-mix(in srgb, var(--border,#dbe1df) 70%, transparent);border-radius:9px;padding:8px 12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--muted,#64716c)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18M6 12h12M10 19h4"/></svg>Milho</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-weight:600;font-size:12.5px;color:var(--fg,#1a2320);background:color-mix(in srgb, var(--surface,#fff) 86%, transparent);backdrop-filter:blur(8px);border:1px solid color-mix(in srgb, var(--border,#dbe1df) 70%, transparent);border-radius:9px;padding:8px 12px">14 jul</span>
+      </div>
+
+      <div style="position:absolute;right:16px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;background:color-mix(in srgb, var(--surface,#fff) 86%, transparent);backdrop-filter:blur(8px);border:1px solid color-mix(in srgb, var(--border,#dbe1df) 70%, transparent);border-radius:11px;overflow:hidden">
+        <span onClick="{{ zoomIn }}" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--fg,#1a2320)" style-hover="background:var(--surface2,#e9edec)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        <span style="height:1px;background:color-mix(in srgb, var(--border,#dbe1df) 70%, transparent)"></span>
+        <span onClick="{{ zoomOut }}" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--fg,#1a2320)" style-hover="background:var(--surface2,#e9edec)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg></span>
+      </div>
+
+      <div style="position:absolute;left:34%;top:34%">
+        <span style="position:absolute;left:-9px;top:-9px;width:18px;height:18px;border-radius:50%;background:var(--accent,#12946b);opacity:.5;animation:fcping 2s ease-out infinite"></span>
+        <span style="position:relative;display:block;width:14px;height:14px;border-radius:50%;background:var(--accent,#12946b);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.4)"></span>
+      </div>
+      <div style="position:absolute;left:60%;top:58%">
+        <span style="position:relative;display:block;width:14px;height:14px;border-radius:50%;background:var(--warn,#c08a2c);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.4)"></span>
+      </div>
+
+      <div style="position:absolute;left:16px;bottom:16px;background:color-mix(in srgb, var(--surface,#fff) 88%, transparent);backdrop-filter:blur(8px);border:1px solid color-mix(in srgb, var(--border,#dbe1df) 70%, transparent);border-radius:11px;padding:11px 13px;display:flex;flex-direction:column;gap:7px">
+        <span style="font-family:ui-monospace,monospace;font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted,#64716c)">NDVI · zoom {{ st.zoom }}</span>
+        <div style="width:150px;height:8px;border-radius:999px;background:linear-gradient(90deg,#c8452f,#d9b24e,#1a9e73)"></div>
+        <div style="display:flex;justify-content:space-between;font-family:ui-monospace,monospace;font-size:9px;color:var(--muted,#64716c)"><span>0,2</span><span>0,5</span><span>0,8</span></div>
+      </div>
+
+      <button style="position:absolute;right:16px;bottom:16px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:13.5px;color:var(--on-accent,#fff);background:var(--accent,#12946b);border:none;border-radius:11px;padding:11px 18px;box-shadow:0 10px 24px -10px color-mix(in srgb,var(--accent,#12946b) 70%, transparent)" style-hover="background:var(--accent-strong,#0f8a64)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l8 4-8 4-8-4 8-4zM4 12l8 4 8-4M4 16l8 4 8-4"/></svg>Gerar mapa de taxa variável</button>
+
+      <span style="position:absolute;left:50%;bottom:12px;transform:translateX(-50%);font-family:ui-monospace,monospace;font-size:10px;color:rgba(255,255,255,.55)">imagem de satélite · substituir por camada real</span>
+    </div>
+  </section>
+
+  <!-- PROGRESSO + DROPDOWN + MODAL -->
+  <section style="max-width:1080px;margin:0 auto;padding:40px 32px 56px;border-top:1px solid var(--border,#dbe1df)">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:var(--fg,#1a2320);margin:0 0 20px">Progresso, menu &amp; modal</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:18px">
+        <span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c);text-transform:uppercase;letter-spacing:0.05em">Progresso</span>
+        <div><div style="display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:12.5px;color:var(--muted,#64716c);margin-bottom:6px"><span>Sincronização</span><span>{{ st.slider }}%</span></div><div style="height:8px;background:var(--surface2,#e9edec);border-radius:999px;overflow:hidden"><div style="height:100%;background:var(--accent,#12946b);border-radius:999px;transition:width .2s;width: {{ progWidth }}"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:12.5px;color:var(--muted,#64716c);margin-bottom:6px"><span>Pulverização do dia</span><span>40%</span></div><div style="height:8px;background:var(--surface2,#e9edec);border-radius:999px;overflow:hidden"><div style="height:100%;background:var(--accent,#12946b);border-radius:999px;width:40%"></div></div></div>
+      </div>
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c);text-transform:uppercase;letter-spacing:0.05em">Dropdown</span>
+        <div style="position:relative;display:inline-block">
+          <button onClick="{{ toggleMenu }}" style="display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--fg,#1a2320);background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:10px;padding:10px 16px" style-hover="border-color:var(--accent,#12946b)">Ações <span style="font-size:10px;color:var(--muted,#64716c)">▼</span></button>
+          <sc-if value="{{ menu }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ closeMenu }}" style="position:fixed;inset:0;z-index:40"></div>
+            <div style="position:absolute;top:calc(100% + 6px);left:0;z-index:41;min-width:190px;background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:12px;box-shadow:0 20px 40px -20px rgba(0,0,0,.4);padding:6px">
+              <div style="font-family:'Inter',sans-serif;font-size:13.5px;color:var(--fg,#1a2320);padding:9px 11px;border-radius:8px;cursor:pointer" style-hover="background:var(--surface2,#e9edec)">Exportar relatório</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13.5px;color:var(--fg,#1a2320);padding:9px 11px;border-radius:8px;cursor:pointer" style-hover="background:var(--surface2,#e9edec)">Duplicar plano</div>
+              <div style="height:1px;background:var(--border,#dbe1df);margin:5px 4px"></div>
+              <div style="font-family:'Inter',sans-serif;font-size:13.5px;color:var(--err,#c8452f);padding:9px 11px;border-radius:8px;cursor:pointer" style-hover="background:var(--err-soft,#f9e7e2)">Remover talhão</div>
+            </div>
+          </sc-if>
+        </div>
+        <span style="font-family:'Inter',sans-serif;font-size:11.5px;color:var(--muted,#64716c)">Clique fora para fechar.</span>
+      </div>
+      <div style="background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:ui-monospace,monospace;font-size:11px;color:var(--muted,#64716c);text-transform:uppercase;letter-spacing:0.05em">Modal</span>
+        <button onClick="{{ openModal }}" style="cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--on-accent,#fff);background:var(--accent,#12946b);border:none;border-radius:10px;padding:11px 18px" style-hover="background:var(--accent-strong,#0f8a64)">Gerar plano de ação</button>
+        <span style="font-family:'Inter',sans-serif;font-size:11.5px;color:var(--muted,#64716c)">Abre um diálogo com formulário.</span>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ modal }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeModal }}" style="position:fixed;inset:0;background:rgba(6,12,10,.55);backdrop-filter:blur(2px);display:flex;align-items:center;justify-content:center;z-index:100;padding:20px">
+      <div onClick="{{ stopProp }}" style="width:100%;max-width:440px;background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:18px;box-shadow:0 40px 90px -30px rgba(0,0,0,.6);overflow:visible">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:22px 22px 0">
+          <div><h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:var(--fg,#1a2320);margin:0">Gerar plano de ação</h3><p style="font-family:'Inter',sans-serif;font-size:13px;color:var(--muted,#64716c);margin:5px 0 0">Talhão 04 · Milho</p></div>
+          <span onClick="{{ closeModal }}" style="cursor:pointer;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:8px;color:var(--muted,#64716c);font-size:18px" style-hover="background:var(--surface2,#e9edec)">×</span>
+        </div>
+        <div style="padding:18px 22px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--fg,#1a2320)">Objetivo</span>
+            <div style="position:relative">
+              <button onClick="{{ toggleObj }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--bg,#f1f3f2);border:1px solid var(--border,#dbe1df);color:var(--fg,#1a2320);border-radius:10px;padding:11px 12px;font-family:'Inter',sans-serif;font-size:14px;cursor:pointer" style-hover="border-color:var(--accent,#12946b)">{{ st.objVal }}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--muted,#64716c)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="{{ objChevron }}"><path d="M6 9l6 6 6-6"/></svg></button>
+              <sc-if value="{{ objOpen }}" hint-placeholder-val="{{ false }}">
+                <div onClick="{{ closeObj }}" style="position:fixed;inset:0;z-index:110"></div>
+                <div style="position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:111;background:var(--surface,#fff);border:1px solid var(--border,#dbe1df);border-radius:12px;box-shadow:0 20px 44px -20px rgba(0,0,0,.45);padding:6px">
+                  <div data-value="Máxima produtividade" onClick="{{ pickObj }}" style="font-family:'Inter',sans-serif;font-size:14px;color:var(--fg,#1a2320);padding:9px 11px;border-radius:8px;cursor:pointer" style-hover="background:var(--surface2,#e9edec)">Máxima produtividade</div>
+                  <div data-value="Custo mínimo" onClick="{{ pickObj }}" style="font-family:'Inter',sans-serif;font-size:14px;color:var(--fg,#1a2320);padding:9px 11px;border-radius:8px;cursor:pointer" style-hover="background:var(--surface2,#e9edec)">Custo mínimo</div>
+                  <div data-value="Equilíbrio" onClick="{{ pickObj }}" style="font-family:'Inter',sans-serif;font-size:14px;color:var(--fg,#1a2320);padding:9px 11px;border-radius:8px;cursor:pointer" style-hover="background:var(--surface2,#e9edec)">Equilíbrio</div>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+          <div onClick="{{ onModalChk }}" style="display:flex;align-items:center;gap:11px;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;color:var(--fg,#1a2320)"><span style="{{ modalChkBox }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="{{ modalChkMark }}"><path d="M5 12l4.5 4.5L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Considerar previsão de chuva (24h)</div>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:10px;padding:16px 22px;border-top:1px solid var(--border,#dbe1df);background:var(--bg,#f1f3f2);border-radius:0 0 18px 18px">
+          <button onClick="{{ closeModal }}" style="cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--fg,#1a2320);background:transparent;border:1px solid var(--border,#dbe1df);border-radius:10px;padding:10px 16px" style-hover="background:var(--surface2,#e9edec)">Cancelar</button>
+          <button onClick="{{ closeModal }}" style="cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:var(--on-accent,#fff);background:var(--accent,#12946b);border:none;border-radius:10px;padding:10px 16px" style-hover="background:var(--accent-strong,#0f8a64)">Gerar plano</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Tema&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:null,&quot;options&quot;:[&quot;#12946b&quot;,&quot;#0f857a&quot;,&quot;#c9a253&quot;,&quot;#bd6a48&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Tema&quot;}}">
+class Component extends DCLogic {
+  state = { theme:null, switchA:true, switchB:false, checks:{a:true,b:false,c:true}, radio:'padrao', slider:62, slider2:4, tab:'visao', seg:'mapa', sel:'Milho', selOpen:false, menu:false, modal:false, objVal:'Máxima produtividade', objOpen:false, modalChk:true, mapLayer:'ndvi', mapTal:'Talhão 04', mapTalOpen:false, zoom:12 };
+  themes = {
+    light: { bg:'#f1f3f2', surface:'#ffffff', surface2:'#e9edec', border:'#dbe1df', fg:'#1a2320', muted:'#64716c', accent:'#12946b', accentStrong:'#0f8a64', primarySoft:'#e2f2ec', onAccent:'#ffffff', ok:'#1a9e73', warn:'#c08a2c', err:'#c8452f', info:'#3f77b0', okSoft:'#e4f5ee', warnSoft:'#f7efdb', errSoft:'#f9e7e2', infoSoft:'#e6eef7' },
+    dark:  { bg:'#0c1210', surface:'#121a17', surface2:'#1b2723', border:'#263630', fg:'#eaf2ee', muted:'#8ba097', accent:'#2fcf9a', accentStrong:'#5be0b4', primarySoft:'#16332a', onAccent:'#0c1210', ok:'#35c98f', warn:'#d9b24e', err:'#e06a52', info:'#6aa3d9', okSoft:'#12271f', warnSoft:'#2a2415', errSoft:'#2c1a15', infoSoft:'#152230' }
+  };
+  renderVals() {
+    const mode = this.state.theme || (this.props.startTheme === 'dark' ? 'dark' : 'light');
+    const t = this.themes[mode] || this.themes.light;
+    const accent = this.props.accent || t.accent;
+    const vars = {
+      '--bg':t.bg,'--surface':t.surface,'--surface2':t.surface2,'--border':t.border,'--fg':t.fg,'--muted':t.muted,
+      '--accent':accent,'--accent-strong':t.accentStrong,'--primary-soft':t.primarySoft,'--on-accent':t.onAccent,
+      '--ok':t.ok,'--warn':t.warn,'--err':t.err,'--info':t.info,'--ok-soft':t.okSoft,'--warn-soft':t.warnSoft,'--err-soft':t.errSoft,'--info-soft':t.infoSoft
+    };
+    const rootStyle = Object.entries(vars).map(([k,v]) => `${k}:${v}`).join(';')
+      + ";background:var(--bg);color:var(--fg);min-height:100vh;font-family:'Inter',system-ui,sans-serif;transition:background .35s ease,color .35s ease";
+    const s = this.state;
+    const tabStyle = (on) => `padding:14px 2px;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;background:none;border:none;border-bottom:2px solid ${on?'var(--accent)':'transparent'};color:${on?'var(--fg)':'var(--muted)'}`;
+    const segStyle = (on) => `flex:1;text-align:center;padding:8px 10px;border-radius:8px;cursor:pointer;font-family:'Inter',sans-serif;font-size:13px;font-weight:${on?600:500};color:${on?'var(--fg)':'var(--muted)'};background:${on?'var(--surface)':'transparent'};${on?'box-shadow:0 1px 3px rgba(0,0,0,.12);':''}`;
+    const mapSeg = (on) => `padding:7px 13px;border-radius:8px;cursor:pointer;font-family:'Inter',sans-serif;font-size:12.5px;font-weight:${on?600:500};color:${on?'var(--on-accent)':'var(--fg)'};background:${on?'var(--accent)':'transparent'}`;
+    const chkBox = (on) => `width:20px;height:20px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s;border:2px solid ${on?'var(--accent)':'var(--border)'};background:${on?'var(--accent)':'transparent'}`;
+    const chkMark = (on) => `opacity:${on?1:0};transition:opacity .12s`;
+    const radBox = (on) => `width:20px;height:20px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s;border:2px solid ${on?'var(--accent)':'var(--border)'}`;
+    const radDot = (on) => `width:9px;height:9px;border-radius:50%;background:var(--accent);transition:all .15s;opacity:${on?1:0};transform:scale(${on?1:0.3})`;
+    const chevron = (open) => `transition:transform .2s;transform:rotate(${open?180:0}deg)`;
+    const set = (patch) => this.setState(patch);
+    return {
+      theme: mode, rootStyle,
+      toggleLabel: mode === 'dark' ? 'Modo claro' : 'Modo escuro',
+      toggleTheme: () => set(st => ({ theme: (st.theme || (this.props.startTheme === 'dark' ? 'dark':'light')) === 'dark' ? 'light':'dark' })),
+      st: s,
+      swABg: s.switchA ? 'var(--accent)' : 'var(--border)', swAKnob: s.switchA ? 'translateX(18px)' : 'translateX(0)',
+      swBBg: s.switchB ? 'var(--accent)' : 'var(--border)', swBKnob: s.switchB ? 'translateX(18px)' : 'translateX(0)',
+      chkABox: chkBox(s.checks.a), chkAMark: chkMark(s.checks.a), chkBBox: chkBox(s.checks.b), chkBMark: chkMark(s.checks.b), chkCBox: chkBox(s.checks.c), chkCMark: chkMark(s.checks.c),
+      radPadraoBox: radBox(s.radio==='padrao'), radPadraoDot: radDot(s.radio==='padrao'), radEcoBox: radBox(s.radio==='eco'), radEcoDot: radDot(s.radio==='eco'), radMaxBox: radBox(s.radio==='max'), radMaxDot: radDot(s.radio==='max'),
+      tabVisaoStyle: tabStyle(s.tab==='visao'), tabDadosStyle: tabStyle(s.tab==='dados'), tabAlertasStyle: tabStyle(s.tab==='alertas'),
+      isVisao: s.tab==='visao', isDados: s.tab==='dados', isAlertas: s.tab==='alertas',
+      segMapaStyle: segStyle(s.seg==='mapa'), segSateliteStyle: segStyle(s.seg==='satelite'), segSoloStyle: segStyle(s.seg==='solo'),
+      mapSatStyle: mapSeg(s.mapLayer==='satelite'), mapNdviStyle: mapSeg(s.mapLayer==='ndvi'), mapSoloStyle: mapSeg(s.mapLayer==='solo'),
+      selOpen: s.selOpen, selChevron: chevron(s.selOpen),
+      objOpen: s.objOpen, objChevron: chevron(s.objOpen),
+      mapTalOpen: s.mapTalOpen,
+      modalChkBox: chkBox(s.modalChk), modalChkMark: chkMark(s.modalChk),
+      progWidth: s.slider + '%',
+      menu: s.menu, modal: s.modal,
+      onSwitchA: () => set(st => ({ switchA: !st.switchA })),
+      onSwitchB: () => set(st => ({ switchB: !st.switchB })),
+      onCheckA: () => set(st => ({ checks: { ...st.checks, a: !st.checks.a } })),
+      onCheckB: () => set(st => ({ checks: { ...st.checks, b: !st.checks.b } })),
+      onCheckC: () => set(st => ({ checks: { ...st.checks, c: !st.checks.c } })),
+      onRadioA: () => set({ radio: 'padrao' }), onRadioB: () => set({ radio: 'eco' }), onRadioC: () => set({ radio: 'max' }),
+      onSlider: (e) => set({ slider: +e.target.value }), onSlider2: (e) => set({ slider2: +e.target.value }),
+      onTabVisao: () => set({ tab: 'visao' }), onTabDados: () => set({ tab: 'dados' }), onTabAlertas: () => set({ tab: 'alertas' }),
+      onSegMapa: () => set({ seg: 'mapa' }), onSegSatelite: () => set({ seg: 'satelite' }), onSegSolo: () => set({ seg: 'solo' }),
+      toggleSel: () => set(st => ({ selOpen: !st.selOpen })), closeSel: () => set({ selOpen: false }), pickSel: (e) => set({ sel: e.currentTarget.getAttribute('data-value'), selOpen: false }),
+      toggleObj: () => set(st => ({ objOpen: !st.objOpen })), closeObj: () => set({ objOpen: false }), pickObj: (e) => set({ objVal: e.currentTarget.getAttribute('data-value'), objOpen: false }),
+      onModalChk: () => set(st => ({ modalChk: !st.modalChk })),
+      onMapSat: () => set({ mapLayer: 'satelite' }), onMapNdvi: () => set({ mapLayer: 'ndvi' }), onMapSolo: () => set({ mapLayer: 'solo' }),
+      toggleMapTal: () => set(st => ({ mapTalOpen: !st.mapTalOpen })), closeMapTal: () => set({ mapTalOpen: false }), pickTal: (e) => set({ mapTal: e.currentTarget.getAttribute('data-value'), mapTalOpen: false }),
+      zoomIn: () => set(st => ({ zoom: Math.min(20, st.zoom + 1) })), zoomOut: () => set(st => ({ zoom: Math.max(4, st.zoom - 1) })),
+      toggleMenu: () => set(st => ({ menu: !st.menu })), closeMenu: () => set({ menu: false }),
+      openModal: () => set({ modal: true }), closeModal: () => set({ modal: false }),
+      stopProp: (e) => e.stopPropagation()
+    };
+  }
+}
+</script>
+</body>
+</html>
